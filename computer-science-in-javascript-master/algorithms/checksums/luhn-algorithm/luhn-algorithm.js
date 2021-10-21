@@ -1,4 +1,3 @@
-
 /**
  * Uses Luhn algorithm to validate a numeric identifier.
  * @param {String} identifier The identifier to validate.
