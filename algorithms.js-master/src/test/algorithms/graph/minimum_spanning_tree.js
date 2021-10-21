@@ -1,28 +1,28 @@
-const root = require('../../../');
+const root = require("../../../");
 const kruskal = root.Graph.kruskal;
 const prim = root.Graph.prim;
 const depthFirstSearch = root.Graph.depthFirstSearch;
 const Graph = root.DataStructures.Graph;
-const assert = require('assert');
+const assert = require("assert");
 
-describe('Minimum Spanning Tree', () => {
+describe("Minimum Spanning Tree", () => {
   /**
    * @param {Graph} graph - Undirected graph.
    * @return {number}
    */
-  const numberOfConnectedComponents = graph => {
+  const numberOfConnectedComponents = (graph) => {
     assert(!graph.directed);
     const seen = {};
-    const coverComponent = origin => {
+    const coverComponent = (origin) => {
       depthFirstSearch(graph, origin, {
-        enterVertex: function(vertex) {
+        enterVertex(vertex) {
           seen[vertex] = true;
-        }
+        },
       });
     };
 
     let count = 0;
-    graph.vertices.forEach(vertex => {
+    graph.vertices.forEach((vertex) => {
       if (!seen[vertex]) {
         coverComponent(vertex);
         count++;
@@ -44,10 +44,10 @@ describe('Minimum Spanning Tree', () => {
       return false;
     }
     let numberOfEdges = 0;
-    graph.vertices.forEach(vertex => {
+    graph.vertices.forEach((vertex) => {
       numberOfEdges += graph
         .neighbors(vertex)
-        .filter(neighbor => vertex <= neighbor).length;
+        .filter((neighbor) => vertex <= neighbor).length;
     });
     return graph.vertices.size === numberOfEdges + connectivity;
   };
@@ -63,7 +63,7 @@ describe('Minimum Spanning Tree', () => {
     let span;
     if (graph1.vertices.size === graph2.vertices.size) {
       span = true;
-      graph1.vertices.forEach(v => {
+      graph1.vertices.forEach((v) => {
         if (!graph2.vertices.contains(v)) {
           span = false;
         }
@@ -80,9 +80,9 @@ describe('Minimum Spanning Tree', () => {
    * @param {Graph} graph
    * @return {number}
    */
-  const graphCost = graph => {
+  const graphCost = (graph) => {
     let total = 0;
-    graph.vertices.forEach(vertex => {
+    graph.vertices.forEach((vertex) => {
       total += graph
         .neighbors(vertex)
         .reduce((accum, neighbor) => accum + graph.edge(vertex, neighbor), 0);
@@ -113,8 +113,8 @@ describe('Minimum Spanning Tree', () => {
     );
   };
 
-  const testMstAlgorithm = mst => {
-    it('finds a minimum spanning tree', () => {
+  const testMstAlgorithm = (mst) => {
+    it("finds a minimum spanning tree", () => {
       const graph = new Graph(false);
       graph.addEdge(1, 2, 1);
       graph.addEdge(1, 4, 2);
@@ -152,7 +152,7 @@ describe('Minimum Spanning Tree', () => {
       assert(isMinimumSpanningForest(mst(graph), graph, -100));
     });
 
-    it('finds a minimum spaning forest if the graph is not connected', () => {
+    it("finds a minimum spaning forest if the graph is not connected", () => {
       const graph = new Graph(false);
       graph.addVertex(1);
       graph.addVertex(2);
@@ -177,13 +177,13 @@ describe('Minimum Spanning Tree', () => {
       assert(isMinimumSpanningForest(mst(graph), graph, -200, 2));
     });
 
-    it('throws an error if the graph is directed', () => {
+    it("throws an error if the graph is directed", () => {
       const directedGraph = new Graph(true);
-      directedGraph.addEdge('Rock', 'Hard Place');
+      directedGraph.addEdge("Rock", "Hard Place");
       assert.throws(mst.bind(null, directedGraph));
     });
   };
 
-  describe('#Kruskal\'s Algorithm', testMstAlgorithm.bind(null, kruskal));
-  describe('#Prim\'s Algorithm', testMstAlgorithm.bind(null, prim));
+  describe("#Kruskal's Algorithm", testMstAlgorithm.bind(null, kruskal));
+  describe("#Prim's Algorithm", testMstAlgorithm.bind(null, prim));
 });

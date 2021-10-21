@@ -1,8 +1,8 @@
-import { Node } from './node';
+import { Node } from "./node";
 
 export enum Colors {
   RED = 0,
-  BLACK = 1
+  BLACK = 1,
 }
 
 export class RedBlackNode<K> extends Node<K> {

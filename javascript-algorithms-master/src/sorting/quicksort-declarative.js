@@ -1,6 +1,5 @@
 (function (exports) {
-
-  'use strict';
+  "use strict";
 
   function compare(a, b) {
     return a - b;
@@ -14,7 +13,6 @@
    * @return {array} Sorted array.
    */
   var quickSort = (function () {
-
     /**
      * Recursively calls itself.
      *
@@ -29,12 +27,17 @@
       const [x, ...rest] = array;
 
       return [
-        ...quicksort(rest.filter(v => cmp(v, x) < 0), cmp),
+        ...quicksort(
+          rest.filter((v) => cmp(v, x) < 0),
+          cmp
+        ),
         x,
-        ...quicksort(rest.filter(v => cmp(v, x) >= 0), cmp)
+        ...quicksort(
+          rest.filter((v) => cmp(v, x) >= 0),
+          cmp
+        ),
       ];
     }
-
 
     /**
      * Quicksort algorithm. In this version of quicksort used
@@ -60,9 +63,7 @@
       array = quicksort(array, cmp);
       return array;
     };
-
-  }());
+  })();
 
   exports.quickSort = quickSort;
-
-}(typeof exports === 'undefined' ? window : exports));
+})(typeof exports === "undefined" ? window : exports);

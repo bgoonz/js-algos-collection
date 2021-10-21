@@ -1,5 +1,5 @@
-const PriorityQueue = require('../../data_structures/priority_queue');
-const Graph = require('../../data_structures/graph');
+const PriorityQueue = require("../../data_structures/priority_queue");
+const Graph = require("../../data_structures/graph");
 
 /**
  * Prim's minimum spanning tree (forest) algorithm.
@@ -9,16 +9,16 @@ const Graph = require('../../data_structures/graph');
  * @return {Graph} Minimum spanning tree or forest
  *   (depending on whether input graph is connected itself).
  */
-const prim = graph => {
+const prim = (graph) => {
   if (graph.directed) {
-    throw new Error('Can\'t build MST of a directed graph.');
+    throw new Error("Can't build MST of a directed graph.");
   }
 
   const mst = new Graph(false);
   const parent = Object.create(null);
 
   const q = new PriorityQueue();
-  graph.vertices.forEach(vertex => {
+  graph.vertices.forEach((vertex) => {
     q.insert(vertex, Infinity);
   });
 

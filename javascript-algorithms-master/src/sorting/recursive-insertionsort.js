@@ -1,5 +1,5 @@
 (function (exports) {
-  'use strict';
+  "use strict";
 
   function compare(a, b) {
     return a - b;
@@ -34,8 +34,11 @@
       return array;
     }
     recursiveInsertionSort(array, cmp, max - 1);
-    for (var i = max - 1, current = array[max];
-        i >= 0 && cmp(current, array[i]) < 0; i -= 1) {
+    for (
+      var i = max - 1, current = array[max];
+      i >= 0 && cmp(current, array[i]) < 0;
+      i -= 1
+    ) {
       array[i + 1] = array[i];
     }
     array[i + 1] = current;
@@ -43,5 +46,4 @@
   }
 
   exports.recursiveInsertionSort = recursiveInsertionSort;
-
-})(typeof window === 'undefined' ? module.exports : window);
+})(typeof window === "undefined" ? module.exports : window);

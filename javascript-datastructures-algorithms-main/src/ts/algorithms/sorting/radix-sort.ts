@@ -1,4 +1,4 @@
-import { findMaxValue, findMinValue } from '../search/min-max-search';
+import { findMaxValue, findMinValue } from "../search/min-max-search";
 
 const countingSortForRadix = (
   array: number[],
@@ -15,7 +15,9 @@ const countingSortForRadix = (
   }
 
   for (let i = 0; i < array.length; i++) {
-    bucketsIndex = Math.floor(((array[i] - minValue) / significantDigit) % radixBase);
+    bucketsIndex = Math.floor(
+      ((array[i] - minValue) / significantDigit) % radixBase
+    );
     buckets[bucketsIndex]++;
   }
 
@@ -24,10 +26,11 @@ const countingSortForRadix = (
   }
 
   for (let i = array.length - 1; i >= 0; i--) {
-    bucketsIndex = Math.floor(((array[i] - minValue) / significantDigit) % radixBase);
+    bucketsIndex = Math.floor(
+      ((array[i] - minValue) / significantDigit) % radixBase
+    );
     aux[--buckets[bucketsIndex]] = array[i];
   }
-
 
   // array = [];
   // array.push(...aux);
@@ -39,7 +42,6 @@ const countingSortForRadix = (
 };
 
 export function radixSort(array: number[], radixBase = 10) {
-
   if (array.length < 2) {
     return array;
   }

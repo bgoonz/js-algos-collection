@@ -1,5 +1,4 @@
 export const sieveOfEratosthenes = (n: number) => {
-
   const sieve: boolean[] = [];
   const primes: number[] = [];
 

@@ -1,6 +1,6 @@
 class DoubleLinkedListNode {
   // Double Linked List Node built specifically for LFU Cache
-  constructor (key, val) {
+  constructor(key, val) {
     this.key = key
     this.val = val
     this.freq = 0
@@ -11,14 +11,14 @@ class DoubleLinkedListNode {
 
 class DoubleLinkedList {
   // Double Linked List built specifically for LFU Cache
-  constructor () {
+  constructor() {
     this.head = new DoubleLinkedListNode(null, null)
     this.rear = new DoubleLinkedListNode(null, null)
     this.head.next = this.rear
     this.rear.prev = this.head
   }
 
-  _positionNode (node) {
+  _positionNode(node) {
     // Helper function to position a node based on the frequency of the key
     while (node.prev.key && node.prev.freq > node.freq) {
       const node1 = node
@@ -30,7 +30,7 @@ class DoubleLinkedList {
     }
   }
 
-  add (node) {
+  add(node) {
     // Adds the given node to the end of the list (before rear) and positions it based on frequency
     const temp = this.rear.prev
     temp.next = node
@@ -40,7 +40,7 @@ class DoubleLinkedList {
     this._positionNode(node)
   }
 
-  remove (node) {
+  remove(node) {
     // Removes and returns the given node from the list
     const tempLast = node.prev
     const tempNext = node.next
@@ -58,7 +58,7 @@ class LFUCache {
   // The Double Linked List is used to store the order of deletion from the cache
   // The rear.prev holds the most frequently used key and the head.next holds the least used key
   // When the number of elements reaches the capacity, the least frequently used item is removed before adding the next key
-  constructor (capacity) {
+  constructor(capacity) {
     this.list = new DoubleLinkedList()
     this.capacity = capacity
     this.numKeys = 0
@@ -67,12 +67,12 @@ class LFUCache {
     this.cache = {}
   }
 
-  cacheInfo () {
+  cacheInfo() {
     // Return the details for the cache instance [hits, misses, capacity, current_size]
     return `CacheInfo(hits=${this.hits}, misses=${this.miss}, capacity=${this.capacity}, current size=${this.numKeys})`
   }
 
-  set (key, value) {
+  set(key, value) {
     // Sets the value for the input key and updates the Double Linked List
     if (!(key in this.cache)) {
       if (this.numKeys >= this.capacity) {
@@ -91,7 +91,7 @@ class LFUCache {
     }
   }
 
-  get (key) {
+  get(key) {
     // Returns the value for the input key and updates the Double Linked List. Returns null if key is not present in cache
     if (key in this.cache) {
       this.hits += 1

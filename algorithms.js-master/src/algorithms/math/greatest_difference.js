@@ -6,7 +6,7 @@
  * @returns {number}
  */
 
-const greatestDifference = numbers => {
+const greatestDifference = (numbers) => {
   let index = 0;
   let largest = numbers[0];
   const length = numbers.length;

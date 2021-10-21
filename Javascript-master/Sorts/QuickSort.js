@@ -1,9 +1,9 @@
 /**
-* Quick sort is a comparison sorting algorithm that uses a divide and conquer strategy.
-*
-* For more information see here: https://en.wikipedia.org/wiki/Quicksort
-*/
-export function quickSort (items) {
+ * Quick sort is a comparison sorting algorithm that uses a divide and conquer strategy.
+ *
+ * For more information see here: https://en.wikipedia.org/wiki/Quicksort
+ */
+export function quickSort(items) {
   const length = items.length
 
   if (length <= 1) {

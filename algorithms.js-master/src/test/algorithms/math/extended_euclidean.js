@@ -1,9 +1,9 @@
-const math = require('../../..').Math;
+const math = require("../../..").Math;
 const extEuclid = math.extendedEuclidean;
-const assert = require('assert');
+const assert = require("assert");
 
-describe('extEuclid', () => {
-  it('calculates the solve to Bézout\'s identity', () => {
+describe("extEuclid", () => {
+  it("calculates the solve to Bézout's identity", () => {
     let solve = extEuclid(1, 0);
     assert.equal(solve.x, 1);
     assert.equal(solve.y, 0);

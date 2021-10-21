@@ -1,9 +1,9 @@
-const root = require('../../..');
+const root = require("../../..");
 const BST = root.DataStructures.BST;
 const bfs = root.Search.bfs;
-const assert = require('assert');
+const assert = require("assert");
 
-describe('Breadth First Search', () => {
+describe("Breadth First Search", () => {
   const bst = new BST();
   /**
    *            4
@@ -22,9 +22,9 @@ describe('Breadth First Search', () => {
   bst.insert(100);
   bst.insert(2.5);
 
-  const callbackGenerator = a => n => a.push(n);
+  const callbackGenerator = (a) => (n) => a.push(n);
 
-  it('returns the items by level', () => {
+  it("returns the items by level", () => {
     const a = [];
     bfs(bst.root, callbackGenerator(a));
     assert.deepEqual(a, [4, 2, 8, 1, 3, 5, 10, 0, 2.5, 100]);

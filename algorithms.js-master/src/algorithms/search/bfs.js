@@ -1,4 +1,4 @@
-const Queue = require('../../data_structures/queue.js');
+const Queue = require("../../data_structures/queue.js");
 
 /**
  * Breadth-first search for binary trees

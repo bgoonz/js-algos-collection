@@ -1,12 +1,12 @@
-import Queue from '../../data-structures/queue';
+import Queue from "../../data-structures/queue";
 
 const Colors = {
   WHITE: 0,
   GREY: 1,
-  BLACK: 2
+  BLACK: 2,
 };
 
-const initializeColor = vertices => {
+const initializeColor = (vertices) => {
   const color = {};
   for (let i = 0; i < vertices.length; i++) {
     color[vertices[i]] = Colors.WHITE;
@@ -69,6 +69,6 @@ export const BFS = (graph, startVertex) => {
   }
   return {
     distances,
-    predecessors
+    predecessors,
   };
 };

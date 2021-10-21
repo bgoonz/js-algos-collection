@@ -1,6 +1,6 @@
-import { defaultEquals } from '../util';
-import LinkedList from './linked-list';
-import { DoublyNode } from './models/linked-list-models';
+import { defaultEquals } from "../util";
+import LinkedList from "./linked-list";
+import { DoublyNode } from "./models/linked-list-models";
 
 export default class DoublyLinkedList extends LinkedList {
   constructor(equalsFn = defaultEquals) {
@@ -27,7 +27,8 @@ export default class DoublyLinkedList extends LinkedList {
       const node = new DoublyNode(element);
       let current = this.head;
       if (index === 0) {
-        if (this.head == null) { // NEW
+        if (this.head == null) {
+          // NEW
           this.head = node;
           this.tail = node; // NEW
         } else {
@@ -35,7 +36,8 @@ export default class DoublyLinkedList extends LinkedList {
           this.head.prev = node; // NEW
           this.head = node;
         }
-      } else if (index === this.count) { // last item NEW
+      } else if (index === this.count) {
+        // last item NEW
         current = this.tail;
         current.next = node;
         node.prev = current;
@@ -112,7 +114,7 @@ export default class DoublyLinkedList extends LinkedList {
 
   toString() {
     if (this.head == null) {
-      return '';
+      return "";
     }
     let objString = `${this.head.element}`;
     let current = this.head.next;
@@ -125,7 +127,7 @@ export default class DoublyLinkedList extends LinkedList {
 
   inverseToString() {
     if (this.tail == null) {
-      return '';
+      return "";
     }
     let objString = `${this.tail.element}`;
     let previous = this.tail.prev;

@@ -35,7 +35,7 @@ const extEuclid = (a, b) => {
 
   return {
     x: oldS,
-    y: oldT
+    y: oldT,
   };
 };
 

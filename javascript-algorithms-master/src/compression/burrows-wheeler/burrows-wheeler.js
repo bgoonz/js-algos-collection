@@ -1,5 +1,5 @@
 (function (exports) {
-  'use strict';
+  "use strict";
 
   /**
    * Burrows Wheeler.
@@ -20,15 +20,13 @@
    *
    * @module compression/burrows-wheeler/burrows-wheeler
    */
-  exports.burrowsWheeler = function() {
-
-  }
+  exports.burrowsWheeler = function () {};
 
   /**
    * Consumes n^2 space.
    */
-  exports.burrowsWheeler.encode = function(str) {
-    str = '$' + str;
+  exports.burrowsWheeler.encode = function (str) {
+    str = "$" + str;
     var combinations = [];
     for (let i = 0; i < str.length; i += 1) {
       combinations.push(str.substring(i) + str.substring(0, i));
@@ -38,11 +36,11 @@
     for (let i = 0; i < sorted.length; i += 1) {
       result.push(combinations[i][str.length - 1]);
     }
-    return result.join('');
-  }
+    return result.join("");
+  };
 
-  exports.burrowsWheeler.decode = function(encodedStr) {
-    const sortedCharSequence = encodedStr.split('').sort().join('');
+  exports.burrowsWheeler.decode = function (encodedStr) {
+    const sortedCharSequence = encodedStr.split("").sort().join("");
     const leftSide = {};
     const rightSide = {};
     var maxEachCharLeft = {};
@@ -65,20 +63,19 @@
       }
       idRight += String(maxEachCharRight[idRight]);
 
-      leftSide[idLeft] = {char: sortedCharSequence[i], right: idRight};
-      rightSide[idRight] = {char: encodedStr[i], left: idRight};
+      leftSide[idLeft] = { char: sortedCharSequence[i], right: idRight };
+      rightSide[idRight] = { char: encodedStr[i], left: idRight };
     }
-    var result = '';
+    var result = "";
     var firstChar = sortedCharSequence[0];
-    var searchChar = firstChar + '1';
+    var searchChar = firstChar + "1";
     var endChar = searchChar;
     while (rightSide[leftSide[searchChar].right].left !== endChar) {
-      result     += leftSide[searchChar].char;
+      result += leftSide[searchChar].char;
       searchChar = rightSide[leftSide[searchChar].right].left;
     }
     result += leftSide[searchChar].char;
-    result = result.substring(1).split('').reverse().join('');
+    result = result.substring(1).split("").reverse().join("");
     return result;
-  }
-
-}(typeof exports === 'undefined' ? window : exports));
+  };
+})(typeof exports === "undefined" ? window : exports);

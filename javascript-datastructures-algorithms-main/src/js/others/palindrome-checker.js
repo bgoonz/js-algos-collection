@@ -1,15 +1,15 @@
-import Deque from '../data-structures/deque';
+import Deque from "../data-structures/deque";
 
 export function palindromeChecker(aString) {
   if (
-    aString === undefined
-    || aString === null
-    || (aString !== null && aString.length === 0)
+    aString === undefined ||
+    aString === null ||
+    (aString !== null && aString.length === 0)
   ) {
     return false;
   }
   const deque = new Deque();
-  const lowerString = aString.toLocaleLowerCase().split(' ').join('');
+  const lowerString = aString.toLocaleLowerCase().split(" ").join("");
   let firstChar;
   let lastChar;
 

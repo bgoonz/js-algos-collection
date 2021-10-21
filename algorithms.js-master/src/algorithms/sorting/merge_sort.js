@@ -1,4 +1,4 @@
-const Comparator = require('../../util/comparator');
+const Comparator = require("../../util/comparator");
 
 const merge = (a, b, comparator) => {
   let i = 0;

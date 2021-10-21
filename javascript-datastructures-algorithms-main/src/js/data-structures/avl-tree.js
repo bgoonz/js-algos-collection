@@ -1,13 +1,13 @@
-import { Compare, defaultCompare } from '../util';
-import BinarySearchTree from './binary-search-tree';
-import { Node } from './models/node';
+import { Compare, defaultCompare } from "../util";
+import BinarySearchTree from "./binary-search-tree";
+import { Node } from "./models/node";
 
 const BalanceFactor = {
   UNBALANCED_RIGHT: 1,
   SLIGHTLY_UNBALANCED_RIGHT: 2,
   BALANCED: 3,
   SLIGHTLY_UNBALANCED_LEFT: 4,
-  UNBALANCED_LEFT: 5
+  UNBALANCED_LEFT: 5,
 };
 
 export default class AVLTree extends BinarySearchTree {
@@ -21,7 +21,10 @@ export default class AVLTree extends BinarySearchTree {
     if (node == null) {
       return -1;
     }
-    return Math.max(this.getNodeHeight(node.left), this.getNodeHeight(node.right)) + 1;
+    return (
+      Math.max(this.getNodeHeight(node.left), this.getNodeHeight(node.right)) +
+      1
+    );
   }
 
   /**
@@ -79,7 +82,8 @@ export default class AVLTree extends BinarySearchTree {
   }
 
   getBalanceFactor(node) {
-    const heightDifference = this.getNodeHeight(node.left) - this.getNodeHeight(node.right);
+    const heightDifference =
+      this.getNodeHeight(node.left) - this.getNodeHeight(node.right);
     switch (heightDifference) {
       case -2:
         return BalanceFactor.UNBALANCED_RIGHT;
@@ -101,7 +105,8 @@ export default class AVLTree extends BinarySearchTree {
   insertNode(node, key) {
     if (node == null) {
       return new Node(key);
-    } if (this.compareFn(key, node.key) === Compare.LESS_THAN) {
+    }
+    if (this.compareFn(key, node.key) === Compare.LESS_THAN) {
       node.left = this.insertNode(node.left, key);
     } else if (this.compareFn(key, node.key) === Compare.BIGGER_THAN) {
       node.right = this.insertNode(node.right, key);
@@ -141,26 +146,34 @@ export default class AVLTree extends BinarySearchTree {
     if (balanceFactor === BalanceFactor.UNBALANCED_LEFT) {
       // Left left case
       if (
-        this.getBalanceFactor(node.left) === BalanceFactor.BALANCED
-        || this.getBalanceFactor(node.left) === BalanceFactor.SLIGHTLY_UNBALANCED_LEFT
+        this.getBalanceFactor(node.left) === BalanceFactor.BALANCED ||
+        this.getBalanceFactor(node.left) ===
+          BalanceFactor.SLIGHTLY_UNBALANCED_LEFT
       ) {
         return this.rotationLL(node);
       }
       // Left right case
-      if (this.getBalanceFactor(node.left) === BalanceFactor.SLIGHTLY_UNBALANCED_RIGHT) {
+      if (
+        this.getBalanceFactor(node.left) ===
+        BalanceFactor.SLIGHTLY_UNBALANCED_RIGHT
+      ) {
         return this.rotationLR(node.left);
       }
     }
     if (balanceFactor === BalanceFactor.UNBALANCED_RIGHT) {
       // Right right case
       if (
-        this.getBalanceFactor(node.right) === BalanceFactor.BALANCED
-        || this.getBalanceFactor(node.right) === BalanceFactor.SLIGHTLY_UNBALANCED_RIGHT
+        this.getBalanceFactor(node.right) === BalanceFactor.BALANCED ||
+        this.getBalanceFactor(node.right) ===
+          BalanceFactor.SLIGHTLY_UNBALANCED_RIGHT
       ) {
         return this.rotationRR(node);
       }
       // Right left case
-      if (this.getBalanceFactor(node.right) === BalanceFactor.SLIGHTLY_UNBALANCED_LEFT) {
+      if (
+        this.getBalanceFactor(node.right) ===
+        BalanceFactor.SLIGHTLY_UNBALANCED_LEFT
+      ) {
         return this.rotationRL(node.right);
       }
     }

@@ -1,5 +1,5 @@
 (function (exports) {
-  'use strict';
+  "use strict";
 
   /**
    * Tarjan's algorithm for finding the connected components in a graph.<br><br>
@@ -60,16 +60,14 @@
       }
     };
 
-    Object.keys(graph)
-      .forEach(function (n) {
-        if (!indexes[n]) {
-          connectedComponent(n);
-        }
-      });
+    Object.keys(graph).forEach(function (n) {
+      if (!indexes[n]) {
+        connectedComponent(n);
+      }
+    });
 
     return result;
   }
 
   exports.tarjanConnectedComponents = tarjanConnectedComponents;
-
-}(typeof exports === 'undefined' ? window : exports));
+})(typeof exports === "undefined" ? window : exports);

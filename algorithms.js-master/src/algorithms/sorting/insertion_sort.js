@@ -1,4 +1,4 @@
-const Comparator = require('../../util/comparator');
+const Comparator = require("../../util/comparator");
 
 /**
  * Insertion sort algorithm O(n + d)

@@ -1,8 +1,7 @@
 (function (exports) {
-  'use strict';
+  "use strict";
 
   var dfs = (function () {
-
     function hasPath(graph, current, goal) {
       var stack = [];
       var visited = [];
@@ -49,8 +48,7 @@
     return function (graph, start, goal) {
       return hasPath(graph, start, goal);
     };
-  }());
+  })();
 
   exports.dfs = dfs;
-
-}(typeof exports === 'undefined' ? window : exports));
+})(typeof exports === "undefined" ? window : exports);

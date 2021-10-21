@@ -20,7 +20,7 @@
  * @module data-structures/splay-tree
  */
 (function (exports) {
-  'use strict';
+  "use strict";
 
   /**
    * Node of the tree.
@@ -63,7 +63,7 @@
   exports.SplayTree.prototype._splay = function (node) {
     while (this._root !== node) {
       var hasParent = node._parent !== null;
-      var hasGrandparent = (hasParent && node._parent._parent !== null);
+      var hasGrandparent = hasParent && node._parent._parent !== null;
       if (hasParent && hasGrandparent) {
         var isLeftChild = node._parent._left === node;
         var isParentLeftChild = node._parent._parent._left === node._parent;
@@ -91,16 +91,17 @@
    * @returns {Node} The same node from the parameter, post splayed.
    */
   exports.SplayTree.prototype._zigZig = function (node) {
-
     var parent = node._parent;
     var grandParent = node._parent._parent;
-    var greatGrandParent = grandParent._parent !== undefined ?
-      grandParent._parent : null;
+    var greatGrandParent =
+      grandParent._parent !== undefined ? grandParent._parent : null;
 
-    var orientation = (parent._right === node) ? '_right' : '_left';
-    var oppositeOrientation = (orientation === '_left') ? '_right' : '_left';
-    var grandParentOrientation = (greatGrandParent !== null &&
-      greatGrandParent._left === grandParent) ? '_left' : '_right';
+    var orientation = parent._right === node ? "_right" : "_left";
+    var oppositeOrientation = orientation === "_left" ? "_right" : "_left";
+    var grandParentOrientation =
+      greatGrandParent !== null && greatGrandParent._left === grandParent
+        ? "_left"
+        : "_right";
 
     // Fix grandparent & great if it exists/not root
     if (this._root === grandParent) {
@@ -141,16 +142,17 @@
    * @returns {Node} The same node from the parameter, post splayed.
    */
   exports.SplayTree.prototype._zigZag = function (node) {
-
     var parent = node._parent;
     var grandParent = parent._parent;
-    var greatGrandParent = grandParent._parent !== undefined ?
-      grandParent._parent : null;
+    var greatGrandParent =
+      grandParent._parent !== undefined ? grandParent._parent : null;
 
-    var orientation = (parent._left === node) ? '_left' : '_right';
-    var oppositeOrientation = (orientation === '_right') ? '_left' : '_right';
-    var grandParentOrientation = (greatGrandParent !== null &&
-      greatGrandParent._left === grandParent) ? '_left' : '_right';
+    var orientation = parent._left === node ? "_left" : "_right";
+    var oppositeOrientation = orientation === "_right" ? "_left" : "_right";
+    var grandParentOrientation =
+      greatGrandParent !== null && greatGrandParent._left === grandParent
+        ? "_left"
+        : "_right";
 
     // Fix GrandParent
     if (this._root === grandParent) {
@@ -191,10 +193,9 @@
    * @returns {Node} The same node from the parameter, post splayed.
    */
   exports.SplayTree.prototype._zig = function (node) {
-
     var parent = node._parent;
-    var orientation = (parent._right === node) ? '_right' : '_left';
-    var oppositeOrientation = (orientation === '_right') ? '_left' : '_right';
+    var orientation = parent._right === node ? "_right" : "_left";
+    var oppositeOrientation = orientation === "_right" ? "_left" : "_right";
 
     if (this._root === parent) {
       this._root = node;
@@ -230,9 +231,9 @@
     var insertKey;
     current = current || this._root;
     if (current.value > value) {
-      insertKey = '_left';
+      insertKey = "_left";
     } else {
-      insertKey = '_right';
+      insertKey = "_right";
     }
     if (!current[insertKey]) {
       current[insertKey] = new exports.Node(value, null, null, current);
@@ -255,7 +256,7 @@
       return;
     }
     this._inorder(current._left, callback);
-    if (typeof callback === 'function') {
+    if (typeof callback === "function") {
       callback(current);
     }
     this._inorder(current._right, callback);
@@ -285,7 +286,7 @@
     if (!current) {
       return;
     }
-    if (typeof callback === 'function') {
+    if (typeof callback === "function") {
       callback(current);
     }
     this._postorder(current._left, callback);
@@ -315,7 +316,7 @@
     if (!current) {
       return;
     }
-    if (typeof callback === 'function') {
+    if (typeof callback === "function") {
       callback(current);
     }
     this._preorder(current._left, callback);
@@ -390,23 +391,26 @@
    * @param {Node} oldChild Child to be replaced.
    * @param {Node} newChild Child replacement.
    */
-  exports.SplayTree.prototype._replaceChild =
-    function (parent, oldChild, newChild) {
-      if (!parent) {
-        this._root = newChild;
-        this._root._parent = null;
+  exports.SplayTree.prototype._replaceChild = function (
+    parent,
+    oldChild,
+    newChild
+  ) {
+    if (!parent) {
+      this._root = newChild;
+      this._root._parent = null;
+    } else {
+      if (parent._left === oldChild) {
+        parent._left = newChild;
       } else {
-        if (parent._left === oldChild) {
-          parent._left = newChild;
-        } else {
-          parent._right = newChild;
-        }
-
-        if (newChild) {
-          newChild._parent = parent;
-        }
+        parent._right = newChild;
       }
-    };
+
+      if (newChild) {
+        newChild._parent = parent;
+      }
+    }
+  };
 
   /**
    * Removes node with given value from the tree. <br><br>
@@ -456,7 +460,7 @@
    */
   exports.SplayTree.prototype._findMin = function (node, current) {
     current = current || {
-      value: Infinity
+      value: Infinity,
     };
     if (!node) {
       return current;
@@ -471,10 +475,13 @@
     if (!current) {
       return true;
     }
-    return this._isBalanced(current._left) &&
+    return (
+      this._isBalanced(current._left) &&
       this._isBalanced(current._right) &&
-      Math.abs(this._getHeight(current._left) -
-        this._getHeight(current._right)) <= 1;
+      Math.abs(
+        this._getHeight(current._left) - this._getHeight(current._right)
+      ) <= 1
+    );
   };
 
   /**
@@ -527,8 +534,9 @@
     if (!node) {
       return 0;
     }
-    return 1 + Math.max(this._getHeight(node._left),
-      this._getHeight(node._right));
+    return (
+      1 + Math.max(this._getHeight(node._left), this._getHeight(node._right))
+    );
   };
 
   /**
@@ -537,10 +545,12 @@
    * @public
    * @returns {Node} The lowest common ancestor of the two nodes or null.
    */
-  exports.SplayTree.prototype.lowestCommonAncestor =
-    function (firstNode, secondNode) {
-      return this._lowestCommonAncestor(firstNode, secondNode, this._root);
-    };
+  exports.SplayTree.prototype.lowestCommonAncestor = function (
+    firstNode,
+    secondNode
+  ) {
+    return this._lowestCommonAncestor(firstNode, secondNode, this._root);
+  };
 
   /**
    * Obtains the lowest common ancestor for the given nodes.
@@ -553,25 +563,29 @@
    * @param {Node} current Current node.
    * @returns {Node} The lowest common ancestor of the two nodes or null.
    */
-  exports.SplayTree.prototype._lowestCommonAncestor =
-    function (firstNode, secondNode, current) {
-      var firstNodeInLeft = this._existsInSubtree(firstNode, current._left);
-      var secondNodeInLeft = this._existsInSubtree(secondNode, current._left);
-      var firstNodeInRight = this._existsInSubtree(firstNode, current._right);
-      var secondNodeInRight = this._existsInSubtree(secondNode, current._right);
-      if ((firstNodeInLeft && secondNodeInRight) ||
-        (firstNodeInRight && secondNodeInLeft)) {
-        return current;
-      }
-      if (secondNodeInLeft && firstNodeInLeft) {
-        return this._lowestCommonAncestor(firstNode, secondNode, current._left);
-      }
-      if (secondNodeInRight && secondNodeInLeft) {
-        return this._lowestCommonAncestor(firstNode, secondNode,
-          current._right);
-      }
-      return null;
-    };
+  exports.SplayTree.prototype._lowestCommonAncestor = function (
+    firstNode,
+    secondNode,
+    current
+  ) {
+    var firstNodeInLeft = this._existsInSubtree(firstNode, current._left);
+    var secondNodeInLeft = this._existsInSubtree(secondNode, current._left);
+    var firstNodeInRight = this._existsInSubtree(firstNode, current._right);
+    var secondNodeInRight = this._existsInSubtree(secondNode, current._right);
+    if (
+      (firstNodeInLeft && secondNodeInRight) ||
+      (firstNodeInRight && secondNodeInLeft)
+    ) {
+      return current;
+    }
+    if (secondNodeInLeft && firstNodeInLeft) {
+      return this._lowestCommonAncestor(firstNode, secondNode, current._left);
+    }
+    if (secondNodeInRight && secondNodeInLeft) {
+      return this._lowestCommonAncestor(firstNode, secondNode, current._right);
+    }
+    return null;
+  };
 
   /**
    * Checks if a given node exists in a subtree.
@@ -588,8 +602,9 @@
     if (node === root.value) {
       return true;
     }
-    return this._existsInSubtree(node, root._left) ||
-      this._existsInSubtree(node, root._right);
+    return (
+      this._existsInSubtree(node, root._left) ||
+      this._existsInSubtree(node, root._right)
+    );
   };
-
-})(typeof window === 'undefined' ? module.exports : window);
+})(typeof window === "undefined" ? module.exports : window);

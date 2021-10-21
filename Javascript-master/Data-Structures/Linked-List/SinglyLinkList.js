@@ -1,17 +1,17 @@
 /* SinglyLinkedList!!
-* A linked list is implar to an array, it hold values.
-* However, links in a linked list do not have indexes. With
-* a linked list you do not need to predetermine it's size as
-* it grows and shrinks as it is edited. This is an example of
-* a singly linked list.
-*/
+ * A linked list is implar to an array, it hold values.
+ * However, links in a linked list do not have indexes. With
+ * a linked list you do not need to predetermine it's size as
+ * it grows and shrinks as it is edited. This is an example of
+ * a singly linked list.
+ */
 
 // Functions - add, remove, indexOf, elementAt, addAt, removeAt, view
 
 // class LinkedList and constructor
 // Creates a LinkedList
 const LinkedList = (function () {
-  function LinkedList () {
+  function LinkedList() {
     // Length of linklist and head is null at start
     this.length = 0
     this.head = null
@@ -20,12 +20,12 @@ const LinkedList = (function () {
   // class node (constructor)
   // Creating Node with element's value
   const Node = (function () {
-    function Node (element) {
+    function Node(element) {
       this.element = element
       this.next = null
     }
     return Node
-  }())
+  })()
 
   // Returns length
   LinkedList.prototype.size = function () {
@@ -180,7 +180,9 @@ const LinkedList = (function () {
   }
 
   // Function to view the LinkedList
-  LinkedList.prototype.view = function (output = value => console.log(value)) {
+  LinkedList.prototype.view = function (
+    output = (value) => console.log(value)
+  ) {
     let currentNode = this.head
     let count = 0
     while (count < this.length) {
@@ -192,6 +194,6 @@ const LinkedList = (function () {
 
   // returns the constructor
   return LinkedList
-}())
+})()
 
 export { LinkedList }

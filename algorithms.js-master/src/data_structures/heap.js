@@ -1,4 +1,4 @@
-const Comparator = require('../util/comparator');
+const Comparator = require("../util/comparator");
 
 /**
  * Basic Heap structure
@@ -8,8 +8,8 @@ class MinHeap {
     this._elements = [null];
     this._comparator = new Comparator(compareFn);
 
-    Object.defineProperty(this, 'n', {
-      get: () => this._elements.length - 1
+    Object.defineProperty(this, "n", {
+      get: () => this._elements.length - 1,
     });
   }
 
@@ -128,5 +128,5 @@ class MaxHeap extends MinHeap {
 
 module.exports = {
   MinHeap,
-  MaxHeap
+  MaxHeap,
 };

@@ -1,5 +1,5 @@
 (function (exports) {
-  'use strict';
+  "use strict";
 
   /**
    * Draws (prints) the given coordinates
@@ -23,8 +23,8 @@
     var drawPointStrategy = draw || drawPoint;
     var dx = Math.abs(x2 - x1);
     var dy = Math.abs(y2 - y1);
-    var cx = (x1 < x2) ? 1 : -1;
-    var cy = (y1 < y2) ? 1 : -1;
+    var cx = x1 < x2 ? 1 : -1;
+    var cy = y1 < y2 ? 1 : -1;
     var error = dx - dy;
     var doubledError;
 
@@ -43,5 +43,4 @@
   }
 
   exports.drawLine = drawLine;
-
-}(typeof exports === 'undefined' ? window : exports));
+})(typeof exports === "undefined" ? window : exports);

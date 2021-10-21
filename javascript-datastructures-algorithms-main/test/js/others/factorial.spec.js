@@ -1,9 +1,12 @@
-import 'mocha';
-import { expect } from 'chai';
-import { factorialIterative, factorial } from '../../../src/js/others/factorial';
+import "mocha";
+import { expect } from "chai";
+import {
+  factorialIterative,
+  factorial,
+} from "../../../src/js/others/factorial";
 
-describe('Factorial', () => {
-  it('Iterative Factorial', () => {
+describe("Factorial", () => {
+  it("Iterative Factorial", () => {
     expect(factorialIterative(-1)).to.equal(undefined);
     expect(factorialIterative(0)).to.equal(1);
     expect(factorialIterative(1)).to.equal(1);
@@ -13,7 +16,7 @@ describe('Factorial', () => {
     expect(factorialIterative(5)).to.equal(120);
   });
 
-  it('Recursive Factorial', () => {
+  it("Recursive Factorial", () => {
     expect(factorial(-1)).to.equal(undefined);
     expect(factorial(0)).to.equal(1);
     expect(factorial(1)).to.equal(1);

@@ -1,5 +1,5 @@
 (function (exports) {
-  'use strict';
+  "use strict";
 
   /**
    * Returns the n-th smallest element of list within
@@ -49,8 +49,12 @@
       return arr[lo];
     }
     while (hi >= lo) {
-      var pivotIdx =
-      partition(arr, lo, hi, lo + Math.floor(Math.random() * (hi - lo + 1)));
+      var pivotIdx = partition(
+        arr,
+        lo,
+        hi,
+        lo + Math.floor(Math.random() * (hi - lo + 1))
+      );
       if (n === pivotIdx) {
         return arr[pivotIdx];
       }
@@ -63,5 +67,4 @@
     return undefined;
   }
   exports.quickselect = quickselect;
-
-})(typeof window === 'undefined' ? module.exports : window);
+})(typeof window === "undefined" ? module.exports : window);

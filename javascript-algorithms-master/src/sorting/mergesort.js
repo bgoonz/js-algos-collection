@@ -2,9 +2,9 @@
   /**
    * Mergesort module.
    */
-  'use strict';
+  "use strict";
 
-  var ll = require('../data-structures/linked-list.js');
+  var ll = require("../data-structures/linked-list.js");
 
   function compare(a, b) {
     return a - b;
@@ -99,5 +99,4 @@
   };
 
   exports.mergeSort = mergeSort;
-
-}(typeof exports === 'undefined' ? window : exports));
+})(typeof exports === "undefined" ? window : exports);

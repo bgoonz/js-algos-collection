@@ -2,7 +2,7 @@ export function minCoinChange(coins: number[], amount: number) {
   const cache: Array<Array<number>> = [];
 
   // tslint:disable-next-line:no-shadowed-variable
-  const makeChange = function(amount: number) {
+  const makeChange = function (amount: number) {
     if (!amount) {
       return [];
     }

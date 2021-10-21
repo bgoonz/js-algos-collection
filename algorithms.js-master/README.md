@@ -9,12 +9,12 @@
 
 ![](http://www.quickmeme.com/img/8d/8d30a19413145512ad5a05c46ec0da545df5ed79e113fcf076dc03c7514eb631.jpg)
 
-
 ## Atwood's Law applied to CS101.
 
 Classic algorithms and data structures implemented in JavaScript, you know... FOR SCIENCE.
 
 ### Installing
+
 ```
 npm install --save algorithms
 ```
@@ -24,132 +24,136 @@ npm install --save algorithms
 #### Data Structures
 
 ```javascript
-require('algorithms/data_structures');
+require("algorithms/data_structures");
 // or
-require('algorithms').DataStructures;
+require("algorithms").DataStructures;
 ```
-* AVLTree
-* BST
-* DisjointSetForest
-* FenwickTree
-* Graph
-* HashTable
-* Heap
+
+- AVLTree
+- BST
+- DisjointSetForest
+- FenwickTree
+- Graph
+- HashTable
+- Heap
   - MaxHeap
   - MinHeap
-* LinkedList
-* PriorityQueue
-* Queue
-* Set (HashSet)
-* Stack
-* Treap
+- LinkedList
+- PriorityQueue
+- Queue
+- Set (HashSet)
+- Stack
+- Treap
 
 #### Geometry algorithms
 
 ```javascript
-require('algorithms/geometry');
+require("algorithms/geometry");
 // or
-require('algorithms').Geometry;
+require("algorithms").Geometry;
 ```
 
-* BezierCurve
+- BezierCurve
 
 #### Graph algorithms
 
 ```javascript
-require('algorithms/graph');
+require("algorithms/graph");
 // or
-require('algorithms').Graph;
+require("algorithms").Graph;
 ```
 
-* breadthFirstSearch
-* depthFirstSearch
-* eulerPath
-* topologicalSort
+- breadthFirstSearch
+- depthFirstSearch
+- eulerPath
+- topologicalSort
 
 ##### Shortest path
-* bellmanFord
-* bfsShortestPath
-* dijkstra
-* floydWarshall
-* SPFA (Shortest Path Faster Algorithm)
+
+- bellmanFord
+- bfsShortestPath
+- dijkstra
+- floydWarshall
+- SPFA (Shortest Path Faster Algorithm)
 
 ##### Minimum spanning tree
-* prim
-* kruskal
+
+- prim
+- kruskal
 
 #### Math algorithms
 
 ```javascript
-require('algorithms/math');
+require("algorithms/math");
 // or
-require('algorithms').Math;
+require("algorithms").Math;
 ```
-* collatzConjecture
-* extendedEuclidean
-* fastPower
-* fibonacci
-* findDivisors
-* fisherYates
-* gcd (Greatest common divisor)
-* greatestDifference
-* lcm (Least common multiple)
-* newtonSqrt
-* nextPermutation
-* powerSet
-* reservoirSampling
-* shannonEntropy
+
+- collatzConjecture
+- extendedEuclidean
+- fastPower
+- fibonacci
+- findDivisors
+- fisherYates
+- gcd (Greatest common divisor)
+- greatestDifference
+- lcm (Least common multiple)
+- newtonSqrt
+- nextPermutation
+- powerSet
+- reservoirSampling
+- shannonEntropy
 
 #### Search algorithms
 
 ```javascript
-require('algorithms/search');
+require("algorithms/search");
 // or
-require('algorithms').Search;
+require("algorithms").Search;
 ```
 
-* bfs (breadth-first search for binary trees)
-* binarySearch
-* dfs (depth-first search for binary trees)
- * inOrder (default)
- * postOrder
- * preOrder
+- bfs (breadth-first search for binary trees)
+- binarySearch
+- dfs (depth-first search for binary trees)
+- inOrder (default)
+- postOrder
+- preOrder
 
 #### Sorting algorithms
 
 ```javascript
-require('algorithms/sorting');
+require("algorithms/sorting");
 // or
-require('algorithms').Sorting;
+require("algorithms").Sorting;
 ```
 
-* bubbleSort
-* countingSort
-* heapSort
-* insertionSort
-* quicksort
-* radixSort
-* selectionSort
-* shellSort
-* shortBubbleSort
+- bubbleSort
+- countingSort
+- heapSort
+- insertionSort
+- quicksort
+- radixSort
+- selectionSort
+- shellSort
+- shortBubbleSort
 
 #### String algorithms
 
 ```javascript
-require('algorithms/string');
+require("algorithms/string");
 // or
-require('algorithms').String;
+require("algorithms").String;
 ```
 
-* hamming
-* huffman
- * decode
- * encode
-* knuthMorrisPratt
-* levenshtein
-* longestCommonSubsequence
-* longestCommonSubstring
-* rabinKarp
+- hamming
+- huffman
+- decode
+- encode
+- knuthMorrisPratt
+- levenshtein
+- longestCommonSubsequence
+- longestCommonSubstring
+- rabinKarp
 
 ### Contributing
 

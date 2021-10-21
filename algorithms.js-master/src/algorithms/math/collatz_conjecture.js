@@ -1,5 +1,5 @@
 // cache algorithm results
-const cache = {1: 1};
+const cache = { 1: 1 };
 
 /**
  * Collatz Conjecture algorithm
@@ -36,5 +36,5 @@ function generateCollatzConjecture(number) {
 // export Collatz Conjecture methods
 module.exports = {
   generate: generateCollatzConjecture,
-  calculate: calculateCollatzConjecture
+  calculate: calculateCollatzConjecture,
 };

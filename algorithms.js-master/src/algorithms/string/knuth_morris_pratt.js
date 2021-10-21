@@ -8,7 +8,7 @@
  *     or {String}
  * @return {Array} of Integers
  */
-const buildTable = pattern => {
+const buildTable = (pattern) => {
   const length = pattern.length;
   const table = [];
   let position = 2;

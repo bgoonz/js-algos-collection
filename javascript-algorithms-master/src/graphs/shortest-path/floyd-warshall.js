@@ -1,8 +1,7 @@
 (function (exports) {
-  'use strict';
+  "use strict";
 
   var floydWarshall = (function () {
-
     /**
      * Matrix used for the algorithm.
      */
@@ -77,8 +76,7 @@
       }
       return dist;
     };
-  }());
+  })();
 
   exports.floydWarshall = floydWarshall;
-
-})(typeof window === 'undefined' ? module.exports : window);
+})(typeof window === "undefined" ? module.exports : window);

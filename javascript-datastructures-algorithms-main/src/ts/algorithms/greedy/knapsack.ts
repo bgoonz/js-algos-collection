@@ -1,4 +1,8 @@
-export function knapSack(capacity: number, weights: number[], values: number[]) {
+export function knapSack(
+  capacity: number,
+  weights: number[],
+  values: number[]
+) {
   const n = values.length;
   let load = 0;
   let val = 0;

@@ -1,5 +1,5 @@
 (function (exports) {
-  'use strict';
+  "use strict";
 
   function Node(val) {
     this.value = val;
@@ -11,17 +11,16 @@
   }
 
   SuffixTree.prototype.addNode = (function () {
-
     function maxPrefix(a, b) {
       var res = [];
       for (var i = 0; i < Math.min(a.length, b.length); i += 1) {
         if (a[i] === b[i]) {
           res.push(a[i]);
         } else {
-          return '';
+          return "";
         }
       }
-      return res.join('');
+      return res.join("");
     }
 
     function addNode(suffix, current) {
@@ -35,8 +34,10 @@
       }
       // Insert recursively
       if (current.nodes[suffix[0]]) {
-        return addNode(suffix.substr(1, suffix.length),
-        current.nodes[suffix[0]]);
+        return addNode(
+          suffix.substr(1, suffix.length),
+          current.nodes[suffix[0]]
+        );
       }
       // Find the maximum prefix and split the current node if prefix exists
       var prefix = maxPrefix(current.value, suffix);
@@ -47,7 +48,7 @@
         current.value = prefix;
         addNode(currentSuffix, current);
         addNode(suffixSuffix, current);
-      // If prefix doesn't exists add new child node
+        // If prefix doesn't exists add new child node
       } else {
         current.nodes[suffix[0]] = new Node(suffix);
       }
@@ -56,7 +57,7 @@
     return function (suffix) {
       addNode(suffix, this.root);
     };
-  }());
+  })();
 
   // O(n^2) or even O(n^3) because of maxPrefix
   SuffixTree.prototype.build = function (string) {
@@ -68,5 +69,4 @@
 
   exports.Node = Node;
   exports.SuffixTree = SuffixTree;
-
-}(typeof exports === 'undefined' ? window : exports));
+})(typeof exports === "undefined" ? window : exports);

@@ -1,6 +1,5 @@
 (function (exports) {
-
-  'use strict';
+  "use strict";
 
   /**
    * The quicksort algorithm. It's complexity is O(nlog n).
@@ -8,7 +7,6 @@
    * @public
    */
   var quickSort = (function () {
-
     function compare(a, b) {
       return a - b;
     }
@@ -80,8 +78,7 @@
       cmp = cmp || compare;
       return quickSort(array, 0, array.length, cmp);
     };
-  }());
+  })();
 
   exports.quickSort = quickSort;
-
-}(typeof exports === 'undefined' ? window : exports));
+})(typeof exports === "undefined" ? window : exports);

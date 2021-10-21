@@ -1,12 +1,11 @@
 (function (exports) {
-  'use strict';
+  "use strict";
 
   function comparator(a, b) {
     return a - b;
   }
 
   var heapSort = (function () {
-
     /**
      * Finds the correct place of given element in given max heap.
      *
@@ -86,8 +85,7 @@
       }
       return array;
     };
-  }());
+  })();
 
   exports.heapSort = heapSort;
-
-})(typeof window === 'undefined' ? module.exports : window);
+})(typeof window === "undefined" ? module.exports : window);

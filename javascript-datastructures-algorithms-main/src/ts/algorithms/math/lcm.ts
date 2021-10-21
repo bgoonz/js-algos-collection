@@ -1,4 +1,4 @@
-import { gcd } from './gcd';
+import { gcd } from "./gcd";
 
 export const lcm = (num1: number, num2: number) => {
   if (num1 === 0 || num2 === 0) {
@@ -13,7 +13,7 @@ export const lcmArray = (num: number[]) => {
   let result = num[0];
 
   for (let i = 1; i < num.length; i++) {
-    result = num[i] * result / gcd(num[i], result);
+    result = (num[i] * result) / gcd(num[i], result);
   }
 
   return result;

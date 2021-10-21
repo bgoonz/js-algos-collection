@@ -5,7 +5,7 @@
     factory(exports);
   } else {
     var mod = {
-      exports: {}
+      exports: {},
     };
     factory(mod.exports);
     global.CalcArea = mod.exports;
@@ -14,15 +14,15 @@
   "use strict";
 
   Object.defineProperty(exports, "__esModule", {
-    value: true
+    value: true,
   });
-  var circleArea = exports.circleArea = function circleArea(r) {
+  var circleArea = (exports.circleArea = function circleArea(r) {
     return 3.14 * Math.pow(r, 2);
-  };
+  });
 
-  var squareArea = exports.squareArea = function squareArea(s) {
+  var squareArea = (exports.squareArea = function squareArea(s) {
     return s * s;
-  };
+  });
 
   // export { circleArea, squareArea }; // {1}
   exports.circle = circleArea;

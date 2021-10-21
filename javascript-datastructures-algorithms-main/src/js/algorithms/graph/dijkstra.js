@@ -23,7 +23,12 @@ export const dijkstra = (graph, src) => {
     const u = minDistance(dist, visited);
     visited[u] = true;
     for (let v = 0; v < length; v++) {
-      if (!visited[v] && graph[u][v] !== 0 && dist[u] !== INF && dist[u] + graph[u][v] < dist[v]) {
+      if (
+        !visited[v] &&
+        graph[u][v] !== 0 &&
+        dist[u] !== INF &&
+        dist[u] + graph[u][v] < dist[v]
+      ) {
         dist[v] = dist[u] + graph[u][v];
       }
     }

@@ -11,7 +11,7 @@ const minKey = (graph, key, visited) => {
   }
   return minIndex;
 };
-export const prim = graph => {
+export const prim = (graph) => {
   const parent = [];
   const key = [];
   const visited = [];

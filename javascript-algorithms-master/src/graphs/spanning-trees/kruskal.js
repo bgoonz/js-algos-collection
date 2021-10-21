@@ -1,16 +1,16 @@
 // Kruskal's algorithm for minimal spanning tree implemented with the UnionFind datastructure.
 
-(function(exports) {
-  'use strict';
+(function (exports) {
+  "use strict";
 
-  var QuickUnion = require('../../sets/quickunion').QuickUnion;
-  var mergeSort = require('../../sorting/mergesort').mergeSort;
-  exports.Vertex = require('../../data-structures/vertex').Vertex;
-  exports.Edge = require('../../data-structures/edge').Edge;
+  var QuickUnion = require("../../sets/quickunion").QuickUnion;
+  var mergeSort = require("../../sorting/mergesort").mergeSort;
+  exports.Vertex = require("../../data-structures/vertex").Vertex;
+  exports.Edge = require("../../data-structures/edge").Edge;
 
   exports.Graph = function (edges) {
     this.edges = edges || [];
-  }
+  };
 
   exports.Graph.prototype.kruskal = (function () {
     var qunion;
@@ -74,8 +74,6 @@
       }
 
       return new exports.Graph(spanningTree);
-    }
-
+    };
   })();
-
-})(typeof window === 'undefined' ? module.exports : window);
+})(typeof window === "undefined" ? module.exports : window);

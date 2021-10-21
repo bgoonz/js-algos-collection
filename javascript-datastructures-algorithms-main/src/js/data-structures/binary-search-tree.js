@@ -1,5 +1,5 @@
-import { Compare, defaultCompare } from '../util';
-import { Node } from './models/node';
+import { Compare, defaultCompare } from "../util";
+import { Node } from "./models/node";
 
 export default class BinarySearchTree {
   constructor(compareFn = defaultCompare) {
@@ -44,7 +44,8 @@ export default class BinarySearchTree {
     }
     if (this.compareFn(key, node.key) === Compare.LESS_THAN) {
       return this.searchNode(node.left, key);
-    } if (this.compareFn(key, node.key) === Compare.BIGGER_THAN) {
+    }
+    if (this.compareFn(key, node.key) === Compare.BIGGER_THAN) {
       return this.searchNode(node.right, key);
     }
     return true;
@@ -121,7 +122,8 @@ export default class BinarySearchTree {
     if (this.compareFn(key, node.key) === Compare.LESS_THAN) {
       node.left = this.removeNode(node.left, key);
       return node;
-    } if (this.compareFn(key, node.key) === Compare.BIGGER_THAN) {
+    }
+    if (this.compareFn(key, node.key) === Compare.BIGGER_THAN) {
       node.right = this.removeNode(node.right, key);
       return node;
     }
@@ -139,7 +141,8 @@ export default class BinarySearchTree {
     if (node.left == null) {
       node = node.right;
       return node;
-    } if (node.right == null) {
+    }
+    if (node.right == null) {
       node = node.left;
       return node;
     }

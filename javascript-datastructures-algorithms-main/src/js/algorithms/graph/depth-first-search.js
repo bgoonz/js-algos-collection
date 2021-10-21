@@ -3,10 +3,10 @@
 const Colors = {
   WHITE: 0,
   GREY: 1,
-  BLACK: 2
+  BLACK: 2,
 };
 
-const initializeColor = vertices => {
+const initializeColor = (vertices) => {
   const color = {};
   for (let i = 0; i < vertices.length; i++) {
     color[vertices[i]] = Colors.WHITE;
@@ -60,7 +60,7 @@ const DFSVisit = (u, color, d, f, p, time, adjList) => {
   // console.log('explored ' + u);
 };
 
-export const DFS = graph => {
+export const DFS = (graph) => {
   const vertices = graph.getVertices();
   const adjList = graph.getAdjList();
   const color = initializeColor(vertices);
@@ -81,6 +81,6 @@ export const DFS = graph => {
   return {
     discovery: d,
     finished: f,
-    predecessors: p
+    predecessors: p,
   };
 };

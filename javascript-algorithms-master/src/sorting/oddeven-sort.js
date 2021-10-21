@@ -1,5 +1,5 @@
 (function (exports) {
-  'use strict';
+  "use strict";
 
   /**
    * Odd even sort algorithm.<br><br>
@@ -43,5 +43,4 @@
   }
 
   exports.oddEvenSort = oddEvenSort;
-
-})(typeof window === 'undefined' ? module.exports : window);
+})(typeof window === "undefined" ? module.exports : window);

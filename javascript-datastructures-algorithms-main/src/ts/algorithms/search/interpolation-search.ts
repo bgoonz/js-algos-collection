@@ -5,8 +5,8 @@ import {
   defaultEquals,
   defaultDiff,
   DOES_NOT_EXIST,
-  lesserEquals
-} from '../../util';
+  lesserEquals,
+} from "../../util";
 
 export function interpolationSearch<T>(
   array: T[],

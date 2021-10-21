@@ -1,10 +1,10 @@
-const root = require('../../../');
+const root = require("../../../");
 const Graph = root.DataStructures.Graph;
 const stronglyConnectedComponent = root.Graph.strongConnectedComponent;
-const assert = require('assert');
+const assert = require("assert");
 
-describe('Strongly Connected Component', () => {
-  it('computes strongly connected components', () => {
+describe("Strongly Connected Component", () => {
+  it("computes strongly connected components", () => {
     // graph: 0 -> 1 -> 2
     let graph = new Graph();
     graph.addEdge(0, 1);

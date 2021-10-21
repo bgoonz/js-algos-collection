@@ -1,7 +1,13 @@
-import { Compare, defaultCompare, DOES_NOT_EXIST } from '../../util';
-import { quickSort } from '../sorting/quicksort';
+import { Compare, defaultCompare, DOES_NOT_EXIST } from "../../util";
+import { quickSort } from "../sorting/quicksort";
 
-function binarySearchRecursive(array, value, low, high, compareFn = defaultCompare) {
+function binarySearchRecursive(
+  array,
+  value,
+  low,
+  high,
+  compareFn = defaultCompare
+) {
   if (low <= high) {
     const mid = Math.floor((low + high) / 2);
     const element = array[mid];

@@ -1,7 +1,7 @@
-const math = require('../../..').Math;
+const math = require("../../..").Math;
 const nextPermutation = math.nextPermutation;
-const Comparator = require('../../../util/comparator');
-const assert = require('assert');
+const Comparator = require("../../../util/comparator");
+const assert = require("assert");
 
 const range = (begin, end) => {
   if (end === undefined) {
@@ -13,11 +13,11 @@ const range = (begin, end) => {
   }
   return new Array(end - begin + 1)
     .join(0)
-    .split('')
+    .split("")
     .map((_, index) => begin + index);
 };
 
-const factorial = n =>
+const factorial = (n) =>
   range(1, n + 1).reduce((product, value) => product * value, 1);
 
 const permutations = (start, compareFn) => {
@@ -29,20 +29,23 @@ const permutations = (start, compareFn) => {
   return permutations;
 };
 
-describe('Next Permutation', () => {
-  it('returns immediately following permutation', () => {
-    assert.deepEqual(permutations([1, 2]), [[1, 2], [2, 1]]);
+describe("Next Permutation", () => {
+  it("returns immediately following permutation", () => {
+    assert.deepEqual(permutations([1, 2]), [
+      [1, 2],
+      [2, 1],
+    ]);
     assert.deepEqual(permutations([1, 2, 2]), [
       [1, 2, 2],
       [2, 1, 2],
-      [2, 2, 1]
+      [2, 2, 1],
     ]);
     assert.deepEqual(permutations([1]), [[1]]);
     assert.deepEqual(permutations([]), [[]]);
   });
 
-  it('generate all N! permutations if the elements are distinct', () => {
-    [4, 5, 6].forEach(size => {
+  it("generate all N! permutations if the elements are distinct", () => {
+    [4, 5, 6].forEach((size) => {
       let count = 0;
       const perm = range(size);
       do {
@@ -52,7 +55,7 @@ describe('Next Permutation', () => {
     });
   });
 
-  it('supports custom compare functions', () => {
+  it("supports custom compare functions", () => {
     const reverseComparator = new Comparator();
     reverseComparator.reverse();
     const reverseCompareFn = reverseComparator.compare;

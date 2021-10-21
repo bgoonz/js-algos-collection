@@ -1,17 +1,17 @@
-var isPrime = require('../../src/primes/is-prime').isPrime;
+var isPrime = require("../../src/primes/is-prime").isPrime;
 
-describe('Advanced (optimised) method that checks number on prime', function () {
-  'use strict';
+describe("Advanced (optimised) method that checks number on prime", function () {
+  "use strict";
 
-  it('should give true for number 104743', function () {
+  it("should give true for number 104743", function () {
     expect(isPrime(104743)).toBe(true);
   });
 
-  it('should give false for number 104744', function () {
+  it("should give false for number 104744", function () {
     expect(isPrime(104744)).toBe(false);
   });
 
-  it('the 10001st prime number should be 104743', function () {
+  it("the 10001st prime number should be 104743", function () {
     var count = 1; //we know that 2 is prime
     var value = 1;
 

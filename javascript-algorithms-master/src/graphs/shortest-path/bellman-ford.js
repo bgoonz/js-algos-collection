@@ -38,11 +38,10 @@
  * @module graphs/shortest-path/bellman-ford
  */
 (function (exports) {
+  "use strict";
 
-  'use strict';
-
-  exports.Vertex = require('../../data-structures/vertex').Vertex;
-  exports.Edge = require('../../data-structures/edge').Edge;
+  exports.Vertex = require("../../data-structures/vertex").Vertex;
+  exports.Edge = require("../../data-structures/edge").Edge;
 
   /**
    * Computes shortest paths from a single source
@@ -86,5 +85,4 @@
 
     return { parents: parents, distances: distances };
   };
-
-})(typeof window === 'undefined' ? module.exports : window);
+})(typeof window === "undefined" ? module.exports : window);

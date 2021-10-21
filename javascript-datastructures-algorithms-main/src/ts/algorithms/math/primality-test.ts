@@ -34,4 +34,10 @@ export const testPrime = (n: number) => {
 };
 
 // tslint:disable-next-line:max-line-length
-export const isPrime2 = (n: number) => (n >= 2) ? (![...Array(n).keys()].slice(2).map(i => !(n % i)).includes(true) && ![0, 1].includes(n)) : false;
+export const isPrime2 = (n: number) =>
+  n >= 2
+    ? ![...Array(n).keys()]
+        .slice(2)
+        .map((i) => !(n % i))
+        .includes(true) && ![0, 1].includes(n)
+    : false;

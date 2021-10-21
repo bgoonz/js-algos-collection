@@ -29,8 +29,8 @@ export default class Set {
 
   union(otherSet) {
     const unionSet = new Set();
-    this.values().forEach(value => unionSet.add(value));
-    otherSet.values().forEach(value => unionSet.add(value));
+    this.values().forEach((value) => unionSet.add(value));
+    otherSet.values().forEach((value) => unionSet.add(value));
     return unionSet;
   }
 
@@ -44,7 +44,7 @@ export default class Set {
       biggerSet = otherValues;
       smallerSet = values;
     }
-    smallerSet.forEach(value => {
+    smallerSet.forEach((value) => {
       if (biggerSet.includes(value)) {
         intersectionSet.add(value);
       }
@@ -54,7 +54,7 @@ export default class Set {
 
   difference(otherSet) {
     const differenceSet = new Set();
-    this.values().forEach(value => {
+    this.values().forEach((value) => {
       if (!otherSet.has(value)) {
         differenceSet.add(value);
       }
@@ -67,7 +67,7 @@ export default class Set {
       return false;
     }
     let isSubset = true;
-    this.values().every(value => {
+    this.values().every((value) => {
       if (!otherSet.has(value)) {
         isSubset = false;
         return false;
@@ -91,7 +91,7 @@ export default class Set {
 
   toString() {
     if (this.isEmpty()) {
-      return '';
+      return "";
     }
     const values = this.values();
     let objString = `${values[0]}`;

@@ -10,8 +10,8 @@
  * bloomfilter.get('world') === false;
  * @module data-structures/bloomfilter
  */
-(function(exports) {
-  'use strict';
+(function (exports) {
+  "use strict";
 
   function randomUint32() {
     return Math.floor(Math.random() * Math.pow(2, 32));
@@ -40,14 +40,14 @@
     }
     if (asString) {
       // Convert to 8 digit hex string
-      return ('0000000' + (hval >>> 0).toString(16)).substr(-8);
+      return ("0000000" + (hval >>> 0).toString(16)).substr(-8);
     }
     return hval >>> 0;
   }
 
   // Make a hash function
   function mkHashFun(seed, limit) {
-    return function(value) {
+    return function (value) {
       return hashFnv32a(value, false, seed) % limit;
     };
   }
@@ -58,15 +58,15 @@
    * @constructor
    * @param {Number} size the size of the bitmap
    */
-  exports.Bitmap = function(size) {
+  exports.Bitmap = function (size) {
     size = size || 1024;
     if (size < 0) {
-      throw new Error('The size cannot be negative');
+      throw new Error("The size cannot be negative");
     }
     this.size = size;
     this.intSize = Math.ceil(size / 32); // number of underlying integers
     // Create a 0 initialized array
-    this.intArray = Array.from({ length: this.intSize }, function() {
+    this.intArray = Array.from({ length: this.intSize }, function () {
       return 0;
     });
   };
@@ -76,7 +76,7 @@
    * @public
    * @return {Number} size of the bit map
    */
-  exports.Bitmap.prototype.getSize = function() {
+  exports.Bitmap.prototype.getSize = function () {
     return this.size;
   };
 
@@ -85,10 +85,10 @@
    * @public
    * @return {Boolean} true or false value of the bit
    */
-  exports.Bitmap.prototype.exists = function(index) {
+  exports.Bitmap.prototype.exists = function (index) {
     // Necessary boundary check
     if (index < 0 || index > this.size) {
-      throw new Error('Index out of bound')
+      throw new Error("Index out of bound");
     }
 
     // Calculate the offset within the int
@@ -103,10 +103,10 @@
    * @public
    * @return {Number} true or false value of the bit
    */
-  exports.Bitmap.prototype.get = function(index) {
+  exports.Bitmap.prototype.get = function (index) {
     // Necessary boundary check
     if (index < 0 || index > this.size) {
-      throw new Error('Index out of bound')
+      throw new Error("Index out of bound");
     }
 
     // Calculate the offset within the int
@@ -126,10 +126,10 @@
    * @param {Number} index the index to set
    * @param {Boolean} value the value that is necessary
    */
-  exports.Bitmap.prototype.set = function(index, value) {
+  exports.Bitmap.prototype.set = function (index, value) {
     // necessary boundary check
     if (index < 0 || index > this.size) {
-      throw new Error('Index out of bound')
+      throw new Error("Index out of bound");
     }
 
     var intOffset = index % 32; //calculate the offset within the int
@@ -151,13 +151,13 @@
    * @param {Number} capacity the maximum capacity to maintain the given error rate
    * @param {Number} errorRate the error rate expected under maximum capacity
    */
-  exports.Bloomfilter = function(capacity, errorRate) {
+  exports.Bloomfilter = function (capacity, errorRate) {
     errorRate = errorRate || 0.001; // default error rate
     if (errorRate > 1 || errorRate < 0) {
-      throw new Error('The error rate range is outside of bound');
+      throw new Error("The error rate range is outside of bound");
     }
     if (capacity < 0) {
-      throw new Error('The capacity cannot be negative');
+      throw new Error("The capacity cannot be negative");
     }
     this.capacity = capacity;
     this.errorRate = errorRate;
@@ -176,7 +176,7 @@
     // Generate an array of hash functions
     this.hashFunctions = Array.from(
       { length: this.numHashFunction },
-      function() {
+      function () {
         return mkHashFun(randomUint32(), numBit);
       }.bind(this)
     );
@@ -187,9 +187,9 @@
    * if it is not in the filter, highly likely it will return false, but guaranteed
    * @param {Number | String} value the value that we are trying to check in the filter
    */
-  exports.Bloomfilter.prototype.get = function(value) {
+  exports.Bloomfilter.prototype.get = function (value) {
     value = String(value); // make it string
-    var hashes = this.hashFunctions.map(function(hashFct) {
+    var hashes = this.hashFunctions.map(function (hashFct) {
       return hashFct(value);
     });
 
@@ -207,9 +207,9 @@
    * @public
    * @param {Number | String} value the value that is been set in the filter
    */
-  exports.Bloomfilter.prototype.set = function(value) {
+  exports.Bloomfilter.prototype.set = function (value) {
     value = String(value); // make it string
-    var hashes = this.hashFunctions.map(function(hashFct) {
+    var hashes = this.hashFunctions.map(function (hashFct) {
       return hashFct(value);
     });
 
@@ -218,4 +218,4 @@
       this.bitmap.set(hashes[i], true);
     }
   };
-})(typeof window === 'undefined' ? module.exports : window);
+})(typeof window === "undefined" ? module.exports : window);

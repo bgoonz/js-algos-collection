@@ -1,14 +1,18 @@
-(function(exports) {
-  'use strict';
+(function (exports) {
+  "use strict";
 
   const slope = (p, a) => (a.y - p.y) / (a.x - p.x);
 
-  const dist = (a, b) => Math.sqrt((b.y - a.y) * (b.y - a.y) + (b.x - a.x) * (b.x - a.x));
+  const dist = (a, b) =>
+    Math.sqrt((b.y - a.y) * (b.y - a.y) + (b.x - a.x) * (b.x - a.x));
 
   const sort = (p, memo, a, b) => {
     const sa = slope(p, a);
     const sb = slope(p, b);
-    [[sa, a], [sb, b]].forEach(e => {
+    [
+      [sa, a],
+      [sb, b],
+    ].forEach((e) => {
       const el = memo.get(e[0]);
       if (!el || dist(p, el) < dist(p, e[1])) {
         memo.set(e[0], e[1]);
@@ -17,7 +21,8 @@
     return sa - sb;
   };
 
-  const ccw = (a, b, c) => (b.x - a.x) * (c.y - a.y) - (b.y - a.y) * (c.x - a.x);
+  const ccw = (a, b, c) =>
+    (b.x - a.x) * (c.y - a.y) - (b.y - a.y) * (c.x - a.x);
 
   /**
    * Graham's algorithm for calculating the convex hull.
@@ -41,7 +46,7 @@
    * //  { x: 0.5, y: 0.5 },
    * //  { x: 0, y: 1 }]
    */
-  const convexHull = all => {
+  const convexHull = (all) => {
     if (!all.length) {
       return [];
     }
@@ -64,9 +69,12 @@
 
     all
       .sort(sort.bind(null, p, memo))
-      .filter(c => memo.get(slope(p, c)) === c)
-      .forEach(p => {
-        while (stack.length > 1 && ccw(stack[stack.length - 2], stack[stack.length - 1], p) < 0) {
+      .filter((c) => memo.get(slope(p, c)) === c)
+      .forEach((p) => {
+        while (
+          stack.length > 1 &&
+          ccw(stack[stack.length - 2], stack[stack.length - 1], p) < 0
+        ) {
           stack.pop();
         }
         stack.push(p);
@@ -76,4 +84,4 @@
   };
 
   exports.convexHull = convexHull;
-})(typeof exports === 'undefined' ? window : exports);
+})(typeof exports === "undefined" ? window : exports);

@@ -1,4 +1,4 @@
-const LinkedList = require('./linked_list');
+const LinkedList = require("./linked_list");
 
 /**
  * Stack (LIFO) using a Linked List as basis
@@ -7,8 +7,8 @@ class Stack {
   constructor() {
     this._elements = new LinkedList();
 
-    Object.defineProperty(this, 'length', {
-      get: () => this._elements.length
+    Object.defineProperty(this, "length", {
+      get: () => this._elements.length,
     });
   }
 
@@ -28,7 +28,7 @@ class Stack {
    */
   pop() {
     if (this.isEmpty()) {
-      throw new Error('Empty queue');
+      throw new Error("Empty queue");
     }
 
     const e = this._elements.tail;
@@ -38,7 +38,7 @@ class Stack {
 
   peek() {
     if (this.isEmpty()) {
-      throw new Error('Empty queue');
+      throw new Error("Empty queue");
     }
 
     return this._elements.tail.value;

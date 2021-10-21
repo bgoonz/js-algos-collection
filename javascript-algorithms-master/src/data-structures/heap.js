@@ -39,8 +39,7 @@
  * @module data-structures/heap
  */
 (function (exports) {
-
-  'use strict';
+  "use strict";
 
   /**
    * Minimum heap constructor.
@@ -51,7 +50,7 @@
    */
   exports.Heap = function (cmp) {
     this._heap = [];
-    if (typeof cmp === 'function') {
+    if (typeof cmp === "function") {
       this._cmp = cmp;
     } else {
       this._cmp = function (a, b) {
@@ -76,14 +75,18 @@
     var right = 2 * index + 2;
     var temp;
 
-    if (left < this._heap.length &&
-        this._cmp(this._heap[left], this._heap[index]) > 0) {
+    if (
+      left < this._heap.length &&
+      this._cmp(this._heap[left], this._heap[index]) > 0
+    ) {
       extr = left;
     }
 
-    if (right < this._heap.length &&
-        this._cmp(this._heap[right], this._heap[index]) > 0 &&
-        this._cmp(this._heap[right], this._heap[left]) > 0) {
+    if (
+      right < this._heap.length &&
+      this._cmp(this._heap[right], this._heap[index]) > 0 &&
+      this._cmp(this._heap[right], this._heap[left]) > 0
+    ) {
       extr = right;
     }
 
@@ -171,7 +174,7 @@
    */
   exports.Heap.prototype.extract = function () {
     if (!this._heap.length) {
-      throw 'The heap is already empty!';
+      throw "The heap is already empty!";
     }
     var extr = this._heap.shift();
     this._heapify(0);
@@ -191,5 +194,4 @@
   exports.Heap.prototype.isEmpty = function () {
     return !this._heap.length;
   };
-
-})(typeof window === 'undefined' ? module.exports : window);
+})(typeof window === "undefined" ? module.exports : window);

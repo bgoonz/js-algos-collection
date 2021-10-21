@@ -2,19 +2,19 @@
  * Problem statement and explanation: https://en.wikipedia.org/wiki/Extended_Euclidean_algorithm
  *
  * This algorithm plays an important role for modular arithmetic, and by extension for cyptography algorithms
- * 
+ *
  * Basic explanation:
  * The Extended Euclidean algorithm is a modification of the standard Euclidean GCD algorithm.
  * It allows to calculate coefficients x and y for the equation:
  *          ax + by = gcd(a,b)
- * 
+ *
  * This is called Bézout's identity and the coefficients are called Bézout coefficients
- * 
+ *
  * The algorithm uses the Euclidean method of getting remainder:
  * r_i+1 = r_i-1 - qi*ri
  * and applies it to series s and t (with same quotient q at each stage)
  * When r_n reaches 0, the value r_n-1 gives the gcd, and s_n-1 and t_n-1 give the coefficients
- * 
+ *
  * This implementation uses an iterative approach to calculate the values
  */
 
@@ -25,7 +25,8 @@
  * @returns Array with GCD and first and second Bézout coefficients
  */
 const extendedEuclideanGCD = (arg1, arg2) => {
-  if (typeof arg1 !== 'number' || typeof arg2 !== 'number') throw new TypeError('Not a Number')
+  if (typeof arg1 !== 'number' || typeof arg2 !== 'number')
+    throw new TypeError('Not a Number')
   if (arg1 < 1 || arg2 < 1) throw new TypeError('Must be positive numbers')
 
   // Make the order of coefficients correct, as the algorithm assumes r0 > r1

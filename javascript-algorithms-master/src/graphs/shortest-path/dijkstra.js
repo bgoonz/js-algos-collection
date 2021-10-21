@@ -1,9 +1,8 @@
 (function (exports) {
-  'use strict';
+  "use strict";
 
   var dijkstra = (function () {
-
-    var Heap = require('../../data-structures/heap.js').Heap;
+    var Heap = require("../../data-structures/heap.js").Heap;
     var current;
     var visited;
     var distance;
@@ -96,11 +95,12 @@
       init(src, graph);
       while (current.node !== dest && isFinite(current.distance)) {
         for (var i = 0; i < graph.length; i += 1) {
-          if (current.node !== i && //if it's not the current node
+          if (
+            current.node !== i && //if it's not the current node
             !visited[i] && //and if we haven't visited this node
             //and this node is sibling of the current...
-            Number.isFinite(graph[i][current.node])) {
-
+            Number.isFinite(graph[i][current.node])
+          ) {
             tempDistance = current.distance + graph[i][current.node];
             if (tempDistance < distance[i].distance) {
               distance[i].distance = tempDistance;
@@ -116,9 +116,7 @@
       }
       return Infinity;
     };
-
   })();
 
   exports.dijkstra = dijkstra;
-
-})(typeof window === 'undefined' ? module.exports : window);
+})(typeof window === "undefined" ? module.exports : window);

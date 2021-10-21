@@ -1,9 +1,9 @@
-import Graph from '../../data-structures/graph';
+import Graph from "../../data-structures/graph";
 
 enum Colors {
   WHITE = 0,
   GREY = 1,
-  BLACK = 2
+  BLACK = 2,
 }
 
 const initializeColor = (vertices: (string | number)[]) => {
@@ -20,7 +20,7 @@ const depthFirstSearchVisit = (
   adjList: any,
   callback: Function
 ) => {
-  color[u] = 'grey';
+  color[u] = "grey";
   if (callback) {
     callback(u);
   }
@@ -97,6 +97,6 @@ export const DFS = (graph: Graph) => {
   return {
     discovery: d,
     finished: f,
-    predecessors: p
+    predecessors: p,
   };
 };

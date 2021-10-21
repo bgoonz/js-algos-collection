@@ -9,7 +9,7 @@ export const wiggleSort = function (arr) {
     const shouldNotBeLessThan = i % 2
     const isLessThan = arr[i] < arr[i + 1]
     if (shouldNotBeLessThan && isLessThan) {
-      [arr[i], arr[i + 1]] = [arr[i + 1], arr[i]]
+      ;[arr[i], arr[i + 1]] = [arr[i + 1], arr[i]]
     }
   }
   return arr

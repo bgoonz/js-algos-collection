@@ -1,4 +1,4 @@
-import { Compare, defaultCompare, ICompareFunction } from '../../util';
+import { Compare, defaultCompare, ICompareFunction } from "../../util";
 
 function merge<T>(left: T[], right: T[], compareFn: ICompareFunction<T>) {
   let i = 0;
@@ -6,7 +6,11 @@ function merge<T>(left: T[], right: T[], compareFn: ICompareFunction<T>) {
   const result = [];
 
   while (i < left.length && j < right.length) {
-    result.push(compareFn(left[i], right[j]) === Compare.LESS_THAN ? left[i++] : right[j++]);
+    result.push(
+      compareFn(left[i], right[j]) === Compare.LESS_THAN
+        ? left[i++]
+        : right[j++]
+    );
   }
 
   return result.concat(i < left.length ? left.slice(i) : right.slice(j));

@@ -1,9 +1,8 @@
 (function (exports) {
-  'use strict';
+  "use strict";
 
   var levenshteinDistance = (function () {
-
-    function levenshteinDistance (s, ls, t, lt) {
+    function levenshteinDistance(s, ls, t, lt) {
       var memo = [];
       var currRowMemo;
       var i;
@@ -53,9 +52,7 @@
     return function (s, t) {
       return levenshteinDistance(s, s.length, t, t.length);
     };
-  }());
+  })();
 
   exports.levenshteinDistance = levenshteinDistance;
-
-}(typeof exports === 'undefined' ? window : exports));
-
+})(typeof exports === "undefined" ? window : exports);

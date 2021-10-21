@@ -1,5 +1,5 @@
 (function (exports) {
-  'use strict';
+  "use strict";
 
   var combinations = (function () {
     var res = [];
@@ -47,8 +47,7 @@
       res = null;
       return temp;
     };
-  }());
+  })();
 
   exports.combinations = combinations;
-
-}((typeof window === 'undefined') ? module.exports : window));
+})(typeof window === "undefined" ? module.exports : window);

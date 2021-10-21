@@ -1,5 +1,5 @@
 (function (exports) {
-  'use strict';
+  "use strict";
 
   /**
    * Sieve of Atkins.
@@ -41,7 +41,7 @@
       for (j = 1; j < testingLimit; j += 1) {
         var jj = j * j;
         if (ii + jj >= limit) {
-	  break;
+          break;
         }
 
         n = 4 * ii + jj;
@@ -50,12 +50,12 @@
         }
 
         n = 3 * ii + jj;
-        if (n <= limit && (n % 12 === 7)) {
+        if (n <= limit && n % 12 === 7) {
           sieve[n] = !sieve[n];
         }
 
         n = 3 * ii - jj;
-        if (i > j && n <= limit && (n % 12 === 11)) {
+        if (i > j && n <= limit && n % 12 === 11) {
           sieve[n] = !sieve[n];
         }
       }
@@ -83,5 +83,5 @@
     }, primes);
 
     return primes;
-  }
-}(typeof exports === 'undefined' ? window : exports));
+  };
+})(typeof exports === "undefined" ? window : exports);

@@ -4,7 +4,7 @@ import { globby } from 'globby'
 
 const URL_BASE = 'https://github.com/TheAlgorithms/Javascript/blob/master'
 
-function pathPrefix (i) {
+function pathPrefix(i) {
   if (i) {
     const res = '  '.repeat(i)
     return res + '*'
@@ -13,7 +13,7 @@ function pathPrefix (i) {
   }
 }
 
-function printPath (oldPath, newPath, output) {
+function printPath(oldPath, newPath, output) {
   const oldParts = oldPath.split(path.sep)
   const newParts = newPath.split(path.sep)
   for (let i = 0; i < newParts.length; ++i) {
@@ -27,7 +27,7 @@ function printPath (oldPath, newPath, output) {
   return newPath
 }
 
-function pathsToMarkdown (filePaths) {
+function pathsToMarkdown(filePaths) {
   const output = []
 
   let oldPath = ''
@@ -86,4 +86,6 @@ globby([
   // create markdown content
   .then(pathsToMarkdown)
   // write markdown to file
-  .then(markdown => fs.writeFileSync('DIRECTORY.md', markdown + '\n', { encoding: 'utf8' }))
+  .then((markdown) =>
+    fs.writeFileSync('DIRECTORY.md', markdown + '\n', { encoding: 'utf8' })
+  )

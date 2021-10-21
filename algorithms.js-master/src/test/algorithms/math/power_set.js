@@ -1,6 +1,6 @@
-const math = require('../../..').Math;
+const math = require("../../..").Math;
 const powerSet = math.powerSet;
-const assert = require('assert');
+const assert = require("assert");
 
 /**
  * Deep equal for arrays
@@ -20,7 +20,7 @@ function testArrayEqual(a, b) {
  */
 function testArrayInArray(a, b) {
   let arrayInArray = false;
-  b.forEach(array => {
+  b.forEach((array) => {
     if (testArrayEqual(a, array)) {
       arrayInArray = true;
     }
@@ -28,9 +28,9 @@ function testArrayInArray(a, b) {
   return arrayInArray;
 }
 
-describe('Power set', () => {
-  describe('#iterative()', () => {
-    it('returns the right elements of power set', () => {
+describe("Power set", () => {
+  describe("#iterative()", () => {
+    it("returns the right elements of power set", () => {
       const zeroElementTest = powerSet([]);
       assert(zeroElementTest.length === 0);
 
@@ -79,8 +79,8 @@ describe('Power set', () => {
     });
   });
 
-  describe('#recursive()', () => {
-    it('returns the right elements of power set', () => {
+  describe("#recursive()", () => {
+    it("returns the right elements of power set", () => {
       const zeroElementTest = powerSet.recursive([]);
       assert(zeroElementTest.length === 0);
 

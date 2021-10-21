@@ -25,7 +25,7 @@ const normalizeCallbacks = (callbacks, seenVertices) => {
     callbacks.allowTraversal ||
     (() => {
       const seen = {};
-      seenVertices.forEach(vertex => {
+      seenVertices.forEach((vertex) => {
         seen[vertex] = true;
       });
 
@@ -53,7 +53,7 @@ const normalizeCallbacks = (callbacks, seenVertices) => {
 const dfsLoop = function dfsLoop(graph, vertex, callbacks) {
   callbacks.enterVertex(vertex);
 
-  graph.neighbors(vertex).forEach(neighbor => {
+  graph.neighbors(vertex).forEach((neighbor) => {
     if (callbacks.allowTraversal(vertex, neighbor)) {
       callbacks.beforeTraversal(vertex, neighbor);
       dfsLoop(graph, neighbor, callbacks);

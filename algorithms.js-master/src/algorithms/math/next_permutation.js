@@ -1,4 +1,4 @@
-const Comparator = require('../../util/comparator');
+const Comparator = require("../../util/comparator");
 
 /**
  * Narayana's algorithm computes the subsequent permutation

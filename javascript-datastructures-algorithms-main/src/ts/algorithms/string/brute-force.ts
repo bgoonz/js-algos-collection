@@ -8,7 +8,7 @@ const stringSearch = (text: string, pattern: string) => {
 
   for (let i = 0; i < n; i++) {
     let j = 0;
-    for (j = 0; j < m && (i + j) < n; j++) {
+    for (j = 0; j < m && i + j < n; j++) {
       if (text.charAt(i + j) !== pattern.charAt(j)) {
         break;
       }

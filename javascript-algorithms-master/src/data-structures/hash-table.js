@@ -22,9 +22,9 @@
  * console.log(hashTable.get('key')); // undefined
  *
  * @module data-structures/hash-table
-*/
+ */
 (function (exports) {
-  'use strict';
+  "use strict";
 
   /**
    * Constructs a Node to store data and next/prev nodes in Hash table.
@@ -75,7 +75,7 @@
     for (i = 0; i < val.length; i += 1) {
       character = val.charCodeAt(i);
       /*jshint -W016 */
-      hashCode = ((hashCode << 5) - hashCode) + character;
+      hashCode = (hashCode << 5) - hashCode + character;
       hashCode = hashCode & hashCode;
       /*jshint -W016 */
     }
@@ -249,7 +249,6 @@
         first = undefined;
         return removedValue;
       }
-
     }
   };
-})(typeof window === 'undefined' ? module.exports : window);
+})(typeof window === "undefined" ? module.exports : window);

@@ -1,6 +1,5 @@
 (function (exports) {
-
-  'use strict';
+  "use strict";
 
   /**
    * Shuffle of an array elements.
@@ -32,5 +31,4 @@
   }
 
   exports.shuffle = shuffle;
-
-}(typeof exports === 'undefined' ? window : exports));
+})(typeof exports === "undefined" ? window : exports);

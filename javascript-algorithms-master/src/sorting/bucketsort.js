@@ -1,9 +1,7 @@
 (function (exports) {
-
-  'use strict';
+  "use strict";
 
   var bucketSort = (function () {
-
     /**
      * Insertionsort.
      *
@@ -105,8 +103,7 @@
       sortBuckets(buckets);
       return unionBuckets(buckets);
     };
-  }());
+  })();
 
   exports.bucketSort = bucketSort;
-
-})(typeof window === 'undefined' ? module.exports : window);
+})(typeof window === "undefined" ? module.exports : window);

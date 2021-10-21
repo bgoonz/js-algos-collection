@@ -1,5 +1,5 @@
 (function (exports) {
-  'use strict';
+  "use strict";
 
   /**
    * Advanced (optimised) method for checking if provided number is prime.
@@ -16,24 +16,22 @@
    * console.log(isPrime(18)); // false
    */
   exports.isPrime = function (number) {
-
     if (number < 2) {
       return false;
     }
 
     if (number % 2 === 0) {
-      return (number === 2);
+      return number === 2;
     }
 
     if (number % 3 === 0) {
-      return (number === 3);
+      return number === 3;
     }
 
     var horizon = Math.floor(Math.sqrt(number));
     var factor = 5;
 
     while (factor <= horizon) {
-
       if (number % factor === 0) {
         return false;
       }
@@ -45,5 +43,4 @@
     }
     return true;
   };
-
-}(typeof exports === 'undefined' ? window : exports));
+})(typeof exports === "undefined" ? window : exports);

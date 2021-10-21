@@ -45,16 +45,17 @@ class SegmentTree {
     this._elementsMax[index] = value;
 
     for (let i = index; i > 1; i >>= 1) {
-      this._elementsSum[i >> 1] = (
-        this._elementsSum[i] + this._elementsSum[i ^ 1]
-      );
+      this._elementsSum[i >> 1] =
+        this._elementsSum[i] + this._elementsSum[i ^ 1];
 
       this._elementsMin[i >> 1] = Math.min(
-        this._elementsMin[i], this._elementsMin[i ^ 1]
+        this._elementsMin[i],
+        this._elementsMin[i ^ 1]
       );
 
       this._elementsMax[i >> 1] = Math.max(
-        this._elementsMax[i], this._elementsMax[i ^ 1]
+        this._elementsMax[i],
+        this._elementsMax[i ^ 1]
       );
     }
   }
@@ -87,16 +88,26 @@ class SegmentTree {
   Return the minimum of all elements in the range [from, to]
   */
   getMin(from, to) {
-    return this.calculate(from, to, this._elementsMin,
-       Number.MAX_SAFE_INTEGER, Math.min);
+    return this.calculate(
+      from,
+      to,
+      this._elementsMin,
+      Number.MAX_SAFE_INTEGER,
+      Math.min
+    );
   }
 
   /**
   Return the maximum of all elements in the range [from, to]
   */
   getMax(from, to) {
-    return this.calculate(from, to, this._elementsMax,
-      Number.MIN_SAFE_INTEGER, Math.max);
+    return this.calculate(
+      from,
+      to,
+      this._elementsMax,
+      Number.MIN_SAFE_INTEGER,
+      Math.max
+    );
   }
 }
 

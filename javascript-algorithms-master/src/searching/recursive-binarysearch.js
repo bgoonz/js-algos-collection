@@ -1,5 +1,5 @@
 (function (exports) {
-  'use strict';
+  "use strict";
 
   var binarySearch = (function () {
     /**
@@ -45,9 +45,7 @@
     return function (array, value) {
       return recursiveBinarySearch(array, value, 0, array.length);
     };
-
-  }());
+  })();
 
   exports.binarySearch = binarySearch;
-
-})(typeof window === 'undefined' ? module.exports : window);
+})(typeof window === "undefined" ? module.exports : window);

@@ -1,5 +1,4 @@
-var sortTestCase = require('./sort.testcase.js');
-var quickSort =
-      require('../../src/sorting/quicksort-middle.js').quickSort;
+var sortTestCase = require("./sort.testcase.js");
+var quickSort = require("../../src/sorting/quicksort-middle.js").quickSort;
 
-sortTestCase(quickSort, 'Quick sort');
+sortTestCase(quickSort, "Quick sort");

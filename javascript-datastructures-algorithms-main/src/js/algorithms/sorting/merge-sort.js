@@ -1,11 +1,15 @@
-import { Compare, defaultCompare } from '../../util';
+import { Compare, defaultCompare } from "../../util";
 
 function merge(left, right, compareFn) {
   let i = 0;
   let j = 0;
   const result = [];
   while (i < left.length && j < right.length) {
-    result.push(compareFn(left[i], right[j]) === Compare.LESS_THAN ? left[i++] : right[j++]);
+    result.push(
+      compareFn(left[i], right[j]) === Compare.LESS_THAN
+        ? left[i++]
+        : right[j++]
+    );
   }
   return result.concat(i < left.length ? left.slice(i) : right.slice(j));
 }

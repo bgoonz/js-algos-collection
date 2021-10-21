@@ -1,4 +1,4 @@
-const vectorOp = require('./vector_operations2d.js');
+const vectorOp = require("./vector_operations2d.js");
 
 /**
  * Given an array p with N points on a two dimensional space,
@@ -14,7 +14,7 @@ const vectorOp = require('./vector_operations2d.js');
  * which are present on the convex hull of p, then only the pair with
  * the largest distance will be present on p'.
  */
-const grahamScan = p => {
+const grahamScan = (p) => {
   if (p.length <= 3) {
     return p;
   }
@@ -42,7 +42,7 @@ const grahamScan = p => {
  * between the vectors pivot -> pi and (0,1). Where pi is a point on p.
  * On the counter-clockwise direction.
  */
-const preprocessing = p => {
+const preprocessing = (p) => {
   let pivot = p[0];
   for (let i = 1; i < p.length; i++) {
     if (pivot.y > p[i].y || (pivot.y === p[i].y && pivot.x > p[i].x)) {

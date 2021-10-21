@@ -3,13 +3,13 @@
  * @param A point b, example: {x : 0,y : 0}
  * @return A vector ab, example: {x : 0,y : 0}
  */
-const newVector = (a, b) => ({x: b.x - a.x, y: b.y - a.y});
+const newVector = (a, b) => ({ x: b.x - a.x, y: b.y - a.y });
 
 /**
  * @param A vector v, example: {x : 0,y : 0}
  * @return The length of v.
  */
-const length = v => v.x * v.x + v.y * v.y;
+const length = (v) => v.x * v.x + v.y * v.y;
 
 /**
  * Performs the cross product between two vectors.
@@ -63,5 +63,5 @@ module.exports = {
   crossProduct: crossProduct,
   parallelogramArea: parallelogramArea,
   isClockwise: isClockwise,
-  isCounterClockwise: isCounterClockwise
+  isCounterClockwise: isCounterClockwise,
 };

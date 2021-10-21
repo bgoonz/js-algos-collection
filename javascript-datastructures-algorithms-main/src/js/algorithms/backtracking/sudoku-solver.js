@@ -31,9 +31,9 @@ function usedInBox(matrix, boxStartRow, boxStartCol, num) {
 
 function isSafe(matrix, row, col, num) {
   return (
-    !usedInRow(matrix, row, num)
-    && !usedInCol(matrix, col, num)
-    && !usedInBox(matrix, row - (row % 3), col - (col % 3), num)
+    !usedInRow(matrix, row, num) &&
+    !usedInCol(matrix, col, num) &&
+    !usedInBox(matrix, row - (row % 3), col - (col % 3), num)
   );
 }
 function solveSudoku(matrix) {
@@ -72,5 +72,5 @@ export function sudokuSolver(matrix) {
   if (solveSudoku(matrix) === true) {
     return matrix;
   }
-  return 'NO SOLUTION EXISTS!';
+  return "NO SOLUTION EXISTS!";
 }

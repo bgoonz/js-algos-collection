@@ -7,7 +7,9 @@ export function matrixChainOrder(p: number[], i = 1, j = p.length - 1): number {
 
   for (let k = i; k < j; k++) {
     const count =
-      matrixChainOrder(p, i, k) + matrixChainOrder(p, k + 1, j) + p[i - 1] * p[k] * p[j];
+      matrixChainOrder(p, i, k) +
+      matrixChainOrder(p, k + 1, j) +
+      p[i - 1] * p[k] * p[j];
 
     if (count < min) {
       min = count;

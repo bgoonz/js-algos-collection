@@ -1,7 +1,7 @@
-const HashSet = require('./set');
+const HashSet = require("./set");
 
 // Normalize vertex labels as strings
-const _ = v => String(v);
+const _ = (v) => String(v);
 
 /**
  * Adjacency list representation of a graph
@@ -9,7 +9,7 @@ const _ = v => String(v);
  */
 class Graph {
   constructor(directed) {
-    this.directed = typeof directed === 'undefined' || Boolean(directed);
+    this.directed = typeof directed === "undefined" || Boolean(directed);
     this.adjList = Object.create(null);
     this.vertices = new HashSet();
   }
@@ -54,12 +54,12 @@ class Graph {
     const self = this;
     const r = new Graph(this.directed);
 
-    self.vertices.forEach(v => {
+    self.vertices.forEach((v) => {
       r.addVertex(v);
     });
 
-    self.vertices.forEach(a => {
-      self.neighbors(a).forEach(b => {
+    self.vertices.forEach((a) => {
+      self.neighbors(a).forEach((b) => {
         r.addEdge(b, a, self.edge(a, b));
       });
     });

@@ -11,7 +11,7 @@
  * @returns {number[]} - returns the divisors
  */
 
-const findDivisorsGeneric = number => {
+const findDivisorsGeneric = (number) => {
   const divisors = [];
 
   for (let i = 1; i <= number; i++) {
@@ -34,7 +34,7 @@ const findDivisorsGeneric = number => {
  * @returns {number[]} - returns the divisors
  */
 
-const findDivisorsByPairingUnsorted = number => {
+const findDivisorsByPairingUnsorted = (number) => {
   const divisors = [];
 
   const sqrt = Math.sqrt(number);
@@ -65,7 +65,7 @@ const findDivisorsByPairingUnsorted = number => {
  * @returns {number[]} - returns the divisors
  */
 
-const findDivisorsByPairingSorted = number => {
+const findDivisorsByPairingSorted = (number) => {
   const divisorsLessThanSqrt = [];
   const divisorsMoreThanSqrt = [];
 

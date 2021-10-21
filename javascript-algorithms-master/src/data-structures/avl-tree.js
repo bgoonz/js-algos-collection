@@ -16,7 +16,7 @@
  * @module data-structures/avl-tree
  */
 (function (exports) {
-  'use strict';
+  "use strict";
 
   /**
    * Node of the tree.
@@ -59,13 +59,13 @@
    * @param {Node} node Given node's height is returned.
    */
   exports.AVLTree.prototype._getHeightAtNode = function (node) {
-    if (node._left !== null && node._right !== null){
+    if (node._left !== null && node._right !== null) {
       var height = Math.max(node._left._height, node._right._height);
       height += 1;
       return height;
-    } else if (node._left !== null){
+    } else if (node._left !== null) {
       return node._left._height + 1;
-    } else if (node._right !== null){
+    } else if (node._right !== null) {
       return node._right._height + 1;
     } else {
       return 1;
@@ -81,13 +81,13 @@
    * imbalance.
    */
   exports.AVLTree.prototype._isBalancedAtNode = function (node) {
-    if (node._left !== null && node._right !== null){
-      return (Math.abs(node._left._height - node._right._height) <= 1);
+    if (node._left !== null && node._right !== null) {
+      return Math.abs(node._left._height - node._right._height) <= 1;
     }
-    if (node._right !== null && node._left === null){
+    if (node._right !== null && node._left === null) {
       return node._right._height < 2;
     }
-    if (node._left !== null && node._right === null){
+    if (node._left !== null && node._right === null) {
       return node._left._height < 2;
     }
     return true;
@@ -102,7 +102,9 @@
    * @param {Array} traveledNodes Array of previously traveled nodes
    * that are used to help determine the nodes to be restructured.
    */
-  exports.AVLTree.prototype._getNodesToRestructureRemove = function (traveledNodes) {
+  exports.AVLTree.prototype._getNodesToRestructureRemove = function (
+    traveledNodes
+  ) {
     // z is last traveled node - imbalance found at z
     var zIndex = traveledNodes.length;
     zIndex -= 1;
@@ -110,26 +112,29 @@
     // y should be child of z with larger height
     // (cannot be ancestor of removed node)
     var y;
-    if ((z._left !== null && z._right !== null) || (z._left !== null && z._right === null)){
+    if (
+      (z._left !== null && z._right !== null) ||
+      (z._left !== null && z._right === null)
+    ) {
       y = z._left;
-    } else if (z._right !== null && z._left === null){
+    } else if (z._right !== null && z._left === null) {
       y = z._right;
     }
     // x should be tallest child of y.
     // If children same height, x should be child of y
     // that has same orientation as z to y.
     var x;
-    if (y._left !== null && y._right !== null){
-      if (y._left._height > y._right._height){
+    if (y._left !== null && y._right !== null) {
+      if (y._left._height > y._right._height) {
         x = y._left;
-      } else if (y._left._height < y._right._height){
+      } else if (y._left._height < y._right._height) {
         x = y._right;
-      } else if (y._left._height === y._right._height){
-        x = (z._left === y) ? y._left : y._right;
+      } else if (y._left._height === y._right._height) {
+        x = z._left === y ? y._left : y._right;
       }
-    } else if (y._left !== null && y._right === null){
+    } else if (y._left !== null && y._right === null) {
       x = y._left;
-    } else if (y._right !== null && y._left === null){
+    } else if (y._right !== null && y._left === null) {
       x = y._right;
     }
     return [x, y, z];
@@ -144,7 +149,9 @@
    * @param {Array} traveledNodes Array of previously traveled nodes
    * that are used to help determine the nodes to be restructured.
    */
-  exports.AVLTree.prototype._getNodesToRestructureInsert = function (traveledNodes) {
+  exports.AVLTree.prototype._getNodesToRestructureInsert = function (
+    traveledNodes
+  ) {
     // z is last traveled node - imbalance found at z
     var zIndex = traveledNodes.length;
     zIndex -= 1;
@@ -159,19 +166,19 @@
     // If children same height, x should be ancestor
     // of inserted node (in traveled path).
     var x;
-    if (y._left !== null && y._right !== null){
-      if (y._left._height > y._right._height){
+    if (y._left !== null && y._right !== null) {
+      if (y._left._height > y._right._height) {
         x = y._left;
-      } else if (y._left._height < y._right._height){
+      } else if (y._left._height < y._right._height) {
         x = y._right;
-      } else if (y._left._height === y._right._height){
+      } else if (y._left._height === y._right._height) {
         var xIndex = traveledNodes.length;
         xIndex -= 3;
         x = traveledNodes[xIndex];
       }
-    } else if (y._left !== null && y._right === null){
+    } else if (y._left !== null && y._right === null) {
       x = y._left;
-    } else if (y._right !== null && y._left === null){
+    } else if (y._right !== null && y._left === null) {
       x = y._right;
     }
     return [x, y, z];
@@ -188,14 +195,17 @@
    * @param {Node} node Started node.
    * @param {Boolean} isRemove Represents if method was called after remove.
    */
-  exports.AVLTree.prototype._maintainHeightBalanceProperty = function (node, isRemove) {
+  exports.AVLTree.prototype._maintainHeightBalanceProperty = function (
+    node,
+    isRemove
+  ) {
     var current = node;
     var traveledNodes = [];
-    while (current !== null){
+    while (current !== null) {
       traveledNodes.push(current);
       current._height = this._getHeightAtNode(current);
-      if (!this._isBalancedAtNode(current)){
-        var nodesToBeRestructured = (isRemove)
+      if (!this._isBalancedAtNode(current)) {
+        var nodesToBeRestructured = isRemove
           ? this._getNodesToRestructureRemove(traveledNodes)
           : this._getNodesToRestructureInsert(traveledNodes);
         this._restructure(nodesToBeRestructured);
@@ -218,13 +228,13 @@
     var y = nodesToBeRestructured[1];
     var z = nodesToBeRestructured[2];
     //Determine Rotation Pattern
-    if (z._right === y && y._right === x){
+    if (z._right === y && y._right === x) {
       this._rightRight(x, y, z);
-    } else if (z._left === y && y._left === x){
+    } else if (z._left === y && y._left === x) {
       this._leftLeft(x, y, z);
-    } else if (z._right === y && y._left === x){
+    } else if (z._right === y && y._left === x) {
       this._rightLeft(x, y, z);
-    } else if (z._left === y && y._right === x){
+    } else if (z._left === y && y._right === x) {
       this._leftRight(x, y, z);
     }
   };
@@ -246,8 +256,8 @@
         x      z    x
     */
     // pass z parent to y and move y's left to z's right
-    if (z._parent !== null){
-      var orientation = (z._parent._left === z) ? '_left' : '_right';
+    if (z._parent !== null) {
+      var orientation = z._parent._left === z ? "_left" : "_right";
       z._parent[orientation] = y;
       y._parent = z._parent;
     } else {
@@ -256,7 +266,7 @@
     }
     // z adopts y's left.
     z._right = y._left;
-    if (z._right !== null){
+    if (z._right !== null) {
       z._right._parent = z;
     }
     // y adopts z
@@ -285,8 +295,8 @@
       x          x   z
     */
     //pass z parent to y and move y's right to z's left
-    if (z._parent !== null){
-      var orientation = (z._parent._left === z) ? '_left' : '_right';
+    if (z._parent !== null) {
+      var orientation = z._parent._left === z ? "_left" : "_right";
       z._parent[orientation] = y;
       y._parent = z._parent;
     } else {
@@ -323,8 +333,8 @@
      x          z   y
      */
     //pass z parent to x
-    if (z._parent !== null){
-      var orientation = (z._parent._left === z) ? '_left' : '_right';
+    if (z._parent !== null) {
+      var orientation = z._parent._left === z ? "_left" : "_right";
       z._parent[orientation] = x;
       x._parent = z._parent;
     } else {
@@ -333,11 +343,11 @@
     }
     // Adoptions
     z._right = x._left;
-    if (z._right !== null){
+    if (z._right !== null) {
       z._right._parent = z;
     }
     y._left = x._right;
-    if (y._left !== null){
+    if (y._left !== null) {
       y._left._parent = y;
     }
     // Point to new children (x new parent)
@@ -368,8 +378,8 @@
        x      y   z
      */
     //pass z parent to x
-    if (z._parent !== null){
-      var orientation = (z._parent._left === z) ? '_left' : '_right';
+    if (z._parent !== null) {
+      var orientation = z._parent._left === z ? "_left" : "_right";
       z._parent[orientation] = x;
       x._parent = z._parent;
     } else {
@@ -378,11 +388,11 @@
     }
     // Adoptions
     z._left = x._right;
-    if (z._left !== null){
+    if (z._left !== null) {
       z._left._parent = z;
     }
     y._right = x._left;
-    if (y._right !== null){
+    if (y._right !== null) {
       y._right._parent = y;
     }
     // Point to new children (x new parent)
@@ -415,9 +425,9 @@
     var insertKey;
     current = current || this._root;
     if (current.value > value) {
-      insertKey = '_left';
+      insertKey = "_left";
     } else {
-      insertKey = '_right';
+      insertKey = "_right";
     }
     if (!current[insertKey]) {
       current[insertKey] = new exports.Node(value, null, null, current);
@@ -440,7 +450,7 @@
       return;
     }
     this._inorder(current._left, callback);
-    if (typeof callback === 'function') {
+    if (typeof callback === "function") {
       callback(current);
     }
     this._inorder(current._right, callback);
@@ -470,7 +480,7 @@
     if (!current) {
       return;
     }
-    if (typeof callback === 'function') {
+    if (typeof callback === "function") {
       callback(current);
     }
     this._postorder(current._left, callback);
@@ -500,7 +510,7 @@
     if (!current) {
       return;
     }
-    if (typeof callback === 'function') {
+    if (typeof callback === "function") {
       callback(current);
     }
     this._preorder(current._left, callback);
@@ -563,10 +573,14 @@
    * @param {Node} oldChild Child to be replaced.
    * @param {Node} newChild Child replacement.
    */
-  exports.AVLTree.prototype._replaceChild = function (parent, oldChild, newChild) {
+  exports.AVLTree.prototype._replaceChild = function (
+    parent,
+    oldChild,
+    newChild
+  ) {
     if (parent === null) {
       this._root = newChild;
-      if (this._root !== null){
+      if (this._root !== null) {
         this._root._parent = null;
       }
     } else {
@@ -679,10 +693,13 @@
     if (!current) {
       return true;
     }
-    return this._isBalanced(current._left)  &&
-           this._isBalanced(current._right) &&
-          Math.abs(this._getHeight(current._left) -
-            this._getHeight(current._right)) <= 1;
+    return (
+      this._isBalanced(current._left) &&
+      this._isBalanced(current._right) &&
+      Math.abs(
+        this._getHeight(current._left) - this._getHeight(current._right)
+      ) <= 1
+    );
   };
 
   /**
@@ -728,8 +745,9 @@
     if (!node) {
       return 0;
     }
-    return 1 + Math.max(this._getHeight(node._left),
-        this._getHeight(node._right));
+    return (
+      1 + Math.max(this._getHeight(node._left), this._getHeight(node._right))
+    );
   };
 
   /**
@@ -738,17 +756,26 @@
    * @public
    * @returns {Node} The lowest common ancestor of the two nodes or null.
    */
-  exports.AVLTree.prototype.lowestCommonAncestor = function (firstNode, secondNode) {
+  exports.AVLTree.prototype.lowestCommonAncestor = function (
+    firstNode,
+    secondNode
+  ) {
     return this._lowestCommonAncestor(firstNode, secondNode, this._root);
   };
 
-  exports.AVLTree.prototype._lowestCommonAncestor = function (firstNode, secondNode, current) {
+  exports.AVLTree.prototype._lowestCommonAncestor = function (
+    firstNode,
+    secondNode,
+    current
+  ) {
     var firstNodeInLeft = this._existsInSubtree(firstNode, current._left);
     var secondNodeInLeft = this._existsInSubtree(secondNode, current._left);
     var firstNodeInRight = this._existsInSubtree(firstNode, current._right);
     var secondNodeInRight = this._existsInSubtree(secondNode, current._right);
-    if ((firstNodeInLeft && secondNodeInRight) ||
-        (firstNodeInRight && secondNodeInLeft)) {
+    if (
+      (firstNodeInLeft && secondNodeInRight) ||
+      (firstNodeInRight && secondNodeInLeft)
+    ) {
       return current;
     }
     if (secondNodeInLeft && firstNodeInLeft) {
@@ -767,8 +794,9 @@
     if (node === root.value) {
       return true;
     }
-    return this._existsInSubtree(node, root._left) ||
-      this._existsInSubtree(node, root._right);
+    return (
+      this._existsInSubtree(node, root._left) ||
+      this._existsInSubtree(node, root._right)
+    );
   };
-
-})(typeof window === 'undefined' ? module.exports : window);
+})(typeof window === "undefined" ? module.exports : window);

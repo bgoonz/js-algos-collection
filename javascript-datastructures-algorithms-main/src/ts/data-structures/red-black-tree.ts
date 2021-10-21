@@ -1,6 +1,6 @@
-import { defaultCompare, ICompareFunction, Compare } from '../util';
-import BinarySearchTree from './binary-search-tree';
-import { RedBlackNode, Colors } from './models/red-black-node';
+import { defaultCompare, ICompareFunction, Compare } from "../util";
+import BinarySearchTree from "./binary-search-tree";
+import { RedBlackNode, Colors } from "./models/red-black-node";
 
 export default class RedBlackTree<T> extends BinarySearchTree<T> {
   protected root: RedBlackNode<T>;
@@ -101,13 +101,17 @@ export default class RedBlackTree<T> extends BinarySearchTree<T> {
   }
 
   private fixTreeProperties(node: RedBlackNode<T>) {
-    while (node && node.parent && node.parent.color === Colors.RED && node.color !== Colors.BLACK) {
-       let parent = node.parent;
-       const grandParent = parent.parent;
+    while (
+      node &&
+      node.parent &&
+      node.parent.color === Colors.RED &&
+      node.color !== Colors.BLACK
+    ) {
+      let parent = node.parent;
+      const grandParent = parent.parent;
 
       // case A
       if (grandParent && grandParent.left === parent) {
-
         const uncle = grandParent.right;
 
         // case 1: uncle of node is also red - only recoloring
@@ -131,8 +135,8 @@ export default class RedBlackTree<T> extends BinarySearchTree<T> {
           grandParent.color = Colors.RED;
           node = parent;
         }
-
-      } else { // case B: parent is right child of grand parent
+      } else {
+        // case B: parent is right child of grand parent
 
         const uncle = grandParent.left;
 
@@ -150,7 +154,7 @@ export default class RedBlackTree<T> extends BinarySearchTree<T> {
             parent = node.parent;
           }
 
-           // case 3: node is right child - left rotate
+          // case 3: node is right child - left rotate
           this.rotationRR(grandParent);
           // swap color
           parent.color = Colors.BLACK;

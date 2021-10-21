@@ -1,4 +1,4 @@
-const Comparator = require('../../util/comparator');
+const Comparator = require("../../util/comparator");
 /**
  * Selection sort algorithm O(n^2)
  */

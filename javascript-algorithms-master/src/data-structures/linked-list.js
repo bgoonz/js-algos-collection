@@ -34,8 +34,7 @@
  * @module data-structures/linked-list
  */
 (function (exports) {
-
-  'use strict';
+  "use strict";
 
   /**
    * Linked list node.
@@ -230,7 +229,6 @@
    * @method
    */
   exports.LinkedList.prototype.recursiveReverse = function () {
-
     function inverse(current, next) {
       if (!next) {
         return;
@@ -261,19 +259,18 @@
     if (!this.first || !this.first.next) {
       return;
     }
-    var current = this.first
-    var next
+    var current = this.first;
+    var next;
 
     do {
-      next = current.next
-      current.next = current.prev
-      current.prev = next
-      current = next
-    } while (next)
+      next = current.next;
+      current.next = current.prev;
+      current.prev = next;
+      current = next;
+    } while (next);
 
-    var tmp = this.first
-    this.first = this.last
-    this.last = tmp
+    var tmp = this.first;
+    this.first = this.last;
+    this.last = tmp;
   };
-
-})(typeof window === 'undefined' ? module.exports : window);
+})(typeof window === "undefined" ? module.exports : window);

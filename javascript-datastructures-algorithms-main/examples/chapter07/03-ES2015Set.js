@@ -29,8 +29,8 @@ setB.add(4);
 // --------- Union ----------
 const union = (set1, set2) => {
   const unionAb = new Set();
-  set1.forEach(value => unionAb.add(value));
-  set2.forEach(value => unionAb.add(value));
+  set1.forEach((value) => unionAb.add(value));
+  set2.forEach((value) => unionAb.add(value));
   return unionAb;
 };
 console.log(union(setA, setB));
@@ -40,7 +40,7 @@ console.log(new Set([...setA, ...setB]));
 // --------- Intersection ----------
 const intersection = (set1, set2) => {
   const intersectionSet = new Set();
-  set1.forEach(value => {
+  set1.forEach((value) => {
     if (set2.has(value)) {
       intersectionSet.add(value);
     }
@@ -49,7 +49,7 @@ const intersection = (set1, set2) => {
 };
 console.log(intersection(setA, setB));
 
-console.log(new Set([...setA].filter(x => setB.has(x))));
+console.log(new Set([...setA].filter((x) => setB.has(x))));
 
 // alternative - works on FF only
 // console.log(new Set([x for (x of setA) if (setB.has(x))]));
@@ -57,7 +57,7 @@ console.log(new Set([...setA].filter(x => setB.has(x))));
 // --------- Difference ----------
 const difference = (set1, set2) => {
   const differenceSet = new Set();
-  set1.forEach(value => {
+  set1.forEach((value) => {
     if (!set2.has(value)) {
       differenceSet.add(value);
     }
@@ -66,7 +66,7 @@ const difference = (set1, set2) => {
 };
 console.log(difference(setA, setB));
 
-console.log(new Set([...setA].filter(x => !setB.has(x))));
+console.log(new Set([...setA].filter((x) => !setB.has(x))));
 
 // alternative  - works on FF only
 // console.log(new Set([x for (x of setA) if (!setB.has(x))]));

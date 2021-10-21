@@ -1,5 +1,5 @@
-import { Compare, defaultCompare, DOES_NOT_EXIST } from '../../util';
-import { quickSort } from '../sorting/quicksort';
+import { Compare, defaultCompare, DOES_NOT_EXIST } from "../../util";
+import { quickSort } from "../sorting/quicksort";
 
 function binarySearchRecursive<T>(
   array: T[],
@@ -23,7 +23,11 @@ function binarySearchRecursive<T>(
   return DOES_NOT_EXIST;
 }
 
-export function binarySearch<T>(array: T[], value: T, compareFn = defaultCompare) {
+export function binarySearch<T>(
+  array: T[],
+  value: T,
+  compareFn = defaultCompare
+) {
   const sortedArray = quickSort(array);
   const low = 0;
   const high = sortedArray.length - 1;

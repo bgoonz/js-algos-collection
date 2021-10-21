@@ -1,4 +1,4 @@
-export const floydWarshall = graph => {
+export const floydWarshall = (graph) => {
   const dist = [];
   const { length } = graph;
   for (let i = 0; i < length; i++) {

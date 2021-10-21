@@ -1,8 +1,12 @@
-import 'mocha';
-import { expect } from 'chai';
-import { Compare } from '../../../../src/js/util';
+import "mocha";
+import { expect } from "chai";
+import { Compare } from "../../../../src/js/util";
 
-export function testSortAlgorithm(sortAlgorithm, algorithmName, config = { reverseCompare: true }) {
+export function testSortAlgorithm(
+  sortAlgorithm,
+  algorithmName,
+  config = { reverseCompare: true }
+) {
   describe(algorithmName, () => {
     const SIZE = 100;
 
@@ -22,18 +26,18 @@ export function testSortAlgorithm(sortAlgorithm, algorithmName, config = { rever
       return array;
     }
 
-    it('works with empty arrays', () => {
+    it("works with empty arrays", () => {
       expect(sortAlgorithm([])).to.deep.equal([]);
     });
 
-    it('works with sorted arrays', () => {
+    it("works with sorted arrays", () => {
       let array = createSortedArray();
       const sortedArray = createSortedArray();
       array = sortAlgorithm(array);
       expect(array).to.deep.equal(sortedArray);
     });
 
-    it('works with non-sorted arrays', () => {
+    it("works with non-sorted arrays", () => {
       let array = createNonSortedArray();
       const sortedArray = createSortedArray();
       array = sortAlgorithm(array);
@@ -53,7 +57,7 @@ export function testSortAlgorithm(sortAlgorithm, algorithmName, config = { rever
     }
 
     if (config.reverseCompare) {
-      it('works with reverse comparator - descending order', () => {
+      it("works with reverse comparator - descending order", () => {
         let array = createSortedArray();
         const sortedArray = createNonSortedArray();
         array = sortAlgorithm(array, reverseCompare);

@@ -1,5 +1,5 @@
 (function (exports) {
-  'use strict';
+  "use strict";
 
   var kmp = (function () {
     function builtKMPTable(str) {
@@ -72,8 +72,7 @@
       return -1;
     }
     return indexOf;
-  }());
+  })();
 
   exports.kmp = kmp;
-
-})(typeof window === 'undefined' ? module.exports : window);
+})(typeof window === "undefined" ? module.exports : window);

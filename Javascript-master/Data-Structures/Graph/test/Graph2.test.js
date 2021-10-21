@@ -27,7 +27,7 @@ describe('Test Graph2', () => {
     expect(mockFn.mock.calls.length).toBe(vertices.length)
 
     // Collect adjacency lists from output (call args)
-    const adjListArr = mockFn.mock.calls.map(v => v[0])
+    const adjListArr = mockFn.mock.calls.map((v) => v[0])
 
     expect(adjListArr).toEqual([
       'A -> B D E ',

@@ -1,6 +1,4 @@
-import {
-  Compare, defaultCompare, reverseCompare, swap
-} from '../util';
+import { Compare, defaultCompare, reverseCompare, swap } from "../util";
 
 export class MinHeap {
   constructor(compareFn = defaultCompare) {
@@ -9,11 +7,11 @@ export class MinHeap {
   }
 
   getLeftIndex(index) {
-    return (2 * index) + 1;
+    return 2 * index + 1;
   }
 
   getRightIndex(index) {
-    return (2 * index) + 2;
+    return 2 * index + 2;
   }
 
   getParentIndex(index) {
@@ -55,14 +53,16 @@ export class MinHeap {
     const right = this.getRightIndex(index);
     const size = this.size();
     if (
-      left < size
-      && this.compareFn(this.heap[element], this.heap[left]) === Compare.BIGGER_THAN
+      left < size &&
+      this.compareFn(this.heap[element], this.heap[left]) ===
+        Compare.BIGGER_THAN
     ) {
       element = left;
     }
     if (
-      right < size
-      && this.compareFn(this.heap[element], this.heap[right]) === Compare.BIGGER_THAN
+      right < size &&
+      this.compareFn(this.heap[element], this.heap[right]) ===
+        Compare.BIGGER_THAN
     ) {
       element = right;
     }
@@ -75,8 +75,9 @@ export class MinHeap {
   siftUp(index) {
     let parent = this.getParentIndex(index);
     while (
-      index > 0
-      && this.compareFn(this.heap[parent], this.heap[index]) === Compare.BIGGER_THAN
+      index > 0 &&
+      this.compareFn(this.heap[parent], this.heap[index]) ===
+        Compare.BIGGER_THAN
     ) {
       swap(this.heap, parent, index);
       index = parent;

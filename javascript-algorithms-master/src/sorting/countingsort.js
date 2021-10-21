@@ -1,8 +1,7 @@
 (function (exports) {
-  'use strict';
+  "use strict";
 
   var countingSort = (function () {
-
     /**
      * Gets the count of the elements into the input array.
      *
@@ -83,8 +82,7 @@
       var less = getLessCount(getCount(array));
       return sort(array, less);
     };
-  }());
+  })();
 
   exports.countingSort = countingSort;
-
-})(typeof window === 'undefined' ? module.exports : window);
+})(typeof window === "undefined" ? module.exports : window);

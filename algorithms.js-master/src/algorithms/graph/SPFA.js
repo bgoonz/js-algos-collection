@@ -19,7 +19,7 @@ function spfa(graph, s) {
   queue[0] = s;
   isInQue[s] = true;
   cnt[s] = 1;
-  graph.vertices.forEach(v => {
+  graph.vertices.forEach((v) => {
     if (v !== s) {
       distance[v] = Infinity;
       isInQue[v] = false;
@@ -46,7 +46,7 @@ function spfa(graph, s) {
           if (cnt[v] > graph.vertices.size) {
             // indicates negative-weighted cycle
             return {
-              distance: {}
+              distance: {},
             };
           }
         }
@@ -56,7 +56,7 @@ function spfa(graph, s) {
 
   return {
     distance,
-    previous
+    previous,
   };
 }
 

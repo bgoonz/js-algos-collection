@@ -1,32 +1,32 @@
-var mod = require('../../src/data-structures/binary-search-tree.js');
+var mod = require("../../src/data-structures/binary-search-tree.js");
 var Node = mod.Node;
 var BinaryTree = mod.BinaryTree;
 
-describe('Node', function () {
-  'use strict';
+describe("Node", function () {
+  "use strict";
 
-  it('should be a constructor function', function () {
-    expect(typeof Node).toBe('function');
+  it("should be a constructor function", function () {
+    expect(typeof Node).toBe("function");
   });
 });
 
-describe('Binary Tree', function () {
-  'use strict';
+describe("Binary Tree", function () {
+  "use strict";
 
-  it('should be a constructor function', function () {
-    expect(typeof BinaryTree).toBe('function');
+  it("should be a constructor function", function () {
+    expect(typeof BinaryTree).toBe("function");
   });
-  it('should start with null root', function () {
+  it("should start with null root", function () {
     expect(new BinaryTree()._root).toBe(null);
   });
-  it('should insert and remove single node properly', function () {
+  it("should insert and remove single node properly", function () {
     var bTree = new BinaryTree();
     bTree.insert(15);
     var node = bTree.find(15);
     bTree.remove(node);
     expect(bTree._root).toBe(null);
   });
-  it('should remove root and replace with valid child', function () {
+  it("should remove root and replace with valid child", function () {
     var bTree = new BinaryTree();
     bTree.insert(15);
     bTree.insert(30);
@@ -35,7 +35,7 @@ describe('Binary Tree', function () {
     bTree.remove(node);
     expect(bTree._root.value).toBe(30);
   });
-  it('should insert multiple nodes properly', function () {
+  it("should insert multiple nodes properly", function () {
     var bTree = new BinaryTree();
     bTree.insert(10);
     bTree.insert(5);
@@ -54,7 +54,7 @@ describe('Binary Tree', function () {
     expect(rightRootChild._left.value).toBe(14);
     expect(rightRootChild._right.value).toBe(16);
   });
-  it('should remove multiple nodes properly', function () {
+  it("should remove multiple nodes properly", function () {
     var bTree = new BinaryTree();
     bTree.insert(10);
     bTree.insert(5);

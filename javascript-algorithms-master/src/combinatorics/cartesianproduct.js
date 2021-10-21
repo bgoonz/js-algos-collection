@@ -1,5 +1,5 @@
 (function (exports) {
-  'use strict';
+  "use strict";
 
   var cartesianProduct = (function () {
     var result;
@@ -42,8 +42,7 @@
       cartesianProduct(sets, 0, []);
       return result;
     };
-  }());
+  })();
 
   exports.cartesianProduct = cartesianProduct;
-
-}((typeof window === 'undefined') ? module.exports : window));
+})(typeof window === "undefined" ? module.exports : window);

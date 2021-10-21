@@ -1,8 +1,7 @@
 (function (exports) {
-  'use strict';
+  "use strict";
 
   var radixSort = (function () {
-
     /**
      * Returns the digit of a number that is 'lsdOffset'
      * places from the least significant digit.
@@ -45,14 +44,14 @@
      */
     return function (array) {
       var size = array.length;
-      var R = 10;   /* Alphabet size ([0-9] for integers) */
+      var R = 10; /* Alphabet size ([0-9] for integers) */
       var count;
       var digit;
       var i;
       var j;
 
       /* Find maximum key size */
-      var maxKeySize = (array[0] || '').toString().length;
+      var maxKeySize = (array[0] || "").toString().length;
       for (i = 1; i < size; i += 1) {
         var numStr = array[i].toString();
         if (numStr.length > maxKeySize) {
@@ -96,5 +95,4 @@
   })();
 
   exports.radixSort = radixSort;
-
-})(typeof window === 'undefined' ? module.exports : window);
+})(typeof window === "undefined" ? module.exports : window);

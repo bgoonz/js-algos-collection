@@ -1,7 +1,6 @@
 (function (exports) {
-  'use strict';
+  "use strict";
   var permutations = (function () {
-
     var res;
 
     function swap(arr, i, j) {
@@ -22,32 +21,32 @@
     }
 
     /**
-    * Finds all the permutations of given array.<br><br>
-    * Permutation relates to the act of rearranging, or permuting,
-    * all the members of a set into some sequence or order.
-    * For example there are six permutations of the set {1,2,3}, namely:
-    * (1,2,3), (1,3,2), (2,1,3), (2,3,1), (3,1,2), and (3,2,1).<br><br>
-    * Complexity: O(N*N!).
-    *
-    * @example
-    *
-    * var permutations = require('path-to-algorithms/src/' +
-    * 'combinatorics/permutations').permutations;
-    * var result = permutations(['apple', 'orange', 'pear']);
-    *
-    * // [ [ 'apple', 'orange', 'pear' ],
-    * //   [ 'apple', 'pear', 'orange' ],
-    * //   [ 'orange', 'apple', 'pear' ],
-    * //   [ 'orange', 'pear', 'apple' ],
-    * //   [ 'pear', 'orange', 'apple' ],
-    * //   [ 'pear', 'apple', 'orange' ] ]
-    * console.log(result);
-    *
-    * @module combinatorics/permutations
-    * @public
-    * @param {Array} arr Array to find the permutations of.
-    * @returns {Array} Array containing all the permutations.
-    */
+     * Finds all the permutations of given array.<br><br>
+     * Permutation relates to the act of rearranging, or permuting,
+     * all the members of a set into some sequence or order.
+     * For example there are six permutations of the set {1,2,3}, namely:
+     * (1,2,3), (1,3,2), (2,1,3), (2,3,1), (3,1,2), and (3,2,1).<br><br>
+     * Complexity: O(N*N!).
+     *
+     * @example
+     *
+     * var permutations = require('path-to-algorithms/src/' +
+     * 'combinatorics/permutations').permutations;
+     * var result = permutations(['apple', 'orange', 'pear']);
+     *
+     * // [ [ 'apple', 'orange', 'pear' ],
+     * //   [ 'apple', 'pear', 'orange' ],
+     * //   [ 'orange', 'apple', 'pear' ],
+     * //   [ 'orange', 'pear', 'apple' ],
+     * //   [ 'pear', 'orange', 'apple' ],
+     * //   [ 'pear', 'apple', 'orange' ] ]
+     * console.log(result);
+     *
+     * @module combinatorics/permutations
+     * @public
+     * @param {Array} arr Array to find the permutations of.
+     * @returns {Array} Array containing all the permutations.
+     */
     return function (arr) {
       res = [];
       permutations(arr, 0);
@@ -56,8 +55,7 @@
       res = null;
       return temp;
     };
-  }());
+  })();
 
   exports.permutations = permutations;
-
-}((typeof window === 'undefined') ? module.exports : window));
+})(typeof window === "undefined" ? module.exports : window);

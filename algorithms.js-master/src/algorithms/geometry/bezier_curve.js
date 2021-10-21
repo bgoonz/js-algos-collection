@@ -27,7 +27,7 @@ class BezierCurve {
 
     // the i-th control point times the coefficient
     for (i = 0; i < this.n; ++i) {
-      this.p.push({x: c[i] * points[i].x, y: c[i] * points[i].y});
+      this.p.push({ x: c[i] * points[i].x, y: c[i] * points[i].y });
     }
   }
 
@@ -35,7 +35,7 @@ class BezierCurve {
    * @param Number float variable from 0 to 1
    */
   get(t) {
-    const res = {x: 0, y: 0};
+    const res = { x: 0, y: 0 };
     let i;
     let a = 1;
     let b = 1;

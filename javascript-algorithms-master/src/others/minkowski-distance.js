@@ -1,9 +1,8 @@
 (function (exports) {
-  'use strict';
+  "use strict";
 
   var minkowskiDistance = (function () {
-
-    function chebyshevDistance (x, y, lx, p, mathfn) {
+    function chebyshevDistance(x, y, lx, p, mathfn) {
       var ret = -p;
       var i;
 
@@ -14,12 +13,12 @@
       return ret;
     }
 
-    function minkowskiDistance (x, lx, y, ly, p) {
+    function minkowskiDistance(x, lx, y, ly, p) {
       var d;
       var i;
 
       if (lx !== ly) {
-        throw 'Both vectors should have same dimension';
+        throw "Both vectors should have same dimension";
       }
 
       if (isNaN(p)) {
@@ -31,7 +30,7 @@
       } else if (p === Number.NEGATIVE_INFINITY) {
         return chebyshevDistance(x, y, lx, p, Math.min);
       } else if (p < 1) {
-        throw 'Order less than 1 will violate the triangle inequality';
+        throw "Order less than 1 will violate the triangle inequality";
       } else {
         d = 0;
 
@@ -39,12 +38,8 @@
           d += Math.pow(Math.abs(x[i] - y[i]), p);
         }
 
-        return isNaN(d)
-          ? 0
-          : Math.pow(d, 1 / p);
-
+        return isNaN(d) ? 0 : Math.pow(d, 1 / p);
       }
-
     }
 
     /**
@@ -70,10 +65,9 @@
      * is NaN, then this returns 0
      */
     return function (x, y, p) {
-      return minkowskiDistance (x, x.length, y, y.length, p);
+      return minkowskiDistance(x, x.length, y, y.length, p);
     };
-  }());
+  })();
 
   exports.minkowskiDistance = minkowskiDistance;
-
-}(typeof exports === 'undefined' ? window : exports));
+})(typeof exports === "undefined" ? window : exports);

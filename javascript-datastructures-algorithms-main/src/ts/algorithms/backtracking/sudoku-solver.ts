@@ -4,7 +4,7 @@ export function sudokuSolver(grid: Array<Array<number>>) {
   if (solveSudoku(grid) === true) {
     return grid;
   } else {
-    return 'NO SOLUTION EXISTS!';
+    return "NO SOLUTION EXISTS!";
   }
 }
 
@@ -78,10 +78,15 @@ function usedInBox(
   return false;
 }
 
-function isSafe(grid: Array<Array<number>>, row: number, col: number, num: number) {
+function isSafe(
+  grid: Array<Array<number>>,
+  row: number,
+  col: number,
+  num: number
+) {
   return (
     !usedInRow(grid, row, num) &&
     !usedInCol(grid, col, num) &&
-    !usedInBox(grid, row - row % 3, col - col % 3, num)
+    !usedInBox(grid, row - (row % 3), col - (col % 3), num)
   );
 }

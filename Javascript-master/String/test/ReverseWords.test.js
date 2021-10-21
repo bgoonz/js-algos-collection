@@ -4,7 +4,9 @@ describe('reverseWords', () => {
   it('expects to reverse words to return a joined word', () => {
     expect(reverseWords('I Love JS')).toBe('JS Love I')
     expect(reverseWords('Hello World')).toBe('World Hello')
-    expect(reverseWords('The Algorithms Javascript')).toBe('Javascript Algorithms The')
+    expect(reverseWords('The Algorithms Javascript')).toBe(
+      'Javascript Algorithms The'
+    )
   })
 
   it.each`

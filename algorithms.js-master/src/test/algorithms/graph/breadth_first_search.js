@@ -1,9 +1,9 @@
-const root = require('../../../');
+const root = require("../../../");
 const breadthFirstSearch = root.Graph.breadthFirstSearch;
 const Graph = root.DataStructures.Graph;
-const assert = require('assert');
+const assert = require("assert");
 
-describe('Breadth-First Search', () => {
+describe("Breadth-First Search", () => {
   let graph;
 
   before(() => {
@@ -16,10 +16,10 @@ describe('Breadth-First Search', () => {
     graph.addEdge(6, 3);
     graph.addEdge(3, 2);
     graph.addEdge(2, 4);
-    graph.addEdge('alpha', 'omega');
+    graph.addEdge("alpha", "omega");
   });
 
-  it('visits reachable vertices in a breadth-first manner', () => {
+  it("visits reachable vertices in a breadth-first manner", () => {
     const enter = [];
     const leave = [];
     let lastEntered = null;
@@ -28,17 +28,17 @@ describe('Breadth-First Search', () => {
     breadthFirstSearch(graph, 1);
 
     breadthFirstSearch(graph, 1, {
-      enterVertex: function(vertex) {
+      enterVertex(vertex) {
         enter.push(vertex);
         lastEntered = vertex;
       },
-      leaveVertex: function(vertex) {
+      leaveVertex(vertex) {
         assert.equal(lastEntered, vertex);
         leave.push(vertex);
       },
-      onTraversal: function() {
+      onTraversal() {
         traversed += 1;
-      }
+      },
     });
 
     assert.equal(traversed, 5); // #edges in a spanning tree.
@@ -51,15 +51,15 @@ describe('Breadth-First Search', () => {
     assert.equal(enter[5], 3);
   });
 
-  it('allows user-defined allowTraversal rules', () => {
+  it("allows user-defined allowTraversal rules", () => {
     const seen = new Graph(graph.directed);
     graph.vertices.forEach(seen.addVertex.bind(seen));
-    const indegrees = {1: -1};
+    const indegrees = { 1: -1 };
     const outdegrees = {};
 
     // Edge-centric BFS.
     breadthFirstSearch(graph, 1, {
-      allowTraversal: function(vertex, neighbor) {
+      allowTraversal(vertex, neighbor) {
         const visited = seen.edge(vertex, neighbor);
         if (!visited) {
           seen.addEdge(vertex, neighbor);
@@ -67,10 +67,10 @@ describe('Breadth-First Search', () => {
         }
         return !visited;
       },
-      enterVertex: function(vertex) {
+      enterVertex(vertex) {
         indegrees[vertex] = (indegrees[vertex] || 0) + 1;
         outdegrees[vertex] = outdegrees[vertex] || 0;
-      }
+      },
     });
 
     assert.deepEqual(indegrees, {
@@ -79,7 +79,7 @@ describe('Breadth-First Search', () => {
       3: 1,
       4: 1,
       5: 1,
-      6: 1
+      6: 1,
     });
     assert.deepEqual(outdegrees, {
       1: 2,
@@ -87,7 +87,7 @@ describe('Breadth-First Search', () => {
       3: 1,
       4: 0,
       5: 1,
-      6: 2
+      6: 2,
     });
   });
 });

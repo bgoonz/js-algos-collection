@@ -49,15 +49,15 @@ class FenwickTree {
      * (a right child).
      *
      * Note: (index&-index) finds the rightmost bit in index.
-    */
+     */
     for (; index < this._elements.length; index += index & -index) {
       this._elements[index] += value;
     }
   }
 
   /**
-  * Returns the sum of all values up to specified index in O(log n)
-  */
+   * Returns the sum of all values up to specified index in O(log n)
+   */
   prefixSum(index) {
     /*
      * This function goes up the tree adding the required nodes to sum the
@@ -83,8 +83,8 @@ class FenwickTree {
   }
 
   /**
-  * Returns the sum of all values between two indexes in O(log n)
-  */
+   * Returns the sum of all values between two indexes in O(log n)
+   */
   rangeSum(fromIndex, toIndex) {
     return this.prefixSum(toIndex) - this.prefixSum(fromIndex - 1);
   }

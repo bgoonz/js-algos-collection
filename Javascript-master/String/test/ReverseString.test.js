@@ -1,11 +1,16 @@
-import { ReverseStringIterative, ReverseStringIterativeInplace } from '../ReverseString'
+import {
+  ReverseStringIterative,
+  ReverseStringIterativeInplace
+} from '../ReverseString'
 
 describe('ReverseStringIterative', () => {
   it('expects to reverse a simple string', () => {
     expect(ReverseStringIterative('reverse')).toEqual('esrever')
     expect(ReverseStringIterative('some')).toEqual('emos')
     expect(ReverseStringIterative('string')).toEqual('gnirts')
-    expect(ReverseStringIterative('The Algorithms Javascript')).toEqual('tpircsavaJ smhtiroglA ehT')
+    expect(ReverseStringIterative('The Algorithms Javascript')).toEqual(
+      'tpircsavaJ smhtiroglA ehT'
+    )
   })
 
   it('expects to reverse a string with spaces in between', () => {
@@ -25,7 +30,9 @@ describe('ReverseStringIterative', () => {
   `(
     'expects to throw a type error given a value that is $input',
     ({ input }) => {
-      expect(() => ReverseStringIterative(input)).toThrow('The given value is not a string')
+      expect(() => ReverseStringIterative(input)).toThrow(
+        'The given value is not a string'
+      )
     }
   )
 
@@ -39,7 +46,9 @@ describe('ReverseStringIterativeInplace', () => {
     expect(ReverseStringIterativeInplace('reverse')).toEqual('esrever')
     expect(ReverseStringIterativeInplace('some')).toEqual('emos')
     expect(ReverseStringIterativeInplace('string')).toEqual('gnirts')
-    expect(ReverseStringIterativeInplace('The Algorithms Javascript')).toEqual('tpircsavaJ smhtiroglA ehT')
+    expect(ReverseStringIterativeInplace('The Algorithms Javascript')).toEqual(
+      'tpircsavaJ smhtiroglA ehT'
+    )
   })
 
   it('expects to reverse a simple string without capitalizing the first letter', () => {
@@ -59,7 +68,9 @@ describe('ReverseStringIterativeInplace', () => {
   `(
     'expects to throw a type error given a value that is $input',
     ({ input }) => {
-      expect(() => ReverseStringIterativeInplace(input)).toThrow('The given value is not a string')
+      expect(() => ReverseStringIterativeInplace(input)).toThrow(
+        'The given value is not a string'
+      )
     }
   )
 })

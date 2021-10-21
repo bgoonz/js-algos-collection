@@ -1,12 +1,12 @@
 /**
-  * Binary Search finds elements in sorted arrays in logarithmic
-  * time (O(lg n))
-  *
-  * @param Array
-  * @param Number|String
-  *
-  * @return Boolean
-  */
+ * Binary Search finds elements in sorted arrays in logarithmic
+ * time (O(lg n))
+ *
+ * @param Array
+ * @param Number|String
+ *
+ * @return Boolean
+ */
 const binarySearch = (sortedArray, element) => {
   let init = 0;
   let end = sortedArray.length - 1;
@@ -23,14 +23,14 @@ const binarySearch = (sortedArray, element) => {
 };
 
 /**
-  * lowerBound returns index of the first element greater than the search key
-  * in logarithmic time (O(log n))
-  *
-  * @param Array
-  * @param Number|String
-  *
-  * @return Number
-  */
+ * lowerBound returns index of the first element greater than the search key
+ * in logarithmic time (O(log n))
+ *
+ * @param Array
+ * @param Number|String
+ *
+ * @return Number
+ */
 const lowerBound = (sortedArray, element) => {
   let lo = 0;
   let hi = sortedArray.length - 1;
@@ -49,5 +49,5 @@ const lowerBound = (sortedArray, element) => {
 
 module.exports = {
   binarySearch,
-  lowerBound
+  lowerBound,
 };

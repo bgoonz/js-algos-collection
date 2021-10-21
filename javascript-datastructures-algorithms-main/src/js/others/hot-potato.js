@@ -1,4 +1,4 @@
-import Queue from '../data-structures/queue';
+import Queue from "../data-structures/queue";
 
 export function hotPotato(elementsList, num) {
   const queue = new Queue();
@@ -17,6 +17,6 @@ export function hotPotato(elementsList, num) {
 
   return {
     eliminated: elimitatedList,
-    winner: queue.dequeue()
+    winner: queue.dequeue(),
   };
 }

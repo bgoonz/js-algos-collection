@@ -1,19 +1,19 @@
-const countingSort = require('../../..').Sorting.countingSort;
-const assert = require('assert');
+const countingSort = require("../../..").Sorting.countingSort;
+const assert = require("assert");
 
 const firstObject = {
-  someProperty: 'The',
-  key: 12
+  someProperty: "The",
+  key: 12,
 };
 
 const secondObject = {
-  someProperty: 'chosen',
-  key: 66
+  someProperty: "chosen",
+  key: 66,
 };
 
 const thirdObject = {
-  someProperty: 'one!',
-  key: 43
+  someProperty: "one!",
+  key: 43,
 };
 
 let array = [
@@ -22,17 +22,17 @@ let array = [
   secondObject,
   secondObject,
   firstObject,
-  firstObject
+  firstObject,
 ];
 
-describe('Counting Sort', () => {
-  it('sorts the given array', () => {
+describe("Counting Sort", () => {
+  it("sorts the given array", () => {
     array = countingSort(array);
 
     // Asserts that the array is truly sorted
     assert.deepEqual(array.indexOf(firstObject), 0);
     assert.deepEqual(array.indexOf(secondObject), 4);
     assert.deepEqual(array.indexOf(thirdObject), 3);
-    assert.deepEqual(array.indexOf({key: 99}), -1);
+    assert.deepEqual(array.indexOf({ key: 99 }), -1);
   });
 });

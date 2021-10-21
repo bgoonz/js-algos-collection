@@ -1,5 +1,5 @@
-import { defaultToString } from '../util';
-import { ValuePair } from './models/value-pair';
+import { defaultToString } from "../util";
+import { ValuePair } from "./models/value-pair";
 
 export default class HashTable {
   constructor(toStrFn = defaultToString) {
@@ -8,7 +8,7 @@ export default class HashTable {
   }
 
   loseloseHashCode(key) {
-    if (typeof key === 'number') {
+    if (typeof key === "number") {
       return key;
     }
     const tableKey = this.toStrFn(key);
@@ -73,12 +73,14 @@ export default class HashTable {
 
   toString() {
     if (this.isEmpty()) {
-      return '';
+      return "";
     }
     const keys = Object.keys(this.table);
     let objString = `{${keys[0]} => ${this.table[keys[0]].toString()}}`;
     for (let i = 1; i < keys.length; i++) {
-      objString = `${objString},{${keys[i]} => ${this.table[keys[i]].toString()}}`;
+      objString = `${objString},{${keys[i]} => ${this.table[
+        keys[i]
+      ].toString()}}`;
     }
     return objString;
   }

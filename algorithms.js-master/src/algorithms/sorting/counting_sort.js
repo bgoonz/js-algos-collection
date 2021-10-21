@@ -6,7 +6,7 @@
  * @param Array
  * @return Integer
  */
-const maximumKey = array => {
+const maximumKey = (array) => {
   let max = array[0].key;
   const length = array.length;
 
@@ -30,7 +30,7 @@ const maximumKey = array => {
  * @param Array
  * @return Array
  */
-const countingSort = array => {
+const countingSort = (array) => {
   const max = maximumKey(array);
   const auxiliaryArray = [];
   const length = array.length;

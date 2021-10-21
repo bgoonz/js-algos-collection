@@ -18,12 +18,18 @@ import * as assert from 'assert'
 describe('Create Vectors', function () {
   describe('#toString()', function () {
     it('should return a string representation', function () {
-      assert.strictEqual((new LinearAlgebra.Vector(3, [1, 2, 3])).toString(), '(1,2,3)')
+      assert.strictEqual(
+        new LinearAlgebra.Vector(3, [1, 2, 3]).toString(),
+        '(1,2,3)'
+      )
     })
   })
   describe('#unitBasisVector()', function () {
     it('should return a unit basis vector', function () {
-      assert.strictEqual(LinearAlgebra.unitBasisVector(3, 1).toString(), '(0,1,0)')
+      assert.strictEqual(
+        LinearAlgebra.unitBasisVector(3, 1).toString(),
+        '(0,1,0)'
+      )
     })
   })
 })
@@ -34,14 +40,14 @@ describe('Vector operations', function () {
     it('should return vector (2,4,6)', function () {
       var x = new LinearAlgebra.Vector(3, [1, 2, 3])
       var y = new LinearAlgebra.Vector(3, [1, 2, 3])
-      assert.strictEqual((x.add(y)).toString(), '(2,4,6)')
+      assert.strictEqual(x.add(y).toString(), '(2,4,6)')
     })
   })
   describe('#sub()', function () {
     it('should return vector (0,0,0)', function () {
       var x = new LinearAlgebra.Vector(3, [1, 2, 3])
       var y = new LinearAlgebra.Vector(3, [1, 2, 3])
-      assert.strictEqual((x.sub(y)).toString(), '(0,0,0)')
+      assert.strictEqual(x.sub(y).toString(), '(0,0,0)')
     })
   })
   describe('#dot()', function () {
@@ -61,7 +67,7 @@ describe('Vector operations', function () {
     it('should return the normalizes vector', function () {
       var x = new LinearAlgebra.Vector(4, [9, 0, 3, 1])
       var y = x.norm()
-      assert.ok(Math.abs(y.component(0) - (9.0 / Math.sqrt(91))) <= 0.01)
+      assert.ok(Math.abs(y.component(0) - 9.0 / Math.sqrt(91)) <= 0.01)
     })
   })
   describe('#eulideanLength()', function () {

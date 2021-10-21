@@ -12,7 +12,7 @@
 
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/TheAlgorithms/Javascript)
 
-These are for demonstration purposes only. There are many implementations of sorts in the JavaScript standard library 
+These are for demonstration purposes only. There are many implementations of sorts in the JavaScript standard library
 that are much better for performance reasons.
 
 ## Contribution Guidelines

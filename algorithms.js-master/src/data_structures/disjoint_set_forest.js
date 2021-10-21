@@ -30,7 +30,7 @@ class DisjointSetForest {
   sameSubset(element, ...rest) {
     this._introduce(element);
     const root = this.root(element);
-    return rest.every(element => {
+    return rest.every((element) => {
       this._introduce(element);
       return this.root(element) === root;
     });

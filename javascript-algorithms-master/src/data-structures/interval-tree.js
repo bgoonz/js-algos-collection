@@ -19,8 +19,7 @@
  * @module data-structures/interval-tree
  */
 (function (exports) {
-
-  'use strict';
+  "use strict";
 
   /**
    * Node which describes an interval.
@@ -94,13 +93,13 @@
       if (node.left) {
         addHelper(node.left, interval);
       } else {
-        addNode(node, 'left', interval);
+        addNode(node, "left", interval);
       }
     } else {
       if (node.right) {
         addHelper(node.right, interval);
       } else {
-        addNode(node, 'right', interval);
+        addNode(node, "right", interval);
       }
     }
   }
@@ -129,7 +128,7 @@
     }
     var result = false;
     var temp;
-    ['left', 'right'].forEach(function (key) {
+    ["left", "right"].forEach(function (key) {
       temp = node[key];
       if (temp) {
         if (temp.max > point) {
@@ -154,8 +153,12 @@
   };
 
   function intersects(a, b) {
-    return (a[0] <= b[0] && a[1] >= b[0]) || (a[0] <= b[1] && a[1] >= b[1]) ||
-      (b[0] <= a[0] && b[1] >= a[0]) || (b[0] <= a[1] && b[1] >= a[1]);
+    return (
+      (a[0] <= b[0] && a[1] >= b[0]) ||
+      (a[0] <= b[1] && a[1] >= b[1]) ||
+      (b[0] <= a[0] && b[1] >= a[0]) ||
+      (b[0] <= a[1] && b[1] >= a[1])
+    );
   }
 
   function intersectsHelper(interval, node) {
@@ -167,7 +170,7 @@
     }
     var result = false;
     var temp;
-    ['left', 'right'].forEach(function (side) {
+    ["left", "right"].forEach(function (side) {
       temp = node[side];
       if (temp && temp.max >= interval[0]) {
         result = result || intersectsHelper(interval, temp);
@@ -241,8 +244,7 @@
     if (!node) {
       return;
     }
-    if (node.interval[0] === interval[0] &&
-        node.interval[1] === interval[1]) {
+    if (node.interval[0] === interval[0] && node.interval[1] === interval[1]) {
       // When left and right children exists
       if (node.left && node.right) {
         var replacement = node.left;
@@ -255,9 +257,9 @@
         this._removeHelper(replacement.interval, node);
       } else {
         // When only left or right child exists
-        var side = 'left';
+        var side = "left";
         if (node.right) {
-          side = 'right';
+          side = "right";
         }
         var parentNode = node.parentNode;
         if (parentNode) {
@@ -308,5 +310,4 @@
   exports.IntervalTree.prototype.remove = function (interval) {
     return this._removeHelper(interval, this.root);
   };
-
-})(typeof window === 'undefined' ? module.exports : window);
+})(typeof window === "undefined" ? module.exports : window);

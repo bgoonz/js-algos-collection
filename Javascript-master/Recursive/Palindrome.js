@@ -1,4 +1,3 @@
-
 // Check whether the given string is Palindrome or not
 export const Palindrome = (str) => {
   if (typeof str !== 'string') {

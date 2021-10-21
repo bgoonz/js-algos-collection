@@ -1,20 +1,19 @@
-import 'mocha';
-import { expect } from 'chai';
-import { BinarySearchTree } from '../../../src/ts/index';
+import "mocha";
+import { expect } from "chai";
+import { BinarySearchTree } from "../../../src/ts/index";
 
-describe('BinarySearchTree', () => {
+describe("BinarySearchTree", () => {
   let tree: BinarySearchTree<number>;
 
   beforeEach(() => {
     tree = new BinarySearchTree<number>();
   });
 
-  it('starts empty', () => {
+  it("starts empty", () => {
     expect(tree.getRoot()).to.equal(undefined);
   });
 
   function assertNode(node: any, key: number, left: number, right: number) {
-
     if (key != null) {
       expect(node.key).to.equal(key);
     } else {
@@ -35,7 +34,7 @@ describe('BinarySearchTree', () => {
     }
   }
 
-  it('inserts elements in the BST', () => {
+  it("inserts elements in the BST", () => {
     expect(tree.getRoot()).to.equal(undefined);
 
     tree.insert(11);
@@ -99,11 +98,11 @@ describe('BinarySearchTree', () => {
     assertNode(node, 25, undefined, undefined);
   });
 
-  it('verifies if element exists', () => {
+  it("verifies if element exists", () => {
     expect(tree.getRoot()).to.equal(undefined);
   });
 
-  it('removes a leaf', () => {
+  it("removes a leaf", () => {
     expect(tree.getRoot()).to.equal(undefined);
   });
 });

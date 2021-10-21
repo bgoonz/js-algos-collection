@@ -1,8 +1,7 @@
 (function (exports) {
-  'use strict';
+  "use strict";
 
   var bfs = (function () {
-
     function buildPath(parents, targetNode) {
       var result = [targetNode];
       while (parents[targetNode] !== null) {
@@ -57,8 +56,7 @@
       }
       return null;
     };
-  }());
+  })();
 
   exports.bfs = bfs;
-
-}((typeof window === 'undefined') ? module.exports : window));
+})(typeof window === "undefined" ? module.exports : window);

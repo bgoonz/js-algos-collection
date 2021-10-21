@@ -29,15 +29,14 @@
  * @module data-structures/red-black-tree
  */
 (function (exports) {
-
-  'use strict';
+  "use strict";
 
   /**
    * Enum for the different colors
    */
   var Colors = {
     RED: 0,
-    BLACK: 1
+    BLACK: 1,
   };
   exports.Colors = Colors;
 
@@ -89,15 +88,13 @@
    * Creates getters and setters for the properties:
    * key, value, left, right and color.
    */
-  'key value left right color'
-  .split(' ')
-  .forEach(function (key) {
+  "key value left right color".split(" ").forEach(function (key) {
     var valueName = key.substr(0, 1).toUpperCase() + key.substr(1, key.length);
-    Node.prototype['get' + valueName] = function () {
-      return this['_' + key];
+    Node.prototype["get" + valueName] = function () {
+      return this["_" + key];
     };
-    Node.prototype['set' + valueName] = function (val) {
-      this['_' + key] = val;
+    Node.prototype["set" + valueName] = function (val) {
+      this["_" + key] = val;
     };
   });
 
@@ -267,33 +264,32 @@
   };
 
   /**
-  * Get Level Order Traversal for the given Red Black Tree,
-  * returns 'Tree is empty' string when tree has no Nodes.
-  * Complexity: O(N).
-  *
-  * @public
-  * @return {String} The keys of the tree in level order traversal.
-  *
-  */
+   * Get Level Order Traversal for the given Red Black Tree,
+   * returns 'Tree is empty' string when tree has no Nodes.
+   * Complexity: O(N).
+   *
+   * @public
+   * @return {String} The keys of the tree in level order traversal.
+   *
+   */
   exports.RBTree.prototype.levelOrderTraversal = function () {
     var queue = [];
-    var levelOrderString = '';
-    if (this._root){
+    var levelOrderString = "";
+    if (this._root) {
       queue.push(this._root);
     } else {
-      levelOrderString = ' Tree is empty';
+      levelOrderString = " Tree is empty";
     }
-    while (queue.length !== 0){
+    while (queue.length !== 0) {
       var tempNode = queue.shift();
-      levelOrderString += ' ' + tempNode.getKey();
-      if (tempNode.getLeft() !== null){
+      levelOrderString += " " + tempNode.getKey();
+      if (tempNode.getLeft() !== null) {
         queue.push(tempNode.getLeft());
       }
-      if (tempNode.getRight() !== null){
+      if (tempNode.getRight() !== null) {
         queue.push(tempNode.getRight());
       }
     }
-    return 'Level Order Traversal -:' + levelOrderString;
+    return "Level Order Traversal -:" + levelOrderString;
   };
-
-})(typeof window === 'undefined' ? module.exports : window);
+})(typeof window === "undefined" ? module.exports : window);

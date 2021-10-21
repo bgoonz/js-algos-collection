@@ -1,4 +1,4 @@
-const Comparator = require('../../util/comparator');
+const Comparator = require("../../util/comparator");
 /**
  * shell sort  worst:O(n lg n)  best:O(n)
  */

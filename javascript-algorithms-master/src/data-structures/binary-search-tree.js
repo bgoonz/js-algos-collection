@@ -24,7 +24,7 @@
  * @module data-structures/binary-search-tree
  */
 (function (exports) {
-  'use strict';
+  "use strict";
 
   /**
    * Node of the tree.
@@ -74,9 +74,9 @@
     var insertKey;
     current = current || this._root;
     if (current.value > value) {
-      insertKey = '_left';
+      insertKey = "_left";
     } else {
-      insertKey = '_right';
+      insertKey = "_right";
     }
     if (!current[insertKey]) {
       current[insertKey] = new exports.Node(value, null, null, current);
@@ -98,7 +98,7 @@
       return;
     }
     this._inorder(current._left, callback);
-    if (typeof callback === 'function') {
+    if (typeof callback === "function") {
       callback(current);
     }
     this._inorder(current._right, callback);
@@ -130,7 +130,7 @@
     }
     this._postorder(current._left, callback);
     this._postorder(current._right, callback);
-    if (typeof callback === 'function') {
+    if (typeof callback === "function") {
       callback(current);
     }
   };
@@ -158,7 +158,7 @@
     if (!current) {
       return;
     }
-    if (typeof callback === 'function') {
+    if (typeof callback === "function") {
       callback(current);
     }
     this._preorder(current._left, callback);
@@ -221,10 +221,14 @@
    * @param {Node} oldChild Child to be replaced.
    * @param {Node} newChild Child replacement.
    */
-  exports.BinaryTree.prototype._replaceChild = function (parent, oldChild, newChild) {
+  exports.BinaryTree.prototype._replaceChild = function (
+    parent,
+    oldChild,
+    newChild
+  ) {
     if (!parent) {
       this._root = newChild;
-      if (this._root !== null){
+      if (this._root !== null) {
         this._root._parent = null;
       }
     } else {
@@ -340,10 +344,13 @@
     if (!current) {
       return true;
     }
-    return this._isBalanced(current._left)  &&
-           this._isBalanced(current._right) &&
-          Math.abs(this._getHeight(current._left) -
-            this._getHeight(current._right)) <= 1;
+    return (
+      this._isBalanced(current._left) &&
+      this._isBalanced(current._right) &&
+      Math.abs(
+        this._getHeight(current._left) - this._getHeight(current._right)
+      ) <= 1
+    );
   };
 
   /**
@@ -396,8 +403,9 @@
     if (!node) {
       return 0;
     }
-    return 1 + Math.max(this._getHeight(node._left),
-        this._getHeight(node._right));
+    return (
+      1 + Math.max(this._getHeight(node._left), this._getHeight(node._right))
+    );
   };
 
   /**
@@ -410,7 +418,10 @@
    * for ancestor.
    * @returns {Node} The lowest common ancestor of the two nodes or null.
    */
-  exports.BinaryTree.prototype.lowestCommonAncestor = function (firstNode, secondNode) {
+  exports.BinaryTree.prototype.lowestCommonAncestor = function (
+    firstNode,
+    secondNode
+  ) {
     return this._lowestCommonAncestor(firstNode, secondNode, this._root);
   };
 
@@ -425,13 +436,19 @@
    * @param {Node} current Current node.
    * @returns {Node} The lowest common ancestor of the two nodes or null.
    */
-  exports.BinaryTree.prototype._lowestCommonAncestor = function (firstNode, secondNode, current) {
+  exports.BinaryTree.prototype._lowestCommonAncestor = function (
+    firstNode,
+    secondNode,
+    current
+  ) {
     var firstNodeInLeft = this._existsInSubtree(firstNode, current._left);
     var secondNodeInLeft = this._existsInSubtree(secondNode, current._left);
     var firstNodeInRight = this._existsInSubtree(firstNode, current._right);
     var secondNodeInRight = this._existsInSubtree(secondNode, current._right);
-    if ((firstNodeInLeft && secondNodeInRight) ||
-        (firstNodeInRight && secondNodeInLeft)) {
+    if (
+      (firstNodeInLeft && secondNodeInRight) ||
+      (firstNodeInRight && secondNodeInLeft)
+    ) {
       return current;
     }
     if (secondNodeInLeft && firstNodeInLeft) {
@@ -458,8 +475,9 @@
     if (node.value === root.value) {
       return true;
     }
-    return this._existsInSubtree(node, root._left) ||
-      this._existsInSubtree(node, root._right);
+    return (
+      this._existsInSubtree(node, root._left) ||
+      this._existsInSubtree(node, root._right)
+    );
   };
-
-})(typeof window === 'undefined' ? module.exports : window);
+})(typeof window === "undefined" ? module.exports : window);

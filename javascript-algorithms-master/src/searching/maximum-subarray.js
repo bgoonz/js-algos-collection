@@ -1,5 +1,5 @@
 (function (exports) {
-  'use strict';
+  "use strict";
 
   /**
    * Finds the maximum sum of the elements of a subarray in a given array
@@ -30,5 +30,4 @@
   }
 
   exports.maxSubarray = maxSubarray;
-
-})(typeof window === 'undefined' ? module.exports : window);
+})(typeof window === "undefined" ? module.exports : window);

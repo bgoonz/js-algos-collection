@@ -1,4 +1,4 @@
-const LinkedList = require('./linked_list');
+const LinkedList = require("./linked_list");
 
 /**
  * HashTable constructor
@@ -9,16 +9,16 @@ class HashTable {
     this._table = new Array(initialCapacity || 64);
     this._items = 0;
 
-    Object.defineProperty(this, 'capacity', {
-      get: function() {
+    Object.defineProperty(this, "capacity", {
+      get() {
         return this._table.length;
-      }
+      },
     });
 
-    Object.defineProperty(this, 'size', {
-      get: function() {
+    Object.defineProperty(this, "size", {
+      get() {
         return this._items;
-      }
+      },
     });
   }
 
@@ -31,7 +31,7 @@ class HashTable {
    * (The hash value of the empty string is zero.)
    */
   hash(s) {
-    if (typeof s !== 'string') s = JSON.stringify(s);
+    if (typeof s !== "string") s = JSON.stringify(s);
     let hash = 0;
     for (let i = 0; i < s.length; i++) {
       hash = (hash << 5) - hash + s.charCodeAt(i);
@@ -55,7 +55,7 @@ class HashTable {
       // Hashing with chaining
       this._table[i] = new LinkedList();
     }
-    const item = {k: key, v: value};
+    const item = { k: key, v: value };
 
     const node = this._findInList(this._table[i], key);
     if (node) {
@@ -107,8 +107,8 @@ class HashTable {
   }
 
   forEach(fn) {
-    const applyFunction = linkedList => {
-      linkedList.forEach(elem => {
+    const applyFunction = (linkedList) => {
+      linkedList.forEach((elem) => {
         fn(elem.k, elem.v);
       });
     };

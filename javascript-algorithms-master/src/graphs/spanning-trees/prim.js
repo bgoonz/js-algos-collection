@@ -41,12 +41,11 @@
  * @module graphs/spanning-trees/prim
  */
 (function (exports) {
+  "use strict";
 
-  'use strict';
-
-  var Heap = require('../../data-structures/heap').Heap;
-  exports.Vertex = require('../../data-structures/vertex').Vertex;
-  exports.Edge = require('../../data-structures/edge').Edge;
+  var Heap = require("../../data-structures/heap").Heap;
+  exports.Vertex = require("../../data-structures/vertex").Vertex;
+  exports.Edge = require("../../data-structures/edge").Edge;
 
   /**
    * Graph.
@@ -105,7 +104,7 @@
       inTheTree[startVertex] = true;
       queue.add({
         node: startVertex,
-        distance: 0
+        distance: 0,
       });
       const process = function (e) {
         if (inTheTree[e.v.id] && inTheTree[e.e.id]) {
@@ -125,7 +124,7 @@
             if (collection[i].distance > e.distance) {
               queue.changeKey(i, {
                 node: node,
-                distance: e.distance
+                distance: e.distance,
               });
               parents[node] = current;
               distances[node] = e.distance;
@@ -135,7 +134,7 @@
         }
         queue.add({
           node: node,
-          distance: e.distance
+          distance: e.distance,
         });
         parents[node] = current;
         distances[node] = e.distance;
@@ -147,11 +146,10 @@
       }
       for (var node in parents) {
         spannigTree.push(
-          new exports.Edge(node, parents[node], distances[node]));
+          new exports.Edge(node, parents[node], distances[node])
+        );
       }
       return new exports.Graph(spannigTree);
     };
-
-  }());
-
-})(typeof window === 'undefined' ? module.exports : window);
+  })();
+})(typeof window === "undefined" ? module.exports : window);

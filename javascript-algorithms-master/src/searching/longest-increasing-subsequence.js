@@ -1,17 +1,16 @@
 (function (exports) {
-  'use strict';
+  "use strict";
 
   exports.longestIncreasingSubsequence = (function () {
-
     /**
-    * Find the index of the first largest element in array.
-    * Complexity: O(N).
-    *
-    * @private
-    * @param {Array} array The array in which the largest
-    *  element should be found.
-    * @return {Number} index of the first largest element
-    */
+     * Find the index of the first largest element in array.
+     * Complexity: O(N).
+     *
+     * @private
+     * @param {Array} array The array in which the largest
+     *  element should be found.
+     * @return {Number} index of the first largest element
+     */
     function max(array) {
       if (!array || !array.length) {
         return -1;
@@ -26,23 +25,23 @@
     }
 
     /**
-    * Default comparison method.
-    * @private
-    */
+     * Default comparison method.
+     * @private
+     */
     function asc(a, b) {
       return a - b;
     }
 
     /**
-    * Creates directed graph from given array.
-    * Each element's neighbours are the elements which can be
-    * after the element in the resulting sequence.<br><br>
-    * Complexity: O(N^2).
-    * @private
-    * @param  {Array} array The input array.
-    * @param  {Function} cmp Comparator.
-    * @return {Object} Graph represented with list of neighbours.
-    */
+     * Creates directed graph from given array.
+     * Each element's neighbours are the elements which can be
+     * after the element in the resulting sequence.<br><br>
+     * Complexity: O(N^2).
+     * @private
+     * @param  {Array} array The input array.
+     * @param  {Function} cmp Comparator.
+     * @return {Object} Graph represented with list of neighbours.
+     */
     function buildDag(array, cmp) {
       var result = [];
       for (var i = 0; i < array.length; i += 1) {
@@ -57,13 +56,13 @@
     }
 
     /**
-    * Finds the longest increasing sub-sequence for given node.<br><br>
-    * Complexity: O(N^N).
-    * @private
-    * @param {Object} dag  Graph represented with list of neighbours.
-    * @param {number} node The current node.
-    * @return {object} The longest increasing sub-sequence for given node.
-    */
+     * Finds the longest increasing sub-sequence for given node.<br><br>
+     * Complexity: O(N^N).
+     * @private
+     * @param {Object} dag  Graph represented with list of neighbours.
+     * @param {number} node The current node.
+     * @return {object} The longest increasing sub-sequence for given node.
+     */
     function find(dag, node) {
       node = node || 0;
       if (find.memo[node]) {
@@ -90,28 +89,28 @@
       find.memo[node] = result = {
         distance: distance,
         neighbour: neighboursDistance[maxDist],
-        node: node
+        node: node,
       };
       return result;
     }
 
     /**
-    * Algorithm from dynamic programming. It finds the longest
-    * sub-sequence of increasing numbers. It is not required
-    * the numbers to be neighboring. For example for 1, 5, 2
-    * sequence the longest sub-sequence is 1, 2.
-    *
-    * @example
-    * var subsequence = require('path-to-algorithms/src/searching/'+
-    * 'longest-increasing-subsequence').longestIncreasingSubsequence;
-    * console.log(subsequence([1, 0, 4, 3, 5])); // 1, 4, 5
-    *
-    * @public
-    * @module searching/longest-increasing-subsequence
-    * @param {Array} array Input sequence.
-    * @param {Function} cmp Comparator.
-    * @return {Array} Longest increasing subsequence.
-    */
+     * Algorithm from dynamic programming. It finds the longest
+     * sub-sequence of increasing numbers. It is not required
+     * the numbers to be neighboring. For example for 1, 5, 2
+     * sequence the longest sub-sequence is 1, 2.
+     *
+     * @example
+     * var subsequence = require('path-to-algorithms/src/searching/'+
+     * 'longest-increasing-subsequence').longestIncreasingSubsequence;
+     * console.log(subsequence([1, 0, 4, 3, 5])); // 1, 4, 5
+     *
+     * @public
+     * @module searching/longest-increasing-subsequence
+     * @param {Array} array Input sequence.
+     * @param {Function} cmp Comparator.
+     * @return {Array} Longest increasing subsequence.
+     */
     return function (array, cmp) {
       cmp = cmp || asc;
       var results = [];
@@ -130,6 +129,4 @@
       return results;
     };
   })();
-
-})(typeof window === 'undefined' ? module.exports : window);
-
+})(typeof window === "undefined" ? module.exports : window);

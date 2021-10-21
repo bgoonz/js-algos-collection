@@ -1,8 +1,8 @@
 (function (exports) {
-  'use strict';
+  "use strict";
 
   function charCodeAt(str, i) {
-    return (i < str.length) ? str.charCodeAt(i) : -1;
+    return i < str.length ? str.charCodeAt(i) : -1;
   }
 
   function sort(arr, lo, hi, d) {
@@ -61,4 +61,4 @@
   }
 
   exports.msd = msd;
-})(typeof window === 'undefined' ? module.exports : window);
+})(typeof window === "undefined" ? module.exports : window);

@@ -1,5 +1,5 @@
-const Graph = require('../../data_structures/graph');
-const depthFirstSearch = require('../../algorithms/graph/depth_first_search');
+const Graph = require("../../data_structures/graph");
+const depthFirstSearch = require("../../algorithms/graph/depth_first_search");
 
 /** Examine a graph and compute pair of end vertices of the existing Euler path.
  * Return pair of undefined values if there is no specific choice of end points.
@@ -8,28 +8,28 @@ const depthFirstSearch = require('../../algorithms/graph/depth_first_search');
  * @param {Graph} Graph, must be connected and contain at least one vertex.
  * @return Object
  */
-const eulerEndpoints = graph => {
+const eulerEndpoints = (graph) => {
   const rank = {};
   //     start     ->  rank = +1
   // middle points ->  rank =  0
   //    finish     ->  rank = -1
 
   // Initialize ranks to be outdegrees of vertices.
-  graph.vertices.forEach(vertex => {
+  graph.vertices.forEach((vertex) => {
     rank[vertex] = graph.neighbors(vertex).length;
   });
 
   if (graph.directed) {
     // rank = outdegree - indegree
-    graph.vertices.forEach(vertex => {
-      graph.neighbors(vertex).forEach(neighbor => {
+    graph.vertices.forEach((vertex) => {
+      graph.neighbors(vertex).forEach((neighbor) => {
         rank[neighbor] -= 1;
       });
     });
   } else {
     // Compute ranks from vertex degree parity values.
     let startChosen = false;
-    graph.vertices.forEach(vertex => {
+    graph.vertices.forEach((vertex) => {
       rank[vertex] %= 2;
       if (rank[vertex]) {
         if (startChosen) {
@@ -44,19 +44,19 @@ const eulerEndpoints = graph => {
   let finish;
   let v;
 
-  graph.vertices.forEach(vertex => {
+  graph.vertices.forEach((vertex) => {
     if (rank[vertex] === 1) {
       if (start) {
-        throw new Error('Duplicate start vertex.');
+        throw new Error("Duplicate start vertex.");
       }
       start = vertex;
     } else if (rank[vertex] === -1) {
       if (finish) {
-        throw new Error('Duplicate finish vertex.');
+        throw new Error("Duplicate finish vertex.");
       }
       finish = vertex;
     } else if (rank[vertex]) {
-      throw new Error('Unexpected vertex degree for ' + vertex);
+      throw new Error("Unexpected vertex degree for " + vertex);
     } else if (!v) {
       v = vertex;
     }
@@ -68,7 +68,7 @@ const eulerEndpoints = graph => {
 
   return {
     start,
-    finish
+    finish,
   };
 };
 
@@ -82,7 +82,7 @@ const eulerEndpoints = graph => {
  * @param {Graph}
  * @return Array
  */
-const eulerPath = graph => {
+const eulerPath = (graph) => {
   if (!graph.vertices.size) {
     return [];
   }
@@ -94,20 +94,20 @@ const eulerPath = graph => {
   graph.vertices.forEach(seen.addVertex.bind(seen));
 
   depthFirstSearch(graph, endpoints.start, {
-    allowTraversal: function(vertex, neighbor) {
+    allowTraversal(vertex, neighbor) {
       return !seen.edge(vertex, neighbor);
     },
-    beforeTraversal: function(vertex, neighbor) {
+    beforeTraversal(vertex, neighbor) {
       seen.addEdge(vertex, neighbor);
     },
-    afterTraversal: function(vertex) {
+    afterTraversal(vertex) {
       route.push(vertex);
-    }
+    },
   });
 
-  graph.vertices.forEach(vertex => {
+  graph.vertices.forEach((vertex) => {
     if (seen.neighbors(vertex).length < graph.neighbors(vertex).length) {
-      throw new Error('There is no euler path for a disconnected graph.');
+      throw new Error("There is no euler path for a disconnected graph.");
     }
   });
   return route.reverse();

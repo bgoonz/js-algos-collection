@@ -1,4 +1,4 @@
-const gcd = require('./gcd.js');
+const gcd = require("./gcd.js");
 
 /**
  * Calcule the Least Common Multiple with a given Greatest Common Denominator
@@ -16,7 +16,7 @@ const genericLCM = (gcdFunction, a, b) => {
   }
   a = Math.abs(a);
   b = Math.abs(b);
-  return a / gcdFunction(a, b) * b;
+  return (a / gcdFunction(a, b)) * b;
 };
 
 /**

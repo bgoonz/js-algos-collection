@@ -1,11 +1,13 @@
-import Stack from '../data-structures/stack';
+import Stack from "../data-structures/stack";
 
 function towerOfHanoi(
   plates: number,
   source: Stack<number>,
   helper: Stack<number>,
   dest: Stack<number>,
-  sourceName: string, helperName: string, destName: string,
+  sourceName: string,
+  helperName: string,
+  destName: string,
   moves: any[] = []
 ) {
   if (plates <= 0) {
@@ -19,14 +21,32 @@ function towerOfHanoi(
     move[destName] = dest.toString();
     moves.push(move);
   } else {
-    towerOfHanoi(plates - 1, source, dest, helper, sourceName, destName, helperName, moves);
+    towerOfHanoi(
+      plates - 1,
+      source,
+      dest,
+      helper,
+      sourceName,
+      destName,
+      helperName,
+      moves
+    );
     dest.push(source.pop());
     const move: any = {};
     move[sourceName] = source.toString();
     move[helperName] = helper.toString();
     move[destName] = dest.toString();
     moves.push(move);
-    towerOfHanoi(plates - 1, helper, source, dest, helperName, sourceName, destName, moves);
+    towerOfHanoi(
+      plates - 1,
+      helper,
+      source,
+      dest,
+      helperName,
+      sourceName,
+      destName,
+      moves
+    );
   }
   return moves;
 }
@@ -40,7 +60,7 @@ export function hanoiStack(plates: number) {
     source.push(i);
   }
 
-  return towerOfHanoi(plates, source, helper, dest, 'source', 'helper', 'dest');
+  return towerOfHanoi(plates, source, helper, dest, "source", "helper", "dest");
 }
 
 export function hanoi(

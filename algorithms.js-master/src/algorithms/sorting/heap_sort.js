@@ -1,4 +1,4 @@
-const MinHeap = require('../../data_structures/heap').MinHeap;
+const MinHeap = require("../../data_structures/heap").MinHeap;
 
 /**
  * Heap sort first creates a valid heap data structure. Next it

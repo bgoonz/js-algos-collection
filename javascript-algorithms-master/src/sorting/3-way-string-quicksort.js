@@ -1,10 +1,9 @@
 (function (exports) {
-  'use strict';
+  "use strict";
 
   var quicksort = (function () {
-
     function charAt(str, i) {
-      return (i < str.length) ? str.charCodeAt(i) : -1;
+      return i < str.length ? str.charCodeAt(i) : -1;
     }
 
     function swap(arr, i, j) {
@@ -63,8 +62,7 @@
       quicksort(arr, 0, arr.length - 1, 0);
       return arr;
     };
-  }());
+  })();
 
   exports.quicksort = quicksort;
-
-})(typeof window === 'undefined' ? module.exports : window);
+})(typeof window === "undefined" ? module.exports : window);

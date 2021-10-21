@@ -24,9 +24,9 @@ const GetEuclidGCD = (arg1, arg2) => {
   let less = arg1 > arg2 ? arg2 : arg1
   // Iterate the number and find the gcd of the number using the above explanation.
   for (less; less >= 2; less--) {
-    if ((arg1 % less === 0) && (arg2 % less === 0)) return (less)
+    if (arg1 % less === 0 && arg2 % less === 0) return less
   }
-  return (less)
+  return less
 }
 
 export { GetEuclidGCD }

@@ -1,6 +1,11 @@
-import { Compare, defaultCompare, ICompareFunction, swap } from '../../util';
+import { Compare, defaultCompare, ICompareFunction, swap } from "../../util";
 
-const partition = function(array: any[], left: number, right: number, compareFn: ICompareFunction<any>) {
+const partition = function (
+  array: any[],
+  left: number,
+  right: number,
+  compareFn: ICompareFunction<any>
+) {
   const pivot = array[Math.floor((right + left) / 2)];
   let i = left;
   let j = right;
@@ -29,7 +34,7 @@ const partition = function(array: any[], left: number, right: number, compareFn:
   return i;
 };
 
-const quick = function(
+const quick = function (
   array: any[],
   left: number,
   right: number,

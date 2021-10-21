@@ -1,6 +1,5 @@
 (function (exports) {
-
-  'use strict';
+  "use strict";
 
   function compare(a, b) {
     return a - b;
@@ -14,7 +13,6 @@
    * @return {array} Sorted array.
    */
   var quickSort = (function () {
-
     /**
      * Partitions the array in two parts by the middle elements.
      * All elements which are less than the chosen one goes left from it
@@ -90,9 +88,7 @@
       quicksort(array, 0, array.length - 1, cmp);
       return array;
     };
-
-  }());
+  })();
 
   exports.quickSort = quickSort;
-
-})(typeof window === 'undefined' ? module.exports : window);
+})(typeof window === "undefined" ? module.exports : window);

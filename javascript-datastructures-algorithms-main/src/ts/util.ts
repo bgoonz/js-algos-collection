@@ -9,7 +9,7 @@ export const DOES_NOT_EXIST = -1;
 export enum Compare {
   LESS_THAN = -1,
   BIGGER_THAN = 1,
-  EQUALS = 0
+  EQUALS = 0,
 }
 
 export function lesserEquals<T>(a: T, b: T, compareFn: ICompareFunction<T>) {
@@ -35,10 +35,10 @@ export function defaultEquals<T>(a: T, b: T): boolean {
 
 export function defaultToString(item: any): string {
   if (item === null) {
-    return 'NULL';
+    return "NULL";
   } else if (item === undefined) {
-    return 'UNDEFINED';
-  } else if (typeof item === 'string' || item instanceof String) {
+    return "UNDEFINED";
+  } else if (typeof item === "string" || item instanceof String) {
     return `${item}`;
   }
   return item.toString();
@@ -51,7 +51,9 @@ export function swap(array: any[], a: number, b: number) {
   [array[a], array[b]] = [array[b], array[a]];
 }
 
-export function reverseCompare<T>(compareFn: ICompareFunction<T>): ICompareFunction<T> {
+export function reverseCompare<T>(
+  compareFn: ICompareFunction<T>
+): ICompareFunction<T> {
   return (a, b) => compareFn(b, a);
 }
 

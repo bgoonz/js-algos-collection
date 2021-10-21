@@ -1,8 +1,7 @@
 (function (exports) {
-  'use strict';
+  "use strict";
 
   exports.longestCommonSubsequence = (function () {
-
     /**
      * Find the lengths of longest common sub-sequences
      * of two strings and their substrings.
@@ -49,7 +48,7 @@
     function getLcs(str1, str2, lcsLengthsMatrix) {
       var execute = function (i, j) {
         if (!lcsLengthsMatrix[i][j]) {
-          return '';
+          return "";
         } else if (str1[i] === str2[j]) {
           return execute(i - 1, j - 1) + str1[i];
         } else if (lcsLengthsMatrix[i][j - 1] > lcsLengthsMatrix[i - 1][j]) {
@@ -82,5 +81,4 @@
       return getLcs(str1, str2, lcsLengthsMatrix);
     };
   })();
-
-})(typeof window === 'undefined' ? module.exports : window);
+})(typeof window === "undefined" ? module.exports : window);

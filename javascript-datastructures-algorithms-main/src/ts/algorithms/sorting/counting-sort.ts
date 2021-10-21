@@ -1,7 +1,6 @@
-import { findMaxValue } from '../search/min-max-search';
+import { findMaxValue } from "../search/min-max-search";
 
 export function countingSort(array: number[]) {
-
   if (array.length < 2) {
     return array;
   }
@@ -10,7 +9,7 @@ export function countingSort(array: number[]) {
   let sortedIndex = 0;
   const counts = new Array(maxValue + 1);
 
-  array.forEach(element => {
+  array.forEach((element) => {
     if (!counts[element]) {
       counts[element] = 0;
     }

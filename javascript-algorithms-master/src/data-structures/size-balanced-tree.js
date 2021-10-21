@@ -30,8 +30,8 @@
  * @module data-structures/size-balanced-tree
  */
 
-function CreateSBTreeClass (Node, Nil, updateChild) {
-  'use strict';
+function CreateSBTreeClass(Node, Nil, updateChild) {
+  "use strict";
 
   function LeftRotate(node, childNode) {
     /*
@@ -159,7 +159,7 @@ function CreateSBTreeClass (Node, Nil, updateChild) {
       return this._root;
     },
 
-    binarySearch: function (cmp, value) {
+    binarySearch(cmp, value) {
       var left = -1;
       var right = this.size;
       while (left + 1 < right) {
@@ -291,7 +291,7 @@ function CreateSBTreeClass (Node, Nil, updateChild) {
 }
 
 (function (exports) {
-  'use strict';
+  "use strict";
 
   /**
    * Node constructor of the Size-Balanced tree.
@@ -365,5 +365,4 @@ function CreateSBTreeClass (Node, Nil, updateChild) {
   exports.Node = Node;
   exports.Nil = Nil;
   exports.SBTree = CreateSBTreeClass(Node, Nil, updateChild);
-
-})(typeof module === 'undefined' ? window : module.exports);
+})(typeof module === "undefined" ? window : module.exports);

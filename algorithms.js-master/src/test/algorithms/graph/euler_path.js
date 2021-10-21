@@ -1,9 +1,9 @@
-const root = require('../../../');
+const root = require("../../../");
 const eulerPath = root.Graph.eulerPath;
 const Graph = root.DataStructures.Graph;
-const assert = require('assert');
+const assert = require("assert");
 
-describe('Euler Path', () => {
+describe("Euler Path", () => {
   const verifyEulerPath = (graph, trail) => {
     const visited = new Graph(graph.directed);
     graph.vertices.forEach(visited.addVertex.bind(visited));
@@ -15,7 +15,7 @@ describe('Euler Path', () => {
       return current;
     }, trail[0]);
 
-    graph.vertices.forEach(vertex => {
+    graph.vertices.forEach((vertex) => {
       assert.equal(
         graph.neighbors(vertex).length,
         visited.neighbors(vertex).length
@@ -25,13 +25,13 @@ describe('Euler Path', () => {
 
   const graphFromEdges = (directed, edges) => {
     const graph = new Graph(directed);
-    edges.forEach(edge => {
+    edges.forEach((edge) => {
       graph.addEdge(edge[0], edge[1]);
     });
     return graph;
   };
 
-  it('computes Euler tour over the undirected graph', () => {
+  it("computes Euler tour over the undirected graph", () => {
     const graph = graphFromEdges(false, [
       [1, 2],
       [1, 5],
@@ -47,14 +47,14 @@ describe('Euler Path', () => {
       [5, 6],
       [6, 9],
       [6, 10],
-      [7, 8]
+      [7, 8],
     ]);
     const trail = eulerPath(graph);
     verifyEulerPath(graph, trail);
     assert.equal(trail[0], trail.slice(-1)[0]);
   });
 
-  it('computes Euler walk over the undirected graph', () => {
+  it("computes Euler walk over the undirected graph", () => {
     const graph = graphFromEdges(false, [
       [1, 2],
       [1, 5],
@@ -69,7 +69,7 @@ describe('Euler Path', () => {
       [5, 6],
       [6, 9],
       [6, 10],
-      [7, 8]
+      [7, 8],
     ]);
     const trail = eulerPath(graph);
     verifyEulerPath(graph, trail);
@@ -79,7 +79,7 @@ describe('Euler Path', () => {
     assert.equal(endpoints[1], 8);
   });
 
-  it('computes Euler tour over the directed graph', () => {
+  it("computes Euler tour over the directed graph", () => {
     const graph = graphFromEdges(true, [
       [0, 1],
       [1, 2],
@@ -90,14 +90,14 @@ describe('Euler Path', () => {
       [4, 1],
       [1, 5],
       [5, 6],
-      [6, 4]
+      [6, 4],
     ]);
     const trail = eulerPath(graph);
     verifyEulerPath(graph, trail);
     assert.equal(trail[0], trail.slice(-1)[0]);
   });
 
-  it('computes Euler walk over the directed graph', () => {
+  it("computes Euler walk over the directed graph", () => {
     const graph = graphFromEdges(true, [
       [5, 0],
       [0, 2],
@@ -105,42 +105,62 @@ describe('Euler Path', () => {
       [4, 0],
       [1, 5],
       [3, 1],
-      [5, 3]
+      [5, 3],
     ]);
     const trail = eulerPath(graph);
     assert.deepEqual(trail, [5, 3, 1, 5, 0, 2, 4, 0]);
   });
 
-  it('returns single-vertex-trail for an isolated vertex', () => {
+  it("returns single-vertex-trail for an isolated vertex", () => {
     const graph = new Graph();
-    graph.addVertex('loner');
+    graph.addVertex("loner");
     const trail = eulerPath(graph);
-    assert.deepEqual(trail, ['loner']);
+    assert.deepEqual(trail, ["loner"]);
   });
 
-  it('returns empty trail for an empty graph', () => {
+  it("returns empty trail for an empty graph", () => {
     const graph = new Graph();
     const trail = eulerPath(graph);
     assert.deepEqual(trail, []);
   });
 
-  it('raises an error if there is no Euler path', () => {
-    let graph = graphFromEdges(false, [[0, 1], [2, 3]]);
+  it("raises an error if there is no Euler path", () => {
+    let graph = graphFromEdges(false, [
+      [0, 1],
+      [2, 3],
+    ]);
     assert.throws(eulerPath.bind(null, graph));
 
-    graph = graphFromEdges(false, [[0, 1], [0, 2], [0, 3]]);
+    graph = graphFromEdges(false, [
+      [0, 1],
+      [0, 2],
+      [0, 3],
+    ]);
     assert.throws(eulerPath.bind(null, graph));
 
-    graph = graphFromEdges(true, [[0, 1], [0, 2]]);
+    graph = graphFromEdges(true, [
+      [0, 1],
+      [0, 2],
+    ]);
     assert.throws(eulerPath.bind(null, graph));
 
-    graph = graphFromEdges(true, [[1, 0], [2, 0]]);
+    graph = graphFromEdges(true, [
+      [1, 0],
+      [2, 0],
+    ]);
     assert.throws(eulerPath.bind(null, graph));
 
-    graph = graphFromEdges(true, [[0, 1], [2, 3], [3, 2]]);
+    graph = graphFromEdges(true, [
+      [0, 1],
+      [2, 3],
+      [3, 2],
+    ]);
     assert.throws(eulerPath.bind(null, graph));
 
-    graph = graphFromEdges(true, [[0, 1], [2, 3]]);
+    graph = graphFromEdges(true, [
+      [0, 1],
+      [2, 3],
+    ]);
     assert.throws(eulerPath.bind(null, graph));
   });
 });

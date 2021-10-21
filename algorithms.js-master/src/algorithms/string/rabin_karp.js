@@ -13,7 +13,7 @@ const base = 997;
  * @param String
  * @return Number
  */
-const hash = word => {
+const hash = (word) => {
   let h = 0;
 
   for (let i = 0; i < word.length; i++) {

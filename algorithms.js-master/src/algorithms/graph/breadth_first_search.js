@@ -1,4 +1,4 @@
-const Queue = require('../../data_structures/queue');
+const Queue = require("../../data_structures/queue");
 
 /**
  * @typedef {Object} Callbacks
@@ -61,7 +61,7 @@ const breadthFirstSearch = (graph, startVertex, callbacks) => {
   callbacks = normalizeCallbacks(callbacks, [startVertex]);
 
   let vertex;
-  const enqueue = neighbor => {
+  const enqueue = (neighbor) => {
     if (callbacks.allowTraversal(vertex, neighbor)) {
       callbacks.onTraversal(vertex, neighbor);
       vertexQueue.push(neighbor);

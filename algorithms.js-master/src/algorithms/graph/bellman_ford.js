@@ -18,12 +18,12 @@ const bellmanFord = (graph, startNode) => {
   let adjacencyListSize = 0;
 
   // Add all the edges from the graph to the 'edges' array
-  graph.vertices.forEach(s => {
-    graph.neighbors(s).forEach(t => {
+  graph.vertices.forEach((s) => {
+    graph.neighbors(s).forEach((t) => {
       edges.push({
         source: s,
         target: t,
-        weight: graph.edge(s, t)
+        weight: graph.edge(s, t),
       });
     });
 
@@ -62,13 +62,13 @@ const bellmanFord = (graph, startNode) => {
   if (iteration === adjacencyListSize) {
     // Empty 'distance' object indicates Negative-Weighted Cycle
     return {
-      distance: {}
+      distance: {},
     };
   }
 
   return {
     distance: minDistance,
-    previous: previousVertex
+    previous: previousVertex,
   };
 };
 

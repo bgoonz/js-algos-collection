@@ -6,7 +6,7 @@ describe('MinPriorityQueue', () => {
 
   const Queue = new MinPriorityQueue(capacity)
 
-  values.forEach(v => Queue.insert(v))
+  values.forEach((v) => Queue.insert(v))
 
   it('Check heap ordering', () => {
     const mockFn = jest.fn()

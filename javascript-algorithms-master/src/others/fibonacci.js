@@ -14,13 +14,13 @@
  * @param {Number} n The nth position in fibonacci's sequence
  *
  * @module others/fibonacci
-*/
+ */
 (function (exports) {
-  'use strict';
+  "use strict";
 
-  function fibonacci (n) {
+  function fibonacci(n) {
     if (n > 97) {
-      throw 'Input too large, results in inaccurate fibonacci value.';
+      throw "Input too large, results in inaccurate fibonacci value.";
     }
     var n1 = 0;
     var n2 = 1;
@@ -37,4 +37,4 @@
   }
 
   exports.fibonacci = fibonacci;
-})(typeof window === 'undefined' ? module.exports : window);
+})(typeof window === "undefined" ? module.exports : window);

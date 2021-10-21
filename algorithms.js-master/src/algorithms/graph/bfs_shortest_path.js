@@ -1,4 +1,4 @@
-const breadthFirstSearch = require('./breadth_first_search');
+const breadthFirstSearch = require("./breadth_first_search");
 
 /**
  * Shortest-path algorithm based on Breadth-First Search.
@@ -16,15 +16,15 @@ const bfsShortestPath = (graph, source) => {
   distance[source] = 0;
 
   breadthFirstSearch(graph, source, {
-    onTraversal: function(vertex, neighbor) {
+    onTraversal(vertex, neighbor) {
       distance[neighbor] = distance[vertex] + 1;
       previous[neighbor] = vertex;
-    }
+    },
   });
 
   return {
     distance,
-    previous
+    previous,
   };
 };
 

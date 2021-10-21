@@ -1,8 +1,8 @@
 /**
-  *  Finds the maximum of unimodal function fn() within [left, right]
-  *  To find the minimum, revert the if/else statement or revert the comparison.
-  *  Time complexity: O(log(n))
-  */
+ *  Finds the maximum of unimodal function fn() within [left, right]
+ *  To find the minimum, revert the if/else statement or revert the comparison.
+ *  Time complexity: O(log(n))
+ */
 
 const ternarySearch = (fn, left, right, precision) => {
   while (Math.abs(right - left) > precision) {

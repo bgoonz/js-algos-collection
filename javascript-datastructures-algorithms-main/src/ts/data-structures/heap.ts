@@ -1,4 +1,10 @@
-import { Compare, defaultCompare, ICompareFunction, reverseCompare, swap } from '../util';
+import {
+  Compare,
+  defaultCompare,
+  ICompareFunction,
+  reverseCompare,
+  swap,
+} from "../util";
 
 export class MinHeap<T> {
   protected heap: T[] = [];
@@ -52,13 +58,18 @@ export class MinHeap<T> {
     const right = this.getRightIndex(index);
     const size = this.size();
 
-    if (left < size && this.compareFn(this.heap[element], this.heap[left]) === Compare.BIGGER_THAN) {
+    if (
+      left < size &&
+      this.compareFn(this.heap[element], this.heap[left]) ===
+        Compare.BIGGER_THAN
+    ) {
       element = left;
     }
 
     if (
       right < size &&
-      this.compareFn(this.heap[element], this.heap[right]) === Compare.BIGGER_THAN
+      this.compareFn(this.heap[element], this.heap[right]) ===
+        Compare.BIGGER_THAN
     ) {
       element = right;
     }
@@ -73,7 +84,8 @@ export class MinHeap<T> {
     let parent = this.getParentIndex(index);
     while (
       index > 0 &&
-      this.compareFn(this.heap[parent], this.heap[index]) === Compare.BIGGER_THAN
+      this.compareFn(this.heap[parent], this.heap[index]) ===
+        Compare.BIGGER_THAN
     ) {
       swap(this.heap, parent, index);
       index = parent;

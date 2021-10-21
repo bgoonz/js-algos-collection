@@ -1,4 +1,4 @@
-const MinHeap = require('./heap').MinHeap;
+const MinHeap = require("./heap").MinHeap;
 
 /**
  * Extends the MinHeap with the only difference that
@@ -12,7 +12,7 @@ class PriorityQueue extends MinHeap {
     this._priority = {};
 
     initialItems = initialItems || {};
-    Object.keys(initialItems).forEach(item => {
+    Object.keys(initialItems).forEach((item) => {
       this.insert(item, initialItems[item]);
     });
   }
@@ -28,7 +28,7 @@ class PriorityQueue extends MinHeap {
   extract(withPriority) {
     const min = MinHeap.prototype.extract.call(this);
     return withPriority
-      ? min && {item: min, priority: this._priority[min]}
+      ? min && { item: min, priority: this._priority[min] }
       : min;
   }
 

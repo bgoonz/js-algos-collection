@@ -1,4 +1,3 @@
-
 // functions commented below - inifite loop
 
 /*
@@ -16,8 +15,9 @@ function recursiveFunction2(someParam) {
 */
 
 function understandRecursion(doIunderstandRecursion) {
-  const recursionAnswer = confirm('Do you understand recursion?'); // function logic
-  if (recursionAnswer === true) { // base case or stop point
+  const recursionAnswer = confirm("Do you understand recursion?"); // function logic
+  if (recursionAnswer === true) {
+    // base case or stop point
     return true;
   }
   understandRecursion(recursionAnswer); // recursive call

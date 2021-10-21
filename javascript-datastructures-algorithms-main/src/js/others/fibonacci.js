@@ -9,7 +9,9 @@ export function fibonacci(n) {
 }
 
 export function fibonacciIterative(n) {
-  if (n < 1) { return 0; }
+  if (n < 1) {
+    return 0;
+  }
   let fibNMinus2 = 0;
   let fibNMinus1 = 1;
   let fibN = n;
@@ -22,10 +24,14 @@ export function fibonacciIterative(n) {
 }
 
 export function fibonacciMemoization(n) {
-  if (n < 1) { return 0; }
+  if (n < 1) {
+    return 0;
+  }
   const memo = [0, 1];
-  const fibonacciMem = num => {
-    if (memo[num] != null) { return memo[num]; }
+  const fibonacciMem = (num) => {
+    if (memo[num] != null) {
+      return memo[num];
+    }
     return (memo[num] = fibonacciMem(num - 1) + fibonacciMem(num - 2));
   };
   return fibonacciMem(n);

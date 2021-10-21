@@ -1,5 +1,5 @@
 (function (exports) {
-  'use strict';
+  "use strict";
 
   var variationsWithRepetition = (function () {
     var res;
@@ -48,8 +48,7 @@
       res = undefined;
       return temp;
     };
-  }());
+  })();
 
   exports.variationsWithRepetition = variationsWithRepetition;
-
-}((typeof window === 'undefined') ? module.exports : window));
+})(typeof window === "undefined" ? module.exports : window);

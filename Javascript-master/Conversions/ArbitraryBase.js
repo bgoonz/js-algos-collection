@@ -1,18 +1,28 @@
 /**
-* Converts a string from one base to other
-* @param {string} stringInBaseOne String in input base
-* @param {string} baseOneCharacters Character set for the input base
-* @param {string} baseTwoCharacters Character set for the output base
-* @returns {string}
-*/
-const convertArbitraryBase = (stringInBaseOne, baseOneCharacters, baseTwoCharacters) => {
-  if ([stringInBaseOne, baseOneCharacters, baseTwoCharacters].map(arg => typeof arg).some(type => type !== 'string')) {
+ * Converts a string from one base to other
+ * @param {string} stringInBaseOne String in input base
+ * @param {string} baseOneCharacters Character set for the input base
+ * @param {string} baseTwoCharacters Character set for the output base
+ * @returns {string}
+ */
+const convertArbitraryBase = (
+  stringInBaseOne,
+  baseOneCharacters,
+  baseTwoCharacters
+) => {
+  if (
+    [stringInBaseOne, baseOneCharacters, baseTwoCharacters]
+      .map((arg) => typeof arg)
+      .some((type) => type !== 'string')
+  ) {
     throw new TypeError('Only string arguments are allowed')
   }
-  [baseOneCharacters, baseTwoCharacters].forEach(baseString => {
+  ;[baseOneCharacters, baseTwoCharacters].forEach((baseString) => {
     const charactersInBase = [...baseString]
     if (charactersInBase.length !== new Set(charactersInBase).size) {
-      throw new TypeError('Duplicate characters in character set are not allowed')
+      throw new TypeError(
+        'Duplicate characters in character set are not allowed'
+      )
     }
   })
   const reversedStringOneChars = [...stringInBaseOne].reverse()
@@ -24,7 +34,7 @@ const convertArbitraryBase = (stringInBaseOne, baseOneCharacters, baseTwoCharact
     if (digitNumber === -1) {
       throw new TypeError(`Not a valid character: ${digit}`)
     }
-    value += (digitNumber * placeValue)
+    value += digitNumber * placeValue
     placeValue *= stringOneBase
   }
   let stringInBaseTwo = ''
