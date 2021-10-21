@@ -58,7 +58,9 @@ body {
     background-position: 0% 50%;
   }
 }
-
+#list_footer_open_export{
+  color:black;
+}
 div.container {
   overflow: hidden;
   width: 900px;
