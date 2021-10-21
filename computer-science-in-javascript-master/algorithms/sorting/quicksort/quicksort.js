@@ -29,15 +29,19 @@
  * @return {void}
  */
 function swap(items, firstIndex, secondIndex) {
-  var temp = items[firstIndex];
+  const temp = items[firstIndex];
   items[firstIndex] = items[secondIndex];
   items[secondIndex] = temp;
 }
 
 function partition(items, left, right) {
-  var pivot = items[Math.floor((right + left) / 2)], // pivot value is middle item
-    i = left, // starts from left and goes right to pivot index
-    j = right; // starts from right and goes left to pivot index
+  const // pivot value is middle item
+  pivot = items[Math.floor((right + left) / 2)]; // starts from right and goes left to pivot index
+
+  let // starts from left and goes right to pivot index
+  i = left;
+
+  let j = right;
 
   // while the two indices don't match
   while (i <= j) {
@@ -72,7 +76,7 @@ function partition(items, left, right) {
  * @return {Array} The sorted array.
  */
 function quickSort(items, left, right) {
-  var index;
+  let index;
 
   // performance - don't sort an array with zero or one items
   if (items.length > 1) {

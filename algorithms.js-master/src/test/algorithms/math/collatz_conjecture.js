@@ -1,6 +1,6 @@
-const math = require("../../..").Math;
+import {Math as math} from "../../..";
 const collatzConjecture = math.collatzConjecture;
-const assert = require("assert");
+import assert from "assert";
 
 describe("Collatz Conjecture", () => {
   it("returns odd numbers divided by two", () => {

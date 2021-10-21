@@ -1,5 +1,5 @@
 const shannonEntropy = require("../../../").Math.shannonEntropy;
-const assert = require("assert");
+import assert from "assert";
 
 describe("Shannon Entropy", () => {
   it("calculates shannon entropy", () => {

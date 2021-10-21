@@ -2,9 +2,9 @@
 /* eslint-disable */
 
 //* ****** EcmaScript 2015 (ES6): arrow functions (https://goo.gl/nM414v)
-var circleAreaES5 = function circleArea(r) {
-  var PI = 3.14;
-  var area = PI * r * r;
+const circleAreaES5 = function circleArea(r) {
+  const PI = 3.14;
+  const area = PI * r * r;
   return area;
 };
 console.log(circleAreaES5(2));

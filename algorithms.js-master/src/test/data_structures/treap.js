@@ -1,6 +1,6 @@
-const root = require("../..");
+import root from "../..";
 const Treap = root.DataStructures.Treap;
-const assert = require("assert");
+import assert from "assert";
 
 describe("Treap", () => {
   let treap;

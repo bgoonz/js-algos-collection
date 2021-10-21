@@ -2,7 +2,7 @@
 /* eslint-disable */
 
 function output(t) {
-  document.write("<p>" + t + "</p>");
+  document.write(`<p>${t}</p>`);
 }
 
 alert("Hello, World!");

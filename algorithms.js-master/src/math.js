@@ -1,5 +1,5 @@
 // Math algorithms
-module.exports = {
+export default {
   fibonacci: require("./algorithms/math/fibonacci"),
   fisherYates: require("./algorithms/math/fisher_yates"),
   gcd: require("./algorithms/math/gcd"),

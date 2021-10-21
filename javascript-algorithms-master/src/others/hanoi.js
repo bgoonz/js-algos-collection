@@ -1,4 +1,4 @@
-(function (exports) {
+(exports => {
   "use strict";
 
   /**
@@ -30,8 +30,7 @@
    * @return Array which contains all the moves required
    * in order to place all the plates onto the last peg.
    */
-  function hanoi(count, source, intermediate, goal, result) {
-    result = result || [];
+  function hanoi(count, source, intermediate, goal, result = []) {
     if (count === 1) {
       result.push([source, goal]);
     } else {

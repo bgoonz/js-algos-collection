@@ -27,7 +27,7 @@ console.log(graph.toString());
 
 console.log("********* bfs with callback ***********");
 
-const printVertex = (value) => console.log("Visited vertex: " + value);
+const printVertex = (value) => console.log(`Visited vertex: ${value}`);
 
 breadthFirstSearch(graph, myVertices[0], printVertex);
 
@@ -48,7 +48,7 @@ for (let i = 1; i < myVertices.length; i++) {
   path.push(fromVertex);
   let s = path.pop();
   while (!path.isEmpty()) {
-    s += " - " + path.pop();
+    s += ` - ${path.pop()}`;
   }
   console.log(s);
 }

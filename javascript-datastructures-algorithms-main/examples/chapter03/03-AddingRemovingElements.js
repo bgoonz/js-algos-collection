@@ -65,7 +65,7 @@ console.log("Lenght after value removed manually", numbers.length);
 //reset array
 numbers = [-4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
-Array.prototype.reIndex = function (myArray) {
+Array.prototype.reIndex = myArray => {
   const newArray = [];
   for (let i = 0; i < myArray.length; i++) {
     if (myArray[i] !== undefined) {

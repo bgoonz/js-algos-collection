@@ -3,13 +3,16 @@
  * @param A point b, example: {x : 0,y : 0}
  * @return A vector ab, example: {x : 0,y : 0}
  */
-const newVector = (a, b) => ({ x: b.x - a.x, y: b.y - a.y });
+const newVector = ({x, y}, {x, y}) => ({
+ x: x - x,
+ y: y - y
+});
 
 /**
  * @param A vector v, example: {x : 0,y : 0}
  * @return The length of v.
  */
-const length = (v) => v.x * v.x + v.y * v.y;
+const length = ({x, y}) => x * x + y * y;
 
 /**
  * Performs the cross product between two vectors.
@@ -17,7 +20,7 @@ const length = (v) => v.x * v.x + v.y * v.y;
  * @param A vector object, example: {x : 0,y : 0}
  * @return The result of the cross product between u and v.
  */
-const crossProduct = (u, v) => u.x * v.y - u.y * v.x;
+const crossProduct = ({x, y}, {y, x}) => x * y - y * x;
 
 /**
  * Calculates the area of the parallelogram that can be
@@ -57,7 +60,7 @@ const isClockwise = (a, b, c) => parallelogramArea(a, b, c) < 0;
  */
 const isCounterClockwise = (a, b, c) => parallelogramArea(a, b, c) > 0;
 
-module.exports = {
+export default {
   newVector: newVector,
   length: length,
   crossProduct: crossProduct,

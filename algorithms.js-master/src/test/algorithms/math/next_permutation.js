@@ -1,7 +1,7 @@
-const math = require("../../..").Math;
+import {Math as math} from "../../..";
 const nextPermutation = math.nextPermutation;
-const Comparator = require("../../../util/comparator");
-const assert = require("assert");
+import Comparator from "../../../util/comparator";
+import assert from "assert";
 
 const range = (begin, end) => {
   if (end === undefined) {

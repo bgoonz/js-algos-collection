@@ -665,4 +665,4 @@ class DoublyLinkedList {
   }
 }
 
-exports.DoublyLinkedList = DoublyLinkedList;
+export {DoublyLinkedList};

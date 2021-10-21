@@ -1,14 +1,14 @@
-(function (exports) {
+(exports => {
   "use strict";
 
-  var variationsWithRepetition = (function () {
-    var res;
+  const variationsWithRepetition = (() => {
+    let res;
 
     function variations(arr, k, index, current) {
       if (k === index) {
         return res.push(current.slice());
       }
-      for (var i = 0; i < arr.length; i += 1) {
+      for (let i = 0; i < arr.length; i += 1) {
         current[index] = arr[i];
         variations(arr, k, index + 1, current);
       }
@@ -41,10 +41,10 @@
      * @param k {Number} Size of each combination.
      * @return {Array} Returns all combinations.
      */
-    return function (arr, k) {
+    return (arr, k) => {
       res = [];
       variations(arr, k, 0, []);
-      var temp = res;
+      const temp = res;
       res = undefined;
       return temp;
     };

@@ -1,4 +1,4 @@
-(function (exports) {
+(exports => {
   "use strict";
   /**
    * Searches for specific element in a given array using

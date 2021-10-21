@@ -1,4 +1,4 @@
-(function (exports) {
+(exports => {
   "use strict";
 
   /**
@@ -6,7 +6,7 @@
    *
    * @public
    */
-  var quickSort = (function () {
+  const quickSort = (() => {
     function compare(a, b) {
       return a - b;
     }
@@ -21,7 +21,7 @@
      * @returns {array} array The array with swapped elements
      */
     function swap(array, i, j) {
-      var temp = array[i];
+      const temp = array[i];
       array[i] = array[j];
       array[j] = temp;
       return array;
@@ -36,9 +36,9 @@
      * @param {number} right The end of the subarray
      */
     function partition(array, left, right, compare) {
-      var cmp = array[right - 1];
-      var minEnd = left;
-      var maxEnd;
+      const cmp = array[right - 1];
+      let minEnd = left;
+      let maxEnd;
       for (maxEnd = left; maxEnd < right - 1; maxEnd += 1) {
         if (compare(array[maxEnd], cmp) < 0) {
           swap(array, maxEnd, minEnd);
@@ -60,7 +60,7 @@
      */
     function quickSort(array, left, right, cmp) {
       if (left < right) {
-        var p = partition(array, left, right, cmp);
+        const p = partition(array, left, right, cmp);
         quickSort(array, left, p, cmp);
         quickSort(array, p + 1, right, cmp);
       }
@@ -74,8 +74,7 @@
      * @param {array} array The input array which should be sorted
      * @returns {array} array Sorted array
      */
-    return function (array, cmp) {
-      cmp = cmp || compare;
+    return (array, cmp = compare) => {
       return quickSort(array, 0, array.length, cmp);
     };
   })();

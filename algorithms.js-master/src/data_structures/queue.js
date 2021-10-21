@@ -1,4 +1,4 @@
-const LinkedList = require("./linked_list");
+import LinkedList from "./linked_list";
 
 /**
  * Queue (FIFO) using a Linked List as basis
@@ -44,4 +44,4 @@ class Queue {
   }
 }
 
-module.exports = Queue;
+export default Queue;

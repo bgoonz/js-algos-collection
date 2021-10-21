@@ -1,7 +1,7 @@
-const root = require("../../../");
+import root from "../../../";
 const floydWarshall = root.Graph.floydWarshall;
 const Graph = root.DataStructures.Graph;
-const assert = require("assert");
+import assert from "assert";
 
 describe("Floyd-Warshall Algorithm", () => {
   it("computes all-pairs shortest paths in the graph", () => {

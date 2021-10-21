@@ -1,16 +1,16 @@
-(function (global, factory) {
+((global, factory) => {
   if (typeof define === "function" && define.amd) {
     define(["module", "exports"], factory);
   } else if (typeof exports !== "undefined") {
     factory(module, exports);
   } else {
-    var mod = {
+    const mod = {
       exports: {},
     };
     factory(mod, mod.exports);
     global.Book = mod.exports;
   }
-})(this, function (module, exports) {
+})(this, (module, exports) => {
   "use strict";
 
   Object.defineProperty(exports, "__esModule", {
@@ -23,25 +23,24 @@
     }
   }
 
-  var _createClass = (function () {
+  const _createClass = (() => {
     function defineProperties(target, props) {
-      for (var i = 0; i < props.length; i++) {
-        var descriptor = props[i];
+      props.forEach(descriptor => {
         descriptor.enumerable = descriptor.enumerable || false;
         descriptor.configurable = true;
         if ("value" in descriptor) descriptor.writable = true;
         Object.defineProperty(target, descriptor.key, descriptor);
-      }
+      });
     }
 
-    return function (Constructor, protoProps, staticProps) {
+    return (Constructor, protoProps, staticProps) => {
       if (protoProps) defineProperties(Constructor.prototype, protoProps);
       if (staticProps) defineProperties(Constructor, staticProps);
       return Constructor;
     };
   })();
 
-  var Book = (function () {
+  const Book = (() => {
     function Book(title) {
       _classCallCheck(this, Book);
 

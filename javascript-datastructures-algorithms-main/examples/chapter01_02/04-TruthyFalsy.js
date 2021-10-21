@@ -21,7 +21,7 @@ testTruthy(new Number(NaN)); // true (object is always true)
 
 testTruthy({}); // true (object is always true)
 
-var obj = { name: "John" };
+const obj = { name: "John" };
 testTruthy(obj); // true
 testTruthy(obj.name); // true
 testTruthy(obj.age); // age (property does not exist)

@@ -1,9 +1,9 @@
 const INF = Number.MAX_SAFE_INTEGER;
-const minKey = (graph, key, visited) => {
+const minKey = ({length}, key, visited) => {
   // Initialize min value
   let min = INF;
   let minIndex = 0;
-  for (let v = 0; v < graph.length; v++) {
+  for (let v = 0; v < length; v++) {
     if (visited[v] === false && key[v] < min) {
       min = key[v];
       minIndex = v;

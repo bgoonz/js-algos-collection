@@ -1,4 +1,4 @@
-var sortTestCase = require("./sort.testcase.js");
-var quickSort = require("../../src/sorting/quicksort.js").quickSort;
+import sortTestCase from "./sort.testcase.js";
+import {quickSort} from "../../src/sorting/quicksort.js";
 
 sortTestCase(quickSort, "Quick sort");

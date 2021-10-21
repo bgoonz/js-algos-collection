@@ -47,7 +47,7 @@ const lowerBound = (sortedArray, element) => {
   return lo;
 };
 
-module.exports = {
+export default {
   binarySearch,
   lowerBound,
 };

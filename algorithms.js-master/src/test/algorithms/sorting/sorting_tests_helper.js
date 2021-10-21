@@ -1,6 +1,6 @@
-const assert = require("assert");
+import assert from "assert";
 
-module.exports = {
+export default {
   testSort(sortFn) {
     assert.deepEqual(sortFn([]), []);
     assert.deepEqual(sortFn([1]), [1]);
@@ -16,9 +16,9 @@ module.exports = {
   },
 
   testSortWithComparisonFn(sortFn) {
-    const compare = (a, b) => {
-      if (a.length === b.length) return 0;
-      return a.length < b.length ? -1 : 1;
+    const compare = ({length}, {length}) => {
+      if (length === length) return 0;
+      return length < length ? -1 : 1;
     };
     assert.deepEqual(sortFn([], compare), []);
     assert.deepEqual(sortFn(["apple"], compare), ["apple"]);

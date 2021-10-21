@@ -146,4 +146,4 @@ class Node {
   }
 }
 
-module.exports = LinkedList;
+export default LinkedList;

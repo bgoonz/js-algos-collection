@@ -1,5 +1,5 @@
 // Graph algorithms
-module.exports = {
+export default {
   topologicalSort: require("./algorithms/graph/topological_sort"),
   dijkstra: require("./algorithms/graph/dijkstra"),
   SPFA: require("./algorithms/graph/SPFA"),

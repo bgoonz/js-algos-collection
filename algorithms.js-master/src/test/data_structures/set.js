@@ -1,5 +1,5 @@
 const HashSet = require("../..").DataStructures.Set;
-const assert = require("assert");
+import assert from "assert";
 
 describe("HashSet", () => {
   it("starts empty", () => {

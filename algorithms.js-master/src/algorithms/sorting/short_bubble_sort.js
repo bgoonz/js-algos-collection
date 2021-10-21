@@ -1,4 +1,4 @@
-const Comparator = require("../../util/comparator");
+import Comparator from "../../util/comparator";
 
 /**
  * short bubble sort algorithm
@@ -30,4 +30,4 @@ function shortBubbleSort(array, comparatorFn) {
   return array;
 }
 
-module.exports = shortBubbleSort;
+export default shortBubbleSort;

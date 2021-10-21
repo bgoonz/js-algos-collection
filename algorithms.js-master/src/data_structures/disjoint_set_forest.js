@@ -98,4 +98,4 @@ class DisjointSetForest {
   }
 }
 
-module.exports = DisjointSetForest;
+export default DisjointSetForest;

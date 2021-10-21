@@ -28,10 +28,16 @@
  * @return {Array} The sorted array.
  */
 function insertionSort(items) {
-  var len = items.length, // number of items in the array
-    value, // the value currently being compared
-    i, // index into unsorted section
-    j; // index into sorted section
+  const // number of items in the array
+  len = items.length; // index into sorted section
+
+  let // the value currently being compared
+  value;
+
+  let // index into unsorted section
+  i;
+
+  let j;
 
   for (i = 0; i < len; i++) {
     // store the current value because it may shift later

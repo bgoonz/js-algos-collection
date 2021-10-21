@@ -1,4 +1,4 @@
-(function (exports) {
+(exports => {
   "use strict";
 
   /**

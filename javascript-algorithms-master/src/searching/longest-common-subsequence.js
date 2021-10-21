@@ -1,7 +1,7 @@
-(function (exports) {
+(exports => {
   "use strict";
 
-  exports.longestCommonSubsequence = (function () {
+  exports.longestCommonSubsequence = (() => {
     /**
      * Find the lengths of longest common sub-sequences
      * of two strings and their substrings.
@@ -16,10 +16,10 @@
      *
      */
     function getLcsLengths(str1, str2) {
-      var result = [];
-      for (var i = -1; i < str1.length; i = i + 1) {
+      const result = [];
+      for (let i = -1; i < str1.length; i = i + 1) {
         result[i] = [];
-        for (var j = -1; j < str2.length; j = j + 1) {
+        for (let j = -1; j < str2.length; j = j + 1) {
           if (i === -1 || j === -1) {
             result[i][j] = 0;
           } else if (str1[i] === str2[j]) {
@@ -46,7 +46,7 @@
      *
      */
     function getLcs(str1, str2, lcsLengthsMatrix) {
-      var execute = function (i, j) {
+      const execute = (i, j) => {
         if (!lcsLengthsMatrix[i][j]) {
           return "";
         } else if (str1[i] === str2[j]) {
@@ -76,8 +76,8 @@
      * @param {String} second input string.
      * @return {Array} Longest common subsequence.
      */
-    return function (str1, str2) {
-      var lcsLengthsMatrix = getLcsLengths(str1, str2);
+    return (str1, str2) => {
+      const lcsLengthsMatrix = getLcsLengths(str1, str2);
       return getLcs(str1, str2, lcsLengthsMatrix);
     };
   })();

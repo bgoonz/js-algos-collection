@@ -22,4 +22,4 @@ const hamming = (a, b) => {
   return dist;
 };
 
-module.exports = hamming;
+export default hamming;

@@ -1,5 +1,5 @@
-const PriorityQueue = require("../../data_structures/priority_queue");
-const Graph = require("../../data_structures/graph");
+import PriorityQueue from "../../data_structures/priority_queue";
+import Graph from "../../data_structures/graph";
 
 /**
  * Prim's minimum spanning tree (forest) algorithm.
@@ -47,4 +47,4 @@ const prim = (graph) => {
   return mst;
 };
 
-module.exports = prim;
+export default prim;

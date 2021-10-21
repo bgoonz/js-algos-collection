@@ -47,4 +47,4 @@ const longestCommonSubsequence = (s1, s2) => {
   return lcs;
 };
 
-module.exports = longestCommonSubsequence;
+export default longestCommonSubsequence;

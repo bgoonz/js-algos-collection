@@ -31,13 +31,14 @@ function base64Encode(text) {
     throw new Error("Can't base64 encode non-ASCII characters.");
   }
 
-  var digits =
-      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/",
-    i = 0,
-    cur,
-    prev,
-    byteNum,
-    result = [];
+  const digits =
+      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
+
+  let i = 0;
+  let cur;
+  let prev;
+  let byteNum;
+  const result = [];
 
   while (i < text.length) {
     cur = text.charCodeAt(i);
@@ -88,13 +89,14 @@ function base64Decode(text) {
   }
 
   //local variables
-  var digits =
-      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/",
-    cur,
-    prev,
-    digitNum,
-    i = 0,
-    result = [];
+  const digits =
+      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
+
+  let cur;
+  let prev;
+  let digitNum;
+  let i = 0;
+  const result = [];
 
   //remove any equals signs
   text = text.replace(/=/g, "");

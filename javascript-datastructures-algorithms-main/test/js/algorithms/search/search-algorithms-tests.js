@@ -1,7 +1,7 @@
 import "mocha";
 import { expect } from "chai";
 
-const customEquals = (a, b) => a.key === b.key;
+const customEquals = ({key}, {key}) => key === key;
 
 export function testSearchAlgorithm(
   searchAlgorithm,

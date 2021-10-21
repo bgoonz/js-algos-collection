@@ -1,5 +1,5 @@
 const countingSort = require("../../..").Sorting.countingSort;
-const assert = require("assert");
+import assert from "assert";
 
 const firstObject = {
   someProperty: "The",

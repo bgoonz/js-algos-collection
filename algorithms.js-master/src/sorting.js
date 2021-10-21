@@ -1,5 +1,5 @@
 // Sorting algorithms
-module.exports = {
+export default {
   bubbleSort: require("./algorithms/sorting/bubble_sort"),
   shortBubbleSort: require("./algorithms/sorting/short_bubble_sort"),
   countingSort: require("./algorithms/sorting/counting_sort"),

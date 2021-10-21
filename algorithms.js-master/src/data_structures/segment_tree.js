@@ -111,4 +111,4 @@ class SegmentTree {
   }
 }
 
-module.exports = SegmentTree;
+export default SegmentTree;

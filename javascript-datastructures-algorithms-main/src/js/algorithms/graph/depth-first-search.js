@@ -21,12 +21,13 @@ const depthFirstSearchVisit = (u, color, adjList, callback) => {
   }
   // console.log('Discovered ' + u);
   const neighbors = adjList.get(u);
-  for (let i = 0; i < neighbors.length; i++) {
-    const w = neighbors[i];
+
+  neighbors.forEach(w => {
     if (color[w] === Colors.WHITE) {
       depthFirstSearchVisit(w, color, adjList, callback);
     }
-  }
+  });
+
   color[u] = Colors.BLACK;
   // console.log('explored ' + u);
 };
@@ -48,13 +49,14 @@ const DFSVisit = (u, color, d, f, p, time, adjList) => {
   color[u] = Colors.GREY;
   d[u] = ++time.count;
   const neighbors = adjList.get(u);
-  for (let i = 0; i < neighbors.length; i++) {
-    const w = neighbors[i];
+
+  neighbors.forEach(w => {
     if (color[w] === Colors.WHITE) {
       p[w] = u;
       DFSVisit(w, color, d, f, p, time, adjList);
     }
-  }
+  });
+
   color[u] = Colors.BLACK;
   f[u] = ++time.count;
   // console.log('explored ' + u);

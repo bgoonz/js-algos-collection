@@ -1,4 +1,4 @@
-(function (exports) {
+(exports => {
   "use strict";
 
   function comparator(a, b) {
@@ -26,13 +26,12 @@
    * zero, or positive value, depending on the arguments.
    * @return {Array} Sorted array.
    */
-  function insertionBinarySort(array, cmp) {
-    cmp = cmp || comparator;
-    var current;
-    var middle;
-    var left;
-    var right;
-    for (var i = 1; i < array.length; i += 1) {
+  function insertionBinarySort(array, cmp = comparator) {
+    let current;
+    let middle;
+    let left;
+    let right;
+    for (let i = 1; i < array.length; i += 1) {
       current = array[i];
       left = 0;
       right = i;

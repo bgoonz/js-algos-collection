@@ -1,5 +1,5 @@
 const DisjointSetForest = require("../..").DataStructures.DisjointSetForest;
-const assert = require("assert");
+import assert from "assert";
 
 describe("Disjoint Set Forest", () => {
   it("decides if two elements belong to the same subset or not", () => {
@@ -36,7 +36,7 @@ describe("Disjoint Set Forest", () => {
 
   it("points all elements to the same root", () => {
     const forest = new DisjointSetForest();
-    const assertSameRoot = function (element, ...rest) {
+    const assertSameRoot = (element, ...rest) => {
       const root = forest.root(element);
       rest.forEach((element) => {
         assert.equal(forest.root(element), root);

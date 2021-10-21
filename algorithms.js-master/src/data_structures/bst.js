@@ -1,4 +1,4 @@
-const Comparator = require("../util/comparator");
+import Comparator from "../util/comparator";
 
 /**
  * Binary Search Tree
@@ -136,4 +136,4 @@ class Node {
   }
 }
 
-module.exports = BST;
+export default BST;

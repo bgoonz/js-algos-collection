@@ -1,4 +1,4 @@
-(function (exports) {
+(exports => {
   "use strict";
 
   function charCodeAt(str, i) {
@@ -6,10 +6,10 @@
   }
 
   function sort(arr, lo, hi, d) {
-    var temp = [];
-    var count = [];
-    var j;
-    var idx;
+    const temp = [];
+    const count = [];
+    let j;
+    let idx;
     // Use Insertion sort when the
     // array is smaller than given threshold
     for (j = lo; j <= hi; j += 1) {
@@ -54,8 +54,7 @@
    * @param {Number} d Optional. Digit from which sorting should start.
    * @return {Array} Sorted array.
    */
-  function msd(arr, d) {
-    d = d || 0;
+  function msd(arr, d = 0) {
     sort(arr, 0, arr.length - 1, d);
     return arr;
   }

@@ -46,7 +46,7 @@ const trialDivisionTest = (n) => {
   return true;
 };
 
-module.exports = {
+export default {
   naiveTest: genericPrimalityTest.bind(null, naiveTest),
   trialDivisionTest: genericPrimalityTest.bind(null, trialDivisionTest),
 };

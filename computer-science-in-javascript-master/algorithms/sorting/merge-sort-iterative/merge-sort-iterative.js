@@ -29,7 +29,7 @@
  * @return {Array} The merged array.
  */
 function merge(left, right) {
-  var result = [];
+  let result = [];
 
   while (left.length > 0 && right.length > 0) {
     if (left[0] < right[0]) {
@@ -60,16 +60,16 @@ function mergeSort(items) {
     return items;
   }
 
-  var work = [],
-    i,
-    len;
+  const work = [];
+  let i;
+  let len;
 
   for (i = 0, len = items.length; i < len; i++) {
     work.push([items[i]]);
   }
   work.push([]); //in case of odd number of items
 
-  for (var lim = len; lim > 1; lim = Math.floor((lim + 1) / 2)) {
+  for (let lim = len; lim > 1; lim = Math.floor((lim + 1) / 2)) {
     for (var j = 0, k = 0; k < lim; j++, k += 2) {
       work[j] = merge(work[k], work[k + 1]);
     }

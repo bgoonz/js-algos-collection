@@ -1,4 +1,4 @@
-var sortTestCase = require("./sort.testcase.js");
-var mergeSort = require("../../src/sorting/mergesort.js").mergeSort;
+import sortTestCase from "./sort.testcase.js";
+import {mergeSort} from "../../src/sorting/mergesort.js";
 
 sortTestCase(mergeSort, "Merge sort");

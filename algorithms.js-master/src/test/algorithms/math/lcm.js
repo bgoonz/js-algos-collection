@@ -1,6 +1,6 @@
-const root = require("../../..");
+import root from "../../..";
 const lcm = root.Math.lcm;
-const assert = require("assert");
+import assert from "assert";
 
 describe("LCM", () => {
   it("calculates the LCM between two numbers using Euclidean algorithm", () => {

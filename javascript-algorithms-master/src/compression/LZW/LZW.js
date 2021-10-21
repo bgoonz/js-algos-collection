@@ -18,7 +18,7 @@
  *
  * @module compression/LZW/LZW
  */
-(function (exports) {
+(exports => {
   "use strict";
 
   exports.LZW = function () {
@@ -26,12 +26,12 @@
   };
 
   exports.LZW.compress = function (data) {
-    var i;
-    var dictionary = {};
-    var character;
-    var wc;
-    var w = "";
-    var result = [];
+    let i;
+    const dictionary = {};
+    let character;
+    let wc;
+    let w = "";
+    const result = [];
 
     for (i = 0; i < this.dictionarySize; i = i + 1) {
       dictionary[String.fromCharCode(i)] = i;
@@ -58,12 +58,12 @@
   };
 
   exports.LZW.decompress = function (compressedData) {
-    var i;
-    var dictionary = [];
-    var w;
-    var result;
-    var key;
-    var entry = "";
+    let i;
+    const dictionary = [];
+    let w;
+    let result;
+    let key;
+    let entry = "";
 
     for (i = 0; i < this.dictionarySize; i = i + 1) {
       dictionary[i] = String.fromCharCode(i);

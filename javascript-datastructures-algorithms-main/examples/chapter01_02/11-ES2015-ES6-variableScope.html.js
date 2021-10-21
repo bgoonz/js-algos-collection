@@ -18,14 +18,14 @@ function marvelFan() {
 function blizzardFan() {
   const isFan = true;
   let phrase = "Warcraft"; // {4}
-  console.log("Before if: " + phrase);
+  console.log(`Before if: ${phrase}`);
   if (isFan) {
     let phrase = "initial text"; // {5}
     phrase = "For the Horde!"; // {6}
-    console.log("Inside if: " + phrase);
+    console.log(`Inside if: ${phrase}`);
   }
   phrase = "For the Alliance!"; // {7}
-  console.log("After if: " + phrase);
+  console.log(`After if: ${phrase}`);
 }
 
 console.log(movie); // {8}

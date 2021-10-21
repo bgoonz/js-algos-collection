@@ -1,4 +1,4 @@
-const LinkedList = require("./linked_list");
+import LinkedList from "./linked_list";
 
 /**
  * Stack (LIFO) using a Linked List as basis
@@ -45,4 +45,4 @@ class Stack {
   }
 }
 
-module.exports = Stack;
+export default Stack;

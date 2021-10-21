@@ -56,4 +56,4 @@ class BezierCurve {
   }
 }
 
-module.exports = BezierCurve;
+export default BezierCurve;

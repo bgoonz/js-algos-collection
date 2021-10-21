@@ -2,7 +2,7 @@
  * Different implementations of the Fibonacci sequence
  */
 
-const power = require("./fast_power");
+import power from "./fast_power";
 
 /**
  * Regular fibonacci implementation following the definition:
@@ -62,7 +62,7 @@ const fibWithMemoization = (() => {
  */
 const fibDirect = (number) => {
   const phi = (1 + Math.sqrt(5)) / 2;
-  return Math.floor(Math.pow(phi, number) / Math.sqrt(5) + 0.5);
+  return Math.floor(phi ** number / Math.sqrt(5) + 0.5);
 };
 
 /**
@@ -106,4 +106,4 @@ fibLinear.exponential = fibExponential;
 fibLinear.withMemoization = fibWithMemoization;
 fibLinear.direct = fibDirect;
 fibLinear.logarithmic = fibLogarithmic;
-module.exports = fibLinear;
+export default fibLinear;

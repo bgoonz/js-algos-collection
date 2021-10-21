@@ -1,6 +1,6 @@
-const math = require("../../..").Math;
+import {Math as math} from "../../..";
 const powerSet = math.powerSet;
-const assert = require("assert");
+import assert from "assert";
 
 /**
  * Deep equal for arrays

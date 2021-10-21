@@ -1,5 +1,5 @@
 const hamming = require("../../..").String.hamming;
-const assert = require("assert");
+import assert from "assert";
 
 describe("Hamming distance", () => {
   it("raises an error if the inputs are not equal lengths", () => {
@@ -18,8 +18,8 @@ describe("Hamming distance", () => {
       { a: "", b: "", expected: 0 },
     ];
 
-    inputs.forEach((val) => {
-      assert.equal(hamming(val.a, val.b), val.expected);
+    inputs.forEach(({a, b, expected}) => {
+      assert.equal(hamming(a, b), expected);
     });
   });
 });

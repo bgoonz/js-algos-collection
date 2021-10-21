@@ -1,7 +1,7 @@
-const root = require("../../../");
+import root from "../../../";
 const depthFirstSearch = root.Graph.depthFirstSearch;
 const Graph = root.DataStructures.Graph;
-const assert = require("assert");
+import assert from "assert";
 
 describe("Depth First Search Algorithm", () => {
   let graph;

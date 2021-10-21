@@ -1,27 +1,28 @@
 // @ts-check
 /* eslint-disable */
-const webpack = require("webpack");
-const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
-const path = require("path");
+import webpack from "webpack";
+
+import UglifyJsPlugin from "uglifyjs-webpack-plugin";
+import path from "path";
 const env = require("yargs").argv.env;
 
 let libraryName = "PacktDataStructuresAlgorithms";
 
-let plugins = [],
-  outputFile;
+let plugins = [];
+let outputFile;
 
 if (env === "build") {
   // plugins.push(new UglifyJsPlugin({ minimize: true }));
-  outputFile = libraryName + ".min.js";
+  outputFile = `${libraryName}.min.js`;
 } else {
-  outputFile = libraryName + ".js";
+  outputFile = `${libraryName}.js`;
 }
 
 const config = {
-  entry: __dirname + "/src/js/index.js",
+  entry: `${__dirname}/src/js/index.js`,
   devtool: "source-map",
   output: {
-    path: __dirname + "/examples",
+    path: `${__dirname}/examples`,
     filename: outputFile,
     library: libraryName,
     libraryTarget: "umd",
@@ -53,4 +54,4 @@ const config = {
   // plugins: plugins
 };
 
-module.exports = config;
+export default config;

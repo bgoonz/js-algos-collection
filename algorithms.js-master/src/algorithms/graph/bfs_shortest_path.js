@@ -1,4 +1,4 @@
-const breadthFirstSearch = require("./breadth_first_search");
+import breadthFirstSearch from "./breadth_first_search";
 
 /**
  * Shortest-path algorithm based on Breadth-First Search.
@@ -28,4 +28,4 @@ const bfsShortestPath = (graph, source) => {
   };
 };
 
-module.exports = bfsShortestPath;
+export default bfsShortestPath;

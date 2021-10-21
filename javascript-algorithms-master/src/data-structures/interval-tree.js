@@ -18,7 +18,7 @@
  *
  * @module data-structures/interval-tree
  */
-(function (exports) {
+(exports => {
   "use strict";
 
   /**
@@ -74,7 +74,7 @@
   };
 
   function addNode(node, side, interval) {
-    var child = new exports.Node(interval[0], interval[1]);
+    let child = new exports.Node(interval[0], interval[1]);
     child.max = interval[1];
     child.parentNode = node;
     node[side] = child;
@@ -126,9 +126,9 @@
     if (node.interval[0] <= point && node.interval[1] >= point) {
       return true;
     }
-    var result = false;
-    var temp;
-    ["left", "right"].forEach(function (key) {
+    let result = false;
+    let temp;
+    ["left", "right"].forEach(key => {
       temp = node[key];
       if (temp) {
         if (temp.max > point) {
@@ -168,9 +168,9 @@
     if (intersects(node.interval, interval)) {
       return true;
     }
-    var result = false;
-    var temp;
-    ["left", "right"].forEach(function (side) {
+    let result = false;
+    let temp;
+    ["left", "right"].forEach(side => {
       temp = node[side];
       if (temp && temp.max >= interval[0]) {
         result = result || intersectsHelper(interval, temp);
@@ -218,11 +218,11 @@
    * @param {Node} node Root node of subtree.
    * @return {Node} Node with the largest endpoint.
    */
-  exports.IntervalTree.prototype.findMax = function (node) {
-    var stack = [node];
-    var current;
-    var max = -Infinity;
-    var maxNode;
+  exports.IntervalTree.prototype.findMax = node => {
+    const stack = [node];
+    let current;
+    let max = -Infinity;
+    let maxNode;
     while (stack.length) {
       current = stack.pop();
       if (current.left) {
@@ -247,21 +247,21 @@
     if (node.interval[0] === interval[0] && node.interval[1] === interval[1]) {
       // When left and right children exists
       if (node.left && node.right) {
-        var replacement = node.left;
+        let replacement = node.left;
         while (replacement.left) {
           replacement = replacement.left;
         }
-        var temp = replacement.interval;
+        const temp = replacement.interval;
         replacement.interval = node.interval;
         node.interval = temp;
         this._removeHelper(replacement.interval, node);
       } else {
         // When only left or right child exists
-        var side = "left";
+        let side = "left";
         if (node.right) {
           side = "right";
         }
-        var parentNode = node.parentNode;
+        const parentNode = node.parentNode;
         if (parentNode) {
           if (parentNode.left === node) {
             parentNode.left = node[side];
@@ -280,10 +280,10 @@
         }
       }
       // Adjust the max value
-      var p = node.parentNode;
+      const p = node.parentNode;
       if (p) {
-        var maxNode = this.findMax(p);
-        var max = maxNode.interval[1];
+        let maxNode = this.findMax(p);
+        const max = maxNode.interval[1];
         while (maxNode) {
           if (maxNode.max === node.interval[1]) {
             maxNode.max = max;

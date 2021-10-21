@@ -8,4 +8,4 @@ const lib = {
   String: require("./string"),
 };
 
-module.exports = lib;
+export default lib;

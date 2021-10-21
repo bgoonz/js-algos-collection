@@ -43,8 +43,8 @@ function getRightChildIndex(index) {
  * @returns {boolean} True if the index has a left child, false if not.
  * @private
  */
-function hasLeftChild(array, index) {
-  return getLeftChildIndex(index) < array.length;
+function hasLeftChild({length}, index) {
+  return getLeftChildIndex(index) < length;
 }
 
 /**
@@ -54,8 +54,8 @@ function hasLeftChild(array, index) {
  * @returns {boolean} True if the index has a right child, false if not.
  * @private
  */
-function hasRightChild(array, index) {
-  return getRightChildIndex(index) < array.length;
+function hasRightChild({length}, index) {
+  return getRightChildIndex(index) < length;
 }
 
 /**
@@ -349,4 +349,4 @@ class BinaryHeap {
   }
 }
 
-exports.BinaryHeap = BinaryHeap;
+export {BinaryHeap};

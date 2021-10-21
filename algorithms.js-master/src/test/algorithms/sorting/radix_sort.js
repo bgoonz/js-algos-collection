@@ -1,5 +1,5 @@
 const radixSort = require("../../..").Sorting.radixSort;
-const assert = require("assert");
+import assert from "assert";
 
 const firstObject = {
   someProperty: "The",

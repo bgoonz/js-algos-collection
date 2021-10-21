@@ -1,29 +1,29 @@
-var mod = require("../../src/data-structures/linked-list.js");
-var Node = mod.Node;
-var LinkedList = mod.LinkedList;
+import mod from "../../src/data-structures/linked-list.js";
+const Node = mod.Node;
+const LinkedList = mod.LinkedList;
 
-describe("Node", function () {
+describe("Node", () => {
   "use strict";
 
-  it("should be a constructor function", function () {
+  it("should be a constructor function", () => {
     expect(typeof Node).toBe("function");
   });
-  it("should construct properly", function () {
-    var node = new Node("data");
+  it("should construct properly", () => {
+    const node = new Node("data");
     expect(node.data).toBe("data");
     expect(node.next).toBe(null);
     expect(node.prev).toBe(null);
   });
 });
 
-describe("Linked List", function () {
+describe("Linked List", () => {
   "use strict";
 
-  it("should be a constructor function", function () {
+  it("should be a constructor function", () => {
     expect(typeof LinkedList).toBe("function");
   });
-  it("should push properly", function () {
-    var linkedList = new LinkedList();
+  it("should push properly", () => {
+    const linkedList = new LinkedList();
     linkedList.push(1);
     linkedList.push(2);
     linkedList.push(3);
@@ -36,8 +36,8 @@ describe("Linked List", function () {
     expect(linkedList.first.next.next.next.next.data).toBe(5);
     expect(linkedList.last.data).toBe(5);
   });
-  it("should pop properly", function () {
-    var linkedList = new LinkedList();
+  it("should pop properly", () => {
+    const linkedList = new LinkedList();
     linkedList.push(1);
     linkedList.push(2);
     linkedList.push(3);
@@ -49,8 +49,8 @@ describe("Linked List", function () {
     expect(linkedList.pop().data).toBe(2);
     expect(linkedList.pop().data).toBe(1);
   });
-  it("should shift properly", function () {
-    var linkedList = new LinkedList();
+  it("should shift properly", () => {
+    const linkedList = new LinkedList();
     linkedList.push(1);
     linkedList.push(2);
     linkedList.push(3);
@@ -62,8 +62,8 @@ describe("Linked List", function () {
     expect(linkedList.shift().data).toBe(4);
     expect(linkedList.shift().data).toBe(5);
   });
-  it("should reverse properly", function () {
-    var linkedList = new LinkedList();
+  it("should reverse properly", () => {
+    const linkedList = new LinkedList();
     linkedList.push(1);
     linkedList.push(2);
     linkedList.push(3);
@@ -76,8 +76,8 @@ describe("Linked List", function () {
     expect(linkedList.shift().data).toBe(2);
     expect(linkedList.shift().data).toBe(1);
   });
-  it("should recursive reverse properly", function () {
-    var linkedList = new LinkedList();
+  it("should recursive reverse properly", () => {
+    const linkedList = new LinkedList();
     linkedList.push(1);
     linkedList.push(2);
     linkedList.push(3);
@@ -90,8 +90,8 @@ describe("Linked List", function () {
     expect(linkedList.shift().data).toBe(2);
     expect(linkedList.shift().data).toBe(1);
   });
-  it("should unshift properly", function () {
-    var linkedList = new LinkedList();
+  it("should unshift properly", () => {
+    const linkedList = new LinkedList();
     linkedList.push(1);
     linkedList.push(2);
     linkedList.push(3);
@@ -105,10 +105,10 @@ describe("Linked List", function () {
     expect(linkedList.shift().data).toBe(4);
     expect(linkedList.shift().data).toBe(5);
   });
-  it("should properly check for existing cycle", function () {
-    var linkedList = new LinkedList();
-    var last = new Node(2);
-    var first = new Node(1);
+  it("should properly check for existing cycle", () => {
+    const linkedList = new LinkedList();
+    const last = new Node(2);
+    const first = new Node(1);
     last.next = first;
     last.prev = first;
     first.next = last;
@@ -117,8 +117,8 @@ describe("Linked List", function () {
     linkedList.last = last;
     expect(linkedList.hasCycle()).toBe(true);
   });
-  it("should properly check for non existing cycle", function () {
-    var linkedList = new LinkedList();
+  it("should properly check for non existing cycle", () => {
+    const linkedList = new LinkedList();
     linkedList.push(1);
     linkedList.push(2);
     linkedList.push(3);
@@ -126,22 +126,22 @@ describe("Linked List", function () {
     linkedList.push(5);
     expect(linkedList.hasCycle()).toBe(false);
   });
-  it("should inorder properly", function () {
-    var linkedList = new LinkedList();
+  it("should inorder properly", () => {
+    const linkedList = new LinkedList();
     linkedList.push(1);
     linkedList.push(2);
     linkedList.push(3);
     linkedList.push(4);
     linkedList.push(5);
-    var pushedValue = 1;
-    function callback(node) {
-      expect(node.data).toBe(pushedValue);
+    let pushedValue = 1;
+    function callback({data}) {
+      expect(data).toBe(pushedValue);
       pushedValue += 1;
     }
     linkedList.inorder(callback);
   });
-  it("should delete data properly", function () {
-    var linkedList = new LinkedList();
+  it("should delete data properly", () => {
+    const linkedList = new LinkedList();
     linkedList.push(1);
     linkedList.push(2);
     linkedList.push(3);
@@ -154,20 +154,20 @@ describe("Linked List", function () {
     expect(linkedList.first.next.next.next.data).toBe(5);
     expect(linkedList.last.data).toBe(5);
   });
-  it("should delete complex data properly", function () {
-    var linkedList = new LinkedList();
-    var item1 = { id: 1 };
-    var item2 = { id: 2 };
-    var item3 = { id: 3 };
-    var item4 = { id: 4 };
-    var item5 = { id: 5 };
+  it("should delete complex data properly", () => {
+    const linkedList = new LinkedList();
+    const item1 = { id: 1 };
+    const item2 = { id: 2 };
+    const item3 = { id: 3 };
+    const item4 = { id: 4 };
+    const item5 = { id: 5 };
     linkedList.push(item1);
     linkedList.push(item2);
     linkedList.push(item3);
     linkedList.push(item4);
     linkedList.push(item5);
-    var equals = function (a, b) {
-      return a.id === b.id;
+    const equals = ({id}, {id}) => {
+      return id === id;
     };
     linkedList.remove({ id: 3 }, equals);
     expect(linkedList.first.data).toBe(item1);

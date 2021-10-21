@@ -16,26 +16,28 @@ obj = {
 };
 
 /* Object example 3 */
-function Book(title, pages, isbn) {
-  this.title = title;
-  this.pages = pages;
-  this.isbn = isbn;
-  this.printIsbn = function () {
-    console.log(this.isbn);
-  };
+class Book {
+  constructor(title, pages, isbn) {
+    this.title = title;
+    this.pages = pages;
+    this.isbn = isbn;
+    this.printIsbn = function () {
+      console.log(this.isbn);
+    };
+  }
+
+  printTitle() {
+    console.log(this.title);
+  }
 }
 
-var book = new Book("title", "pag", "isbn");
+const book = new Book("title", "pag", "isbn");
 
 console.log(book.title); // outputs the book title
 
 book.title = "new title"; // update the value of the book title
 
 console.log(book.title); // outputs the updated value
-
-Book.prototype.printTitle = function () {
-  console.log(this.title);
-};
 
 book.printTitle();
 

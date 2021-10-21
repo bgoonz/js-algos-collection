@@ -1,4 +1,4 @@
-const Comparator = require("../../util/comparator");
+import Comparator from "../../util/comparator";
 
 /**
  * Insertion sort algorithm O(n + d)
@@ -21,4 +21,4 @@ const insertionSort = (vector, comparatorFn) => {
   return vector;
 };
 
-module.exports = insertionSort;
+export default insertionSort;

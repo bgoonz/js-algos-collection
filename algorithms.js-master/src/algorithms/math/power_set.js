@@ -18,11 +18,11 @@ const powerSetIterative = (array) => {
     cache[i] = true;
   }
 
-  for (i = 0; i < Math.pow(2, array.length); i++) {
+  for (i = 0; i < 2 ** array.length; i++) {
     powerSet.push([]);
 
     for (let j = 0; j < array.length; j++) {
-      if (i % Math.pow(2, j) === 0) {
+      if (i % 2 ** j === 0) {
         cache[j] = !cache[j];
       }
 
@@ -62,4 +62,4 @@ const powerSetRecursive = (array) => {
 // Use powerSetIterative as the default implementation
 const powerSet = powerSetIterative;
 powerSet.recursive = powerSetRecursive;
-module.exports = powerSet;
+export default powerSet;

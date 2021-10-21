@@ -20,29 +20,29 @@ describe("DoublyLinkedList", () => {
     }
   }
 
-  function verifyNode(current, i) {
-    expect(current.element).to.not.be.an("undefined");
-    expect(current.element).to.equal(i);
+  function verifyNode({element, next, prev}, i) {
+    expect(element).to.not.be.an("undefined");
+    expect(element).to.equal(i);
 
     // verify next node
     if (i < max) {
-      expect(current.next).to.not.be.an("undefined");
+      expect(next).to.not.be.an("undefined");
       // TS strictNullChecks
-      if (current.next) {
-        expect(current.next.element).to.equal(i + 1);
+      if (next) {
+        expect(next.element).to.equal(i + 1);
       }
     } else {
-      expect(current.next).to.be.an("undefined");
+      expect(next).to.be.an("undefined");
     }
 
     // verify previous node
     if (i > min) {
-      expect(current.prev).to.not.be.an("undefined");
-      if (current.prev) {
-        expect(current.prev.element).to.equal(i - 1);
+      expect(prev).to.not.be.an("undefined");
+      if (prev) {
+        expect(prev.element).to.equal(i - 1);
       }
     } else {
-      expect(current.prev).to.be.an("undefined");
+      expect(prev).to.be.an("undefined");
     }
   }
 

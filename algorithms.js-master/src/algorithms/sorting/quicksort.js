@@ -1,4 +1,4 @@
-const Comparator = require("../../util/comparator");
+import Comparator from "../../util/comparator";
 
 /**
  * Swaps two elements in the array
@@ -61,4 +61,4 @@ const quicksortInit = (array, comparatorFn) => {
   })(array, 0, array.length - 1);
 };
 
-module.exports = quicksortInit;
+export default quicksortInit;

@@ -1,9 +1,9 @@
-var kruskal = require("../../../src/graphs/spanning-trees/kruskal");
+import kruskal from "../../../src/graphs/spanning-trees/kruskal";
 
-describe("Kruskal", function () {
+describe("Kruskal", () => {
   "use strict";
 
-  it("should define a function", function () {
+  it("should define a function", () => {
     expect(kruskal).toBeDefined();
     expect(typeof kruskal).toBe("object");
     expect(typeof kruskal.Graph).toBe("function");
@@ -11,17 +11,17 @@ describe("Kruskal", function () {
     expect(typeof kruskal.Vertex).toBe("function");
   });
 
-  it("should work with an empty graph", function () {
-    var graph = new kruskal.Graph([], 0);
-    var spanningTree = graph.kruskal();
+  it("should work with an empty graph", () => {
+    const graph = new kruskal.Graph([], 0);
+    const spanningTree = graph.kruskal();
 
     expect(spanningTree.edges.length).toEqual(0);
   });
 
-  it("should correctly compute general example", function () {
-    var nodes = [];
-    var edges = [];
-    var i;
+  it("should correctly compute general example", () => {
+    const nodes = [];
+    const edges = [];
+    let i;
     for (i = 0; i < 7; i += 1) {
       nodes[i] = new kruskal.Vertex(i);
     }
@@ -38,13 +38,13 @@ describe("Kruskal", function () {
     edges.push(new kruskal.Edge(nodes[3], nodes[4], 15));
     edges.push(new kruskal.Edge(nodes[4], nodes[5], 8));
 
-    var graph = new kruskal.Graph(edges);
-    var spanningTree = graph.kruskal();
+    const graph = new kruskal.Graph(edges);
+    const spanningTree = graph.kruskal();
 
     expect(spanningTree.edges.length).toEqual(6);
 
-    var sum = spanningTree.edges.reduce(function (acc, edge) {
-      return (acc += edge.distance);
+    const sum = spanningTree.edges.reduce((acc, {distance}) => {
+      return acc += distance;
     }, 0);
 
     expect(sum).toEqual(39);

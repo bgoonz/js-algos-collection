@@ -70,4 +70,4 @@ const knuthMorrisPratt = (text, pattern) => {
   return textLength;
 };
 
-module.exports = knuthMorrisPratt;
+export default knuthMorrisPratt;

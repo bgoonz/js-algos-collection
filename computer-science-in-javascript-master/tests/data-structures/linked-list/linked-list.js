@@ -9,9 +9,9 @@
 // Requirements
 //-----------------------------------------------------------------------------
 
-const assert = require("chai").assert;
-const LinkedList =
-  require("../../../src/data-structures/linked-list").LinkedList;
+import {assert} from "chai";
+
+import {LinkedList} from "../../../src/data-structures/linked-list";
 
 //-----------------------------------------------------------------------------
 // Helpers
@@ -319,7 +319,7 @@ describe("LinkedList", () => {
   });
 
   ["values", Symbol.iterator].forEach((method) => {
-    describe(String(method) + "()", () => {
+    describe(`${String(method)}()`, () => {
       it("should create empty array when there are no items", () => {
         assert.deepStrictEqual([...list[method]()], []);
       });

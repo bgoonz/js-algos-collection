@@ -10,14 +10,14 @@ class AVLTree {
    * Calculates the height of a node based on height
    * property of all his children.
    */
-  getNodeHeight(node) {
+  getNodeHeight({left, right}) {
     let height = 1;
-    if (node.left !== null && node.right !== null) {
-      height = Math.max(node.left.height, node.right.height) + 1;
-    } else if (node.left !== null) {
-      height = node.left.height + 1;
-    } else if (node.right !== null) {
-      height = node.right.height + 1;
+    if (left !== null && right !== null) {
+      height = Math.max(left.height, right.height) + 1;
+    } else if (left !== null) {
+      height = left.height + 1;
+    } else if (right !== null) {
+      height = right.height + 1;
     }
     return height;
   }
@@ -25,15 +25,15 @@ class AVLTree {
   /**
    * Verifies if the given node is balanced.
    */
-  isNodeBalanced(node) {
+  isNodeBalanced({left, right}) {
     let isBalanced = true;
 
-    if (node.left !== null && node.right !== null) {
-      isBalanced = Math.abs(node.left.height - node.right.height) <= 1;
-    } else if (node.right !== null && node.left === null) {
-      isBalanced = node.right.height < 2;
-    } else if (node.left !== null && node.right === null) {
-      isBalanced = node.left.height < 2;
+    if (left !== null && right !== null) {
+      isBalanced = Math.abs(left.height - right.height) <= 1;
+    } else if (right !== null && left === null) {
+      isBalanced = right.height < 2;
+    } else if (left !== null && right === null) {
+      isBalanced = left.height < 2;
     }
     return isBalanced;
   }
@@ -434,10 +434,12 @@ class AVLTree {
    * Finds the node with minimum value in the given
    * sub-tree.
    */
-  _findMin(node, current) {
-    current = current || {
+  _findMin(
+    node,
+    current = {
       value: Infinity,
-    };
+    }
+  ) {
     if (!node) {
       return current;
     }
@@ -451,10 +453,12 @@ class AVLTree {
    * Finds the node with maximum value in the given
    * sub-tree.
    */
-  _findMax(node, current) {
-    current = current || {
+  _findMax(
+    node,
+    current = {
       value: -Infinity,
-    };
+    }
+  ) {
     if (!node) {
       return current;
     }
@@ -529,4 +533,4 @@ class Node {
   }
 }
 
-module.exports = AVLTree;
+export default AVLTree;

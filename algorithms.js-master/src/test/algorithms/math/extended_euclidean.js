@@ -1,6 +1,6 @@
-const math = require("../../..").Math;
+import {Math as math} from "../../..";
 const extEuclid = math.extendedEuclidean;
-const assert = require("assert");
+import assert from "assert";
 
 describe("extEuclid", () => {
   it("calculates the solve to Bézout's identity", () => {

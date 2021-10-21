@@ -17,8 +17,8 @@ class Vector2 {
    * @param vector The vector to compare to.
    * @returns Whether they are exactly equal or not.
    */
-  equalsExactly(vector) {
-    return this.x === vector.x && this.y === vector.y
+  equalsExactly({x, y}) {
+    return this.x === x && this.y === y;
   }
 
   /**
@@ -28,11 +28,9 @@ class Vector2 {
    * @param epsilon The allowed discrepancy for the x-values and the y-values.
    * @returns Whether they are approximately equal or not.
    */
-  equalsApproximately(vector, epsilon) {
-    return (
-      Math.abs(this.x - vector.x) < epsilon &&
-      Math.abs(this.y - vector.y) < epsilon
-    )
+  equalsApproximately({x, y}, epsilon) {
+    return Math.abs(this.x - x) < epsilon &&
+    Math.abs(this.y - y) < epsilon;
   }
 
   /**
@@ -110,8 +108,8 @@ class Vector2 {
    * @param vector The vector used for the multiplication.
    * @returns The resulting dot product.
    */
-  dotProduct(vector) {
-    return this.x * vector.x + this.y * vector.y
+  dotProduct({x, y}) {
+    return this.x * x + this.y * y;
   }
 
   /**
@@ -134,8 +132,8 @@ class Vector2 {
    * @param vector The 2nd vector for the measurement.
    * @returns The angle in radians.
    */
-  angleBetween(vector) {
-    return Math.atan2(vector.y, vector.x) - Math.atan2(this.y, this.x)
+  angleBetween({y, x}) {
+    return Math.atan2(y, x) - Math.atan2(this.y, this.x);
   }
 }
 

@@ -85,4 +85,4 @@ const findDivisorsByPairingSorted = (number) => {
 // Use findDivisorsGeneric as the default implementation
 findDivisorsGeneric.pairingUnsorted = findDivisorsByPairingUnsorted;
 findDivisorsGeneric.pairingSorted = findDivisorsByPairingSorted;
-module.exports = findDivisorsGeneric;
+export default findDivisorsGeneric;

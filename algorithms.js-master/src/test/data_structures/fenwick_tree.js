@@ -1,5 +1,5 @@
 const FenwickTree = require("../..").DataStructures.FenwickTree;
-const assert = require("assert");
+import assert from "assert";
 
 describe("FenwickTree", () => {
   it("allows prefix queries", () => {

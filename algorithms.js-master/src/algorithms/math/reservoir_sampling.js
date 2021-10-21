@@ -19,4 +19,4 @@ const reservoirSampling = (array, sampleSize) => {
   return reservoir;
 };
 
-module.exports = reservoirSampling;
+export default reservoirSampling;

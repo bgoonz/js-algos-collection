@@ -1,5 +1,5 @@
 const Stack = require("../..").DataStructures.Stack;
-const assert = require("assert");
+import assert from "assert";
 
 describe("Stack", () => {
   it("starts empty", () => {

@@ -1,5 +1,5 @@
 // Data Structures
-module.exports = {
+export default {
   AVLTree: require("./data_structures/avl_tree"),
   BST: require("./data_structures/bst"),
   Treap: require("./data_structures/treap"),

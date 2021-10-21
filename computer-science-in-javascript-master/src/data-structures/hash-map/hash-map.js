@@ -8,7 +8,7 @@
 // Requirements
 //-----------------------------------------------------------------------------
 
-const { DoublyLinkedList } = require("@humanwhocodes/doubly-linked-list");
+import {DoublyLinkedList} from "@humanwhocodes/doubly-linked-list";
 
 //-----------------------------------------------------------------------------
 // Private
@@ -447,4 +447,4 @@ class HashMap {
   }
 }
 
-exports.HashMap = HashMap;
+export {HashMap};

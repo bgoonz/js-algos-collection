@@ -26,7 +26,7 @@ function validateGrid(grid) {
     throw new TypeError('Grid must be a non-empty array')
 
   const allRowsHaveCorrectLength = grid.every(
-    (row) => row.length === grid.length
+    ({length}) => length === grid.length
   )
   if (!allRowsHaveCorrectLength) throw new TypeError('Grid must be a square')
 
@@ -73,19 +73,19 @@ function getPathPart(grid, x, y, solution, path) {
   solution[y][x] = 1
 
   // attempt to move right
-  const right = getPathPart(grid, x + 1, y, solution, path + 'R')
+  const right = getPathPart(grid, x + 1, y, solution, `${path}R`)
   if (right) return right
 
   // right didn't work: attempt to move down
-  const down = getPathPart(grid, x, y + 1, solution, path + 'D')
+  const down = getPathPart(grid, x, y + 1, solution, `${path}D`)
   if (down) return down
 
   // down didn't work: attempt to move up
-  const up = getPathPart(grid, x, y - 1, solution, path + 'U')
+  const up = getPathPart(grid, x, y - 1, solution, `${path}U`)
   if (up) return up
 
   // up didn't work: attempt to move left
-  const left = getPathPart(grid, x - 1, y, solution, path + 'L')
+  const left = getPathPart(grid, x - 1, y, solution, `${path}L`)
   if (left) return left
 
   // no direction was successful: remove this cell from the solution matrix and backtrack

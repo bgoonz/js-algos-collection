@@ -1,5 +1,5 @@
-const assert = require("assert");
-const math = require("../../..").Math;
+import assert from "assert";
+import {Math as math} from "../../..";
 const greatestDifference = math.greatestDifference;
 
 describe("Greatest Difference", () => {

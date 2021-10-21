@@ -27,9 +27,9 @@ class Graph {
       const values = this.adjacencyMap[i]
       let vertex = ''
       for (const j of values) {
-        vertex += j + ' '
+        vertex += `${j} `
       }
-      output(i + ' -> ' + vertex)
+      output(`${i} -> ${vertex}`)
     }
   }
 

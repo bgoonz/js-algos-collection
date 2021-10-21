@@ -9,10 +9,9 @@
 // Requirements
 //-----------------------------------------------------------------------------
 
-const assert = require("chai").assert;
-const {
-  bubbleSort,
-} = require("../../../../src/algorithms/sorting/bubble-sort");
+import {assert} from "chai";
+
+import {bubbleSort} from "../../../../src/algorithms/sorting/bubble-sort";
 
 //-----------------------------------------------------------------------------
 // Tests
@@ -28,7 +27,7 @@ describe("bubbleSort()", () => {
     [3, 1, 1, 5, 9, 4, 2, 5, 12, 45],
   ].forEach((items) => {
     it(
-      "should sort an array when the array has " + items.length + " item(s)",
+      `should sort an array when the array has ${items.length} item(s)`,
       () => {
         const result = [...items].sort((a, b) => a - b);
 

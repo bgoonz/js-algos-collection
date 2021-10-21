@@ -1,4 +1,4 @@
-var sortTestCase = require("./sort.testcase.js");
-var bubbleSort = require("../../src/sorting/bubblesort.js").bubbleSort;
+import sortTestCase from "./sort.testcase.js";
+import {bubbleSort} from "../../src/sorting/bubblesort.js";
 
 sortTestCase(bubbleSort, "Bubble sort");

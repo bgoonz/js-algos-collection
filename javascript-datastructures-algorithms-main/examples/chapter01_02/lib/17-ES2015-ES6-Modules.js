@@ -1,21 +1,21 @@
-(function (global, factory) {
+((global, factory) => {
   if (typeof define === "function" && define.amd) {
     define(["./17-CalcArea.js", "./17-Book.js"], factory);
   } else if (typeof exports !== "undefined") {
     factory(require("./17-CalcArea.js"), require("./17-Book.js"));
   } else {
-    var mod = {
+    const mod = {
       exports: {},
     };
     factory(global.CalcArea, global.Book);
     global.ES2015ES6Modules = mod.exports;
   }
-})(this, function (_CalcArea, _Book) {
+})(this, (_CalcArea, _Book) => {
   "use strict";
 
-  var area = _interopRequireWildcard(_CalcArea);
+  const area = _interopRequireWildcard(_CalcArea);
 
-  var _Book2 = _interopRequireDefault(_Book);
+  const _Book2 = _interopRequireDefault(_Book);
 
   function _interopRequireDefault(obj) {
     return obj && obj.__esModule
@@ -29,10 +29,10 @@
     if (obj && obj.__esModule) {
       return obj;
     } else {
-      var newObj = {};
+      const newObj = {};
 
       if (obj != null) {
-        for (var key in obj) {
+        for (const key in obj) {
           if (Object.prototype.hasOwnProperty.call(obj, key))
             newObj[key] = obj[key];
         }
@@ -58,6 +58,6 @@
 
   console.log(area.square(2));
 
-  var myBook = new _Book2.default("some title");
+  const myBook = new _Book2.default("some title");
   myBook.printTitle();
 });

@@ -1,7 +1,7 @@
-(function (exports) {
+(exports => {
   "use strict";
 
-  var countingSort = (function () {
+  const countingSort = (() => {
     /**
      * Gets the count of the elements into the input array.
      *
@@ -10,9 +10,9 @@
      * @return {Array} The count of each element from the input array.
      */
     function getCount(array) {
-      var count = [];
-      var current;
-      for (var i = 0; i < array.length; i += 1) {
+      const count = [];
+      let current;
+      for (let i = 0; i < array.length; i += 1) {
         current = array[i];
         count[current] = (count[current] || 0) + 1;
       }
@@ -28,10 +28,10 @@
      * are less than each element from the input.
      */
     function getLessCount(array) {
-      var less = [];
-      var last;
+      const less = [];
+      let last;
       less[0] = array[0] || 0;
-      for (var i = 1; i < array.length; i += 1) {
+      for (let i = 1; i < array.length; i += 1) {
         last = array[i - 1] || 0;
         less[i] = last + less[i - 1];
       }
@@ -47,11 +47,11 @@
      * @return {Array} The sorted input.
      */
     function sort(array, less) {
-      var result = [];
-      var currentPositions = [];
-      var current;
-      var position;
-      for (var i = 0; i < array.length; i += 1) {
+      const result = [];
+      const currentPositions = [];
+      let current;
+      let position;
+      for (let i = 0; i < array.length; i += 1) {
         current = array[i];
         position = less[current];
         if (currentPositions[current] === undefined) {
@@ -78,8 +78,8 @@
      * @param {Array} array Array which should be sorted.
      * @return {Array} Sorted array.
      */
-    return function (array) {
-      var less = getLessCount(getCount(array));
+    return array => {
+      const less = getLessCount(getCount(array));
       return sort(array, less);
     };
   })();

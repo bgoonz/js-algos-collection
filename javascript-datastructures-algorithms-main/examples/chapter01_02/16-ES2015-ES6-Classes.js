@@ -69,7 +69,7 @@ lotrChar._name = "Sam"; // {6}
 console.log(lotrChar.name);
 
 // using symbols for private atributes
-var _name = Symbol();
+const _name = Symbol();
 class Person2 {
   constructor(name) {
     this[_name] = name;

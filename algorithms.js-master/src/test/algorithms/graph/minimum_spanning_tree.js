@@ -1,9 +1,9 @@
-const root = require("../../../");
+import root from "../../../";
 const kruskal = root.Graph.kruskal;
 const prim = root.Graph.prim;
 const depthFirstSearch = root.Graph.depthFirstSearch;
 const Graph = root.DataStructures.Graph;
-const assert = require("assert");
+import assert from "assert";
 
 describe("Minimum Spanning Tree", () => {
   /**
@@ -59,12 +59,12 @@ describe("Minimum Spanning Tree", () => {
    * @param {Graph} graph2
    * @return {boolean}
    */
-  const spans = (graph1, graph2) => {
+  const spans = ({vertices}, {vertices}) => {
     let span;
-    if (graph1.vertices.size === graph2.vertices.size) {
+    if (vertices.size === vertices.size) {
       span = true;
-      graph1.vertices.forEach((v) => {
-        if (!graph2.vertices.contains(v)) {
+      vertices.forEach((v) => {
+        if (!vertices.contains(v)) {
           span = false;
         }
       });

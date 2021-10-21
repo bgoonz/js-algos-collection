@@ -38,7 +38,7 @@
  *
  * @module data-structures/heap
  */
-(function (exports) {
+(exports => {
   "use strict";
 
   /**
@@ -53,7 +53,7 @@
     if (typeof cmp === "function") {
       this._cmp = cmp;
     } else {
-      this._cmp = function (a, b) {
+      this._cmp = (a, b) => {
         return a - b;
       };
     }
@@ -70,10 +70,10 @@
    * @param {Number} index The parent.
    */
   exports.Heap.prototype._heapify = function (index) {
-    var extr = index;
-    var left = 2 * index + 1;
-    var right = 2 * index + 2;
-    var temp;
+    let extr = index;
+    const left = 2 * index + 1;
+    const right = 2 * index + 2;
+    let temp;
 
     if (
       left < this._heap.length &&
@@ -109,9 +109,9 @@
    */
   exports.Heap.prototype.changeKey = function (index, value) {
     this._heap[index] = value;
-    var elem = this._heap[index];
-    var parent = Math.floor(index / 2);
-    var temp;
+    const elem = this._heap[index];
+    let parent = Math.floor(index / 2);
+    let temp;
     if (elem !== undefined) {
       while (parent >= 0 && this._cmp(elem, this._heap[parent]) > 0) {
         temp = this._heap[parent];
@@ -134,7 +134,7 @@
    * @param {Number|Object} node Node which should be updated.
    */
   exports.Heap.prototype.update = function (node) {
-    var idx = this._heap.indexOf(node);
+    const idx = this._heap.indexOf(node);
     if (idx >= 0) {
       this.changeKey(idx, node);
     }
@@ -176,7 +176,7 @@
     if (!this._heap.length) {
       throw "The heap is already empty!";
     }
-    var extr = this._heap.shift();
+    const extr = this._heap.shift();
     this._heapify(0);
     return extr;
   };

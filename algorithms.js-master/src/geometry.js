@@ -1,4 +1,4 @@
 // Geometry algorithms
-module.exports = {
+export default {
   BezierCurve: require("./algorithms/geometry/bezier_curve"),
 };

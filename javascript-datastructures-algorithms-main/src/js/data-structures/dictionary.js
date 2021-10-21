@@ -34,11 +34,11 @@ export default class Dictionary {
   }
 
   values() {
-    return this.keyValues().map((valuePair) => valuePair.value);
+    return this.keyValues().map(({value}) => value);
   }
 
   keys() {
-    return this.keyValues().map((valuePair) => valuePair.key);
+    return this.keyValues().map(({key}) => key);
   }
 
   keyValues() {

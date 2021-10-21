@@ -1,17 +1,17 @@
-var mod = require("../../src/data-structures/red-black-tree.js");
-var Vertex = mod.Node;
-var RBTree = mod.RBTree;
-var Colors = mod.Colors;
+import mod from "../../src/data-structures/red-black-tree.js";
+const Vertex = mod.Node;
+const RBTree = mod.RBTree;
+const Colors = mod.Colors;
 
-describe("Node", function () {
+describe("Node", () => {
   "use strict";
 
-  it("should be a constructor function", function () {
+  it("should be a constructor function", () => {
     expect(typeof Vertex).toBe("function");
   });
 
-  it("should set all properties via the constructor", function () {
-    var node = new Vertex("key", "value", 1, 2, Colors.RED);
+  it("should set all properties via the constructor", () => {
+    const node = new Vertex("key", "value", 1, 2, Colors.RED);
     expect(node.getKey()).toBe("key");
     expect(node.getLeft()).toBe(1);
     expect(node.getRight()).toBe(2);
@@ -19,13 +19,13 @@ describe("Node", function () {
     expect(node.isRed()).toBeTruthy();
   });
 
-  describe("Node flipColor", function () {
-    it("should has method flipColor", function () {
-      var node = new Vertex();
+  describe("Node flipColor", () => {
+    it("should has method flipColor", () => {
+      const node = new Vertex();
       expect(typeof node.flipColor).toBe("function");
     });
-    it("should work properly", function () {
-      var node = new Vertex();
+    it("should work properly", () => {
+      const node = new Vertex();
       expect(node.isRed()).toBe(false);
       node.flipColor();
       expect(node.isRed()).toBe(true);
@@ -35,26 +35,26 @@ describe("Node", function () {
   });
 });
 
-describe("RBTree", function () {
+describe("RBTree", () => {
   "use strict";
 
-  it("should be a constructor function", function () {
+  it("should be a constructor function", () => {
     expect(typeof RBTree).toBe("function");
   });
-  it("should initialize root to null by default", function () {
+  it("should initialize root to null by default", () => {
     expect(new RBTree()._root).toBeNull();
   });
 
-  describe("node insertion", function () {
-    it("should be able to insert a node in empty tree", function () {
-      var tree = new RBTree();
+  describe("node insertion", () => {
+    it("should be able to insert a node in empty tree", () => {
+      const tree = new RBTree();
       tree.put("foo", "bar");
       expect(tree._root.getKey()).toBe("foo");
       expect(tree._root.getValue()).toBe("bar");
     });
 
-    it("should be able to insert a node in 1 level tree", function () {
-      var tree = new RBTree();
+    it("should be able to insert a node in 1 level tree", () => {
+      let tree = new RBTree();
       tree.put(1, "bar");
       tree.put(0, "baz");
       expect(tree._root.getLeft()).not.toBeNull();
@@ -79,9 +79,9 @@ describe("RBTree", function () {
     });
   });
 
-  describe("get method", function () {
-    it("should be able to find value by given key", function () {
-      var tree = new RBTree();
+  describe("get method", () => {
+    it("should be able to find value by given key", () => {
+      const tree = new RBTree();
       expect(tree.get(1)).toBeUndefined();
       tree.put(1, "baz");
       expect(tree.get(1)).toBe("baz");
@@ -97,9 +97,9 @@ describe("RBTree", function () {
     });
   });
 
-  describe("levelOrderTraversal method", function () {
-    it("should be able to traverse tree in level order", function () {
-      var tree = new RBTree();
+  describe("levelOrderTraversal method", () => {
+    it("should be able to traverse tree in level order", () => {
+      const tree = new RBTree();
       expect(tree.levelOrderTraversal()).toBe(
         "Level Order Traversal -: Tree is empty"
       );

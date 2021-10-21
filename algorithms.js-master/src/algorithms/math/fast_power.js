@@ -45,4 +45,4 @@ const fastPower = (base, power, mul, identity) => {
   return result;
 };
 
-module.exports = fastPower;
+export default fastPower;

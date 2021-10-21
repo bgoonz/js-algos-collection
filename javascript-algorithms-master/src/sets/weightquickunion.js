@@ -25,7 +25,7 @@
  * @module sets/weightquickunion
  */
 
-(function (exports) {
+(exports => {
   "use strict";
 
   /**
@@ -39,7 +39,7 @@
   exports.QuickUnion = function (n) {
     this._ids = [];
     this._size = [];
-    for (var i = 0; i < n; i += 1) {
+    for (let i = 0; i < n; i += 1) {
       this._ids[i] = i;
       this._size[i] = 1;
     }
@@ -82,13 +82,13 @@
    * @param {Number} q The second node.
    */
   exports.QuickUnion.prototype.union = function (p, q) {
-    var pf = this._root(p);
-    var qf = this._root(q);
+    const pf = this._root(p);
+    const qf = this._root(q);
     if (pf === qf) {
       return; // already linked
     }
-    var psz = this._size[qf];
-    var qsz = this._size[pf];
+    const psz = this._size[qf];
+    const qsz = this._size[pf];
     if (psz < qsz) {
       this._ids[pf] = qf;
       this._size[qf] += psz;

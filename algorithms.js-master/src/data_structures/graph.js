@@ -1,4 +1,4 @@
-const HashSet = require("./set");
+import HashSet from "./set";
 
 // Normalize vertex labels as strings
 const _ = (v) => String(v);
@@ -17,7 +17,7 @@ class Graph {
   addVertex(v) {
     v = _(v);
     if (this.vertices.contains(v)) {
-      throw new Error('Vertex "' + v + '" has already been added');
+      throw new Error(`Vertex "${v}" has already been added`);
     }
     this.vertices.add(v);
     this.adjList[v] = Object.create(null);
@@ -68,4 +68,4 @@ class Graph {
   }
 }
 
-module.exports = Graph;
+export default Graph;

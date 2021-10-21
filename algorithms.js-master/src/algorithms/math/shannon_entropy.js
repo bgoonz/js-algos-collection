@@ -18,4 +18,4 @@ const shannonEntropy = (arr) => {
   return probs.reduce((e, p) => e - p * Math.log(p), 0) * Math.LOG2E;
 };
 
-module.exports = shannonEntropy;
+export default shannonEntropy;

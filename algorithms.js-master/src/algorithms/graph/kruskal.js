@@ -1,5 +1,5 @@
-const DisjointSetForest = require("../../data_structures/disjoint_set_forest");
-const Graph = require("../../data_structures/graph");
+import DisjointSetForest from "../../data_structures/disjoint_set_forest";
+import Graph from "../../data_structures/graph";
 
 /**
  * Kruskal's minimum spanning tree (forest) algorithm.
@@ -32,15 +32,15 @@ const kruskal = (graph) => {
   });
 
   edges
-    .sort((a, b) => a.weight - b.weight)
-    .forEach((edge) => {
-      if (!connectedComponents.sameSubset(edge.ends[0], edge.ends[1])) {
-        mst.addEdge(edge.ends[0], edge.ends[1], edge.weight);
-        connectedComponents.merge(edge.ends[0], edge.ends[1]);
+    .sort(({weight}, {weight}) => weight - weight)
+    .forEach(({ends, weight}) => {
+      if (!connectedComponents.sameSubset(ends[0], ends[1])) {
+        mst.addEdge(ends[0], ends[1], weight);
+        connectedComponents.merge(ends[0], ends[1]);
       }
     });
 
   return mst;
 };
 
-module.exports = kruskal;
+export default kruskal;

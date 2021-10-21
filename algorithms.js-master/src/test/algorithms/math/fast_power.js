@@ -1,9 +1,8 @@
-const math = require("../../..").Math;
+import {Math as math} from "../../..";
 const power = math.fastPower;
-const assert = require("assert");
+import assert from "assert";
 
-const assertApproximatelyEqual = (a, b, eps) => {
-  eps = eps || 1e-12;
+const assertApproximatelyEqual = (a, b, eps = 1e-12) => {
   assert(Math.abs(a - b) < eps);
 };
 
@@ -33,9 +32,9 @@ describe("Fast Power", () => {
   it("raise numbers to positive integer powers", () => {
     assert.equal(power(2, 5), 32);
     assert.equal(power(32, 1), 32);
-    assert.equal(power(3, 7), Math.pow(3, 7));
+    assert.equal(power(3, 7), 3 ** 7);
     assert.equal(power(4, 5), 1024);
-    assertApproximatelyEqual(power(Math.PI, 100), Math.pow(Math.PI, 100));
+    assertApproximatelyEqual(power(Math.PI, 100), Math.PI ** 100);
     assert.equal(power(-5, 2), 25);
     assert.equal(power(-5, 3), -125);
     assert.equal(power(1, 10000), 1);

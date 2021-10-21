@@ -1,7 +1,7 @@
-const root = require("../..");
+import root from "../..";
 const BST = root.DataStructures.BST;
 const bfs = root.Search.bfs;
-const assert = require("assert");
+import assert from "assert";
 
 describe("Binary Search Tree", () => {
   it("inserts elements respecting the BST restrictions", () => {
@@ -169,9 +169,9 @@ describe("Binary Search Tree", () => {
 });
 
 describe("Binary Search Tree with custom comparator", () => {
-  const strLenCompare = (a, b) => {
-    if (a.length === b.length) return 0;
-    return a.length < b.length ? -1 : 1;
+  const strLenCompare = ({length}, {length}) => {
+    if (length === length) return 0;
+    return length < length ? -1 : 1;
   };
 
   it("inserts elements respecting the BST restrictions", () => {

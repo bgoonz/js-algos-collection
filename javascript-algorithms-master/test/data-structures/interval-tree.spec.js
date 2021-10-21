@@ -1,11 +1,11 @@
-var mod = require("../../src/data-structures/interval-tree.js");
-var IntervalTree = mod.IntervalTree;
+import mod from "../../src/data-structures/interval-tree.js";
+const IntervalTree = mod.IntervalTree;
 
-describe("IntervalTree", function () {
+describe("IntervalTree", () => {
   "use strict";
 
-  it("should correctly detect intersections", function () {
-    var it = new IntervalTree();
+  it("should correctly detect intersections", () => {
+    let it = new IntervalTree();
 
     it.add([10383734, 10594186]);
     it.add([10383734, 10594186]);

@@ -1,5 +1,5 @@
-const Graph = require("../../data_structures/graph");
-const depthFirstSearch = require("../../algorithms/graph/depth_first_search");
+import Graph from "../../data_structures/graph";
+import depthFirstSearch from "../../algorithms/graph/depth_first_search";
 
 /** Examine a graph and compute pair of end vertices of the existing Euler path.
  * Return pair of undefined values if there is no specific choice of end points.
@@ -56,7 +56,7 @@ const eulerEndpoints = (graph) => {
       }
       finish = vertex;
     } else if (rank[vertex]) {
-      throw new Error("Unexpected vertex degree for " + vertex);
+      throw new Error(`Unexpected vertex degree for ${vertex}`);
     } else if (!v) {
       v = vertex;
     }
@@ -113,4 +113,4 @@ const eulerPath = (graph) => {
   return route.reverse();
 };
 
-module.exports = eulerPath;
+export default eulerPath;

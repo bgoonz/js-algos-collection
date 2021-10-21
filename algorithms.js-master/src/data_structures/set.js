@@ -1,4 +1,4 @@
-const HashTable = require("./hash_table");
+import HashTable from "./hash_table";
 
 /**
  * Typical representation of a mathematical set
@@ -40,4 +40,4 @@ class HashSet {
   }
 }
 
-module.exports = HashSet;
+export default HashSet;

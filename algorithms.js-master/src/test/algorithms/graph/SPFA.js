@@ -1,7 +1,7 @@
-const root = require("../../../");
+import root from "../../../";
 const spfa = root.Graph.SPFA;
 const Graph = root.DataStructures.Graph;
-const assert = require("assert");
+import assert from "assert";
 
 describe("SPFA Algorithm", () => {
   it("returns the shortest paths to all nodes from a given origin", () => {

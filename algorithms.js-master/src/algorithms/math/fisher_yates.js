@@ -11,4 +11,4 @@ const fisherYates = (a) => {
   }
 };
 
-module.exports = fisherYates;
+export default fisherYates;

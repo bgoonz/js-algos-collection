@@ -23,7 +23,7 @@ const auxiliaryCountingSort = (array, mod) => {
 
   for (i = 0; i < length; i++) {
     const digit =
-      parseInt((array[i].key / Math.pow(10, mod)).toFixed(mod), 10) % 10;
+      parseInt((array[i].key / 10 ** mod).toFixed(mod), 10) % 10;
     bucket[digit].push(array[i]);
   }
 
@@ -82,4 +82,4 @@ const radixSort = (array) => {
   return array;
 };
 
-module.exports = radixSort;
+export default radixSort;

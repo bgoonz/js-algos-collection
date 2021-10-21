@@ -32,8 +32,8 @@ function spfa(graph, s) {
     currNode = queue[head++];
     isInQue[currNode] = false;
     const neighbors = graph.neighbors(currNode);
-    for (let i = 0; i < neighbors.length; i++) {
-      const v = neighbors[i];
+
+    for (const v of neighbors) {
       // relaxation
       const newDistance = distance[currNode] + graph.edge(currNode, v);
       if (newDistance < distance[v]) {
@@ -60,4 +60,4 @@ function spfa(graph, s) {
   };
 }
 
-module.exports = spfa;
+export default spfa;

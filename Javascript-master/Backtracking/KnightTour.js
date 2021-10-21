@@ -59,7 +59,7 @@ class OpenKnightTour {
     for (const row of this.board) {
       let string = ''
       for (const elem of row) {
-        string += elem + '\t'
+        string += `${elem}\t`
       }
       output(string)
     }

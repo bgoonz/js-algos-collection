@@ -5,10 +5,7 @@
  * @param Number tolerance - The error margin accepted (Default 1e-7)
  * @param Number maxIterations - The max number of iterations (Default 1e7)
  */
-const sqrt = (n, tolerance, maxIterations) => {
-  tolerance = tolerance || 1e-7;
-  maxIterations = maxIterations || 1e7;
-
+const sqrt = (n, tolerance = 1e-7, maxIterations = 1e7) => {
   let upperBound = n;
   let lowerBound = 0;
 
@@ -30,4 +27,4 @@ const sqrt = (n, tolerance, maxIterations) => {
   return x;
 };
 
-module.exports = sqrt;
+export default sqrt;

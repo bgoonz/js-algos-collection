@@ -1,4 +1,4 @@
-const MinHeap = require("../../data_structures/heap").MinHeap;
+import {MinHeap} from "../../data_structures/heap";
 
 /**
  * Heap sort first creates a valid heap data structure. Next it
@@ -17,4 +17,4 @@ const heapsort = (array, comparatorFn) => {
   return result;
 };
 
-module.exports = heapsort;
+export default heapsort;

@@ -9,9 +9,9 @@
 // Requirements
 //-----------------------------------------------------------------------------
 
-const assert = require("chai").assert;
-const BinarySearchTree =
-  require("../../../src/data-structures/binary-search-tree").BinarySearchTree;
+import {assert} from "chai";
+
+import {BinarySearchTree} from "../../../src/data-structures/binary-search-tree";
 
 //-----------------------------------------------------------------------------
 // Helpers
@@ -277,7 +277,7 @@ describe("BinarySearchTree", () => {
   });
 
   ["values", Symbol.iterator].forEach((method) => {
-    describe(String(method) + "()", () => {
+    describe(`${String(method)}()`, () => {
       it("should create empty array when there are no nodes", () => {
         assert.deepStrictEqual([...tree[method]()], []);
       });

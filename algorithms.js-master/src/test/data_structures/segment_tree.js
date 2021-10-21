@@ -1,5 +1,5 @@
 const SegmentTree = require("../..").DataStructures.SegmentTree;
-const assert = require("assert");
+import assert from "assert";
 
 describe("SegmentTree", () => {
   it("allows modification of value at any index", () => {

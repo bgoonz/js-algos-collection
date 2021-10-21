@@ -10,11 +10,11 @@
  * bloomfilter.get('world') === false;
  * @module data-structures/bloomfilter
  */
-(function (exports) {
+(exports => {
   "use strict";
 
   function randomUint32() {
-    return Math.floor(Math.random() * Math.pow(2, 32));
+    return Math.floor(Math.random() * 2 ** 32);
   }
   /**
    * Calculate a 32 bit FNV-1a hash
@@ -29,9 +29,9 @@
    */
   function hashFnv32a(str, asString, seed) {
     /*jshint bitwise:false */
-    var i;
-    var l;
-    var hval = seed === undefined ? 0x811c9dc5 : seed;
+    let i;
+    let l;
+    let hval = seed === undefined ? 0x811c9dc5 : seed;
 
     for (i = 0, l = str.length; i < l; i = i + 1) {
       hval ^= str.charCodeAt(i);
@@ -40,14 +40,14 @@
     }
     if (asString) {
       // Convert to 8 digit hex string
-      return ("0000000" + (hval >>> 0).toString(16)).substr(-8);
+      return (`0000000${(hval >>> 0).toString(16)}`).substr(-8);
     }
     return hval >>> 0;
   }
 
   // Make a hash function
   function mkHashFun(seed, limit) {
-    return function (value) {
+    return value => {
       return hashFnv32a(value, false, seed) % limit;
     };
   }
@@ -58,15 +58,14 @@
    * @constructor
    * @param {Number} size the size of the bitmap
    */
-  exports.Bitmap = function (size) {
-    size = size || 1024;
+  exports.Bitmap = function(size = 1024) {
     if (size < 0) {
       throw new Error("The size cannot be negative");
     }
     this.size = size;
     this.intSize = Math.ceil(size / 32); // number of underlying integers
     // Create a 0 initialized array
-    this.intArray = Array.from({ length: this.intSize }, function () {
+    this.intArray = Array.from({ length: this.intSize }, () => {
       return 0;
     });
   };
@@ -92,9 +91,9 @@
     }
 
     // Calculate the offset within the int
-    var intOffset = index % 32;
-    var arrayOffset = Math.floor(index / 32); // the offset for the array
-    var mask = 1 << intOffset;
+    const intOffset = index % 32;
+    const arrayOffset = Math.floor(index / 32); // the offset for the array
+    const mask = 1 << intOffset;
     return (mask & this.intArray[arrayOffset]) !== 0;
   };
 
@@ -110,9 +109,9 @@
     }
 
     // Calculate the offset within the int
-    var intOffset = index % 32;
-    var arrayOffset = Math.floor(index / 32); // the offset for the array
-    var mask = 1 << intOffset;
+    const intOffset = index % 32;
+    const arrayOffset = Math.floor(index / 32); // the offset for the array
+    const mask = 1 << intOffset;
     if ((mask & this.intArray[arrayOffset]) !== 0) {
       return 1;
     } else {
@@ -132,9 +131,9 @@
       throw new Error("Index out of bound");
     }
 
-    var intOffset = index % 32; //calculate the offset within the int
-    var arrayOffset = Math.floor(index / 32); // the offset for the array
-    var mask = 1 << intOffset;
+    const intOffset = index % 32; //calculate the offset within the int
+    const arrayOffset = Math.floor(index / 32); // the offset for the array
+    const mask = 1 << intOffset;
 
     // Check trutyness
     if (value) {
@@ -151,8 +150,7 @@
    * @param {Number} capacity the maximum capacity to maintain the given error rate
    * @param {Number} errorRate the error rate expected under maximum capacity
    */
-  exports.Bloomfilter = function (capacity, errorRate) {
-    errorRate = errorRate || 0.001; // default error rate
+  exports.Bloomfilter = function(capacity, errorRate = 0.001) {
     if (errorRate > 1 || errorRate < 0) {
       throw new Error("The error rate range is outside of bound");
     }
@@ -163,8 +161,8 @@
     this.errorRate = errorRate;
 
     // Calculate the optimal size of the bitmap
-    var numBit = Math.ceil(
-      (capacity * Math.log(1.0 / errorRate)) / Math.pow(Math.log(2), 2)
+    const numBit = Math.ceil(
+      (capacity * Math.log(1.0 / errorRate)) / Math.log(2) ** 2
     );
 
     // Calculate the optimal number of hash functions
@@ -176,9 +174,9 @@
     // Generate an array of hash functions
     this.hashFunctions = Array.from(
       { length: this.numHashFunction },
-      function () {
+      () => {
         return mkHashFun(randomUint32(), numBit);
-      }.bind(this)
+      }
     );
   };
 
@@ -189,12 +187,12 @@
    */
   exports.Bloomfilter.prototype.get = function (value) {
     value = String(value); // make it string
-    var hashes = this.hashFunctions.map(function (hashFct) {
+    const hashes = this.hashFunctions.map(hashFct => {
       return hashFct(value);
     });
 
     // if one of the bits is not set
-    for (var i = 0; i < hashes.length; i = i + 1) {
+    for (let i = 0; i < hashes.length; i = i + 1) {
       if (this.bitmap.exists(hashes[i]) === false) {
         return false;
       }
@@ -209,12 +207,12 @@
    */
   exports.Bloomfilter.prototype.set = function (value) {
     value = String(value); // make it string
-    var hashes = this.hashFunctions.map(function (hashFct) {
+    const hashes = this.hashFunctions.map(hashFct => {
       return hashFct(value);
     });
 
     // Set all the corresponding bits
-    for (var i = 0; i < hashes.length; i = i + 1) {
+    for (let i = 0; i < hashes.length; i = i + 1) {
       this.bitmap.set(hashes[i], true);
     }
   };

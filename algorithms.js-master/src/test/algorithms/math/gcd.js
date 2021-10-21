@@ -1,6 +1,6 @@
-const root = require("../../..");
+import root from "../../..";
 const gcd = root.Math.gcd;
-const assert = require("assert");
+import assert from "assert";
 
 describe("GCD", () => {
   it("calculates the GCD between two numbers", () => {

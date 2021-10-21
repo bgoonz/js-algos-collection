@@ -191,8 +191,9 @@ class BinarySearchTree {
      * traversals, we need to keep track of the parent so we can remove
      * the child node.
      */
-    let current = this[root],
-      parent = null;
+    let current = this[root];
+
+    let parent = null;
 
     /*
      * The first step is to do a search for the value to remove. This is
@@ -428,4 +429,4 @@ class BinarySearchTree {
   }
 }
 
-exports.BinarySearchTree = BinarySearchTree;
+export {BinarySearchTree};

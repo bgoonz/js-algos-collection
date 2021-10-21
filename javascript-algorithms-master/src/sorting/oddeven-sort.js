@@ -1,4 +1,4 @@
-(function (exports) {
+(exports => {
   "use strict";
 
   /**
@@ -17,12 +17,12 @@
    */
   function oddEvenSort(arr) {
     function swap(arr, i, j) {
-      var temp = arr[i];
+      const temp = arr[i];
       arr[i] = arr[j];
       arr[j] = temp;
     }
 
-    var sorted = false;
+    let sorted = false;
     while (!sorted) {
       sorted = true;
       for (var i = 1; i < arr.length - 1; i += 2) {

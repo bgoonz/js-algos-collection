@@ -1,12 +1,12 @@
-(function (exports) {
+(exports => {
   "use strict";
 
-  var levenshteinDistance = (function () {
+  const levenshteinDistance = (() => {
     function levenshteinDistance(s, ls, t, lt) {
-      var memo = [];
-      var currRowMemo;
-      var i;
-      var k;
+      let memo = [];
+      let currRowMemo;
+      let i;
+      let k;
 
       for (k = 0; k <= lt; k += 1) {
         memo[k] = k;
@@ -49,7 +49,7 @@
      * @return {Number} Minimum number of edits needed
      * to transform source string into the target string.
      */
-    return function (s, t) {
+    return (s, t) => {
       return levenshteinDistance(s, s.length, t, t.length);
     };
   })();

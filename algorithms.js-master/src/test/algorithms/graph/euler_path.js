@@ -1,7 +1,7 @@
-const root = require("../../../");
+import root from "../../../";
 const eulerPath = root.Graph.eulerPath;
 const Graph = root.DataStructures.Graph;
-const assert = require("assert");
+import assert from "assert";
 
 describe("Euler Path", () => {
   const verifyEulerPath = (graph, trail) => {

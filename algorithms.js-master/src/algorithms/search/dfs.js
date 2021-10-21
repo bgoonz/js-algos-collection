@@ -35,4 +35,4 @@ const postOrder = (node, callback) => {
 // Set inOrder as the default implementation
 inOrder.preOrder = preOrder;
 inOrder.postOrder = postOrder;
-module.exports = inOrder;
+export default inOrder;

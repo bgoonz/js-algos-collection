@@ -1,4 +1,4 @@
-(function (exports) {
+(exports => {
   "use strict";
 
   function compare(a, b) {
@@ -12,7 +12,7 @@
    * @param {array} array Array which should be sorted.
    * @return {array} Sorted array.
    */
-  var quickSort = (function () {
+  const quickSort = (() => {
     /**
      * Partitions the array in two parts by the middle elements.
      * All elements which are less than the chosen one goes left from it
@@ -25,8 +25,8 @@
      * @return {number}
      */
     function partition(array, left, right, cmp) {
-      var pivot = array[Math.floor((left + right) / 2)];
-      var temp;
+      const pivot = array[Math.floor((left + right) / 2)];
+      let temp;
       while (left <= right) {
         while (cmp(array[left], pivot) < 0) {
           left += 1;
@@ -55,7 +55,7 @@
      * @param {number} right Right part of the array which should be processed
      */
     function quicksort(array, left, right, cmp) {
-      var mid = partition(array, left, right, cmp);
+      const mid = partition(array, left, right, cmp);
       if (left < mid - 1) {
         quicksort(array, left, mid - 1, cmp);
       }
@@ -83,8 +83,7 @@
      * zero, or positive value, depending on the arguments.
      * @return {Array} Sorted array.
      */
-    return function (array, cmp) {
-      cmp = cmp || compare;
+    return (array, cmp = compare) => {
       quicksort(array, 0, array.length - 1, cmp);
       return array;
     };

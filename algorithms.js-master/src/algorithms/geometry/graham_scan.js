@@ -1,4 +1,4 @@
-const vectorOp = require("./vector_operations2d.js");
+import vectorOp from "./vector_operations2d.js";
 
 /**
  * Given an array p with N points on a two dimensional space,
@@ -62,4 +62,4 @@ const preprocessing = (p) => {
   });
 };
 
-module.exports = grahamScan;
+export default grahamScan;

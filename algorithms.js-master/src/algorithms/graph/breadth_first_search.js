@@ -1,4 +1,4 @@
-const Queue = require("../../data_structures/queue");
+import Queue from "../../data_structures/queue";
 
 /**
  * @typedef {Object} Callbacks
@@ -19,9 +19,7 @@ const Queue = require("../../data_structures/queue");
  *   used by default allowTraversal implementation.
  * @return {Callbacks} The same object or new one (if null passed).
  */
-const normalizeCallbacks = (callbacks, seenVertices) => {
-  callbacks = callbacks || {};
-
+const normalizeCallbacks = (callbacks = {}, seenVertices) => {
   callbacks.allowTraversal =
     callbacks.allowTraversal ||
     (() => {
@@ -76,4 +74,4 @@ const breadthFirstSearch = (graph, startVertex, callbacks) => {
   }
 };
 
-module.exports = breadthFirstSearch;
+export default breadthFirstSearch;

@@ -1,6 +1,6 @@
-const root = require("../../../");
+import root from "../../../";
 const BezierCurve = root.Geometry.BezierCurve;
-const assert = require("assert");
+import assert from "assert";
 
 // Testing with http://pomax.github.io/bezierjs/
 

@@ -1,5 +1,5 @@
 const rabinKarp = require("../../..").String.rabinKarp;
-const assert = require("assert");
+import assert from "assert";
 
 const rabinKarpEqualsToIndexOf = (a, b) => {
   assert.equal(rabinKarp(a, b), a.indexOf(b));

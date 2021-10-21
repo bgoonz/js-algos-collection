@@ -1,5 +1,5 @@
 // String algorithms
-module.exports = {
+export default {
   levenshtein: require("./algorithms/string/levenshtein"),
   rabinKarp: require("./algorithms/string/rabin_karp"),
   knuthMorrisPratt: require("./algorithms/string/knuth_morris_pratt"),

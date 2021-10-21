@@ -1,5 +1,5 @@
 const LinkedList = require("../..").DataStructures.LinkedList;
-const assert = require("assert");
+import assert from "assert";
 
 describe("LinkedList", () => {
   it("starts empty", () => {

@@ -1,6 +1,6 @@
-const math = require("../../..").Math;
+import {Math as math} from "../../..";
 const newtonSqrt = math.newtonSqrt;
-const assert = require("assert");
+import assert from "assert";
 
 describe("Newton square root", () => {
   it("calculates the exact root of square numbers", () => {
@@ -24,13 +24,7 @@ describe("Newton square root", () => {
       const difference = Math.abs(newton - nativeJS);
       assert(
         difference < 1e-6,
-        "Square root of " +
-          i +
-          " should be " +
-          nativeJS +
-          " but got " +
-          newton +
-          " instead"
+        `Square root of ${i} should be ${nativeJS} but got ${newton} instead`
       );
     }
   });

@@ -1,10 +1,10 @@
 // Kruskal's algorithm for minimal spanning tree implemented with the UnionFind datastructure.
 
-(function (exports) {
+(exports => {
   "use strict";
 
-  var QuickUnion = require("../../sets/quickunion").QuickUnion;
-  var mergeSort = require("../../sorting/mergesort").mergeSort;
+  const QuickUnion = require("../../sets/quickunion").QuickUnion;
+  const mergeSort = require("../../sorting/mergesort").mergeSort;
   exports.Vertex = require("../../data-structures/vertex").Vertex;
   exports.Edge = require("../../data-structures/edge").Edge;
 
@@ -12,10 +12,10 @@
     this.edges = edges || [];
   };
 
-  exports.Graph.prototype.kruskal = (function () {
-    var qunion;
-    var spanningTree;
-    var indexes;
+  exports.Graph.prototype.kruskal = (() => {
+    let qunion;
+    let spanningTree;
+    let indexes;
 
     /**
      * Used for sorting the edges
@@ -27,8 +27,8 @@
      *  less then zero and indicates whether the first vertex is
      *  "smaller" than the second.
      */
-    function compareEdges(a, b) {
-      return a.distance - b.distance;
+    function compareEdges({distance}, {distance}) {
+      return distance - distance;
     }
 
     /**
@@ -37,8 +37,8 @@
      * @private
      */
     function init() {
-      var edge;
-      var i = 0;
+      let edge;
+      let i = 0;
 
       mergeSort(this.edges, compareEdges);
       spanningTree = [];
@@ -62,11 +62,11 @@
     return function () {
       init.call(this);
 
-      var edge;
+      let edge;
 
       for (edge of this.edges) {
-        var from = indexes[edge.from.id];
-        var to = indexes[edge.to.id];
+        const from = indexes[edge.from.id];
+        const to = indexes[edge.to.id];
         if (!qunion.connected(from, to)) {
           qunion.union(from, to);
           spanningTree.push(edge);

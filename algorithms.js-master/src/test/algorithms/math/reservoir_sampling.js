@@ -1,6 +1,6 @@
-const math = require("../../..").Math;
+import {Math as math} from "../../..";
 const reservoirSampling = math.reservoirSampling;
-const assert = require("assert");
+import assert from "assert";
 
 describe("Reservoir Sampling", () => {
   const array = [1, 2, 3, 4, 5, 6, 7, 8, 9];

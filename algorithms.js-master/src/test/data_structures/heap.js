@@ -1,5 +1,5 @@
 const heap = require("../..").DataStructures.Heap;
-const assert = require("assert");
+import assert from "assert";
 
 describe("Min Heap", () => {
   it("always returns the lowest element", () => {

@@ -1,4 +1,4 @@
-const Queue = require("../../data_structures/queue.js");
+import Queue from "../../data_structures/queue.js";
 
 /**
  * Breadth-first search for binary trees
@@ -15,4 +15,4 @@ const bfs = (root, callback) => {
   }
 };
 
-module.exports = bfs;
+export default bfs;

@@ -1,4 +1,4 @@
-const MinHeap = require("./heap").MinHeap;
+import {MinHeap} from "./heap";
 
 /**
  * Extends the MinHeap with the only difference that
@@ -42,4 +42,4 @@ class PriorityQueue extends MinHeap {
   }
 }
 
-module.exports = PriorityQueue;
+export default PriorityQueue;

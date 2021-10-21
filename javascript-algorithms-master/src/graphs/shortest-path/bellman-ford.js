@@ -37,7 +37,7 @@
  *
  * @module graphs/shortest-path/bellman-ford
  */
-(function (exports) {
+(exports => {
   "use strict";
 
   exports.Vertex = require("../../data-structures/vertex").Vertex;
@@ -55,10 +55,10 @@
    *   with shortest-path information or undefined if the graph
    *   has a negative cycle.
    */
-  exports.bellmanFord = function (vertexes, edges, source) {
-    var distances = {};
-    var parents = {};
-    var c;
+  exports.bellmanFord = (vertexes, edges, source) => {
+    const distances = {};
+    const parents = {};
+    let c;
     if (source) {
       for (var i = 0; i < vertexes.length; i += 1) {
         distances[vertexes[i].id] = Infinity;
@@ -66,7 +66,7 @@
       }
       distances[source.id] = 0;
       for (i = 0; i < vertexes.length - 1; i += 1) {
-        for (var j = 0; j < edges.length; j += 1) {
+        for (let j = 0; j < edges.length; j += 1) {
           c = edges[j];
           if (distances[c.from.id] + c.distance < distances[c.to.id]) {
             distances[c.to.id] = distances[c.from.id] + c.distance;

@@ -1,6 +1,6 @@
 const binarySearch = require("../../..").Search.binarySearch;
 const lowerBound = require("../../..").Search.lowerBound;
-const assert = require("assert");
+import assert from "assert";
 
 describe("Binary Search", () => {
   it("finds elements in the sorted array", () => {

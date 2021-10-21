@@ -10,7 +10,7 @@
  * @returns {void}
  */
 function swap(items, firstIndex, secondIndex) {
-  var temp = items[firstIndex];
+  const temp = items[firstIndex];
   items[firstIndex] = items[secondIndex];
   items[secondIndex] = temp;
 }
@@ -21,7 +21,7 @@ function swap(items, firstIndex, secondIndex) {
  * @param {Array} items An array of items to sort.
  * @return {Array} The sorted array.
  */
-exports.bubbleSort = (items) => {
+export function bubbleSort(items) {
   /*
    * The outer loop moves from the first item in the array to the last item
    * in the array.
@@ -48,4 +48,4 @@ exports.bubbleSort = (items) => {
   }
 
   return items;
-};
+}

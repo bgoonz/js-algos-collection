@@ -1,6 +1,6 @@
-const root = require("../../..");
+import root from "../../..";
 const primalityTests = root.Math.primalityTests;
-const assert = require("assert");
+import assert from "assert";
 
 const validate = (primalityTest) => {
   assert.equal(primalityTest(1), false);

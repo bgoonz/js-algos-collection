@@ -1,5 +1,5 @@
-const Comparator = require("../../util/comparator");
-const assert = require("assert");
+import Comparator from "../../util/comparator";
+import assert from "assert";
 
 describe("Comparator", () => {
   it("uses a default arithmetic comparison if no function is passed", () => {

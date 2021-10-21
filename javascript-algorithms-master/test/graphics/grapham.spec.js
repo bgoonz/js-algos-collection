@@ -1,4 +1,4 @@
-var convexHull = require("../../src/graphics/graham").convexHull;
+import {convexHull} from "../../src/graphics/graham";
 
 const points = [
   { x: 0, y: 0 },
@@ -8,7 +8,7 @@ const points = [
   { x: 0.5, y: 0.5 },
 ];
 
-describe("Graham's algorithm for convex hull", function () {
+describe("Graham's algorithm for convex hull", () => {
   "use strict";
 
   it("should not throw with empty list", () => {

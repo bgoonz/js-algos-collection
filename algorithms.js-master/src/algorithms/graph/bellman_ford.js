@@ -72,4 +72,4 @@ const bellmanFord = (graph, startNode) => {
   };
 };
 
-module.exports = bellmanFord;
+export default bellmanFord;

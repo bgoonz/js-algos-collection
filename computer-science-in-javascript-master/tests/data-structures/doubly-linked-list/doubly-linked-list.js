@@ -8,10 +8,9 @@
 // Requirements
 //-----------------------------------------------------------------------------
 
-const assert = require("chai").assert;
-const {
-  DoublyLinkedList,
-} = require("../../../src/data-structures/doubly-linked-list/doubly-linked-list");
+import {assert} from "chai";
+
+import {DoublyLinkedList} from "../../../src/data-structures/doubly-linked-list/doubly-linked-list";
 
 //-----------------------------------------------------------------------------
 // Helpers
@@ -386,7 +385,7 @@ describe("DoublyLinkedList", () => {
   });
 
   ["values", Symbol.iterator].forEach((method) => {
-    describe(String(method) + "()", () => {
+    describe(`${String(method)}()`, () => {
       it("should create empty array when there are no items", () => {
         assert.deepStrictEqual([...list[method]()], []);
       });

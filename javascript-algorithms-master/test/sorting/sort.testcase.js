@@ -1,4 +1,4 @@
-module.exports = function (sort, algorithmName, options) {
+export default (sort, algorithmName, options) => {
   "use strict";
 
   options = options || {
@@ -6,15 +6,14 @@ module.exports = function (sort, algorithmName, options) {
     reverse: true,
   };
 
-  describe(algorithmName, function () {
-    function createRandomArray(config) {
-      config = config || {};
-      var size = config.size || 100;
-      var precision = config.precision || 2;
-      var multiplier = config.multiplier || 100;
-      var result = [];
+  describe(algorithmName, () => {
+    function createRandomArray(config = {}) {
+      const size = config.size || 100;
+      const precision = config.precision || 2;
+      const multiplier = config.multiplier || 100;
+      const result = [];
 
-      for (var i = size; i > 0; i -= 1) {
+      for (let i = size; i > 0; i -= 1) {
         result.push(
           parseFloat((Math.random() * multiplier).toFixed(precision))
         );
@@ -22,16 +21,16 @@ module.exports = function (sort, algorithmName, options) {
       return result;
     }
 
-    it("should work with empty array", function () {
+    it("should work with empty array", () => {
       expect(sort([])).toEqual([]);
     });
 
-    it("should work with sorted arrays", function () {
+    it("should work with sorted arrays", () => {
       expect(sort([1, 2, 3, 4])).toEqual([1, 2, 3, 4]);
     });
 
-    it("should work with random non-sorted arrays", function () {
-      var array;
+    it("should work with random non-sorted arrays", () => {
+      let array;
       if (options.integers) {
         array = createRandomArray();
       } else {
@@ -40,7 +39,7 @@ module.exports = function (sort, algorithmName, options) {
         });
       }
       array = sort(array);
-      for (var i = 0; i < array.length - 1; i += 1) {
+      for (let i = 0; i < array.length - 1; i += 1) {
         expect(array[i] <= array[i + 1]).toBeTruthy();
       }
     });
@@ -49,15 +48,15 @@ module.exports = function (sort, algorithmName, options) {
       it(
         "should sort the numbers in descending order " +
           "when such comparator is provided",
-        function () {
+        () => {
           function comparator(a, b) {
             return b - a;
           }
 
-          var array = createRandomArray();
+          let array = createRandomArray();
           array = sort(array, comparator);
 
-          for (var i = 0; i < array.length - 1; i += 1) {
+          for (let i = 0; i < array.length - 1; i += 1) {
             expect(array[i] >= array[i + 1]).toBeTruthy();
           }
         }

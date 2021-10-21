@@ -157,4 +157,4 @@ class Treap {
   }
 }
 
-module.exports = Treap;
+export default Treap;

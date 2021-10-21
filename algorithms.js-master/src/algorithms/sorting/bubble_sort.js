@@ -1,4 +1,4 @@
-const Comparator = require("../../util/comparator");
+import Comparator from "../../util/comparator";
 
 /**
  * Bubble sort algorithm O(n^2)
@@ -25,4 +25,4 @@ const bubbleSort = (a, comparatorFn) => {
   return a;
 };
 
-module.exports = bubbleSort;
+export default bubbleSort;

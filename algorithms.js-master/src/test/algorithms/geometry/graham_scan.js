@@ -1,12 +1,12 @@
-const grahamScan = require("../../../algorithms/geometry/graham_scan");
-const assert = require("assert");
+import grahamScan from "../../../algorithms/geometry/graham_scan";
+import assert from "assert";
 
 describe("Graham s Scan algorithm", () => {
   /* we have to ensure the order before using deepEqual. */
   let pointComparison;
   before(() => {
-    pointComparison = function (a, b) {
-      return a.x != b.x ? a.x < b.x : a.y < b.y;
+    pointComparison = ({x, y}, {x, y}) => {
+      return x != x ? x < x : y < y;
     };
   });
 

@@ -50,11 +50,11 @@ class Graph {
       // iterate over the adjacency list
       // concatenate the values into a string
       for (const j of getValues) {
-        conc += j + ' '
+        conc += `${j} `
       }
 
       // print the vertex and its adjacency list
-      output(i + ' -> ' + conc)
+      output(`${i} -> ${conc}`)
     }
   }
 }

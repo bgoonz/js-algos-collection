@@ -42,4 +42,4 @@ const longestCommonSubstring = (s1, s2) => {
   return lcs;
 };
 
-module.exports = longestCommonSubstring;
+export default longestCommonSubstring;

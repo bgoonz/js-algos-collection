@@ -19,7 +19,7 @@
  *
  * @module data-structures/splay-tree
  */
-(function (exports) {
+(exports => {
   "use strict";
 
   /**
@@ -62,11 +62,11 @@
    */
   exports.SplayTree.prototype._splay = function (node) {
     while (this._root !== node) {
-      var hasParent = node._parent !== null;
-      var hasGrandparent = hasParent && node._parent._parent !== null;
+      const hasParent = node._parent !== null;
+      const hasGrandparent = hasParent && node._parent._parent !== null;
       if (hasParent && hasGrandparent) {
-        var isLeftChild = node._parent._left === node;
-        var isParentLeftChild = node._parent._parent._left === node._parent;
+        const isLeftChild = node._parent._left === node;
+        const isParentLeftChild = node._parent._parent._left === node._parent;
         if (
           (isLeftChild && isParentLeftChild) ||
           (!isLeftChild && !isParentLeftChild)
@@ -91,14 +91,14 @@
    * @returns {Node} The same node from the parameter, post splayed.
    */
   exports.SplayTree.prototype._zigZig = function (node) {
-    var parent = node._parent;
-    var grandParent = node._parent._parent;
-    var greatGrandParent =
+    const parent = node._parent;
+    const grandParent = node._parent._parent;
+    const greatGrandParent =
       grandParent._parent !== undefined ? grandParent._parent : null;
 
-    var orientation = parent._right === node ? "_right" : "_left";
-    var oppositeOrientation = orientation === "_left" ? "_right" : "_left";
-    var grandParentOrientation =
+    const orientation = parent._right === node ? "_right" : "_left";
+    const oppositeOrientation = orientation === "_left" ? "_right" : "_left";
+    const grandParentOrientation =
       greatGrandParent !== null && greatGrandParent._left === grandParent
         ? "_left"
         : "_right";
@@ -142,14 +142,14 @@
    * @returns {Node} The same node from the parameter, post splayed.
    */
   exports.SplayTree.prototype._zigZag = function (node) {
-    var parent = node._parent;
-    var grandParent = parent._parent;
-    var greatGrandParent =
+    const parent = node._parent;
+    const grandParent = parent._parent;
+    const greatGrandParent =
       grandParent._parent !== undefined ? grandParent._parent : null;
 
-    var orientation = parent._left === node ? "_left" : "_right";
-    var oppositeOrientation = orientation === "_right" ? "_left" : "_right";
-    var grandParentOrientation =
+    const orientation = parent._left === node ? "_left" : "_right";
+    const oppositeOrientation = orientation === "_right" ? "_left" : "_right";
+    const grandParentOrientation =
       greatGrandParent !== null && greatGrandParent._left === grandParent
         ? "_left"
         : "_right";
@@ -193,9 +193,9 @@
    * @returns {Node} The same node from the parameter, post splayed.
    */
   exports.SplayTree.prototype._zig = function (node) {
-    var parent = node._parent;
-    var orientation = parent._right === node ? "_right" : "_left";
-    var oppositeOrientation = orientation === "_right" ? "_left" : "_right";
+    const parent = node._parent;
+    const orientation = parent._right === node ? "_right" : "_left";
+    const oppositeOrientation = orientation === "_right" ? "_left" : "_right";
 
     if (this._root === parent) {
       this._root = node;
@@ -228,7 +228,7 @@
       this._root = new exports.Node(value, null, null, null);
       return;
     }
-    var insertKey;
+    let insertKey;
     current = current || this._root;
     if (current.value > value) {
       insertKey = "_left";
@@ -342,7 +342,7 @@
    * @param {Number|String} value of the node which should be found.
    */
   exports.SplayTree.prototype.search = function (value) {
-    var node = this._search(value, this._root);
+    const node = this._search(value, this._root);
     return this._splay(node);
   };
 
@@ -422,13 +422,13 @@
    *    on whether the given node is removed.
    */
   exports.SplayTree.prototype.remove = function (value) {
-    var node = this._splaylessSearch(value);
+    const node = this._splaylessSearch(value);
     if (!node) {
       return false;
     }
     if (node._left && node._right) {
-      var min = this._findMin(node._right);
-      var temp = node.value;
+      const min = this._findMin(node._right);
+      const temp = node.value;
 
       node.value = min.value;
       min.value = temp;
@@ -458,10 +458,12 @@
    * @param {Number|String} current Current minimum value of the sub-tree.
    * @returns {Node} Node with the minimum value in the sub-tree.
    */
-  exports.SplayTree.prototype._findMin = function (node, current) {
-    current = current || {
+  exports.SplayTree.prototype._findMin = function(
+    node,
+    current = {
       value: Infinity,
-    };
+    }
+  ) {
     if (!node) {
       return current;
     }
@@ -501,15 +503,15 @@
    * @returns {Number} The longest path in the tree.
    */
   exports.SplayTree.prototype.getDiameter = function () {
-    var getDiameter = function (root) {
+    const getDiameter = root => {
       if (!root) {
         return 0;
       }
-      var leftHeight = this._getHeight(root._left);
-      var rightHeight = this._getHeight(root._right);
-      var path = leftHeight + rightHeight + 1;
+      const leftHeight = this._getHeight(root._left);
+      const rightHeight = this._getHeight(root._right);
+      const path = leftHeight + rightHeight + 1;
       return Math.max(path, getDiameter(root._left), getDiameter(root._right));
-    }.bind(this);
+    };
     return getDiameter(this._root);
   };
 
@@ -568,10 +570,10 @@
     secondNode,
     current
   ) {
-    var firstNodeInLeft = this._existsInSubtree(firstNode, current._left);
-    var secondNodeInLeft = this._existsInSubtree(secondNode, current._left);
-    var firstNodeInRight = this._existsInSubtree(firstNode, current._right);
-    var secondNodeInRight = this._existsInSubtree(secondNode, current._right);
+    const firstNodeInLeft = this._existsInSubtree(firstNode, current._left);
+    const secondNodeInLeft = this._existsInSubtree(secondNode, current._left);
+    const firstNodeInRight = this._existsInSubtree(firstNode, current._right);
+    const secondNodeInRight = this._existsInSubtree(secondNode, current._right);
     if (
       (firstNodeInLeft && secondNodeInRight) ||
       (firstNodeInRight && secondNodeInLeft)

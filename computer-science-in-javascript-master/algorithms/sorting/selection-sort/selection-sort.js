@@ -29,7 +29,7 @@
  * @return {void}
  */
 function swap(items, firstIndex, secondIndex) {
-  var temp = items[firstIndex];
+  const temp = items[firstIndex];
   items[firstIndex] = items[secondIndex];
   items[secondIndex] = temp;
 }
@@ -41,10 +41,10 @@ function swap(items, firstIndex, secondIndex) {
  * @return {Array} The sorted array.
  */
 function selectionSort(items) {
-  var len = items.length,
-    min,
-    i,
-    j;
+  const len = items.length;
+  let min;
+  let i;
+  let j;
 
   for (i = 0; i < len; i++) {
     // set minimum to this position

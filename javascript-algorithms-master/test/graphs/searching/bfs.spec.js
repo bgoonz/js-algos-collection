@@ -1,6 +1,6 @@
 /* jshint multistr: true */
 
-var graph = [
+const graph = [
   [0, 0, 0, 0, 1],
   [0, 0, 0, 1, 0],
   [0, 0, 0, 0, 0],
@@ -8,26 +8,26 @@ var graph = [
   [0, 1, 0, 1, 0],
 ];
 
-var bfs = require("../../../src/graphs/searching/bfs").bfs;
+import {bfs} from "../../../src/graphs/searching/bfs";
 
-describe("BFS", function () {
+describe("BFS", () => {
   "use strict";
 
-  it("should work with empty graph", function () {
+  it("should work with empty graph", () => {
     expect(bfs([], 0, 0)).toEqual([0]);
   });
 
   it("should return the correct output when used with\
-  source node equals target node", function () {
+  source node equals target node", () => {
     expect(bfs(graph, 2, 2)).toEqual([2]);
   });
 
-  it("should return work with cycles", function () {
+  it("should return work with cycles", () => {
     expect(bfs(graph, 0, 2)).toEqual([0, 4, 3, 2]);
   });
 
-  it("should return falsy value when there's no path", function () {
-    var graph = [
+  it("should return falsy value when there's no path", () => {
+    const graph = [
       [0, 0, 0, 0, 1],
       [0, 0, 0, 1, 0],
       [0, 0, 0, 0, 0],
@@ -47,8 +47,8 @@ describe("BFS", function () {
    *    \    v
    *      -> 2
    */
-  it("should not update the parent node once set", function () {
-    var graph = [
+  it("should not update the parent node once set", () => {
+    const graph = [
       [0, 1, 1],
       [0, 0, 1],
       [0, 0, 0],

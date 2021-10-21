@@ -1,4 +1,4 @@
-(function (exports) {
+(exports => {
   "use strict";
 
   function compare(a, b) {
@@ -25,8 +25,7 @@
    * we should find in the current function call.
    * @return {Array} Sorted array.
    */
-  function recursiveInsertionSort(array, cmp, max) {
-    cmp = cmp || compare;
+  function recursiveInsertionSort(array, cmp = compare, max) {
     if (max === undefined) {
       max = array.length - 1;
     }

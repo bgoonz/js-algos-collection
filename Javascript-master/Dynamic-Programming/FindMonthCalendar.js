@@ -59,14 +59,14 @@ class Month {
     return false
   }
 
-  isGreater(startDate, endDate) {
-    if (startDate.year > endDate.year) {
+  isGreater({year, month}, {year, month}) {
+    if (year > year) {
       return true
-    } else if (startDate.year < endDate.year) {
+    } else if (year < year) {
       return false
-    } else if (startDate.month > endDate.month) {
+    } else if (month > month) {
       return true
-    } else if (startDate.month < endDate.month) {
+    } else if (month < month) {
       return false
     }
     return true

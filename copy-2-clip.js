@@ -1,11 +1,11 @@
-$(document).ready(function () {
+$(document).ready(() => {
   $("code, pre").append(
     '<span class="command-copy" ><i class="fa fa-clipboard" aria-hidden="true"></i></span>'
   );
 
   $("code span.command-copy").click(function (e) {
-    var text = $(this).parent().text().trim(); //.text();
-    var copyHex = document.createElement("input");
+    const text = $(this).parent().text().trim(); //.text();
+    const copyHex = document.createElement("input");
     copyHex.value = text;
     document.body.appendChild(copyHex);
     copyHex.select();
@@ -15,8 +15,8 @@ $(document).ready(function () {
   });
 
   $("pre span.command-copy").click(function (e) {
-    var text = $(this).parent().text().trim();
-    var copyHex = document.createElement("input");
+    const text = $(this).parent().text().trim();
+    const copyHex = document.createElement("input");
     copyHex.value = text;
     document.body.appendChild(copyHex);
     copyHex.select();

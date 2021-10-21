@@ -1,10 +1,10 @@
-(function (exports) {
+(exports => {
   "use strict";
-  var permutations = (function () {
-    var res;
+  const permutations = (() => {
+    let res;
 
     function swap(arr, i, j) {
-      var temp = arr[i];
+      const temp = arr[i];
       arr[i] = arr[j];
       arr[j] = temp;
     }
@@ -13,7 +13,7 @@
       if (current >= arr.length) {
         return res.push(arr.slice());
       }
-      for (var i = current; i < arr.length; i += 1) {
+      for (let i = current; i < arr.length; i += 1) {
         swap(arr, i, current);
         permutations(arr, current + 1);
         swap(arr, i, current);
@@ -47,10 +47,10 @@
      * @param {Array} arr Array to find the permutations of.
      * @returns {Array} Array containing all the permutations.
      */
-    return function (arr) {
+    return arr => {
       res = [];
       permutations(arr, 0);
-      var temp = res;
+      const temp = res;
       // Free the extra memory
       res = null;
       return temp;

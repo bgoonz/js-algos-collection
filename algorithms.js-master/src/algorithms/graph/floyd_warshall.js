@@ -89,4 +89,4 @@ const floydWarshall = (graph) => {
   };
 };
 
-module.exports = floydWarshall;
+export default floydWarshall;

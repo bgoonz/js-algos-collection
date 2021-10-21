@@ -18,9 +18,7 @@
  *   used by default allowTraversal implementation.
  * @return {Callbacks} The same object or new one (if null passed).
  */
-const normalizeCallbacks = (callbacks, seenVertices) => {
-  callbacks = callbacks || {};
-
+const normalizeCallbacks = (callbacks = {}, seenVertices) => {
   callbacks.allowTraversal =
     callbacks.allowTraversal ||
     (() => {
@@ -76,4 +74,4 @@ const depthFirstSearch = (graph, startVertex, callbacks) => {
   dfsLoop(graph, startVertex, normalizeCallbacks(callbacks, [startVertex]));
 };
 
-module.exports = depthFirstSearch;
+export default depthFirstSearch;

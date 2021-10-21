@@ -1,4 +1,4 @@
-var sortTestCase = require("./sort.testcase.js");
-var heapSort = require("../../src/sorting/heapsort.js").heapSort;
+import sortTestCase from "./sort.testcase.js";
+import {heapSort} from "../../src/sorting/heapsort.js";
 
 sortTestCase(heapSort, "Heap sort");

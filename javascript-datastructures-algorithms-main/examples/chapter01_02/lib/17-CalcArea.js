@@ -1,26 +1,26 @@
-(function (global, factory) {
+((global, factory) => {
   if (typeof define === "function" && define.amd) {
     define(["exports"], factory);
   } else if (typeof exports !== "undefined") {
     factory(exports);
   } else {
-    var mod = {
+    const mod = {
       exports: {},
     };
     factory(mod.exports);
     global.CalcArea = mod.exports;
   }
-})(this, function (exports) {
+})(this, exports => {
   "use strict";
 
   Object.defineProperty(exports, "__esModule", {
     value: true,
   });
-  var circleArea = (exports.circleArea = function circleArea(r) {
-    return 3.14 * Math.pow(r, 2);
+  const circleArea = (exports.circleArea = function circleArea(r) {
+    return 3.14 * r ** 2;
   });
 
-  var squareArea = (exports.squareArea = function squareArea(s) {
+  const squareArea = (exports.squareArea = function squareArea(s) {
     return s * s;
   });
 

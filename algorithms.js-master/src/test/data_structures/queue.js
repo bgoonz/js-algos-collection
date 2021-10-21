@@ -1,5 +1,5 @@
 const Queue = require("../..").DataStructures.Queue;
-const assert = require("assert");
+import assert from "assert";
 
 describe("Queue", () => {
   it("starts empty", () => {

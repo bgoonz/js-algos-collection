@@ -1,6 +1,6 @@
-const math = require("../../..").Math;
+import {Math as math} from "../../..";
 const fib = math.fibonacci;
-const assert = require("assert");
+import assert from "assert";
 
 const testFibonacciSequence = (fib) => {
   assert.equal(0, fib(0));

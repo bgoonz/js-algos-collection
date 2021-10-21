@@ -1,15 +1,15 @@
-(function (exports) {
+(exports => {
   "use strict";
 
-  var combinations = (function () {
-    var res = [];
+  const combinations = (() => {
+    let res = [];
 
     function combinations(arr, k, start, idx, current) {
       if (idx === k) {
         res.push(current.slice());
         return;
       }
-      for (var i = start; i < arr.length; i += 1) {
+      for (let i = start; i < arr.length; i += 1) {
         current[idx] = arr[i];
         combinations(arr, k, i + 1, idx + 1, current);
       }
@@ -39,10 +39,10 @@
      * @param k {Number} Size of each combination.
      * @return {Array} Returns all combinations.
      */
-    return function (arr, k) {
+    return (arr, k) => {
       res = [];
       combinations(arr, k, 0, 0, []);
-      var temp = res;
+      const temp = res;
       // Free the extra memory
       res = null;
       return temp;

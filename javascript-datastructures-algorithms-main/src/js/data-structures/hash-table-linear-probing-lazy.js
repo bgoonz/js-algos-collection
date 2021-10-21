@@ -102,8 +102,8 @@ export default class HashTableLinearProbingLazy {
 
   size() {
     let count = 0;
-    Object.values(this.table).forEach((valuePair) => {
-      count += valuePair.isDeleted === true ? 0 : 1;
+    Object.values(this.table).forEach(({isDeleted}) => {
+      count += isDeleted === true ? 0 : 1;
     });
     return count;
   }

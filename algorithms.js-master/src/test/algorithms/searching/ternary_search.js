@@ -1,8 +1,8 @@
 const ternarySearch = require("../../..").Search.ternarySearch;
-const assert = require("assert");
+import assert from "assert";
 const eps = 1e-6;
 
-const fn1 = (x) => -Math.pow(x - 2, 2) + 4;
+const fn1 = (x) => -((x - 2) ** 2) + 4;
 
 const fn2 = (x) => -2 * Math.cos(x);
 

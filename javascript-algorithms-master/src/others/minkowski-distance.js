@@ -1,10 +1,10 @@
-(function (exports) {
+(exports => {
   "use strict";
 
-  var minkowskiDistance = (function () {
+  const minkowskiDistance = (() => {
     function chebyshevDistance(x, y, lx, p, mathfn) {
-      var ret = -p;
-      var i;
+      let ret = -p;
+      let i;
 
       for (i = 0; i < lx; i += 1) {
         ret = mathfn(ret, Math.abs(x[i] - y[i]));
@@ -14,8 +14,8 @@
     }
 
     function minkowskiDistance(x, lx, y, ly, p) {
-      var d;
-      var i;
+      let d;
+      let i;
 
       if (lx !== ly) {
         throw "Both vectors should have same dimension";
@@ -35,10 +35,10 @@
         d = 0;
 
         for (i = 0; i < lx; i += 1) {
-          d += Math.pow(Math.abs(x[i] - y[i]), p);
+          d += Math.abs(x[i] - y[i]) ** p;
         }
 
-        return isNaN(d) ? 0 : Math.pow(d, 1 / p);
+        return isNaN(d) ? 0 : d ** (1 / p);
       }
     }
 
@@ -64,7 +64,7 @@
      * @returns {Number} distance between two points, if distance
      * is NaN, then this returns 0
      */
-    return function (x, y, p) {
+    return (x, y, p) => {
       return minkowskiDistance(x, x.length, y, y.length, p);
     };
   })();

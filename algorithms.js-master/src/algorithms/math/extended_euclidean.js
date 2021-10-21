@@ -39,4 +39,4 @@ const extEuclid = (a, b) => {
   };
 };
 
-module.exports = extEuclid;
+export default extEuclid;

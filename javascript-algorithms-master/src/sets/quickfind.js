@@ -24,7 +24,7 @@
  * @public
  * @module sets/quickfind
  */
-(function (exports) {
+(exports => {
   "use strict";
 
   /**
@@ -37,7 +37,7 @@
    */
   exports.QuickFind = function (size) {
     this._ids = [];
-    for (var i = 0; i < size; i += 1) {
+    for (let i = 0; i < size; i += 1) {
       this._ids[i] = i;
     }
   };
@@ -52,10 +52,10 @@
    * @param {Number} q The second node.
    */
   exports.QuickFind.prototype.union = function (p, q) {
-    var size = this._ids.length;
-    var pval = this._ids[p];
-    var qval = this._ids[q];
-    for (var i = 0; i < size; i += 1) {
+    const size = this._ids.length;
+    const pval = this._ids[p];
+    const qval = this._ids[q];
+    for (let i = 0; i < size; i += 1) {
       if (this._ids[i] === qval) {
         this._ids[i] = pval;
       }

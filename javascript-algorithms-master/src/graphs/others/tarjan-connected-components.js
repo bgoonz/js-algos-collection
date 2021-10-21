@@ -1,4 +1,4 @@
-(function (exports) {
+(exports => {
   "use strict";
 
   /**
@@ -24,22 +24,21 @@
    * };
    * var vertices = topsort(graph); // ['v3', 'v4', 'v1', 'v5', 'v2']
    */
-  function tarjanConnectedComponents(graph) {
-    graph = graph || {};
+  function tarjanConnectedComponents(graph = {}) {
     const indexes = {};
     const lowIndexes = {};
     const onStack = {};
     const result = [];
     const stack = [];
-    var index = 1;
+    let index = 1;
 
-    const connectedComponent = function (node) {
+    const connectedComponent = node => {
       stack.push(node);
       onStack[node] = true;
       indexes[node] = index;
       lowIndexes[node] = index;
       index += 1;
-      graph[node].forEach(function (n) {
+      graph[node].forEach(n => {
         if (indexes[n] === undefined) {
           connectedComponent(n);
           lowIndexes[node] = Math.min(lowIndexes[n], lowIndexes[node]);
@@ -50,7 +49,7 @@
       // This is a "root" node
       const cc = [];
       if (indexes[node] === lowIndexes[node]) {
-        var current;
+        let current;
         do {
           current = stack.pop();
           onStack[current] = false;
@@ -60,7 +59,7 @@
       }
     };
 
-    Object.keys(graph).forEach(function (n) {
+    Object.keys(graph).forEach(n => {
       if (!indexes[n]) {
         connectedComponent(n);
       }

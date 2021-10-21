@@ -34,7 +34,7 @@ function generateCollatzConjecture(number) {
 }
 
 // export Collatz Conjecture methods
-module.exports = {
+export default {
   generate: generateCollatzConjecture,
   calculate: calculateCollatzConjecture,
 };

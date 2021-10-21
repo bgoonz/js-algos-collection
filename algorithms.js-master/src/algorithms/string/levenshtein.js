@@ -44,4 +44,4 @@ const levenshtein = (a, b) => {
   return editDistance[a.length][b.length];
 };
 
-module.exports = levenshtein;
+export default levenshtein;

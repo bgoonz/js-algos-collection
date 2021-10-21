@@ -1,12 +1,12 @@
-(function (exports) {
+(exports => {
   "use strict";
 
   function compare(a, b) {
     return a - b;
   }
 
-  var shellSort = (function () {
-    var gaps = [701, 301, 132, 57, 23, 10, 4, 1];
+  const shellSort = (() => {
+    const gaps = [701, 301, 132, 57, 23, 10, 4, 1];
 
     /**
      * Shellsort which uses the gaps 701, 301, 132, 57, 23, 10, 4, 1 and
@@ -26,14 +26,12 @@
      * zero, or positive value, depending on the arguments.
      * @return {Array} Sorted array.
      */
-    return function (array, cmp) {
-      cmp = cmp || compare;
-
-      var gap;
-      var current;
-      for (var k = 0; k < gaps.length; k += 1) {
+    return (array, cmp = compare) => {
+      let gap;
+      let current;
+      for (let k = 0; k < gaps.length; k += 1) {
         gap = gaps[k];
-        for (var i = gap; i < array.length; i += gap) {
+        for (let i = gap; i < array.length; i += gap) {
           current = array[i];
           for (
             var j = i;

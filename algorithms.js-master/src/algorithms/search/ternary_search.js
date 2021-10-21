@@ -15,4 +15,4 @@ const ternarySearch = (fn, left, right, precision) => {
   return (left + right) / 2;
 };
 
-module.exports = ternarySearch;
+export default ternarySearch;

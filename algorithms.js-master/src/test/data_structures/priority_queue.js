@@ -1,5 +1,5 @@
 const PriorityQueue = require("../..").DataStructures.PriorityQueue;
-const assert = require("assert");
+import assert from "assert";
 
 describe("Min Priority Queue", () => {
   it("always returns the element with the lowest priority", () => {

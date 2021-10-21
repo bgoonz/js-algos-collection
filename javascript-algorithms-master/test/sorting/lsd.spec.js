@@ -1,21 +1,21 @@
-var lsd = require("../../src/sorting/lsd.js").lsd;
+import {lsd} from "../../src/sorting/lsd.js";
 
-describe("Least-Significant Digit", function () {
+describe("Least-Significant Digit", () => {
   "use strict";
 
-  it("should work with empty arrays", function () {
+  it("should work with empty arrays", () => {
     expect(lsd([]).length).toBe(0);
   });
 
-  it("should work with arrays with a single element", function () {
-    var arr = ["a"];
+  it("should work with arrays with a single element", () => {
+    const arr = ["a"];
     lsd(arr);
     expect(arr.length).toBe(1);
     expect(arr[0]).toBe("a");
   });
 
-  it("should work with arrays with equally length strings", function () {
-    var arr = ["bb", "aa", "cc"];
+  it("should work with arrays with equally length strings", () => {
+    const arr = ["bb", "aa", "cc"];
     lsd(arr);
     expect(arr.length).toBe(3);
     expect(arr[0]).toBe("aa");
@@ -23,8 +23,8 @@ describe("Least-Significant Digit", function () {
     expect(arr[2]).toBe("cc");
   });
 
-  it("should work with arrays with equally length strings", function () {
-    var arr = ["bbb", "aac", "aaa"];
+  it("should work with arrays with equally length strings", () => {
+    const arr = ["bbb", "aac", "aaa"];
     lsd(arr, 3);
     expect(arr.length).toBe(3);
     expect(arr[0]).toBe("aaa");

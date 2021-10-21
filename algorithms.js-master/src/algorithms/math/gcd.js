@@ -80,4 +80,4 @@ const gcdBinaryIterative = (a, b) => {
 };
 
 gcdDivisionBased.binary = gcdBinaryIterative;
-module.exports = gcdDivisionBased;
+export default gcdDivisionBased;

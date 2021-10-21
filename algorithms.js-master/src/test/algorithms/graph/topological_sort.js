@@ -1,7 +1,7 @@
-const root = require("../../../");
+import root from "../../../";
 const topologicalSort = root.Graph.topologicalSort;
 const Graph = root.DataStructures.Graph;
-const assert = require("assert");
+import assert from "assert";
 
 describe("Topological Sort", () => {
   it("returns a stack with the vertices ordered based on dependencies", () => {

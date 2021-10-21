@@ -62,4 +62,4 @@ const countingSort = (array) => {
   return array;
 };
 
-module.exports = countingSort;
+export default countingSort;

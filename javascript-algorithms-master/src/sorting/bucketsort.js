@@ -1,7 +1,7 @@
-(function (exports) {
+(exports => {
   "use strict";
 
-  var bucketSort = (function () {
+  const bucketSort = (() => {
     /**
      * Insertionsort.
      *
@@ -10,9 +10,9 @@
      * @returns {array} array Sorted input array
      */
     function insertionSort(array) {
-      var current;
-      var j;
-      for (var i = 1; i < array.length; i += 1) {
+      let current;
+      let j;
+      for (let i = 1; i < array.length; i += 1) {
         current = array[i];
         j = i - 1;
         while (j >= 0 && current < array[j]) {
@@ -34,10 +34,10 @@
      *                          from the input which are with suitable size.
      */
     function createBuckets(array) {
-      var buckets = [];
-      var currentBucket;
-      var current;
-      for (var i = 0; i < array.length; i += 1) {
+      const buckets = [];
+      let currentBucket;
+      let current;
+      for (let i = 0; i < array.length; i += 1) {
         current = array[i];
         currentBucket = Math.floor(current);
         buckets[currentBucket] = buckets[currentBucket] || [];
@@ -54,7 +54,7 @@
      * @returns {array} buckets Buckets with sorted arrays for each bucket
      */
     function sortBuckets(buckets) {
-      for (var i = 0; i < buckets.length; i += 1) {
+      for (let i = 0; i < buckets.length; i += 1) {
         if (buckets[i] !== undefined) {
           insertionSort(buckets[i]);
         }
@@ -71,9 +71,9 @@
      *                         all elements form each bucket
      */
     function unionBuckets(buckets) {
-      var result = [];
-      var currentBucket;
-      for (var i = 0; i < buckets.length; i += 1) {
+      let result = [];
+      let currentBucket;
+      for (let i = 0; i < buckets.length; i += 1) {
         currentBucket = buckets[i];
         if (currentBucket !== undefined) {
           result = result.concat(currentBucket);
@@ -98,8 +98,8 @@
      * @param {Array} array Input array which should be sorted.
      * @return {Array} Sorted array.
      */
-    return function (array) {
-      var buckets = createBuckets(array);
+    return array => {
+      const buckets = createBuckets(array);
       sortBuckets(buckets);
       return unionBuckets(buckets);
     };

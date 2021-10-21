@@ -1,4 +1,4 @@
-const Comparator = require("../util/comparator");
+import Comparator from "../util/comparator";
 
 /**
  * Basic Heap structure
@@ -126,7 +126,7 @@ class MaxHeap extends MinHeap {
   }
 }
 
-module.exports = {
+export default {
   MinHeap,
   MaxHeap,
 };

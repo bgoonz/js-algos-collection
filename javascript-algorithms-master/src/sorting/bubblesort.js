@@ -1,4 +1,4 @@
-(function (exports) {
+(exports => {
   "use strict";
 
   function comparator(a, b) {
@@ -22,12 +22,11 @@
    * zero, or positive value, depending on the arguments.
    * @return {Array} Sorted array.
    */
-  function bubbleSort(array, cmp) {
-    cmp = cmp || comparator;
-    var temp;
-    for (var i = 0; i < array.length - 1; i += 1) {
-      var swapCount = 0;
-      for (var j = 0; j < array.length - 1 - i; j += 1) {
+  function bubbleSort(array, cmp = comparator) {
+    let temp;
+    for (let i = 0; i < array.length - 1; i += 1) {
+      let swapCount = 0;
+      for (let j = 0; j < array.length - 1 - i; j += 1) {
         if (cmp(array[j], array[j + 1]) > 0) {
           temp = array[j];
           array[j] = array[j + 1];

@@ -27,10 +27,10 @@
  * @return {Boolean} True if the identifier is valid, false if not.
  */
 function isValidIdentifier(identifier) {
-  var sum = 0,
-    alt = false,
-    i = identifier.length - 1,
-    num;
+  let sum = 0;
+  let alt = false;
+  let i = identifier.length - 1;
+  let num;
 
   while (i >= 0) {
     //get the next digit

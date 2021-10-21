@@ -14,9 +14,9 @@
  * MUST RETURN 0 if a == b
  */
 let utils
-;(function (_utils) {
+;(_utils => {
   function comparator() {
-    return function (v1, v2) {
+    return (v1, v2) => {
       if (v1 < v2) {
         return -1
       } else if (v2 < v1) {
@@ -24,10 +24,10 @@ let utils
       } else {
         return 0
       }
-    }
+    };
   }
   _utils.comparator = comparator
-})(utils || (utils = {}))
+})(utils || (utils = {}));
 
 /**
  * @constructor
@@ -35,20 +35,69 @@ let utils
  * @argument comp - A function used by AVL Tree For Comparison
  * If no argument is sent it uses utils.comparator
  */
-const AVLTree = (function () {
-  function _avl(comp) {
-    /** @public comparator function */
-    this._comp = undefined
-    if (comp !== undefined) {
-      this._comp = comp
-    } else {
-      this._comp = utils.comparator()
+const AVLTree = (() => {
+  class _avl {
+    constructor(comp) {
+      /** @public comparator function */
+      this._comp = undefined
+      if (comp !== undefined) {
+        this._comp = comp
+      } else {
+        this._comp = utils.comparator()
+      }
+      /** @public root of the AVL Tree */
+      this.root = null
+      /** @public number of elements in AVL Tree */
+      this.size = 0
     }
-    /** @public root of the AVL Tree */
-    this.root = null
-    /** @public number of elements in AVL Tree */
-    this.size = 0
+
+    /* Public Functions */
+    /**
+     * For Adding Elements to AVL Tree
+     * @param {any} _val
+     * Since in AVL Tree an element can only occur once so
+     * if a element exists it return false
+     * @returns {Boolean} element added or not
+     */
+    add(_val) {
+      const prevSize = this.size
+      this.root = insert(this.root, _val, this)
+      if (this.size === prevSize) {
+        return false
+      }
+      return true
+    }
+
+    /**
+     * TO check is a particular element exists or not
+     * @param {any} _val
+     * @returns {Boolean} exists or not
+     */
+    find(_val) {
+      const temp = search(this.root, _val, this)
+      if (temp != null) {
+        return true
+      }
+      return false
+    }
+
+    /**
+     *
+     * @param {any} _val
+     * It is possible that element doesn't exists in tree
+     * in that case it return false
+     * @returns {Boolean} if element was found and deleted
+     */
+    remove(_val) {
+      const prevSize = this.size
+      this.root = del(this.root, _val, this)
+      if (prevSize === this.size) {
+        return false
+      }
+      return true
+    }
   }
+
   // creates new Node Object
   const Node = function (val) {
     this._val = val
@@ -57,14 +106,14 @@ const AVLTree = (function () {
     this._height = 1
   }
   // get height of a node
-  const getH = function (node) {
+  const getH = node => {
     if (node == null) {
       return 0
     }
     return node._height
   }
   // height difference or balance factor of a node
-  const getHDiff = function (node) {
+  const getHDiff = node => {
     if (node == null) {
       return 0
     } else {
@@ -72,14 +121,14 @@ const AVLTree = (function () {
     }
   }
   // update height of a node based on children's heights
-  const updateH = function (node) {
+  const updateH = node => {
     if (node == null) {
       return
     }
     node._height = Math.max(getH(node._left), getH(node._right)) + 1
   }
   // rotations of AVL Tree
-  const leftRotate = function (node) {
+  const leftRotate = node => {
     const temp = node._right
     node._right = temp._left
     temp._left = node
@@ -87,7 +136,7 @@ const AVLTree = (function () {
     updateH(temp)
     return temp
   }
-  const rightRotate = function (node) {
+  const rightRotate = node => {
     const temp = node._left
     node._left = temp._right
     temp._right = node
@@ -96,7 +145,7 @@ const AVLTree = (function () {
     return temp
   }
   // check if tree is balanced else balance it for insertion
-  const insertBalance = function (node, _val, balanceFactor) {
+  const insertBalance = (node, _val, balanceFactor) => {
     if (balanceFactor > 1 && _val < node._left._val) {
       return rightRotate(node) // Left Left Case
     } else if (balanceFactor < 1 && _val > node._right._val) {
@@ -109,7 +158,7 @@ const AVLTree = (function () {
     return leftRotate(node)
   }
   // check if tree is balanced after deletion
-  const delBalance = function (node) {
+  const delBalance = node => {
     const balanceFactor1 = getHDiff(node)
     if (balanceFactor1 === 0 || balanceFactor1 === 1 || balanceFactor1 === -1) {
       return node
@@ -128,7 +177,7 @@ const AVLTree = (function () {
     return leftRotate(node) // Right Right
   }
   // implement avl tree insertion
-  const insert = function (root, val, tree) {
+  const insert = (root, val, tree) => {
     if (root == null) {
       tree.size++
       return new Node(val)
@@ -147,7 +196,7 @@ const AVLTree = (function () {
     return insertBalance(root, val, balanceFactor)
   }
   // delete a element
-  const del = function (root, _val, tree) {
+  const del = (root, _val, tree) => {
     if (root == null) {
       return root
     } else if (tree._comp(root._val, _val) === 0) {
@@ -181,7 +230,7 @@ const AVLTree = (function () {
     return root
   }
   // search tree for a element
-  const search = function (root, val, tree) {
+  const search = (root, val, tree) => {
     if (root == null) {
       return null
     } else if (tree._comp(root._val, val) === 0) {
@@ -192,49 +241,6 @@ const AVLTree = (function () {
     return search(root._left, val, tree)
   }
 
-  /* Public Functions */
-  /**
-   * For Adding Elements to AVL Tree
-   * @param {any} _val
-   * Since in AVL Tree an element can only occur once so
-   * if a element exists it return false
-   * @returns {Boolean} element added or not
-   */
-  _avl.prototype.add = function (_val) {
-    const prevSize = this.size
-    this.root = insert(this.root, _val, this)
-    if (this.size === prevSize) {
-      return false
-    }
-    return true
-  }
-  /**
-   * TO check is a particular element exists or not
-   * @param {any} _val
-   * @returns {Boolean} exists or not
-   */
-  _avl.prototype.find = function (_val) {
-    const temp = search(this.root, _val, this)
-    if (temp != null) {
-      return true
-    }
-    return false
-  }
-  /**
-   *
-   * @param {any} _val
-   * It is possible that element doesn't exists in tree
-   * in that case it return false
-   * @returns {Boolean} if element was found and deleted
-   */
-  _avl.prototype.remove = function (_val) {
-    const prevSize = this.size
-    this.root = del(this.root, _val, this)
-    if (prevSize === this.size) {
-      return false
-    }
-    return true
-  }
   return _avl
 })()
 

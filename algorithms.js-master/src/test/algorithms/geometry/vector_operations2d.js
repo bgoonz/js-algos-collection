@@ -1,5 +1,5 @@
-const vectorOp = require("../../../algorithms/geometry/vector_operations2d");
-const assert = require("assert");
+import vectorOp from "../../../algorithms/geometry/vector_operations2d";
+import assert from "assert";
 
 describe("VectorOperations", () => {
   it("newVector: {0,4}->{1,2}", () => {

@@ -1,12 +1,12 @@
-var mod = require("../../src/data-structures/bloomfilter.js");
-var Bitmap = mod.Bitmap;
-var Bloomfilter = mod.Bloomfilter;
+import mod from "../../src/data-structures/bloomfilter.js";
+const Bitmap = mod.Bitmap;
+const Bloomfilter = mod.Bloomfilter;
 
-describe("Bitmap", function () {
+describe("Bitmap", () => {
   "use strict";
 
-  it("should be able to get and set values", function () {
-    var bitmap = new Bitmap(1024);
+  it("should be able to get and set values", () => {
+    const bitmap = new Bitmap(1024);
     expect(bitmap.exists(0)).toBe(false);
     bitmap.set(0, true);
     expect(bitmap.exists(0)).toBe(true);
@@ -15,9 +15,9 @@ describe("Bitmap", function () {
     expect(bitmap.exists(1023)).toBe(true);
   });
 
-  it("should be able to change everthing back", function () {
-    var bitmap = new Bitmap(2048);
-    for (var i = 0; i < 2048; i = i + 1) {
+  it("should be able to change everthing back", () => {
+    const bitmap = new Bitmap(2048);
+    for (let i = 0; i < 2048; i = i + 1) {
       expect(bitmap.get(i)).toBe(0);
       bitmap.set(i, 1);
       expect(bitmap.get(i)).toBe(1);
@@ -27,10 +27,10 @@ describe("Bitmap", function () {
   });
 });
 
-describe("Bloomfilter", function () {
+describe("Bloomfilter", () => {
   "use strict";
-  it("should be able to identify duplicates", function () {
-    var bloomfilter = new Bloomfilter(1024, 0.01);
+  it("should be able to identify duplicates", () => {
+    const bloomfilter = new Bloomfilter(1024, 0.01);
     expect(bloomfilter.get("a")).toBe(false);
     expect(bloomfilter.get("b")).toBe(false);
     bloomfilter.set("a");
@@ -41,11 +41,11 @@ describe("Bloomfilter", function () {
     expect(bloomfilter.get("b")).toBe(true);
   });
 
-  it("should handle large amount of data inside", function () {
-    var bloomfilter = new Bloomfilter(4096, 0.001); // high precision
+  it("should handle large amount of data inside", () => {
+    const bloomfilter = new Bloomfilter(4096, 0.001); // high precision
 
-    var falsePositive = 0;
-    for (var i = 0; i < 1024; i = i + 1) {
+    let falsePositive = 0;
+    for (let i = 0; i < 1024; i = i + 1) {
       if (bloomfilter.get(i)) {
         falsePositive = falsePositive + 1;
       }

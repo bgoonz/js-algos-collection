@@ -90,4 +90,4 @@ class FenwickTree {
   }
 }
 
-module.exports = FenwickTree;
+export default FenwickTree;

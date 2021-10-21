@@ -2,7 +2,7 @@ google.load("visualization", "1.0", { packages: ["corechart"] });
 google.setOnLoadCallback(drawChart);
 
 function drawChart() {
-  var data = new google.visualization.DataTable();
+  const data = new google.visualization.DataTable();
   data.addColumn("string", "n");
   data.addColumn("number", "O(1)");
   data.addColumn("number", "O(log n)");
@@ -11,19 +11,19 @@ function drawChart() {
   data.addColumn("number", "O(n^2)");
   data.addColumn("number", "O(2^n)");
 
-  for (var i = 0; i <= 30; i++) {
+  for (let i = 0; i <= 30; i++) {
     data.addRow([
-      i + "",
+      `${i}`,
       1,
       Math.log(i),
       i,
       Math.log(i) * i,
-      Math.pow(i, 2),
-      Math.pow(2, i),
+      i ** 2,
+      2 ** i,
     ]);
   }
 
-  var options = {
+  const options = {
     title: "Big O Notation Complexity Chart",
     width: 700,
     height: 600,
@@ -40,7 +40,7 @@ function drawChart() {
     },
   };
 
-  var chart = new google.visualization.LineChart(
+  const chart = new google.visualization.LineChart(
     document.getElementById("chart_div")
   );
   chart.draw(data, options);

@@ -23,4 +23,4 @@ const greatestDifference = (numbers) => {
   return largest - smallest;
 };
 
-module.exports = greatestDifference;
+export default greatestDifference;

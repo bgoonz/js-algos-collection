@@ -1,6 +1,6 @@
-const math = require("../../..").Math;
+import {Math as math} from "../../..";
 const fisherYates = math.fisherYates;
-const assert = require("assert");
+import assert from "assert";
 
 describe("Fisher-Yates", () => {
   it("shuffles the elements in the array in-place", () => {

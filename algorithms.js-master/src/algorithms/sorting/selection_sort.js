@@ -1,4 +1,4 @@
-const Comparator = require("../../util/comparator");
+import Comparator from "../../util/comparator";
 /**
  * Selection sort algorithm O(n^2)
  */
@@ -22,4 +22,4 @@ const selectionSort = (a, comparatorFn) => {
   return a;
 };
 
-module.exports = selectionSort;
+export default selectionSort;

@@ -1,13 +1,13 @@
-(function (exports) {
+(exports => {
   "use strict";
 
-  var quicksort = (function () {
+  const quicksort = (() => {
     function charAt(str, i) {
       return i < str.length ? str.charCodeAt(i) : -1;
     }
 
     function swap(arr, i, j) {
-      var temp = arr[j];
+      const temp = arr[j];
       arr[j] = arr[i];
       arr[i] = temp;
     }
@@ -16,11 +16,11 @@
       if (lo >= hi) {
         return;
       }
-      var lowPointer = lo;
-      var highPointer = hi;
-      var p = charAt(arr[lo], d);
-      var i = lo + 1;
-      var current;
+      let lowPointer = lo;
+      let highPointer = hi;
+      const p = charAt(arr[lo], d);
+      let i = lo + 1;
+      let current;
 
       while (i <= highPointer) {
         current = charAt(arr[i], d);

@@ -1,4 +1,4 @@
-const Comparator = require("../../util/comparator");
+import Comparator from "../../util/comparator";
 
 /**
  * Narayana's algorithm computes the subsequent permutation
@@ -44,4 +44,4 @@ const nextPermutation = (array, compareFn) => {
   return true;
 };
 
-module.exports = nextPermutation;
+export default nextPermutation;

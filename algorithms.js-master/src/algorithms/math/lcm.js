@@ -1,4 +1,4 @@
-const gcd = require("./gcd.js");
+import gcd from "./gcd.js";
 
 /**
  * Calcule the Least Common Multiple with a given Greatest Common Denominator
@@ -43,4 +43,4 @@ const lcmBinaryIterative = genericLCM.bind(null, gcd.binary);
 
 const lcm = lcmDivisionBased;
 lcm.binary = lcmBinaryIterative;
-module.exports = lcm;
+export default lcm;

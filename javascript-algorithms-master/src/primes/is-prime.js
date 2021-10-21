@@ -1,4 +1,4 @@
-(function (exports) {
+(exports => {
   "use strict";
 
   /**
@@ -15,7 +15,7 @@
    * console.log(isPrime(7)); // true
    * console.log(isPrime(18)); // false
    */
-  exports.isPrime = function (number) {
+  exports.isPrime = number => {
     if (number < 2) {
       return false;
     }
@@ -28,8 +28,8 @@
       return number === 3;
     }
 
-    var horizon = Math.floor(Math.sqrt(number));
-    var factor = 5;
+    const horizon = Math.floor(Math.sqrt(number));
+    let factor = 5;
 
     while (factor <= horizon) {
       if (number % factor === 0) {

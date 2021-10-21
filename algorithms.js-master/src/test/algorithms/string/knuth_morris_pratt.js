@@ -1,5 +1,5 @@
 const knuthMorrisPratt = require("../../..").String.knuthMorrisPratt;
-const assert = require("assert");
+import assert from "assert";
 
 describe("Knuth-Morris-Pratt", () => {
   it("verifies if a pattern is contained in some text (or array)", () => {

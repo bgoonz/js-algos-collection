@@ -1,6 +1,6 @@
-const gulp = require("gulp");
-const eslint = require("gulp-eslint");
-const jasmine = require("gulp-jasmine");
+import gulp from "gulp";
+import eslint from "gulp-eslint";
+import jasmine from "gulp-jasmine";
 
 gulp.task("test", () => {
   "use strict";

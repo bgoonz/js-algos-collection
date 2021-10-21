@@ -1,11 +1,11 @@
-(function (exports) {
+(exports => {
   "use strict";
 
-  var dfs = (function () {
+  const dfs = (() => {
     function hasPath(graph, current, goal) {
-      var stack = [];
-      var visited = [];
-      var node;
+      const stack = [];
+      const visited = [];
+      let node;
       stack.push(current);
       visited[current] = true;
       while (stack.length) {
@@ -13,7 +13,7 @@
         if (node === goal) {
           return true;
         }
-        for (var i = 0; i < graph[node].length; i += 1) {
+        for (let i = 0; i < graph[node].length; i += 1) {
           if (graph[node][i] && !visited[i]) {
             stack.push(i);
             visited[i] = true;
@@ -45,7 +45,7 @@
      *              [0, 0, 0, 1, 0, 0]];
      * var pathExists = dfs(graph, 1, 5); // true
      */
-    return function (graph, start, goal) {
+    return (graph, start, goal) => {
       return hasPath(graph, start, goal);
     };
   })();

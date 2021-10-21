@@ -1,7 +1,7 @@
 const directory = "../../../algorithms/string/";
 const filename = "longest_common_substring";
 const longestCommonSubstring = require(directory + filename);
-const assert = require("assert");
+import assert from "assert";
 
 describe("Longest common substring", () => {
   it("returns the longest common substring of two strings", () => {

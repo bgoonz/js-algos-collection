@@ -1,7 +1,7 @@
-const root = require("../../../");
+import root from "../../../";
 const Graph = root.DataStructures.Graph;
 const stronglyConnectedComponent = root.Graph.strongConnectedComponent;
-const assert = require("assert");
+import assert from "assert";
 
 describe("Strongly Connected Component", () => {
   it("computes strongly connected components", () => {

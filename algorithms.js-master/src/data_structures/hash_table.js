@@ -1,4 +1,4 @@
-const LinkedList = require("./linked_list");
+import LinkedList from "./linked_list";
 
 /**
  * HashTable constructor
@@ -108,8 +108,8 @@ class HashTable {
 
   forEach(fn) {
     const applyFunction = (linkedList) => {
-      linkedList.forEach((elem) => {
-        fn(elem.k, elem.v);
+      linkedList.forEach(({k, v}) => {
+        fn(k, v);
       });
     };
 
@@ -121,4 +121,4 @@ class HashTable {
   }
 }
 
-module.exports = HashTable;
+export default HashTable;

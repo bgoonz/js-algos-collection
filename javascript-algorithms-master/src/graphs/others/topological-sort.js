@@ -1,19 +1,20 @@
-(function (exports) {
+(exports => {
   "use strict";
 
-  var topologicalSort = (function () {
+  const topologicalSort = (() => {
     function topologicalSortHelper(node, visited, temp, graph, result) {
       temp[node] = true;
-      var neighbors = graph[node];
-      for (var i = 0; i < neighbors.length; i += 1) {
-        var n = neighbors[i];
+      const neighbors = graph[node];
+
+      neighbors.forEach(n => {
         if (temp[n]) {
           throw new Error("The graph is not a DAG");
         }
         if (!visited[n]) {
           topologicalSortHelper(n, visited, temp, graph, result);
         }
-      }
+      });
+
       temp[node] = false;
       visited[node] = true;
       result.push(node);
@@ -42,11 +43,11 @@
      * };
      * var vertices = topsort(graph); // ['v3', 'v4', 'v1', 'v5', 'v2']
      */
-    return function (graph) {
-      var result = [];
-      var visited = [];
-      var temp = [];
-      for (var node in graph) {
+    return graph => {
+      const result = [];
+      const visited = [];
+      const temp = [];
+      for (const node in graph) {
         if (!visited[node] && !temp[node]) {
           topologicalSortHelper(node, visited, temp, graph, result);
         }

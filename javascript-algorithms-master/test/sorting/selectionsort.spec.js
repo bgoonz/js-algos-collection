@@ -1,4 +1,4 @@
-var sortTestCase = require("./sort.testcase.js");
-var selectionSort = require("../../src/sorting/selectionsort.js").selectionSort;
+import sortTestCase from "./sort.testcase.js";
+import {selectionSort} from "../../src/sorting/selectionsort.js";
 
 sortTestCase(selectionSort, "Selection sort");

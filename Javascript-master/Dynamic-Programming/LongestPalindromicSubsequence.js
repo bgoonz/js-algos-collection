@@ -6,7 +6,7 @@
 
 */
 
-export const longestPalindromeSubsequence = function (s) {
+export const longestPalindromeSubsequence = s => {
   const n = s.length
 
   const dp = new Array(n)

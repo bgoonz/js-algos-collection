@@ -40,10 +40,10 @@
  *
  * @module graphs/spanning-trees/prim
  */
-(function (exports) {
+(exports => {
   "use strict";
 
-  var Heap = require("../../data-structures/heap").Heap;
+  const Heap = require("../../data-structures/heap").Heap;
   exports.Vertex = require("../../data-structures/vertex").Vertex;
   exports.Edge = require("../../data-structures/edge").Edge;
 
@@ -67,8 +67,8 @@
    * @method
    * @return {Graph} Graph which is the minimum spanning tree.
    */
-  exports.Graph.prototype.prim = (function () {
-    var queue;
+  exports.Graph.prototype.prim = (() => {
+    let queue;
 
     /**
      * Used for comparitions in the heap
@@ -80,8 +80,8 @@
      *  less then zero and indicates whether the first vertex is
      *  "greater" than the second.
      */
-    function compareEdges(a, b) {
-      return b.distance - a.distance;
+    function compareEdges({distance}, {distance}) {
+      return distance - distance;
     }
 
     /**
@@ -95,23 +95,23 @@
 
     return function () {
       init.call(this);
-      var inTheTree = {};
-      var startVertex = this.edges[0].e.id;
-      var spannigTree = [];
-      var parents = {};
-      var distances = {};
-      var current;
+      const inTheTree = {};
+      const startVertex = this.edges[0].e.id;
+      const spannigTree = [];
+      const parents = {};
+      const distances = {};
+      let current;
       inTheTree[startVertex] = true;
       queue.add({
         node: startVertex,
         distance: 0,
       });
-      const process = function (e) {
+      const process = e => {
         if (inTheTree[e.v.id] && inTheTree[e.e.id]) {
           return;
         }
-        var collection = queue.getCollection();
-        var node;
+        const collection = queue.getCollection();
+        let node;
         if (e.e.id === current) {
           node = e.v.id;
         } else if (e.v.id === current) {
@@ -119,7 +119,7 @@
         } else {
           return;
         }
-        for (var i = 0; i < collection.length; i += 1) {
+        for (let i = 0; i < collection.length; i += 1) {
           if (collection[i].node === node) {
             if (collection[i].distance > e.distance) {
               queue.changeKey(i, {
@@ -139,12 +139,12 @@
         parents[node] = current;
         distances[node] = e.distance;
       };
-      for (var i = 0; i < this.nodesCount - 1; i += 1) {
+      for (let i = 0; i < this.nodesCount - 1; i += 1) {
         current = queue.extract().node;
         inTheTree[current] = true;
         this.edges.forEach(process);
       }
-      for (var node in parents) {
+      for (const node in parents) {
         spannigTree.push(
           new exports.Edge(node, parents[node], distances[node])
         );

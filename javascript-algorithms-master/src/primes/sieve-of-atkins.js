@@ -1,4 +1,4 @@
-(function (exports) {
+(exports => {
   "use strict";
 
   /**
@@ -23,7 +23,7 @@
    *
    * console.log(sieveOfAtkins(12)); // [2, 3, 5, 7, 11]
    */
-  exports.sieveOfAtkins = function (limit) {
+  exports.sieveOfAtkins = limit => {
     if (limit <= 1) {
       return [];
     }
@@ -32,14 +32,14 @@
 
     const testingLimit = Math.ceil(Math.sqrt(limit));
 
-    var i;
-    var j;
-    var n;
+    let i;
+    let j;
+    let n;
 
     for (i = 1; i < testingLimit; i += 1) {
-      var ii = i * i;
+      const ii = i * i;
       for (j = 1; j < testingLimit; j += 1) {
-        var jj = j * j;
+        const jj = j * j;
         if (ii + jj >= limit) {
           break;
         }

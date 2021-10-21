@@ -5,9 +5,9 @@
  * @return {int} The zero-based index of the value in the array or -1 if not found.
  */
 function binarySearch(items, value) {
-  var startIndex = 0,
-    stopIndex = items.length - 1,
-    middle = Math.floor((stopIndex + startIndex) / 2);
+  let startIndex = 0;
+  let stopIndex = items.length - 1;
+  let middle = Math.floor((stopIndex + startIndex) / 2);
 
   while (items[middle] != value && startIndex < stopIndex) {
     //adjust search area

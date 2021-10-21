@@ -1,5 +1,5 @@
 const Graph = require("../..").DataStructures.Graph;
-const assert = require("assert");
+import assert from "assert";
 
 describe("Graph - Adjacency list", () => {
   it("is directed by default", () => {

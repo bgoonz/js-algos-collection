@@ -1,4 +1,4 @@
-(function (exports) {
+(exports => {
   "use strict";
 
   function compare(a, b) {
@@ -12,7 +12,7 @@
    * @param {array} array Array which should be sorted.
    * @return {array} Sorted array.
    */
-  var quickSort = (function () {
+  const quickSort = (() => {
     /**
      * Recursively calls itself.
      *
@@ -58,8 +58,7 @@
      * zero, or positive value, depending on the arguments.
      * @return {Array} Sorted array.
      */
-    return function (array, cmp) {
-      cmp = cmp || compare;
+    return (array, cmp = compare) => {
       array = quicksort(array, cmp);
       return array;
     };

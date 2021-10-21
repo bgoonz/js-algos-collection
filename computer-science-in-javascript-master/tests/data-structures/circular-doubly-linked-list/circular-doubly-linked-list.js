@@ -8,10 +8,9 @@
 // Requirements
 //-----------------------------------------------------------------------------
 
-const assert = require("chai").assert;
-const {
-  CircularDoublyLinkedList,
-} = require("../../../src/data-structures/circular-doubly-linked-list/circular-doubly-linked-list");
+import {assert} from "chai";
+
+import {CircularDoublyLinkedList} from "../../../src/data-structures/circular-doubly-linked-list/circular-doubly-linked-list";
 
 //-----------------------------------------------------------------------------
 // Helpers
@@ -322,7 +321,7 @@ describe("CircularDoublyLinkedList", () => {
   });
 
   ["values", Symbol.iterator].forEach((method) => {
-    describe(String(method) + "()", () => {
+    describe(`${String(method)}()`, () => {
       it("should create empty array when there are no items", () => {
         assert.deepStrictEqual([...list[method]()], []);
       });

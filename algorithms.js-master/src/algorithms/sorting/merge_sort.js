@@ -1,4 +1,4 @@
-const Comparator = require("../../util/comparator");
+import Comparator from "../../util/comparator";
 
 const merge = (a, b, comparator) => {
   let i = 0;
@@ -33,4 +33,4 @@ const mergeSortInit = (a, compareFn) => {
   })(a);
 };
 
-module.exports = mergeSortInit;
+export default mergeSortInit;

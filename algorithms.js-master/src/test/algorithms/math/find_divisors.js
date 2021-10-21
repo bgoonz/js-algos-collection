@@ -1,6 +1,6 @@
-const math = require("../../..").Math;
+import {Math as math} from "../../..";
 const findDivisors = math.findDivisors;
-const assert = require("assert");
+import assert from "assert";
 
 describe("Find divisors", () => {
   describe("#Generic()", () => {

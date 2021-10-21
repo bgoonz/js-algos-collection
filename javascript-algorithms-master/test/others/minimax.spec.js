@@ -1,13 +1,13 @@
-const minimaxBuilder = require("../../src/others/minimax.js").minimaxBuilder;
+import {minimaxBuilder} from "../../src/others/minimax.js";
 
-describe("Minimax", function () {
+describe("Minimax", () => {
   "use strict";
 
-  it("builder should be defined", function () {
+  it("builder should be defined", () => {
     expect(minimaxBuilder).toBeDefined();
   });
 
-  describe("with tic tac toe", function () {
+  describe("with tic tac toe", () => {
     let game = ticTacToe();
 
     function getAllNextStates(state) {
@@ -31,7 +31,7 @@ describe("Minimax", function () {
       (state) => game.getScore(state).o - game.getScore(state).x
     );
 
-    it("should win versus dumb agent as first player", function () {
+    it("should win versus dumb agent as first player", () => {
       let state = game.newState("x");
 
       while (!game.isGameOver(state)) {
@@ -50,7 +50,7 @@ describe("Minimax", function () {
       expect(game.getScore(state)).toEqual({ x: 1, o: 0 });
     });
 
-    it("should win versus dumb agent as second player", function () {
+    it("should win versus dumb agent as second player", () => {
       let state = game.newState("x");
 
       while (!game.isGameOver(state)) {
@@ -69,7 +69,7 @@ describe("Minimax", function () {
       expect(game.getScore(state)).toEqual({ x: 0, o: 1 });
     });
 
-    it("should be a tie for two minimax agents", function () {
+    it("should be a tie for two minimax agents", () => {
       let state = game.newState("x");
 
       while (!game.isGameOver(state)) {
@@ -90,7 +90,7 @@ describe("Minimax", function () {
     });
   });
 
-  describe("with simple game", function () {
+  describe("with simple game", () => {
     let game = simpleGame();
 
     const minimaxForA = minimaxBuilder(
@@ -112,7 +112,7 @@ describe("Minimax", function () {
       (state) => game.getScore(state).B - game.getScore(state).A
     );
 
-    it("should win versus dumb agent as a first player", function () {
+    it("should win versus dumb agent as a first player", () => {
       /*         o
               /     \
              o        o
@@ -139,7 +139,7 @@ describe("Minimax", function () {
       expect(game.getScore(state)).toEqual({ A: 1, B: -1 });
     });
 
-    it("should win versus dumb agent as a second player", function () {
+    it("should win versus dumb agent as a second player", () => {
       /*     o
            /    \
           o      o
@@ -180,9 +180,9 @@ function ticTacToe() {
     };
   }
 
-  function emptyCells(state) {
+  function emptyCells({board}) {
     const result = [];
-    state.board.forEach((row, y) => {
+    board.forEach((row, y) => {
       row.forEach((cell, x) => {
         if (cell === 0) {
           result.push({ x, y });
@@ -193,7 +193,7 @@ function ticTacToe() {
     return result;
   }
 
-  function getWinner(state) {
+  function getWinner({board}) {
     const winVariants = [
       [
         { x: 0, y: 0 },
@@ -240,7 +240,7 @@ function ticTacToe() {
     ];
 
     for (const variant of winVariants) {
-      const combo = variant.map((cell) => state.board[cell.y][cell.x]).join("");
+      const combo = variant.map(({y, x}) => board[y][x]).join("");
       if (combo === "xxx") {
         return "x";
       } else if (combo === "ooo") {
@@ -251,8 +251,8 @@ function ticTacToe() {
     return null;
   }
 
-  function allFieldsMarked(state) {
-    return state.board.every((row) => row.every((cell) => cell !== 0));
+  function allFieldsMarked({board}) {
+    return board.every((row) => row.every((cell) => cell !== 0));
   }
 
   function isGameOver(state) {
@@ -269,12 +269,12 @@ function ticTacToe() {
     return { x: 0, o: 0 };
   }
 
-  function nextState(state, move) {
-    const newBoard = state.board.map((row) => row.slice());
-    newBoard[move.y][move.x] = state.turn;
+  function nextState({board, turn}, {y, x}) {
+    const newBoard = board.map((row) => row.slice());
+    newBoard[y][x] = turn;
     return {
       board: newBoard,
-      turn: state.turn === "x" ? "o" : "x",
+      turn: turn === "x" ? "o" : "x",
     };
   }
 
@@ -307,22 +307,22 @@ function simpleGame() {
     };
   }
 
-  function nextState(state, move) {
+  function nextState({tree, position, turn}, move) {
     return {
-      tree: state.tree,
-      position: move ? state.position * 2 + 2 : state.position * 2 + 1,
-      turn: state.turn === "A" ? "B" : "A",
+      tree: tree,
+      position: move ? position * 2 + 2 : position * 2 + 1,
+      turn: turn === "A" ? "B" : "A",
     };
   }
 
-  function isGameOver(state) {
-    return state.tree[state.position] !== 0;
+  function isGameOver({tree, position}) {
+    return tree[position] !== 0;
   }
 
-  function getScore(state) {
+  function getScore({tree, position}) {
     return {
-      A: state.tree[state.position],
-      B: state.tree[state.position] === 0 ? 0 : -state.tree[state.position],
+      A: tree[position],
+      B: tree[position] === 0 ? 0 : -tree[position],
     };
   }
 

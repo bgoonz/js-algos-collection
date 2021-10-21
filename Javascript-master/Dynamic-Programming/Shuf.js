@@ -48,7 +48,7 @@ function fillBaseSample(datasetSource, sampleSize) {
     output = output.filter((_, i) => filledIndexes.includes(i))
   }
 
-  return output.map((o) => o.value)
+  return output.map(({value}) => value);
 }
 
 /**
@@ -84,7 +84,7 @@ function randomizeOutputFromDataset(datasetSource, output) {
  * @returns {Iterable<number>} Random iterable data
  */
 function* generateRandomData(length) {
-  const maxValue = Math.pow(2, 31) - 1
+  const maxValue = 2 ** 31 - 1
   for (let i = 0; i < length; i++) {
     yield Math.floor(Math.random() * maxValue)
   }

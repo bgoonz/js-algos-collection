@@ -1,7 +1,7 @@
-const root = require("../../..");
+import root from "../../..";
 const BST = root.DataStructures.BST;
 const dfs = root.Search.dfs;
-const assert = require("assert");
+import assert from "assert";
 
 describe("Depth First Search", () => {
   const bst = new BST();

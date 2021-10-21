@@ -17,7 +17,7 @@ const hash = (word) => {
   let h = 0;
 
   for (let i = 0; i < word.length; i++) {
-    h += word.charCodeAt(i) * Math.pow(base, word.length - i - 1);
+    h += word.charCodeAt(i) * base ** (word.length - i - 1);
   }
 
   return h;
@@ -51,7 +51,7 @@ const rabinKarp = (s, pattern) => {
        * necessary to traverse the whole word again
        */
       hashCurrentSubstring -=
-        currentSubstring.charCodeAt(0) * Math.pow(base, pattern.length - 1);
+        currentSubstring.charCodeAt(0) * base ** (pattern.length - 1);
       hashCurrentSubstring *= base;
       hashCurrentSubstring += s.charCodeAt(i);
 
@@ -67,4 +67,4 @@ const rabinKarp = (s, pattern) => {
   return -1;
 };
 
-module.exports = rabinKarp;
+export default rabinKarp;

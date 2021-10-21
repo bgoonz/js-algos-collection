@@ -1,4 +1,4 @@
-const Comparator = require("../../util/comparator");
+import Comparator from "../../util/comparator";
 /**
  * shell sort  worst:O(n lg n)  best:O(n)
  */
@@ -22,4 +22,4 @@ const shellSort = (array, comparatorFn) => {
   return array;
 };
 
-module.exports = shellSort;
+export default shellSort;

@@ -1,5 +1,5 @@
 const HashTable = require("../..").DataStructures.HashTable;
-const assert = require("assert");
+import assert from "assert";
 
 describe("Hash Table", () => {
   it("calculates hash using same algorithm as Java's String.hashCode", () => {

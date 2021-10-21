@@ -1,4 +1,4 @@
-import{t as e}from"../../../common/index.esm-7362d277.js";
+import { t as e } from "../../../common/index.esm-7362d277.js";
 /**
  * @license
  * Copyright 2018 Google Inc.
@@ -15,5 +15,6 @@ import{t as e}from"../../../common/index.esm-7362d277.js";
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-e.registerVersion("firebase","7.13.2","app");export default e;
+e.registerVersion("firebase", "7.13.2", "app");
+export default e;
 //# sourceMappingURL=index.esm.js.map

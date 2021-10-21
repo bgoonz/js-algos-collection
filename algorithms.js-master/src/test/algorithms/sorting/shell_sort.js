@@ -1,5 +1,5 @@
 const shellSort = require("../../..").Sorting.shellSort;
-const sortingTestsHelper = require("./sorting_tests_helper.js");
+import sortingTestsHelper from "./sorting_tests_helper.js";
 
 describe("ShellSort", () => {
   it("sorts the given array", () => {

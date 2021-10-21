@@ -28,13 +28,13 @@
  *
  * @module data-structures/red-black-tree
  */
-(function (exports) {
+(exports => {
   "use strict";
 
   /**
    * Enum for the different colors
    */
-  var Colors = {
+  const Colors = {
     RED: 0,
     BLACK: 1,
   };
@@ -51,50 +51,52 @@
    * @param {Node} right Right node.
    * @param {Number} color Node color.
    */
-  function Node(key, value, left, right, color) {
-    this._key = key;
-    this._left = left;
-    this._right = right;
-    this._value = value;
-    this._color = color;
-  }
-
-  /**
-   * Check or node is red.
-   *
-   * @private
-   * @method
-   * @return {Boolean} Returns true if node is red.
-   */
-  Node.prototype.isRed = function () {
-    return this._color === Colors.RED;
-  };
-
-  /**
-   * Changes node color.
-   *
-   * @private
-   * @method
-   */
-  Node.prototype.flipColor = function () {
-    if (this._color === Colors.RED) {
-      this._color = Colors.BLACK;
-    } else {
-      this._color = Colors.RED;
+  class Node {
+    constructor(key, value, left, right, color) {
+      this._key = key;
+      this._left = left;
+      this._right = right;
+      this._value = value;
+      this._color = color;
     }
-  };
+
+    /**
+     * Check or node is red.
+     *
+     * @private
+     * @method
+     * @return {Boolean} Returns true if node is red.
+     */
+    isRed() {
+      return this._color === Colors.RED;
+    }
+
+    /**
+     * Changes node color.
+     *
+     * @private
+     * @method
+     */
+    flipColor() {
+      if (this._color === Colors.RED) {
+        this._color = Colors.BLACK;
+      } else {
+        this._color = Colors.RED;
+      }
+    }
+  }
 
   /**
    * Creates getters and setters for the properties:
    * key, value, left, right and color.
    */
-  "key value left right color".split(" ").forEach(function (key) {
-    var valueName = key.substr(0, 1).toUpperCase() + key.substr(1, key.length);
-    Node.prototype["get" + valueName] = function () {
-      return this["_" + key];
+  "key value left right color".split(" ").forEach(key => {
+    const valueName = key.substr(0, 1).toUpperCase() + key.substr(1, key.length);
+    Node.prototype[`get${valueName}`] = function () {
+      return this[`_${key}`];
     };
-    Node.prototype["set" + valueName] = function (val) {
-      this["_" + key] = val;
+    Node.prototype[`set${valueName}`] = function (val) {
+      this[`_${key}`] = val;
     };
   });
 
@@ -133,7 +135,7 @@
    * @param {Node} node Node which sould be checked.
    * @return Returns true if node is red.
    */
-  exports.RBTree.prototype.isRed = function (node) {
+  exports.RBTree.prototype.isRed = node => {
     if (!node) {
       return false;
     }
@@ -151,7 +153,7 @@
    * @param {Node} node Node.
    */
   exports.RBTree.prototype._put = function (key, value, node) {
-    var newRoot = node;
+    let newRoot = node;
     if (node === null) {
       return new Node(key, value, null, null, Colors.RED);
     }
@@ -182,7 +184,7 @@
    * @method
    * @param {Node} node Node.
    */
-  exports.RBTree.prototype._flipColors = function (node) {
+  exports.RBTree.prototype._flipColors = node => {
     node.getLeft().flipColor();
     node.getRight().flipColor();
   };
@@ -196,10 +198,10 @@
    * @param {Node} node Node.
    * @return {Node} Right node.
    */
-  exports.RBTree.prototype._rotateLeft = function (node) {
-    var x = node.getRight();
+  exports.RBTree.prototype._rotateLeft = node => {
+    const x = node.getRight();
     if (x !== null) {
-      var temp = x.getLeft();
+      const temp = x.getLeft();
       node.setRight(temp);
       x.setLeft(node);
       x.setColor(node.getColor());
@@ -217,10 +219,10 @@
    * @param {Node} node Node.
    * @return {Node} Left node.
    */
-  exports.RBTree.prototype._rotateRight = function (node) {
-    var x = node.getLeft();
+  exports.RBTree.prototype._rotateRight = node => {
+    const x = node.getLeft();
     if (x !== null) {
-      var temp = x.getRight();
+      const temp = x.getRight();
       node.setLeft(temp);
       x.setRight(node);
       x.setColor(node.getColor());
@@ -273,16 +275,16 @@
    *
    */
   exports.RBTree.prototype.levelOrderTraversal = function () {
-    var queue = [];
-    var levelOrderString = "";
+    const queue = [];
+    let levelOrderString = "";
     if (this._root) {
       queue.push(this._root);
     } else {
       levelOrderString = " Tree is empty";
     }
     while (queue.length !== 0) {
-      var tempNode = queue.shift();
-      levelOrderString += " " + tempNode.getKey();
+      const tempNode = queue.shift();
+      levelOrderString += ` ${tempNode.getKey()}`;
       if (tempNode.getLeft() !== null) {
         queue.push(tempNode.getLeft());
       }
@@ -290,6 +292,6 @@
         queue.push(tempNode.getRight());
       }
     }
-    return "Level Order Traversal -:" + levelOrderString;
+    return `Level Order Traversal -:${levelOrderString}`;
   };
 })(typeof window === "undefined" ? module.exports : window);

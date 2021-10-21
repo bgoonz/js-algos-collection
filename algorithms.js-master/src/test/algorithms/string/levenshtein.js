@@ -1,5 +1,5 @@
 const levenshtein = require("../../..").String.levenshtein;
-const assert = require("assert");
+import assert from "assert";
 
 describe("Levenshtein", () => {
   it("calculates the minimal edit distance between two words", () => {

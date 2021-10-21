@@ -29,9 +29,9 @@
  * @return {Array} The merged array.
  */
 function merge(left, right) {
-  var result = [],
-    il = 0,
-    ir = 0;
+  const result = [];
+  let il = 0;
+  let ir = 0;
 
   while (il < left.length && ir < right.length) {
     if (left[il] < right[ir]) {
@@ -55,9 +55,9 @@ function mergeSort(items) {
     return items;
   }
 
-  var middle = Math.floor(items.length / 2),
-    left = items.slice(0, middle),
-    right = items.slice(middle);
+  const middle = Math.floor(items.length / 2);
+  const left = items.slice(0, middle);
+  const right = items.slice(middle);
 
   return merge(mergeSort(left), mergeSort(right));
 }

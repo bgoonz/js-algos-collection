@@ -1,18 +1,18 @@
-var ts = require("../../../src/graphs/others/topological-sort").topologicalSort;
+import {topologicalSort as ts} from "../../../src/graphs/others/topological-sort";
 
-describe("Topological sort", function () {
+describe("Topological sort", () => {
   "use strict";
-  it("should be defined", function () {
+  it("should be defined", () => {
     expect(typeof ts).toBe("function");
   });
 
-  it("should work with empty graphs", function () {
+  it("should work with empty graphs", () => {
     expect(ts({})).toEqual([]);
   });
 
-  it("should give the proper topological order", function () {
+  it("should give the proper topological order", () => {
     expect(ts({ v1: [] })).toEqual(["v1"]);
-    var graph = {
+    let graph = {
       v1: ["v2"],
       v2: ["v3"],
       v3: [],
@@ -28,7 +28,7 @@ describe("Topological sort", function () {
     expect(ts(graph)).toEqual(["v3", "v4", "v1", "v5", "v2"]);
   });
 
-  it("should throw an error on cycle", function () {
+  it("should throw an error on cycle", () => {
     function runTs() {
       ts({
         v1: ["v2"],

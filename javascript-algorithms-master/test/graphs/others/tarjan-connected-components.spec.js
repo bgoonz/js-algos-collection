@@ -1,7 +1,6 @@
-var tj =
-  require("../../../src/graphs/others/tarjan-connected-components").tarjanConnectedComponents;
+import {tarjanConnectedComponents as tj} from "../../../src/graphs/others/tarjan-connected-components";
 
-var nonConnected = {
+const nonConnected = {
   v1: [],
   v2: [],
   v3: [],
@@ -9,7 +8,7 @@ var nonConnected = {
   v5: [],
 };
 
-var cyclicGraph = {
+const cyclicGraph = {
   v1: ["v2"],
   v2: ["v3"],
   v3: ["v4"],
@@ -17,21 +16,21 @@ var cyclicGraph = {
   v5: ["v1"],
 };
 
-describe("Tarjan's algorithm for finding connected components", function () {
+describe("Tarjan's algorithm for finding connected components", () => {
   "use strict";
-  it("should be defined", function () {
+  it("should be defined", () => {
     expect(typeof tj).toBe("function");
   });
 
-  it("should return an array", function () {
+  it("should return an array", () => {
     expect(tj() instanceof Array).toBeTruthy();
   });
 
-  it("should work with non-connected graphs", function () {
+  it("should work with non-connected graphs", () => {
     expect(tj(nonConnected)).toEqual([["v1"], ["v2"], ["v3"], ["v4"], ["v5"]]);
   });
 
-  it("should workw ith cycles", function () {
+  it("should workw ith cycles", () => {
     expect(tj(cyclicGraph)).toEqual([["v5", "v4", "v3", "v2", "v1"]]);
   });
 });

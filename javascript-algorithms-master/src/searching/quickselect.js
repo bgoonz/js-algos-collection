@@ -1,4 +1,4 @@
-(function (exports) {
+(exports => {
   "use strict";
 
   /**
@@ -24,13 +24,13 @@
   function quickselect(arr, n, lo, hi) {
     function partition(arr, lo, hi, pivotIdx) {
       function swap(arr, i, j) {
-        var temp = arr[i];
+        const temp = arr[i];
         arr[i] = arr[j];
         arr[j] = temp;
       }
-      var pivot = arr[pivotIdx];
+      const pivot = arr[pivotIdx];
       swap(arr, pivotIdx, hi);
-      for (var i = lo; i < hi; i += 1) {
+      for (let i = lo; i < hi; i += 1) {
         if (arr[i] < pivot) {
           swap(arr, i, lo);
           lo += 1;
@@ -49,7 +49,7 @@
       return arr[lo];
     }
     while (hi >= lo) {
-      var pivotIdx = partition(
+      const pivotIdx = partition(
         arr,
         lo,
         hi,

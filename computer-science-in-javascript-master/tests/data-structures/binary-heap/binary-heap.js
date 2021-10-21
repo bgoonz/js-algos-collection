@@ -8,10 +8,9 @@
 // Requirements
 //-----------------------------------------------------------------------------
 
-const assert = require("chai").assert;
-const {
-  BinaryHeap,
-} = require("../../../src/data-structures/binary-heap/binary-heap");
+import {assert} from "chai";
+
+import {BinaryHeap} from "../../../src/data-structures/binary-heap/binary-heap";
 
 //-----------------------------------------------------------------------------
 // Helpers

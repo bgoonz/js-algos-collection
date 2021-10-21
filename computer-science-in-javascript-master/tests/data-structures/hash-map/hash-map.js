@@ -8,8 +8,9 @@
 // Requirements
 //-----------------------------------------------------------------------------
 
-const assert = require("chai").assert;
-const { HashMap } = require("../../../src/data-structures/hash-map/hash-map");
+import {assert} from "chai";
+
+import {HashMap} from "../../../src/data-structures/hash-map/hash-map";
 
 //-----------------------------------------------------------------------------
 // Helpers
@@ -192,7 +193,7 @@ describe("HashMap", () => {
   });
 
   ["entries", Symbol.iterator].forEach((method) => {
-    describe(String(method) + "()", () => {
+    describe(`${String(method)}()`, () => {
       it("should create empty array when there are no items", () => {
         assert.deepStrictEqual([...map[method]()], []);
       });
