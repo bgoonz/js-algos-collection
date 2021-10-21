@@ -8106,6 +8106,7 @@ c.dequeue();
 };
 })(jQuery);
 </script>
+
 <script type="text/javascript">
 function \_log(e, t) {
 return;
@@ -10303,6 +10304,7 @@ window.console
           };
       })(jQuery);
     </script>
+
     <script type="text/javascript">
       'use strict';
       var dirs = []; // contains all directories
