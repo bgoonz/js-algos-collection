@@ -1,4 +1,4 @@
-import {Math as math} from "../../..";
+import { Math as math } from "../../..";
 const findDivisors = math.findDivisors;
 import assert from "assert";
 

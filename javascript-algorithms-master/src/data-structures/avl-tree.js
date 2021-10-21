@@ -15,7 +15,7 @@
  *
  * @module data-structures/avl-tree
  */
-(exports => {
+((exports) => {
   "use strict";
 
   /**
@@ -58,7 +58,7 @@
    * @method
    * @param {Node} node Given node's height is returned.
    */
-  exports.AVLTree.prototype._getHeightAtNode = ({_left, _right}) => {
+  exports.AVLTree.prototype._getHeightAtNode = ({ _left, _right }) => {
     if (_left !== null && _right !== null) {
       let height = Math.max(_left._height, _right._height);
       height += 1;
@@ -80,7 +80,7 @@
    * @param {Node} node Given node's children are checked for
    * imbalance.
    */
-  exports.AVLTree.prototype._isBalancedAtNode = ({_left, _right}) => {
+  exports.AVLTree.prototype._isBalancedAtNode = ({ _left, _right }) => {
     if (_left !== null && _right !== null) {
       return Math.abs(_left._height - _right._height) <= 1;
     }
@@ -102,7 +102,7 @@
    * @param {Array} traveledNodes Array of previously traveled nodes
    * that are used to help determine the nodes to be restructured.
    */
-  exports.AVLTree.prototype._getNodesToRestructureRemove = traveledNodes => {
+  exports.AVLTree.prototype._getNodesToRestructureRemove = (traveledNodes) => {
     // z is last traveled node - imbalance found at z
     let zIndex = traveledNodes.length;
     zIndex -= 1;
@@ -147,7 +147,7 @@
    * @param {Array} traveledNodes Array of previously traveled nodes
    * that are used to help determine the nodes to be restructured.
    */
-  exports.AVLTree.prototype._getNodesToRestructureInsert = traveledNodes => {
+  exports.AVLTree.prototype._getNodesToRestructureInsert = (traveledNodes) => {
     // z is last traveled node - imbalance found at z
     let zIndex = traveledNodes.length;
     zIndex -= 1;
@@ -634,7 +634,10 @@
    * @param {Number|String} current Current minimum value of the sub-tree.
    * @returns {Node} Node with the minimum value in the sub-tree.
    */
-  exports.AVLTree.prototype._findMin = function(node, current = { value: Infinity }) {
+  exports.AVLTree.prototype._findMin = function (
+    node,
+    current = { value: Infinity }
+  ) {
     if (!node) {
       return current;
     }
@@ -652,7 +655,10 @@
    * @param {Number|String} current Current maximum value of the sub-tree.
    * @returns {Node} Node with the maximum value in the sub-tree.
    */
-  exports.AVLTree.prototype._findMax = function(node, current = { value: -Infinity }) {
+  exports.AVLTree.prototype._findMax = function (
+    node,
+    current = { value: -Infinity }
+  ) {
     if (!node) {
       return current;
     }
@@ -713,7 +719,7 @@
    * @returns {Number} The longest path in the AVL Tree.
    */
   exports.AVLTree.prototype.getDiameter = function () {
-    const getDiameter = root => {
+    const getDiameter = (root) => {
       if (!root) {
         return 0;
       }

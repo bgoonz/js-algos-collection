@@ -1,4 +1,4 @@
-import {kmp as indexOf} from "../../src/searching/knuth-morris-pratt";
+import { kmp as indexOf } from "../../src/searching/knuth-morris-pratt";
 
 describe("The string searching algorithm of Knuth-Morris-Pratt", () => {
   "use strict";

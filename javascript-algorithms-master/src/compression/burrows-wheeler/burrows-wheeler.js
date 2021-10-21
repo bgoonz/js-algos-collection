@@ -1,4 +1,4 @@
-(exports => {
+((exports) => {
   "use strict";
 
   /**
@@ -25,7 +25,7 @@
   /**
    * Consumes n^2 space.
    */
-  exports.burrowsWheeler.encode = str => {
+  exports.burrowsWheeler.encode = (str) => {
     str = `$${str}`;
     const combinations = [];
     for (let i = 0; i < str.length; i += 1) {
@@ -39,7 +39,7 @@
     return result.join("");
   };
 
-  exports.burrowsWheeler.decode = encodedStr => {
+  exports.burrowsWheeler.decode = (encodedStr) => {
     const sortedCharSequence = encodedStr.split("").sort().join("");
     const leftSide = {};
     const rightSide = {};

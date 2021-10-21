@@ -28,7 +28,7 @@
  *
  * @module data-structures/red-black-tree
  */
-(exports => {
+((exports) => {
   "use strict";
 
   /**
@@ -90,8 +90,9 @@
    * Creates getters and setters for the properties:
    * key, value, left, right and color.
    */
-  "key value left right color".split(" ").forEach(key => {
-    const valueName = key.substr(0, 1).toUpperCase() + key.substr(1, key.length);
+  "key value left right color".split(" ").forEach((key) => {
+    const valueName =
+      key.substr(0, 1).toUpperCase() + key.substr(1, key.length);
     Node.prototype[`get${valueName}`] = function () {
       return this[`_${key}`];
     };
@@ -135,7 +136,7 @@
    * @param {Node} node Node which sould be checked.
    * @return Returns true if node is red.
    */
-  exports.RBTree.prototype.isRed = node => {
+  exports.RBTree.prototype.isRed = (node) => {
     if (!node) {
       return false;
     }
@@ -184,7 +185,7 @@
    * @method
    * @param {Node} node Node.
    */
-  exports.RBTree.prototype._flipColors = node => {
+  exports.RBTree.prototype._flipColors = (node) => {
     node.getLeft().flipColor();
     node.getRight().flipColor();
   };
@@ -198,7 +199,7 @@
    * @param {Node} node Node.
    * @return {Node} Right node.
    */
-  exports.RBTree.prototype._rotateLeft = node => {
+  exports.RBTree.prototype._rotateLeft = (node) => {
     const x = node.getRight();
     if (x !== null) {
       const temp = x.getLeft();
@@ -219,7 +220,7 @@
    * @param {Node} node Node.
    * @return {Node} Left node.
    */
-  exports.RBTree.prototype._rotateRight = node => {
+  exports.RBTree.prototype._rotateRight = (node) => {
     const x = node.getLeft();
     if (x !== null) {
       const temp = x.getRight();

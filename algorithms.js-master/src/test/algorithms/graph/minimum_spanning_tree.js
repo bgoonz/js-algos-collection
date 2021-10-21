@@ -59,7 +59,7 @@ describe("Minimum Spanning Tree", () => {
    * @param {Graph} graph2
    * @return {boolean}
    */
-  const spans = ({vertices}, {vertices}) => {
+  const spans = ({ vertices }, { vertices }) => {
     let span;
     if (vertices.size === vertices.size) {
       span = true;

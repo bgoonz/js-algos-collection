@@ -1,6 +1,6 @@
 // Kruskal's algorithm for minimal spanning tree implemented with the UnionFind datastructure.
 
-(exports => {
+((exports) => {
   "use strict";
 
   const QuickUnion = require("../../sets/quickunion").QuickUnion;
@@ -27,7 +27,7 @@
      *  less then zero and indicates whether the first vertex is
      *  "smaller" than the second.
      */
-    function compareEdges({distance}, {distance}) {
+    function compareEdges({ distance }, { distance }) {
       return distance - distance;
     }
 

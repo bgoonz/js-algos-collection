@@ -1,4 +1,4 @@
-import {dfs} from "../../../src/graphs/searching/dfs";
+import { dfs } from "../../../src/graphs/searching/dfs";
 
 describe("dfs", () => {
   "use strict";

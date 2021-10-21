@@ -1,4 +1,4 @@
-(exports => {
+((exports) => {
   "use strict";
 
   const cartesianProduct = (() => {
@@ -37,7 +37,7 @@
      * //   [ 3, 1 ] ]
      * console.log(result);
      */
-    return sets => {
+    return (sets) => {
       result = [];
       cartesianProduct(sets, 0, []);
       return result;

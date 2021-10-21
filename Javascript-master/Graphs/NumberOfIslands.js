@@ -72,7 +72,7 @@ const islands = (matrixGrid) => {
         flood(row, col)
         counter += 1
       }
-    });
+    })
   }
   return counter
 }

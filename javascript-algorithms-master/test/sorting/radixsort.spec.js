@@ -1,4 +1,4 @@
-import {radixSort as rx} from "../../src/sorting/radixsort.js";
+import { radixSort as rx } from "../../src/sorting/radixsort.js";
 
 describe("radixsort", () => {
   "use strict";

@@ -8,9 +8,9 @@
 // Requirements
 //-----------------------------------------------------------------------------
 
-import {assert} from "chai";
+import { assert } from "chai";
 
-import {BinaryHeap} from "../../../src/data-structures/binary-heap/binary-heap";
+import { BinaryHeap } from "../../../src/data-structures/binary-heap/binary-heap";
 
 //-----------------------------------------------------------------------------
 // Helpers

@@ -1,4 +1,4 @@
-import {burrowsWheeler as bw} from "../../../src/compression/burrows-wheeler/burrows-wheeler";
+import { burrowsWheeler as bw } from "../../../src/compression/burrows-wheeler/burrows-wheeler";
 
 describe("Burrows Wheeler", () => {
   "use strict";

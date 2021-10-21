@@ -1,4 +1,4 @@
-import {msd} from "../../src/sorting/msd.js";
+import { msd } from "../../src/sorting/msd.js";
 
 describe("Most-Significant Digit", () => {
   "use strict";

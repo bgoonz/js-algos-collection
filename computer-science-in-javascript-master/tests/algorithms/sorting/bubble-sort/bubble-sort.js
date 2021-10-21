@@ -9,9 +9,9 @@
 // Requirements
 //-----------------------------------------------------------------------------
 
-import {assert} from "chai";
+import { assert } from "chai";
 
-import {bubbleSort} from "../../../../src/algorithms/sorting/bubble-sort";
+import { bubbleSort } from "../../../../src/algorithms/sorting/bubble-sort";
 
 //-----------------------------------------------------------------------------
 // Tests
@@ -26,14 +26,11 @@ describe("bubbleSort()", () => {
     [32, 4, 5, 7, 9, 4, 1],
     [3, 1, 1, 5, 9, 4, 2, 5, 12, 45],
   ].forEach((items) => {
-    it(
-      `should sort an array when the array has ${items.length} item(s)`,
-      () => {
-        const result = [...items].sort((a, b) => a - b);
+    it(`should sort an array when the array has ${items.length} item(s)`, () => {
+      const result = [...items].sort((a, b) => a - b);
 
-        bubbleSort(items);
-        assert.deepStrictEqual(items, result);
-      }
-    );
+      bubbleSort(items);
+      assert.deepStrictEqual(items, result);
+    });
   });
 });

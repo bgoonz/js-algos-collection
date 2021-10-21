@@ -1,4 +1,4 @@
-import {dijkstra} from "../../../src/graphs/shortest-path/dijkstra";
+import { dijkstra } from "../../../src/graphs/shortest-path/dijkstra";
 
 describe("dijkstra", () => {
   "use strict";

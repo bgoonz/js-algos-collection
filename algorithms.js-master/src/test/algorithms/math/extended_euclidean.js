@@ -1,4 +1,4 @@
-import {Math as math} from "../../..";
+import { Math as math } from "../../..";
 const extEuclid = math.extendedEuclidean;
 import assert from "assert";
 

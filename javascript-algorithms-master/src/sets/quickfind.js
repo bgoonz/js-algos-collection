@@ -24,7 +24,7 @@
  * @public
  * @module sets/quickfind
  */
-(exports => {
+((exports) => {
   "use strict";
 
   /**

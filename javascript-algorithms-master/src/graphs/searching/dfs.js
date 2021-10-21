@@ -1,4 +1,4 @@
-(exports => {
+((exports) => {
   "use strict";
 
   const dfs = (() => {

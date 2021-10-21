@@ -1,4 +1,4 @@
-import {Math as math} from "../../..";
+import { Math as math } from "../../..";
 const powerSet = math.powerSet;
 import assert from "assert";
 

@@ -12,15 +12,7 @@ function drawChart() {
   data.addColumn("number", "O(2^n)");
 
   for (let i = 0; i <= 30; i++) {
-    data.addRow([
-      `${i}`,
-      1,
-      Math.log(i),
-      i,
-      Math.log(i) * i,
-      i ** 2,
-      2 ** i,
-    ]);
+    data.addRow([`${i}`, 1, Math.log(i), i, Math.log(i) * i, i ** 2, 2 ** i]);
   }
 
   const options = {

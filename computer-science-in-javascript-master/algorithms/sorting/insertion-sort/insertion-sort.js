@@ -29,13 +29,13 @@
  */
 function insertionSort(items) {
   const // number of items in the array
-  len = items.length; // index into sorted section
+    len = items.length; // index into sorted section
 
   let // the value currently being compared
-  value;
+    value;
 
   let // index into unsorted section
-  i;
+    i;
 
   let j;
 

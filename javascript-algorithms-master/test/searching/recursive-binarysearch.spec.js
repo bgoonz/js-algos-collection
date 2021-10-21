@@ -1,4 +1,4 @@
-import {binarySearch} from "../../src/searching/recursive-binarysearch";
+import { binarySearch } from "../../src/searching/recursive-binarysearch";
 
 describe("Binary search", () => {
   "use strict";

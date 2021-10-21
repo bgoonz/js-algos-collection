@@ -1,5 +1,5 @@
 import assert from "assert";
-import {Math as math} from "../../..";
+import { Math as math } from "../../..";
 const greatestDifference = math.greatestDifference;
 
 describe("Greatest Difference", () => {

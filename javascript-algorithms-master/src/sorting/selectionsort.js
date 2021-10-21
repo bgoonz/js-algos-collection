@@ -1,4 +1,4 @@
-(exports => {
+((exports) => {
   "use strict";
 
   function compare(a, b) {

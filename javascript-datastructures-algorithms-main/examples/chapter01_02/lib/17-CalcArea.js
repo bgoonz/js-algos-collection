@@ -10,7 +10,7 @@
     factory(mod.exports);
     global.CalcArea = mod.exports;
   }
-})(this, exports => {
+})(this, (exports) => {
   "use strict";
 
   Object.defineProperty(exports, "__esModule", {

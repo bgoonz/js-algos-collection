@@ -1,4 +1,4 @@
-import {Math as math} from "../../..";
+import { Math as math } from "../../..";
 const reservoirSampling = math.reservoirSampling;
 import assert from "assert";
 

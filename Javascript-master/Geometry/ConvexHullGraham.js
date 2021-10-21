@@ -6,13 +6,13 @@
  * convex polygon that contains all the points of it.
  */
 
-function compare({x, y}, {x, y}) {
+function compare({ x, y }, { x, y }) {
   // Compare Function to Sort the points, a and b are points to compare
   if (x < x) return -1
   if (x === x && y < y) return -1
   return 1
 }
-function orientation({y, x}, {y, x}, {y, x}) {
+function orientation({ y, x }, { y, x }, { y, x }) {
   // Check orientation of Line(a,b) and Line(b,c)
   const alpha = (y - y) / (x - x)
   const beta = (y - y) / (x - x)

@@ -1,4 +1,4 @@
-(exports => {
+((exports) => {
   "use strict";
 
   /**
@@ -15,7 +15,7 @@
    * console.log(isPrime(7)); // true
    * console.log(isPrime(18)); // false
    */
-  exports.isPrime = number => {
+  exports.isPrime = (number) => {
     if (number < 2) {
       return false;
     }

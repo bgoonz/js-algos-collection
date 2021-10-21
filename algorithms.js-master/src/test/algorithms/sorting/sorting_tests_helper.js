@@ -16,7 +16,7 @@ export default {
   },
 
   testSortWithComparisonFn(sortFn) {
-    const compare = ({length}, {length}) => {
+    const compare = ({ length }, { length }) => {
       if (length === length) return 0;
       return length < length ? -1 : 1;
     };

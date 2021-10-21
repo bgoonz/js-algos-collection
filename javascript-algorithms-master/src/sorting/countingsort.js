@@ -1,4 +1,4 @@
-(exports => {
+((exports) => {
   "use strict";
 
   const countingSort = (() => {
@@ -78,7 +78,7 @@
      * @param {Array} array Array which should be sorted.
      * @return {Array} Sorted array.
      */
-    return array => {
+    return (array) => {
       const less = getLessCount(getCount(array));
       return sort(array, less);
     };

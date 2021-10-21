@@ -1,5 +1,5 @@
 const pad = (num, padlen) => {
-  const pad = new Array(1 + padlen).join(0);
+  const pad = new Array(1 + padlen).join(0)
   return (pad + num).slice(-pad.length)
 }
 

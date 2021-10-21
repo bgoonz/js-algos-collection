@@ -216,7 +216,7 @@ describe("AVL Tree", () => {
       50, 5, 2, 1, 4, 20, 7, 6, 15, 30, 40, 100, 75, 80, 200,
     ];
     const preOrder = [];
-    avlTree.preOrder(avlTree.root, ({value}) => {
+    avlTree.preOrder(avlTree.root, ({ value }) => {
       preOrder.push(value);
     });
     assert.deepEqual(expectedPreOrder, preOrder);
@@ -245,7 +245,7 @@ describe("AVL Tree", () => {
       1, 4, 2, 6, 15, 7, 40, 30, 20, 5, 80, 75, 200, 100, 50,
     ];
     const postOrder = [];
-    avlTree.postOrder(avlTree.root, ({value}) => {
+    avlTree.postOrder(avlTree.root, ({ value }) => {
       postOrder.push(value);
     });
     assert.deepEqual(expectedPostOrder, postOrder);
@@ -263,7 +263,7 @@ describe("AVL Tree", () => {
     a.sort((a, b) => a - b);
 
     const b = [];
-    avlTree.inOrder(avlTree.root, ({value}) => b.push(value));
+    avlTree.inOrder(avlTree.root, ({ value }) => b.push(value));
     assert.equal(a.length, b.length);
     for (i = 0; i < a.length; i++) {
       assert.equal(a[i], b[i]);

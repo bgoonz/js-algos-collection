@@ -1,4 +1,4 @@
-import {topologicalSort as ts} from "../../../src/graphs/others/topological-sort";
+import { topologicalSort as ts } from "../../../src/graphs/others/topological-sort";
 
 describe("Topological sort", () => {
   "use strict";

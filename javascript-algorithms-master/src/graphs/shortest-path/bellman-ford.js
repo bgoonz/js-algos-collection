@@ -37,7 +37,7 @@
  *
  * @module graphs/shortest-path/bellman-ford
  */
-(exports => {
+((exports) => {
   "use strict";
 
   exports.Vertex = require("../../data-structures/vertex").Vertex;

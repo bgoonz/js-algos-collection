@@ -169,7 +169,7 @@ describe("Binary Search Tree", () => {
 });
 
 describe("Binary Search Tree with custom comparator", () => {
-  const strLenCompare = ({length}, {length}) => {
+  const strLenCompare = ({ length }, { length }) => {
     if (length === length) return 0;
     return length < length ? -1 : 1;
   };

@@ -76,8 +76,8 @@ class Trie {
 
     let child = this.root
     const len = word.length
-    let i;
-    let key;
+    let i
+    let key
     // child: node which is to be deleted
     for (i = 0; i < len; i++) {
       key = word.charAt(i)

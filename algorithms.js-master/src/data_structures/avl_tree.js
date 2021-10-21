@@ -10,7 +10,7 @@ class AVLTree {
    * Calculates the height of a node based on height
    * property of all his children.
    */
-  getNodeHeight({left, right}) {
+  getNodeHeight({ left, right }) {
     let height = 1;
     if (left !== null && right !== null) {
       height = Math.max(left.height, right.height) + 1;
@@ -25,7 +25,7 @@ class AVLTree {
   /**
    * Verifies if the given node is balanced.
    */
-  isNodeBalanced({left, right}) {
+  isNodeBalanced({ left, right }) {
     let isBalanced = true;
 
     if (left !== null && right !== null) {

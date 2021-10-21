@@ -95,7 +95,7 @@ huffman.encode = (string, compressed) => {
     count: counter[char],
   }));
 
-  const compare = ({count}, {count}) => count - count;
+  const compare = ({ count }, { count }) => count - count;
   const less = (a, b) => a && ((b && a.count < b.count) || !b);
 
   letters.sort(compare);
@@ -140,7 +140,7 @@ huffman.encode = (string, compressed) => {
     }
   })(root);
 
-  const encoding = letters.reduce((acc, {char, code}) => {
+  const encoding = letters.reduce((acc, { char, code }) => {
     acc[char] = code.split("").reverse().join("");
     return acc;
   }, {});

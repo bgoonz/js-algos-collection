@@ -59,7 +59,7 @@ describe("Heap", () => {
     expect(res).toBe(66);
   });
   it("should update top node properly", () => {
-    const heap = new Heap(({val}, {val}) => {
+    const heap = new Heap(({ val }, { val }) => {
       return val - val;
     });
     const objectToUpdate = { val: 66 };
@@ -76,7 +76,7 @@ describe("Heap", () => {
     expect(res.val).toBe(0);
   });
   it("should update bottom node properly", () => {
-    const heap = new Heap(({val}, {val}) => {
+    const heap = new Heap(({ val }, { val }) => {
       return val - val;
     });
     const objectToUpdate = { val: 0 };

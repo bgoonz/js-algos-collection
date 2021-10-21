@@ -4,7 +4,7 @@
  * give us representation of string in binary which in which the
  * zeros will be stripped and replaced with their count.
  */
-(exports => {
+((exports) => {
   "use strict";
 
   const runLengthEncoding = (() => {
@@ -51,7 +51,7 @@
      * encoded binary representation.
      * Takes O(n^2).
      */
-    return str => {
+    return (str) => {
       const asciiString = convertToAscii(str);
       return runLength(asciiString);
     };

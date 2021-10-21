@@ -15,7 +15,7 @@
  * @param {Function} aggregate Generates the values for the intermediate nodes.
  * @module data-structures/segment-tree
  */
-(exports => {
+((exports) => {
   /**
    * SegmentTree constructor.
    *

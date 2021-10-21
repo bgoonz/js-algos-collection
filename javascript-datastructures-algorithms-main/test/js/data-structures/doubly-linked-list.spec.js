@@ -20,7 +20,7 @@ describe("DoublyLinkedList", () => {
     }
   }
 
-  function verifyNode({element, next, prev}, i) {
+  function verifyNode({ element, next, prev }, i) {
     expect(element).to.not.be.an("undefined");
     expect(element).to.equal(i);
 

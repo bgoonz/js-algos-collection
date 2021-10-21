@@ -36,10 +36,10 @@ function swap(items, firstIndex, secondIndex) {
 
 function partition(items, left, right) {
   const // pivot value is middle item
-  pivot = items[Math.floor((right + left) / 2)]; // starts from right and goes left to pivot index
+    pivot = items[Math.floor((right + left) / 2)]; // starts from right and goes left to pivot index
 
   let // starts from left and goes right to pivot index
-  i = left;
+    i = left;
 
   let j = right;
 

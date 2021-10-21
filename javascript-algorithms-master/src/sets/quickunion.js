@@ -25,7 +25,7 @@
  * @module sets/quickunion
  */
 
-(exports => {
+((exports) => {
   "use strict";
 
   /**

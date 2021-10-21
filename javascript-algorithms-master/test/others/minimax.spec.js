@@ -1,4 +1,4 @@
-import {minimaxBuilder} from "../../src/others/minimax.js";
+import { minimaxBuilder } from "../../src/others/minimax.js";
 
 describe("Minimax", () => {
   "use strict";
@@ -180,7 +180,7 @@ function ticTacToe() {
     };
   }
 
-  function emptyCells({board}) {
+  function emptyCells({ board }) {
     const result = [];
     board.forEach((row, y) => {
       row.forEach((cell, x) => {
@@ -193,7 +193,7 @@ function ticTacToe() {
     return result;
   }
 
-  function getWinner({board}) {
+  function getWinner({ board }) {
     const winVariants = [
       [
         { x: 0, y: 0 },
@@ -240,7 +240,7 @@ function ticTacToe() {
     ];
 
     for (const variant of winVariants) {
-      const combo = variant.map(({y, x}) => board[y][x]).join("");
+      const combo = variant.map(({ y, x }) => board[y][x]).join("");
       if (combo === "xxx") {
         return "x";
       } else if (combo === "ooo") {
@@ -251,7 +251,7 @@ function ticTacToe() {
     return null;
   }
 
-  function allFieldsMarked({board}) {
+  function allFieldsMarked({ board }) {
     return board.every((row) => row.every((cell) => cell !== 0));
   }
 
@@ -269,7 +269,7 @@ function ticTacToe() {
     return { x: 0, o: 0 };
   }
 
-  function nextState({board, turn}, {y, x}) {
+  function nextState({ board, turn }, { y, x }) {
     const newBoard = board.map((row) => row.slice());
     newBoard[y][x] = turn;
     return {
@@ -307,7 +307,7 @@ function simpleGame() {
     };
   }
 
-  function nextState({tree, position, turn}, move) {
+  function nextState({ tree, position, turn }, move) {
     return {
       tree: tree,
       position: move ? position * 2 + 2 : position * 2 + 1,
@@ -315,11 +315,11 @@ function simpleGame() {
     };
   }
 
-  function isGameOver({tree, position}) {
+  function isGameOver({ tree, position }) {
     return tree[position] !== 0;
   }
 
-  function getScore({tree, position}) {
+  function getScore({ tree, position }) {
     return {
       A: tree[position],
       B: tree[position] === 0 ? 0 : -tree[position],

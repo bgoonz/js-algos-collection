@@ -1,4 +1,4 @@
-(exports => {
+((exports) => {
   "use strict";
 
   /**
@@ -23,7 +23,7 @@
    *
    * console.log(sieveOfEratosthenes(12)); // [2, 3, 5, 7, 11]
    */
-  exports.sieveOfEratosthenes = limit => {
+  exports.sieveOfEratosthenes = (limit) => {
     const sieve = [];
     const primes = [];
     let k;

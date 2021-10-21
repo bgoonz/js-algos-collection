@@ -1,4 +1,4 @@
-import {bucketSort as bs} from "../../src/sorting/bucketsort";
+import { bucketSort as bs } from "../../src/sorting/bucketsort";
 
 describe("bucketsort", () => {
   "use strict";

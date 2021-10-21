@@ -48,7 +48,7 @@ function fillBaseSample(datasetSource, sampleSize) {
     output = output.filter((_, i) => filledIndexes.includes(i))
   }
 
-  return output.map(({value}) => value);
+  return output.map(({ value }) => value)
 }
 
 /**

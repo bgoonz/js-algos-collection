@@ -290,7 +290,7 @@ function CreateSBTreeClass(Node, Nil, updateChild) {
   return SBTree;
 }
 
-(exports => {
+((exports) => {
   "use strict";
 
   /**
@@ -348,7 +348,7 @@ function CreateSBTreeClass(Node, Nil, updateChild) {
     } // otherwise parent is Nil
   };
 
-  const Node = function(...args) {
+  const Node = function (...args) {
     NodeConstructor.apply(this, args);
   };
 

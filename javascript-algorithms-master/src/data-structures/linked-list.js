@@ -33,7 +33,7 @@
  *
  * @module data-structures/linked-list
  */
-(exports => {
+((exports) => {
   "use strict";
 
   /**

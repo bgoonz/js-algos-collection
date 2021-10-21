@@ -1,4 +1,4 @@
-import {Math as math} from "../../..";
+import { Math as math } from "../../..";
 const collatzConjecture = math.collatzConjecture;
 import assert from "assert";
 

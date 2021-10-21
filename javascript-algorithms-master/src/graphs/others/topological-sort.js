@@ -1,4 +1,4 @@
-(exports => {
+((exports) => {
   "use strict";
 
   const topologicalSort = (() => {
@@ -6,7 +6,7 @@
       temp[node] = true;
       const neighbors = graph[node];
 
-      neighbors.forEach(n => {
+      neighbors.forEach((n) => {
         if (temp[n]) {
           throw new Error("The graph is not a DAG");
         }
@@ -43,7 +43,7 @@
      * };
      * var vertices = topsort(graph); // ['v3', 'v4', 'v1', 'v5', 'v2']
      */
-    return graph => {
+    return (graph) => {
       const result = [];
       const visited = [];
       const temp = [];

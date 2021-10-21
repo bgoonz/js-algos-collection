@@ -1,4 +1,4 @@
-(exports => {
+((exports) => {
   "use strict";
   const permutations = (() => {
     let res;
@@ -47,7 +47,7 @@
      * @param {Array} arr Array to find the permutations of.
      * @returns {Array} Array containing all the permutations.
      */
-    return arr => {
+    return (arr) => {
       res = [];
       permutations(arr, 0);
       const temp = res;

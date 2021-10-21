@@ -22,8 +22,7 @@ const auxiliaryCountingSort = (array, mod) => {
   }
 
   for (i = 0; i < length; i++) {
-    const digit =
-      parseInt((array[i].key / 10 ** mod).toFixed(mod), 10) % 10;
+    const digit = parseInt((array[i].key / 10 ** mod).toFixed(mod), 10) % 10;
     bucket[digit].push(array[i]);
   }
 

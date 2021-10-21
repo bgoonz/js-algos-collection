@@ -1,4 +1,4 @@
-import {jumpSearch} from "../../src/searching/jump-search";
+import { jumpSearch } from "../../src/searching/jump-search";
 
 describe("Jump search", () => {
   "use strict";

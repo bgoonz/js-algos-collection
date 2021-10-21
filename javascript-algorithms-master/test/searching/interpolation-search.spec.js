@@ -1,4 +1,4 @@
-import {interpolationSearch} from "../../src/searching/interpolation-search";
+import { interpolationSearch } from "../../src/searching/interpolation-search";
 
 describe("Interpolation search", () => {
   "use strict";

@@ -1,4 +1,4 @@
-import {isPrime} from "../../src/primes/is-prime";
+import { isPrime } from "../../src/primes/is-prime";
 
 describe("Advanced (optimised) method that checks number on prime", () => {
   "use strict";

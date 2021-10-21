@@ -1,4 +1,4 @@
-(exports => {
+((exports) => {
   "use strict";
 
   const floydWarshall = (() => {
@@ -62,7 +62,7 @@
      * //   [ 11, 12, 2, 13, 9, 0 ] ]
      * var shortestDists = floydWarshall(distMatrix);
      */
-    return graph => {
+    return (graph) => {
       dist = init(graph);
       const size = graph.length;
       for (let k = 0; k < size; k += 1) {

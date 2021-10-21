@@ -1,4 +1,4 @@
-import {quickselect} from "../../src/searching/quickselect";
+import { quickselect } from "../../src/searching/quickselect";
 
 describe("quickselect", () => {
   "use strict";

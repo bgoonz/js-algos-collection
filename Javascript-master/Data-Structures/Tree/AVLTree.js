@@ -14,7 +14,7 @@
  * MUST RETURN 0 if a == b
  */
 let utils
-;(_utils => {
+;((_utils) => {
   function comparator() {
     return (v1, v2) => {
       if (v1 < v2) {
@@ -24,10 +24,10 @@ let utils
       } else {
         return 0
       }
-    };
+    }
   }
   _utils.comparator = comparator
-})(utils || (utils = {}));
+})(utils || (utils = {}))
 
 /**
  * @constructor
@@ -106,14 +106,14 @@ const AVLTree = (() => {
     this._height = 1
   }
   // get height of a node
-  const getH = node => {
+  const getH = (node) => {
     if (node == null) {
       return 0
     }
     return node._height
   }
   // height difference or balance factor of a node
-  const getHDiff = node => {
+  const getHDiff = (node) => {
     if (node == null) {
       return 0
     } else {
@@ -121,14 +121,14 @@ const AVLTree = (() => {
     }
   }
   // update height of a node based on children's heights
-  const updateH = node => {
+  const updateH = (node) => {
     if (node == null) {
       return
     }
     node._height = Math.max(getH(node._left), getH(node._right)) + 1
   }
   // rotations of AVL Tree
-  const leftRotate = node => {
+  const leftRotate = (node) => {
     const temp = node._right
     node._right = temp._left
     temp._left = node
@@ -136,7 +136,7 @@ const AVLTree = (() => {
     updateH(temp)
     return temp
   }
-  const rightRotate = node => {
+  const rightRotate = (node) => {
     const temp = node._left
     node._left = temp._right
     temp._right = node
@@ -158,7 +158,7 @@ const AVLTree = (() => {
     return leftRotate(node)
   }
   // check if tree is balanced after deletion
-  const delBalance = node => {
+  const delBalance = (node) => {
     const balanceFactor1 = getHDiff(node)
     if (balanceFactor1 === 0 || balanceFactor1 === 1 || balanceFactor1 === -1) {
       return node

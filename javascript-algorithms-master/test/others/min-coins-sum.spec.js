@@ -1,4 +1,4 @@
-import {minCoinsChange} from "../../src/others/min-coins-change.js";
+import { minCoinsChange } from "../../src/others/min-coins-change.js";
 
 describe("Change making problem", () => {
   "use strict";

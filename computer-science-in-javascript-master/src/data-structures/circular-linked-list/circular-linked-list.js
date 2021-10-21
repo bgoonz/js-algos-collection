@@ -117,56 +117,56 @@ class CircularLinkedList {
       newNode.next = this[tail].next;
       this[tail].next = newNode;
     } else {
-     /*
-      * The `current` variable is used to track the node that is being
-      * used inside of the loop below. It starts out pointing to
-      * `this[tail].next` and is overwritten inside of the loop.
-      *
-      * The `previous` variable tracks one step behind `current`, which
-      * is necessary because we need to adjust the node at `index`-1's
-      * `next` pointer to point to the new node.
-      */
-     let current = this[tail].next;
+      /*
+       * The `current` variable is used to track the node that is being
+       * used inside of the loop below. It starts out pointing to
+       * `this[tail].next` and is overwritten inside of the loop.
+       *
+       * The `previous` variable tracks one step behind `current`, which
+       * is necessary because we need to adjust the node at `index`-1's
+       * `next` pointer to point to the new node.
+       */
+      let current = this[tail].next;
 
-     let previous = null;
+      let previous = null;
 
-     /*
-      * The `i` variable is used to track how deep into the list we've
-      * gone. This important because it's the only way to know when
-      * we've hit the `index` to insert into.
-      */
-     let i = 0;
+      /*
+       * The `i` variable is used to track how deep into the list we've
+       * gone. This important because it's the only way to know when
+       * we've hit the `index` to insert into.
+       */
+      let i = 0;
 
-     /*
-      * Traverse and make sure to keep track of how many nodes have
-      * been visited and update the `previous` pointer in addition to
-      * `current`. When `i` is the same as `index`, it means we've
-      * found the location to insert the new data.
-      */
-     while (current.next !== this[tail].next && i < index) {
-       previous = current;
-       current = current.next;
-       i++;
-     }
+      /*
+       * Traverse and make sure to keep track of how many nodes have
+       * been visited and update the `previous` pointer in addition to
+       * `current`. When `i` is the same as `index`, it means we've
+       * found the location to insert the new data.
+       */
+      while (current.next !== this[tail].next && i < index) {
+        previous = current;
+        current = current.next;
+        i++;
+      }
 
-     /*
-      * At this point, `current` is either the item to insert the new data
-      * before, or the last item in the list. The only way to tell is if
-      * `i` is still less than `index`, that means the index is out of range
-      * and an error should be thrown.
-      */
-     if (i < index) {
-       throw new RangeError(`Index ${index} does not exist in the list.`);
-     }
+      /*
+       * At this point, `current` is either the item to insert the new data
+       * before, or the last item in the list. The only way to tell is if
+       * `i` is still less than `index`, that means the index is out of range
+       * and an error should be thrown.
+       */
+      if (i < index) {
+        throw new RangeError(`Index ${index} does not exist in the list.`);
+      }
 
-     /*
-      * If code continues to execute here, it means `current` is the node
-      * to insert new data before and `previous` is the node to insert
-      * new data after. So `previous.next` must point to `newNode` and
-      * `node.next` must point to `current`.
-      */
-     previous.next = newNode;
-     newNode.next = current;
+      /*
+       * If code continues to execute here, it means `current` is the node
+       * to insert new data before and `previous` is the node to insert
+       * new data after. So `previous.next` must point to `newNode` and
+       * `node.next` must point to `current`.
+       */
+      previous.next = newNode;
+      newNode.next = current;
     }
   }
 
@@ -581,4 +581,4 @@ class CircularLinkedList {
   }
 }
 
-export {CircularLinkedList};
+export { CircularLinkedList };

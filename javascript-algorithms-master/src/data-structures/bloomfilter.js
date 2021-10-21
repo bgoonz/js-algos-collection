@@ -10,7 +10,7 @@
  * bloomfilter.get('world') === false;
  * @module data-structures/bloomfilter
  */
-(exports => {
+((exports) => {
   "use strict";
 
   function randomUint32() {
@@ -40,14 +40,14 @@
     }
     if (asString) {
       // Convert to 8 digit hex string
-      return (`0000000${(hval >>> 0).toString(16)}`).substr(-8);
+      return `0000000${(hval >>> 0).toString(16)}`.substr(-8);
     }
     return hval >>> 0;
   }
 
   // Make a hash function
   function mkHashFun(seed, limit) {
-    return value => {
+    return (value) => {
       return hashFnv32a(value, false, seed) % limit;
     };
   }
@@ -58,7 +58,7 @@
    * @constructor
    * @param {Number} size the size of the bitmap
    */
-  exports.Bitmap = function(size = 1024) {
+  exports.Bitmap = function (size = 1024) {
     if (size < 0) {
       throw new Error("The size cannot be negative");
     }
@@ -150,7 +150,7 @@
    * @param {Number} capacity the maximum capacity to maintain the given error rate
    * @param {Number} errorRate the error rate expected under maximum capacity
    */
-  exports.Bloomfilter = function(capacity, errorRate = 0.001) {
+  exports.Bloomfilter = function (capacity, errorRate = 0.001) {
     if (errorRate > 1 || errorRate < 0) {
       throw new Error("The error rate range is outside of bound");
     }
@@ -172,12 +172,9 @@
     this.bitmap = new exports.Bitmap(numBit);
 
     // Generate an array of hash functions
-    this.hashFunctions = Array.from(
-      { length: this.numHashFunction },
-      () => {
-        return mkHashFun(randomUint32(), numBit);
-      }
-    );
+    this.hashFunctions = Array.from({ length: this.numHashFunction }, () => {
+      return mkHashFun(randomUint32(), numBit);
+    });
   };
 
   /**
@@ -187,7 +184,7 @@
    */
   exports.Bloomfilter.prototype.get = function (value) {
     value = String(value); // make it string
-    const hashes = this.hashFunctions.map(hashFct => {
+    const hashes = this.hashFunctions.map((hashFct) => {
       return hashFct(value);
     });
 
@@ -207,7 +204,7 @@
    */
   exports.Bloomfilter.prototype.set = function (value) {
     value = String(value); // make it string
-    const hashes = this.hashFunctions.map(hashFct => {
+    const hashes = this.hashFunctions.map((hashFct) => {
       return hashFct(value);
     });
 

@@ -1,4 +1,4 @@
-import {Math as math} from "../../..";
+import { Math as math } from "../../..";
 const nextPermutation = math.nextPermutation;
 import Comparator from "../../../util/comparator";
 import assert from "assert";

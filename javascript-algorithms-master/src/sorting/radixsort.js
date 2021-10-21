@@ -1,4 +1,4 @@
-(exports => {
+((exports) => {
   "use strict";
 
   const radixSort = (() => {
@@ -42,7 +42,7 @@
      * @param {Array} array Input integer array
      * @return {Array} Sorted array
      */
-    return array => {
+    return (array) => {
       const size = array.length;
       const R = 10; /* Alphabet size ([0-9] for integers) */
       let count;

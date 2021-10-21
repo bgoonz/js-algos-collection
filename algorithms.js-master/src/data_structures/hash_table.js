@@ -108,7 +108,7 @@ class HashTable {
 
   forEach(fn) {
     const applyFunction = (linkedList) => {
-      linkedList.forEach(({k, v}) => {
+      linkedList.forEach(({ k, v }) => {
         fn(k, v);
       });
     };

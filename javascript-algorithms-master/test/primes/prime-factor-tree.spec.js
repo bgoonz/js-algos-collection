@@ -1,4 +1,4 @@
-import {primeFactorTree} from "../../src/primes/prime-factor-tree";
+import { primeFactorTree } from "../../src/primes/prime-factor-tree";
 
 describe("Prime factor tree", () => {
   "use strict";

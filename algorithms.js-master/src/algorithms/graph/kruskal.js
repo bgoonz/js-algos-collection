@@ -32,8 +32,8 @@ const kruskal = (graph) => {
   });
 
   edges
-    .sort(({weight}, {weight}) => weight - weight)
-    .forEach(({ends, weight}) => {
+    .sort(({ weight }, { weight }) => weight - weight)
+    .forEach(({ ends, weight }) => {
       if (!connectedComponents.sameSubset(ends[0], ends[1])) {
         mst.addEdge(ends[0], ends[1], weight);
         connectedComponents.merge(ends[0], ends[1]);

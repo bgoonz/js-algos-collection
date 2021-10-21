@@ -15,7 +15,7 @@
  *
  * @module others/fibonacci
  */
-(exports => {
+((exports) => {
   "use strict";
 
   function fibonacci(n) {

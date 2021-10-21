@@ -18,7 +18,7 @@
  *
  * @module compression/LZW/LZW
  */
-(exports => {
+((exports) => {
   "use strict";
 
   exports.LZW = function () {

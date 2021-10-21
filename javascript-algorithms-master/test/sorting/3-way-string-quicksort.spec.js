@@ -1,4 +1,4 @@
-import {quicksort} from "../../src/sorting/3-way-string-quicksort.js";
+import { quicksort } from "../../src/sorting/3-way-string-quicksort.js";
 
 describe("Most-Significant Digit", () => {
   "use strict";

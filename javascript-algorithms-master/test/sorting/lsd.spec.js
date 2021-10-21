@@ -1,4 +1,4 @@
-import {lsd} from "../../src/sorting/lsd.js";
+import { lsd } from "../../src/sorting/lsd.js";
 
 describe("Least-Significant Digit", () => {
   "use strict";

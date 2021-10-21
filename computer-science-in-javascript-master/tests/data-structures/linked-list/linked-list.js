@@ -9,9 +9,9 @@
 // Requirements
 //-----------------------------------------------------------------------------
 
-import {assert} from "chai";
+import { assert } from "chai";
 
-import {LinkedList} from "../../../src/data-structures/linked-list";
+import { LinkedList } from "../../../src/data-structures/linked-list";
 
 //-----------------------------------------------------------------------------
 // Helpers

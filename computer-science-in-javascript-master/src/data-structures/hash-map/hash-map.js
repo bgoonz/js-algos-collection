@@ -8,7 +8,7 @@
 // Requirements
 //-----------------------------------------------------------------------------
 
-import {DoublyLinkedList} from "@humanwhocodes/doubly-linked-list";
+import { DoublyLinkedList } from "@humanwhocodes/doubly-linked-list";
 
 //-----------------------------------------------------------------------------
 // Private
@@ -447,4 +447,4 @@ class HashMap {
   }
 }
 
-export {HashMap};
+export { HashMap };

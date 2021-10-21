@@ -1,4 +1,4 @@
-(exports => {
+((exports) => {
   "use strict";
   /* eslint max-params: 0 */
 

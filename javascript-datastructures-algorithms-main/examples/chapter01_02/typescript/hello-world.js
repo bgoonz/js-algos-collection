@@ -6,7 +6,7 @@ const language = "JavaScript"; // string
 let favoriteLanguage;
 const langs = ["JavaScript", "Ruby", "Python"];
 favoriteLanguage = langs[0];
-function printName({name}) {
+function printName({ name }) {
   console.log(name);
 }
 const john = { name: "John", age: 21 };

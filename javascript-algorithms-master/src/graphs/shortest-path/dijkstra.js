@@ -1,4 +1,4 @@
-(exports => {
+((exports) => {
   "use strict";
 
   const dijkstra = (() => {
@@ -40,7 +40,7 @@
      * @param {number} src Start node.
      * @param {Array} graph A distance matrix of the graph.
      */
-    function init(src, {length}) {
+    function init(src, { length }) {
       let currentTemp;
       current = {};
       visited = [];

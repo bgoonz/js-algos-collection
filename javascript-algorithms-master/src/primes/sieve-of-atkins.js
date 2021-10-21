@@ -1,4 +1,4 @@
-(exports => {
+((exports) => {
   "use strict";
 
   /**
@@ -23,7 +23,7 @@
    *
    * console.log(sieveOfAtkins(12)); // [2, 3, 5, 7, 11]
    */
-  exports.sieveOfAtkins = limit => {
+  exports.sieveOfAtkins = (limit) => {
     if (limit <= 1) {
       return [];
     }

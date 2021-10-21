@@ -1,4 +1,4 @@
-import {tarjanConnectedComponents as tj} from "../../../src/graphs/others/tarjan-connected-components";
+import { tarjanConnectedComponents as tj } from "../../../src/graphs/others/tarjan-connected-components";
 
 const nonConnected = {
   v1: [],

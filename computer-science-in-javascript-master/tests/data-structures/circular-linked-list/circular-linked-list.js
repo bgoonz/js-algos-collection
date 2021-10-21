@@ -9,9 +9,9 @@
 // Requirements
 //-----------------------------------------------------------------------------
 
-import {assert} from "chai";
+import { assert } from "chai";
 
-import {CircularLinkedList} from "../../../src/data-structures/circular-linked-list";
+import { CircularLinkedList } from "../../../src/data-structures/circular-linked-list";
 
 //-----------------------------------------------------------------------------
 // Helpers

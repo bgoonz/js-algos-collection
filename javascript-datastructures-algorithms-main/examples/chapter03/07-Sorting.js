@@ -39,7 +39,7 @@ const friends = [
   { name: "Chris", age: 25 }, // trailing comma ES2017
 ];
 
-function comparePerson({age}, {age}) {
+function comparePerson({ age }, { age }) {
   if (age < age) {
     return -1;
   }

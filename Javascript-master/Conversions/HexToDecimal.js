@@ -24,8 +24,8 @@ function hexToInt(hexNum) {
 function hexToDecimal(hexNum) {
   const intItemsArr = hexToInt(hexNum)
   return intItemsArr.reduce((accumulator, current, index) => {
-    return accumulator + current * 16 ** (intItemsArr.length - (1 + index));
-  }, 0);
+    return accumulator + current * 16 ** (intItemsArr.length - (1 + index))
+  }, 0)
 }
 
 export { hexToInt, hexToDecimal }

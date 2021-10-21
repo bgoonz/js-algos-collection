@@ -1,4 +1,4 @@
-import {oddEvenSort as oes} from "../../src/sorting/oddeven-sort";
+import { oddEvenSort as oes } from "../../src/sorting/oddeven-sort";
 
 describe("oddeven-sort", () => {
   "use strict";

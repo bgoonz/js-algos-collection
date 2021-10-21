@@ -1,6 +1,6 @@
 console.log("Using imperative JS");
 
-const printArray = array => {
+const printArray = (array) => {
   for (let i = 0; i < array.length; i++) {
     console.log(array[i]);
   }
@@ -18,7 +18,7 @@ const forEach = (array, action) => {
   }
 };
 
-const logItem = item => {
+const logItem = (item) => {
   console.log(item);
 };
 
@@ -27,7 +27,7 @@ forEach([1, 2, 3, 4, 5], logItem);
 //how can we abstract the For flow?
 console.log("Finding the min value in an array - imperative");
 
-const findMinArray = array => {
+const findMinArray = (array) => {
   let minValue = array[0];
   for (let i = 1; i < array.length; i++) {
     if (minValue > array[i]) {
@@ -41,7 +41,7 @@ const findMinArray = array => {
 console.log(findMinArray([8, 6, 4, 5, 9]));
 
 console.log("Finding the min value in an array - functional ES2015");
-const min_ = array => {
+const min_ = (array) => {
   return Math.min(...array);
 };
 
@@ -54,7 +54,7 @@ console.log(min([8, 6, 4, 5, 9]));
 //concat + reduce
 console.log("merge arrays - imperative");
 
-const mergeArrays_ = arrays => {
+const mergeArrays_ = (arrays) => {
   const count = arrays.length;
   const newArray = [];
   let k = 0;
@@ -69,7 +69,7 @@ const mergeArrays_ = arrays => {
 console.log(mergeArrays_([[1, 2, 3], [4, 5], [6]]));
 
 console.log("merge arrays - using concat");
-const mergeArraysConcat = arrays => {
+const mergeArraysConcat = (arrays) => {
   return arrays.reduce((p, n) => {
     return p.concat(n);
   });
@@ -83,7 +83,7 @@ const mergeArrays = (...arrays) => [].concat(...arrays);
 console.log(mergeArrays([1, 2, 3], [4, 5], [6]));
 
 console.log("sum values of arrays - imperative");
-const sumValues = array => {
+const sumValues = (array) => {
   let total = array[0];
   for (let i = 1; i < array.length; i++) {
     total += array[i];
@@ -95,7 +95,7 @@ console.log(sumValues([1, 2, 3, 4, 5]));
 
 //reduce
 console.log("sum values of arrays - functional");
-const sum_ = array => {
+const sum_ = (array) => {
   return array.reduce((a, b) => {
     return a + b;
   });
@@ -121,13 +121,13 @@ for (let i = 0; i < daysOfWeek.length; i++) {
 }
 
 //to
-const daysOfWeekValues = daysOfWeek.map(({value}) => {
+const daysOfWeekValues = daysOfWeek.map(({ value }) => {
   return value;
 });
 console.log(daysOfWeekValues);
 
 //filter
-const positiveNumbers_ = array => {
+const positiveNumbers_ = (array) => {
   const positive = [];
   for (let i = 0; i < array.length; i++) {
     if (array[i] >= 0) {
@@ -138,8 +138,8 @@ const positiveNumbers_ = array => {
 };
 console.log(positiveNumbers_([-1, 1, 2, -2]));
 
-const positiveNumbers = array => {
-  return array.filter(num => {
+const positiveNumbers = (array) => {
+  return array.filter((num) => {
     return num >= 0;
   });
 };

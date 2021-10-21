@@ -11,7 +11,7 @@ function DoubleLinkedList() {
   let tail = null
 
   // Add new element
-  this.append = element => {
+  this.append = (element) => {
     const node = new Node(element)
 
     if (!head) {
@@ -71,7 +71,7 @@ function DoubleLinkedList() {
   }
 
   // Remove element at any position
-  this.removeAt = position => {
+  this.removeAt = (position) => {
     // look for out-of-bounds value
     if (position > -1 && position < length) {
       let current = head
@@ -111,7 +111,7 @@ function DoubleLinkedList() {
   }
 
   // Get the indexOf item
-  this.indexOf = elm => {
+  this.indexOf = (elm) => {
     let current = head
     let index = -1
 

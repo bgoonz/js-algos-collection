@@ -1,4 +1,4 @@
-import {sieveOfEratosthenes} from "../../src/primes/sieve-of-eratosthenes";
+import { sieveOfEratosthenes } from "../../src/primes/sieve-of-eratosthenes";
 
 describe("Sieve Of Eratosthenes", () => {
   "use strict";

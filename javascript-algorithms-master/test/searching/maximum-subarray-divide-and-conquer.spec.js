@@ -1,4 +1,4 @@
-import {maxSubarray as maxSubArray} from "../../src/searching/maximum-subarray-divide-and-conquer";
+import { maxSubarray as maxSubArray } from "../../src/searching/maximum-subarray-divide-and-conquer";
 
 describe("Maximum subarray implemented with divide and conquer", () => {
   "use strict";

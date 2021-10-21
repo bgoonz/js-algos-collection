@@ -1,4 +1,4 @@
-import {countingSort as cs} from "../../src/sorting/countingsort";
+import { countingSort as cs } from "../../src/sorting/countingsort";
 
 describe("countingsort", () => {
   "use strict";

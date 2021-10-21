@@ -8,9 +8,9 @@
 // Requirements
 //-----------------------------------------------------------------------------
 
-import {assert} from "chai";
+import { assert } from "chai";
 
-import {DoublyLinkedList} from "../../../src/data-structures/doubly-linked-list/doubly-linked-list";
+import { DoublyLinkedList } from "../../../src/data-structures/doubly-linked-list/doubly-linked-list";
 
 //-----------------------------------------------------------------------------
 // Helpers

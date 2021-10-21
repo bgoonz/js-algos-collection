@@ -8,9 +8,9 @@
 // Requirements
 //-----------------------------------------------------------------------------
 
-import {assert} from "chai";
+import { assert } from "chai";
 
-import {HashMap} from "../../../src/data-structures/hash-map/hash-map";
+import { HashMap } from "../../../src/data-structures/hash-map/hash-map";
 
 //-----------------------------------------------------------------------------
 // Helpers

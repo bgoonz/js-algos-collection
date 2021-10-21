@@ -1,4 +1,4 @@
-import {sieveOfAtkins} from "../../src/primes/sieve-of-atkins";
+import { sieveOfAtkins } from "../../src/primes/sieve-of-atkins";
 
 describe("Sieve Of Atkins", () => {
   "use strict";

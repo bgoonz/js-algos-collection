@@ -36,12 +36,12 @@ function djikstra(graph, V, src) {
 
     vis[mn] = 1
 
-    graph[mn].forEach(edge => {
+    graph[mn].forEach((edge) => {
       if (vis[edge[0]] === 0 && dist[edge[0]][0] > dist[mn][0] + edge[1]) {
         dist[edge[0]][0] = dist[mn][0] + edge[1]
         dist[edge[0]][1] = mn
       }
-    });
+    })
   }
 
   return dist

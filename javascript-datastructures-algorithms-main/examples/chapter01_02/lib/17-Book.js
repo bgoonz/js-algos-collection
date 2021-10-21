@@ -25,7 +25,7 @@
 
   const _createClass = (() => {
     function defineProperties(target, props) {
-      props.forEach(descriptor => {
+      props.forEach((descriptor) => {
         descriptor.enumerable = descriptor.enumerable || false;
         descriptor.configurable = true;
         if ("value" in descriptor) descriptor.writable = true;

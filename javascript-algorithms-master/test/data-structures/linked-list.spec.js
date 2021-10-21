@@ -134,7 +134,7 @@ describe("Linked List", () => {
     linkedList.push(4);
     linkedList.push(5);
     let pushedValue = 1;
-    function callback({data}) {
+    function callback({ data }) {
       expect(data).toBe(pushedValue);
       pushedValue += 1;
     }
@@ -166,7 +166,7 @@ describe("Linked List", () => {
     linkedList.push(item3);
     linkedList.push(item4);
     linkedList.push(item5);
-    const equals = ({id}, {id}) => {
+    const equals = ({ id }, { id }) => {
       return id === id;
     };
     linkedList.remove({ id: 3 }, equals);

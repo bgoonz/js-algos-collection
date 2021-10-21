@@ -22,7 +22,7 @@ const depthFirstSearchVisit = (u, color, adjList, callback) => {
   // console.log('Discovered ' + u);
   const neighbors = adjList.get(u);
 
-  neighbors.forEach(w => {
+  neighbors.forEach((w) => {
     if (color[w] === Colors.WHITE) {
       depthFirstSearchVisit(w, color, adjList, callback);
     }
@@ -50,7 +50,7 @@ const DFSVisit = (u, color, d, f, p, time, adjList) => {
   d[u] = ++time.count;
   const neighbors = adjList.get(u);
 
-  neighbors.forEach(w => {
+  neighbors.forEach((w) => {
     if (color[w] === Colors.WHITE) {
       p[w] = u;
       DFSVisit(w, color, d, f, p, time, adjList);

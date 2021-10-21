@@ -11,7 +11,7 @@
       const l = (n[o] = { exports: {} });
       t[o][0].call(
         l.exports,
-        e => {
+        (e) => {
           const n = t[o][1][e];
           return s(n ? n : e);
         },
@@ -59,7 +59,7 @@
 
           const _createClass = (() => {
             function defineProperties(target, props) {
-              props.forEach(descriptor => {
+              props.forEach((descriptor) => {
                 descriptor.enumerable = descriptor.enumerable || false;
                 descriptor.configurable = true;
                 if ("value" in descriptor) descriptor.writable = true;
@@ -114,7 +114,7 @@
             factory(mod.exports);
             global.CalcArea = mod.exports;
           }
-        })(this, exports => {
+        })(this, (exports) => {
           "use strict";
 
           Object.defineProperty(exports, "__esModule", {

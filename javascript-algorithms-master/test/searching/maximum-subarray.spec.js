@@ -1,4 +1,4 @@
-import {maxSubarray as maxSubArray} from "../../src/searching/maximum-subarray";
+import { maxSubarray as maxSubArray } from "../../src/searching/maximum-subarray";
 
 describe("Maximum subarray", () => {
   "use strict";

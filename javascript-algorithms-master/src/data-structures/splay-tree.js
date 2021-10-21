@@ -19,7 +19,7 @@
  *
  * @module data-structures/splay-tree
  */
-(exports => {
+((exports) => {
   "use strict";
 
   /**
@@ -458,7 +458,7 @@
    * @param {Number|String} current Current minimum value of the sub-tree.
    * @returns {Node} Node with the minimum value in the sub-tree.
    */
-  exports.SplayTree.prototype._findMin = function(
+  exports.SplayTree.prototype._findMin = function (
     node,
     current = {
       value: Infinity,
@@ -503,7 +503,7 @@
    * @returns {Number} The longest path in the tree.
    */
   exports.SplayTree.prototype.getDiameter = function () {
-    const getDiameter = root => {
+    const getDiameter = (root) => {
       if (!root) {
         return 0;
       }

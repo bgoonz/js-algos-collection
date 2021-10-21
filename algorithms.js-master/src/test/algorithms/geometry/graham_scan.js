@@ -5,7 +5,7 @@ describe("Graham s Scan algorithm", () => {
   /* we have to ensure the order before using deepEqual. */
   let pointComparison;
   before(() => {
-    pointComparison = ({x, y}, {x, y}) => {
+    pointComparison = ({ x, y }, { x, y }) => {
       return x != x ? x < x : y < y;
     };
   });

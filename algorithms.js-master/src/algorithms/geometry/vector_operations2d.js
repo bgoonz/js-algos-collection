@@ -3,16 +3,16 @@
  * @param A point b, example: {x : 0,y : 0}
  * @return A vector ab, example: {x : 0,y : 0}
  */
-const newVector = ({x, y}, {x, y}) => ({
- x: x - x,
- y: y - y
+const newVector = ({ x, y }, { x, y }) => ({
+  x: x - x,
+  y: y - y,
 });
 
 /**
  * @param A vector v, example: {x : 0,y : 0}
  * @return The length of v.
  */
-const length = ({x, y}) => x * x + y * y;
+const length = ({ x, y }) => x * x + y * y;
 
 /**
  * Performs the cross product between two vectors.
@@ -20,7 +20,7 @@ const length = ({x, y}) => x * x + y * y;
  * @param A vector object, example: {x : 0,y : 0}
  * @return The result of the cross product between u and v.
  */
-const crossProduct = ({x, y}, {y, x}) => x * y - y * x;
+const crossProduct = ({ x, y }, { y, x }) => x * y - y * x;
 
 /**
  * Calculates the area of the parallelogram that can be

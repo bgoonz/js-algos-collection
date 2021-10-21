@@ -1,4 +1,4 @@
-import {SegmentTree} from "../../src/data-structures/segment-tree.js";
+import { SegmentTree } from "../../src/data-structures/segment-tree.js";
 
 const defaultAggregate = (a, b) => {
   "use strict";

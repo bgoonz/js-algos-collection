@@ -23,7 +23,7 @@
  *
  * @module data-structures/binary-search-tree
  */
-(exports => {
+((exports) => {
   "use strict";
 
   /**
@@ -282,7 +282,10 @@
    * @param {Number|String} current Current minimum value of the sub-tree.
    * @returns {Node} Node with the minimum value in the sub-tree.
    */
-  exports.BinaryTree.prototype._findMin = function(node, current = { value: Infinity }) {
+  exports.BinaryTree.prototype._findMin = function (
+    node,
+    current = { value: Infinity }
+  ) {
     if (!node) {
       return current;
     }
@@ -300,7 +303,10 @@
    * @param {Number|String} current Current maximum value of the sub-tree.
    * @returns {Node} Node with the maximum value in the sub-tree.
    */
-  exports.BinaryTree.prototype._findMax = function(node, current = { value: -Infinity }) {
+  exports.BinaryTree.prototype._findMax = function (
+    node,
+    current = { value: -Infinity }
+  ) {
     if (!node) {
       return current;
     }
@@ -368,7 +374,7 @@
    * @returns {Number} The longest path in the BST.
    */
   exports.BinaryTree.prototype.getDiameter = function () {
-    const getDiameter = root => {
+    const getDiameter = (root) => {
       if (!root) {
         return 0;
       }

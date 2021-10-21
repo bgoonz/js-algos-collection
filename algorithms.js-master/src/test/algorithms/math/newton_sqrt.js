@@ -1,4 +1,4 @@
-import {Math as math} from "../../..";
+import { Math as math } from "../../..";
 const newtonSqrt = math.newtonSqrt;
 import assert from "assert";
 

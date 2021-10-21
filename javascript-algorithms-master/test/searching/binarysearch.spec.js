@@ -1,4 +1,4 @@
-import {binarySearch} from "../../src/searching/binarysearch";
+import { binarySearch } from "../../src/searching/binarysearch";
 
 describe("Binary search", () => {
   "use strict";
@@ -31,7 +31,7 @@ describe("Binary search", () => {
 
   it("should work with a key function", () => {
     expect(
-      binarySearch([{ x: 1 }, { x: 2 }, { x: 3 }], { x: 2 }, ({x}) => {
+      binarySearch([{ x: 1 }, { x: 2 }, { x: 3 }], { x: 2 }, ({ x }) => {
         return x;
       })
     ).toBe(1);

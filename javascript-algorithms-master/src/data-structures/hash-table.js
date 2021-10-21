@@ -23,7 +23,7 @@
  *
  * @module data-structures/hash-table
  */
-(exports => {
+((exports) => {
   "use strict";
 
   /**
@@ -62,7 +62,7 @@
    * @method
    * @param {Number|String} val Key to be hashed.
    */
-  exports.Hashtable.prototype.hashCode = val => {
+  exports.Hashtable.prototype.hashCode = (val) => {
     let i;
     let hashCode = 0;
     let character;

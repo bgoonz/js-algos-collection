@@ -43,8 +43,8 @@ describe("Kruskal", () => {
 
     expect(spanningTree.edges.length).toEqual(6);
 
-    const sum = spanningTree.edges.reduce((acc, {distance}) => {
-      return acc += distance;
+    const sum = spanningTree.edges.reduce((acc, { distance }) => {
+      return (acc += distance);
     }, 0);
 
     expect(sum).toEqual(39);

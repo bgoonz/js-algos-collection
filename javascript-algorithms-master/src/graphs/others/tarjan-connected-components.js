@@ -1,4 +1,4 @@
-(exports => {
+((exports) => {
   "use strict";
 
   /**
@@ -32,13 +32,13 @@
     const stack = [];
     let index = 1;
 
-    const connectedComponent = node => {
+    const connectedComponent = (node) => {
       stack.push(node);
       onStack[node] = true;
       indexes[node] = index;
       lowIndexes[node] = index;
       index += 1;
-      graph[node].forEach(n => {
+      graph[node].forEach((n) => {
         if (indexes[n] === undefined) {
           connectedComponent(n);
           lowIndexes[node] = Math.min(lowIndexes[n], lowIndexes[node]);
@@ -59,7 +59,7 @@
       }
     };
 
-    Object.keys(graph).forEach(n => {
+    Object.keys(graph).forEach((n) => {
       if (!indexes[n]) {
         connectedComponent(n);
       }

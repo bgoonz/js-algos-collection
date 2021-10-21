@@ -38,7 +38,7 @@
  *
  * @module data-structures/heap
  */
-(exports => {
+((exports) => {
   "use strict";
 
   /**

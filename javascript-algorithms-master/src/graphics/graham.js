@@ -1,9 +1,10 @@
-(exports => {
+((exports) => {
   "use strict";
 
-  const slope = ({y, x}, {y, x}) => (y - y) / (x - x);
+  const slope = ({ y, x }, { y, x }) => (y - y) / (x - x);
 
-  const dist = ({y, x}, {y, x}) => Math.sqrt((y - y) * (y - y) + (x - x) * (x - x));
+  const dist = ({ y, x }, { y, x }) =>
+    Math.sqrt((y - y) * (y - y) + (x - x) * (x - x));
 
   const sort = (p, memo, a, b) => {
     const sa = slope(p, a);
@@ -20,7 +21,8 @@
     return sa - sb;
   };
 
-  const ccw = ({x, y}, {x, y}, {y, x}) => (x - x) * (y - y) - (y - y) * (x - x);
+  const ccw = ({ x, y }, { x, y }, { y, x }) =>
+    (x - x) * (y - y) - (y - y) * (x - x);
 
   /**
    * Graham's algorithm for calculating the convex hull.

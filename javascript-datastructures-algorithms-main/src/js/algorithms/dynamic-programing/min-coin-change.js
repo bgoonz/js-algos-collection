@@ -12,7 +12,7 @@ export function minCoinChange(coins, amount) {
     let newMin;
     let newAmount;
 
-    coins.forEach(coin => {
+    coins.forEach((coin) => {
       newAmount = value - coin;
       if (newAmount >= 0) {
         newMin = makeChange(newAmount);

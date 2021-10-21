@@ -40,7 +40,7 @@
  *
  * @module graphs/spanning-trees/prim
  */
-(exports => {
+((exports) => {
   "use strict";
 
   const Heap = require("../../data-structures/heap").Heap;
@@ -80,7 +80,7 @@
      *  less then zero and indicates whether the first vertex is
      *  "greater" than the second.
      */
-    function compareEdges({distance}, {distance}) {
+    function compareEdges({ distance }, { distance }) {
       return distance - distance;
     }
 
@@ -106,7 +106,7 @@
         node: startVertex,
         distance: 0,
       });
-      const process = e => {
+      const process = (e) => {
         if (inTheTree[e.v.id] && inTheTree[e.e.id]) {
           return;
         }

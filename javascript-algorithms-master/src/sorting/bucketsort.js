@@ -1,4 +1,4 @@
-(exports => {
+((exports) => {
   "use strict";
 
   const bucketSort = (() => {
@@ -98,7 +98,7 @@
      * @param {Array} array Input array which should be sorted.
      * @return {Array} Sorted array.
      */
-    return array => {
+    return (array) => {
       const buckets = createBuckets(array);
       sortBuckets(buckets);
       return unionBuckets(buckets);

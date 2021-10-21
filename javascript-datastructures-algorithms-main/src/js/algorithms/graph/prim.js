@@ -1,5 +1,5 @@
 const INF = Number.MAX_SAFE_INTEGER;
-const minKey = ({length}, key, visited) => {
+const minKey = ({ length }, key, visited) => {
   // Initialize min value
   let min = INF;
   let minIndex = 0;

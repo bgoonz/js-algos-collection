@@ -429,4 +429,4 @@ class BinarySearchTree {
   }
 }
 
-export {BinarySearchTree};
+export { BinarySearchTree };

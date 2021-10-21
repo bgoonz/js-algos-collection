@@ -89,19 +89,19 @@ const Node = (function Node() {
   }
 
   // find maximum value in the tree
-  const maxVal = ({right, value}) => {
+  const maxVal = ({ right, value }) => {
     if (!right) {
-      return value;
+      return value
     }
-    return maxVal(right);
+    return maxVal(right)
   }
 
   // find minimum value in the tree
-  const minVal = ({left, value}) => {
+  const minVal = ({ left, value }) => {
     if (!left) {
-      return value;
+      return value
     }
-    return minVal(left);
+    return minVal(left)
   }
   // returns the constructor
   return Node

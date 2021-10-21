@@ -59,7 +59,7 @@ class Month {
     return false
   }
 
-  isGreater({year, month}, {year, month}) {
+  isGreater({ year, month }, { year, month }) {
     if (year > year) {
       return true
     } else if (year < year) {

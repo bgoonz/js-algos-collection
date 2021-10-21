@@ -1,11 +1,11 @@
-(exports => {
+((exports) => {
   "use strict";
 
   function id(val) {
     return val;
   }
   function get(key) {
-    return val => {
+    return (val) => {
       return val[key];
     };
   }

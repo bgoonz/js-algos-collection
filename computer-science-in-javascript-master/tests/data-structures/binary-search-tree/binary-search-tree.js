@@ -9,9 +9,9 @@
 // Requirements
 //-----------------------------------------------------------------------------
 
-import {assert} from "chai";
+import { assert } from "chai";
 
-import {BinarySearchTree} from "../../../src/data-structures/binary-search-tree";
+import { BinarySearchTree } from "../../../src/data-structures/binary-search-tree";
 
 //-----------------------------------------------------------------------------
 // Helpers

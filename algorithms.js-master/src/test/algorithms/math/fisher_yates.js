@@ -1,4 +1,4 @@
-import {Math as math} from "../../..";
+import { Math as math } from "../../..";
 const fisherYates = math.fisherYates;
 import assert from "assert";
 

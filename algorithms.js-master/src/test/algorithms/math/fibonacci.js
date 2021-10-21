@@ -1,4 +1,4 @@
-import {Math as math} from "../../..";
+import { Math as math } from "../../..";
 const fib = math.fibonacci;
 import assert from "assert";
 

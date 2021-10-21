@@ -25,7 +25,7 @@
  * @module sets/weightquickunion
  */
 
-(exports => {
+((exports) => {
   "use strict";
 
   /**

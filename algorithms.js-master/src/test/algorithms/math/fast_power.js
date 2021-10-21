@@ -1,4 +1,4 @@
-import {Math as math} from "../../..";
+import { Math as math } from "../../..";
 const power = math.fastPower;
 import assert from "assert";
 

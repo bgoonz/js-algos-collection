@@ -1,4 +1,4 @@
-import {convexHull} from "../../src/graphics/graham";
+import { convexHull } from "../../src/graphics/graham";
 
 const points = [
   { x: 0, y: 0 },

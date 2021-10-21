@@ -26,7 +26,7 @@ function validateGrid(grid) {
     throw new TypeError('Grid must be a non-empty array')
 
   const allRowsHaveCorrectLength = grid.every(
-    ({length}) => length === grid.length
+    ({ length }) => length === grid.length
   )
   if (!allRowsHaveCorrectLength) throw new TypeError('Grid must be a square')
 

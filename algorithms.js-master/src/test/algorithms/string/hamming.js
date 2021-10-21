@@ -18,7 +18,7 @@ describe("Hamming distance", () => {
       { a: "", b: "", expected: 0 },
     ];
 
-    inputs.forEach(({a, b, expected}) => {
+    inputs.forEach(({ a, b, expected }) => {
       assert.equal(hamming(a, b), expected);
     });
   });

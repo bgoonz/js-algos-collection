@@ -8,7 +8,7 @@ const graph = [
   [0, 1, 0, 1, 0],
 ];
 
-import {bfs} from "../../../src/graphs/searching/bfs";
+import { bfs } from "../../../src/graphs/searching/bfs";
 
 describe("BFS", () => {
   "use strict";

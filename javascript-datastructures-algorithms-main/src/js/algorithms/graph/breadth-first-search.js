@@ -27,7 +27,7 @@ export const breadthFirstSearch = (graph, startVertex, callback) => {
     const neighbors = adjList.get(u);
     color[u] = Colors.GREY;
 
-    neighbors.forEach(w => {
+    neighbors.forEach((w) => {
       if (color[w] === Colors.WHITE) {
         color[w] = Colors.GREY;
         queue.enqueue(w);
@@ -58,7 +58,7 @@ export const BFS = (graph, startVertex) => {
     const neighbors = adjList.get(u);
     color[u] = Colors.GREY;
 
-    neighbors.forEach(w => {
+    neighbors.forEach((w) => {
       if (color[w] === Colors.WHITE) {
         color[w] = Colors.GREY;
         distances[w] = distances[u] + 1;
