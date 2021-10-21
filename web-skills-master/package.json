@@ -59,13 +59,13 @@
     }
   ],
   "dependencies": {
-    "firebase": "^7.13.2",
-    "lit-element": "^2.3.1",
-    "lit-html": "^1.2.1",
+    "firebase": "7.24.0",
+    "lit-element": "2.5.1",
+    "lit-html": "1.4.1",
     "web-dialog": "0.0.11"
   },
   "devDependencies": {
-    "servor": "^3.2.0",
-    "snowpack": "^1.6.0"
+    "servor": "3.3.1",
+    "snowpack": "1.7.1"
   }
 }
