@@ -17,7 +17,7 @@ body {
   background-size: 400% 400%;
   -webkit-animation: gradient 15s ease infinite;
   animation: gradient 15s ease infinite;
-  zoom: 0.65;
+  zoom: 0.85;
 }
 #app_header {
   background: linear-gradient(-45deg, #da0000, #0008ffe5, #23d5a2d8, #2f2fbce5);
