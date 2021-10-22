@@ -15,7 +15,7 @@
   "devDependencies": {
     "coveralls": "2.13.3",
     "eslint": "4.19.1",
-    "eslint-config-google": "0.8.1",
+    "eslint-config-google": "0.14.0",
     "istanbul": "0.4.5",
     "mocha": "3.5.3",
     "pre-commit": "1.2.2"
